@@ -1,5 +1,16 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  text-decoration: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+.index-body {
+  flex: 1;
 }
 .login-container {
   display: flex;
@@ -11,6 +22,7 @@ body {
   gap: 32px;
 }
 .login-inputs {
+  padding: 0px 0px 0px 20px;
   width: 380px;
   height: 20px;
   border-radius: 10px;
@@ -20,10 +32,15 @@ body {
   align-items: center;
 }
 #login-input-email {
-  background: url(/img/login_input_email.svg) center / contain no-repeat;
+  background: url(/img/login_input_password.svg) right center / contain
+    no-repeat;
+  padding-right: 20px;
+  background-origin: content-box;
 }
 #login-input-password {
-  background: url(/img/login_input_password.svg) center / contain no-repeat;
+  background: url(/img/login_input_password.svg) right center / contain no-repeat;
+  padding-right: 20px;
+  background-origin: content-box;
 }
 .login-remember {
   display: flex;
@@ -54,7 +71,7 @@ header {
   padding-top: 64px;
   padding-bottom: 64px;
   width: 232px;
-  height: calc(100vh - 128px);
+  height: 100vh;
   background-color: #2a3647;
 }
 .nav-menu {
@@ -72,4 +89,12 @@ header {
   flex-direction: column;
   color: #a8a8a8;
   cursor: pointer;
+}
+@media (max-width: 550px) {
+  .main-container {
+    flex-direction: column-reverse;
+  }
+  .nav-desktop {
+    height: auto;
+  }
 }
