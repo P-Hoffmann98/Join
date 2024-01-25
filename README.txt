@@ -16,3 +16,17 @@ example to load other html-files into a div: '<div w3-include-html="header.html"
 __
 
 images in svg  or png if this version is smaller
+
+--
+
+  <body onload="init()">
+    <div class="main-container">
+      <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
+      <div class="index-body">
+        <div w3-include-html="./templates/desktop/header_desktop.html"></div>
+        <div>
+          Inhalt
+        </div>
+      </div>
+    </div>
+  </body>
