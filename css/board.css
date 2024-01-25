@@ -1,0 +1,9 @@
+.board {
+    height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.board-body {
+    flex: 1;
+}

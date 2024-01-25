@@ -13,12 +13,17 @@
 
 <body onload="boardInit()">
 
-    <div style="height: 100vh; display: flex; flex-direction: column-reverse;">
-        <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
-        <div>
+    <div class="board">
+        <!-- <div w3-include-html="./templates/desktop/nav_desktop.html"></div> -->
+        <div class="board-body">
             <div w3-include-html="./templates/desktop/header_desktop.html"></div>
 
-            <div><h1>Board</h1></div>
+            <div>
+                <div>
+                    <h1>Board</h1>
+                    <div><input type="search"><button>Add task +</button></div>
+                </div>
+            </div>
         </div>
 
     </div>
