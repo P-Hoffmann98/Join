@@ -1,0 +1,29 @@
+.nav-desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  width: 232px;
+  height: 100vh;
+  background-color: #2a3647;
+}
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  color: #cdcdcd;
+  gap: 16px;
+  align-items: flex-start;
+}
+.nav-menu-point {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  align-items: center;
+}
+@media (max-width: 550px) {
+  .nav-desktop {
+    height: auto;
+  }
+}
