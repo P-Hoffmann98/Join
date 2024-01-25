@@ -8,33 +8,42 @@
     <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/script.js"></script>
   </head>
-  <body>
-    <img src="img/login_icon.svg" />
-    <div class="login-container">
-      <div>
-        <h1>Log in</h1>
+
+  <body onload="init()">
+    <div class="main-container">
+      <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
+      <div class="login-body">
+        <div w3-include-html="./templates/desktop/header_desktop.html"></div>
+        <div>
+          <img src="img/login_icon.svg" />
+          <div class="login-container">
+            <div>
+              <h1>Log in</h1>
+            </div>
+            <div>
+              <form class="login-inputs-container">
+                <input
+                  type="text"
+                  class="login-inputs"
+                  id="login-input-email"
+                  placeholder="E-Mail"
+                />
+                <input
+                  type="text"
+                  class="login-inputs"
+                  id="login-input-password"
+                  placeholder="Password"
+                />
+              </form>
+              <button class="login-remember">
+                <img src="img/rememberme_button.svg" />
+                <p>Remember me</p>
+              </button>
+            </div>
+            <div></div>
+          </div>
+        </div>
       </div>
-      <div>
-        <form class="login-inputs-container">
-          <input
-            type="text"
-            class="login-inputs"
-            id="login-input-email"
-            placeholder="E-Mail"
-          />
-          <input
-            type="text"
-            class="login-inputs"
-            id="login-input-password"
-            placeholder="Password"
-          />
-        </form>
-        <button class="login-remember">
-          <img src="img/rememberme_button.svg" />
-          <p>Remember me</p>
-        </button>
-      </div>
-      <div></div>
     </div>
   </body>
 </html>

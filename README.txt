@@ -19,14 +19,12 @@ images in svg  or png if this version is smaller
 
 --
 
-<div class="board">
-        <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
-        <div class="board-body">
-            <div w3-include-html="./templates/desktop/header_desktop.html"></div>
-
-            <div>
-               Inhalt
-            </div>
+<div class="main-container">
+    <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
+    <div class="board-body">
+        <div w3-include-html="./templates/desktop/header_desktop.html"></div>
+        <div>
+            Inhalt
         </div>
-
     </div>
+</div>

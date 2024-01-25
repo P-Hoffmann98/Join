@@ -47,9 +47,6 @@ header {
   gap: 16px;
 }
 .nav-desktop {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
