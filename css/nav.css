@@ -25,6 +25,13 @@
   align-items: center;
 }
 
+.legal-notice {
+  display: flex;
+  flex-direction: column;
+  color: #a8a8a8;
+  cursor: pointer;
+}
+
 @media (max-width: 550px) {
   .nav-desktop {
     height: auto;
