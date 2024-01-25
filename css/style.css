@@ -1,6 +1,38 @@
 body {
   margin: 0;
 }
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+.login-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.login-inputs {
+  width: 380px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#login-input-email {
+  background: url(/img/login_input_email.svg) center / contain no-repeat;
+}
+#login-input-password {
+  background: url(/img/login_input_password.svg) center / contain no-repeat;
+}
+.login-remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 241px 0px 39px;
+  background-color: white;
+  border: 0;
+}
 header {
   display: flex;
   padding: 20px 40px 20px 348px;
