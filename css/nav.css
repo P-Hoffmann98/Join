@@ -9,6 +9,7 @@
   height: 100vh;
   background-color: #2a3647;
 }
+
 .nav-menu {
   display: flex;
   flex-direction: column;
@@ -16,12 +17,14 @@
   gap: 16px;
   align-items: flex-start;
 }
+
 .nav-menu-point {
   display: flex;
   gap: 8px;
   cursor: pointer;
   align-items: center;
 }
+
 @media (max-width: 550px) {
   .nav-desktop {
     height: auto;
