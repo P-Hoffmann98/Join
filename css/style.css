@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  color: #cdcdcd;
+}
+.nav-menu-point {
+  display: flex;
+  gap: 8px;
+}
+.nav-desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  width: 232px;
+  height: 100vh;
+  background-color: #2a3647;
+}
+.legal-notice {
+  display: flex;
+  flex-direction: column;
+  color: #a8a8a8;
+}
