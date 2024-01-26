@@ -113,15 +113,10 @@ h3 {
   border-radius: 10px;
   padding: 16px 10px;
   border: 0px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   font-size: 20px;
   font-weight: 400;
   text-align: center;
-}
-
-.add-task-prio-high:hover {
-  cursor: pointer;
 }
 
 .add-task-prio-high img {
@@ -136,15 +131,25 @@ h3 {
   border-radius: 10px;
   padding: 16px 10px;
   border: 0px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   font-size: 20px;
   font-weight: 400;
   background-color: #ffffff;
   text-align: center;
 }
 
+.add-task-prio-low:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
 .add-task-prio-medium:hover {
   cursor: pointer;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.add-task-prio-high:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .add-task-prio-medium img {
@@ -153,13 +158,24 @@ h3 {
   margin-left: 10px;
 }
 
+.add-task-prio-low-pressed-button {
+  background-color: #a2e96d;
+}
+
+.add-task-prio-medium-pressed-button {
+  background-color: #feb017;
+}
+
+.add-task-prio-high-pressed-button {
+  background-color: #fe4f18;
+}
+
 .add-task-prio-low {
   width: 136px;
   height: 56px;
   border-radius: 10px;
   padding: 16px 10px;
   border: 0px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   font-size: 20px;
   font-weight: 400;
   margin-right: 20px;
@@ -167,28 +183,10 @@ h3 {
   text-align: center;
 }
 
-.add-task-prio-low:hover {
-  cursor: pointer;
-}
-
 .add-task-prio-low img {
   width: 20px;
   height: 14px;
   margin-left: 10px;
-}
-
-.add-task-prio-low:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.1);
-}
-
-.add-task-prio-medium:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.1);
-}
-.add-task-prio-high:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .required-star {
