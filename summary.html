@@ -6,95 +6,126 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/summary.css" />
     <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/script.js"></script>
     <title>Join</title>
+    <style>
+      .summary-container {
+        width: 70%;
+        border: 0px solid black;
+      }
+
+      .main-container {
+        width: 100%;
+        border: 0px solid black;
+      }
+
+      .index-body {
+        border: 0px solid black;
+        width: 100%;
+      }
+      .nav-desktop {
+        position: fixed;
+      }
+    </style>
   </head>
+
   <body onload="init()">
-    <nav id="navigation">
+    <div class="main-container">
       <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
-    </nav>
-    <div w3-include-html="./templates/desktop/header_desktop.html"></div>
-    <div class="content">
-    <div class="summaryHeadline">
-      <h2>JOIN 360</h2>
-      <div class="summary-seperator">&nbsp</div>
-      <h3>Key Matrics at a Glace</h3>
-    </div>
+      <div class="index-body">
+        <div w3-include-html="./templates/desktop/header_desktop.html"></div>
+        <div class="summary-container">
+          <!-- Inhalt -->
+          <div class="summary-headline">
+            <h2>JOIN 360</h2>
+            <div class="summary-seperator">&nbsp</div>
+            <h3>Key Matrics at a Glace</h3>
+          </div>
 
-    <div class="summary-wrapper">
-      <div class="summary-container">
-        <div class="summary-container-first-row d-flex-ai-center-jc-center">
-          <a
-            onmouseover="summaryChangeImage('edit')"
-            onmouseout="summaryChangeImageBack('edit')"
-            href=""
-            ><img
-              id="imagesSummaryEdit"
-              class="summary-images"
-              src="./img/edit.svg"
-            />
-            <div class="summary-sum d-flex-ai-center-jc-center">
-              <span id="summary_to_do_sum">1</span>
+          <div class="summary-wrapper">
+            <div class="summary-container">
+              <div
+                class="summary-container-first-row d-flex-ai-center-jc-center"
+              >
+                <a
+                  onmouseover="summaryChangeImage('edit')"
+                  onmouseout="summaryChangeImageBack('edit')"
+                  href=""
+                  ><img
+                    id="imagesSummaryEdit"
+                    class="summary-images"
+                    src="./img/edit.svg"
+                  />
+                  <div class="summary-sum d-flex-ai-center-jc-center">
+                    <span id="summary_to_do_sum">1</span>
 
-              <span class="summary-small">to do</span>
+                    <span class="summary-small">to do</span>
+                  </div>
+                </a>
+                <a
+                  onmouseover="summaryChangeImage('check')"
+                  onmouseout="summaryChangeImageBack('check')"
+                  href=""
+                  ><img
+                    id="imagesSummaryCheck"
+                    class="imagesSummary"
+                    src="./img/summary-check.svg"
+                  />
+                  <div class="summary-sum">
+                    <span id="doneSum">1</span>
+                    <span class="summary-small">Done</span>
+                  </div></a
+                >
+              </div>
+              <div
+                class="d-flex-ai-center-jc-center summary-container-second-row"
+              >
+                <a class="d-flex-ai-center-jc-center" href=""
+                  ><img
+                    class="summary-images"
+                    src="./img/summary-prio-high.svg"
+                  />
+                  <div class="summary-urgent-counter" id="urgentSum">
+                    1
+                    <span class="summary-small">urgent</span>
+                  </div>
+                  <div class="summary-seperator-second-container"></div>
+                  <div class="summary-urgent-date">
+                    <span id="urgendDate">1.1.1111</span>
+                    <span class="summary-small">Upcoming Deadline</span>
+                  </div></a
+                >
+              </div>
+              <div class="summary-container-third-row">
+                <a href="">
+                  <span id="numberofTasks">1</span
+                  ><span class="summary-small">Tasks in Board</span>
+                </a>
+                <a href="">
+                  <span id="inProgressSum">1</span>
+                  <span class="summary-small"
+                    >Tasks in<br />
+                    Progress</span
+                  >
+                </a>
+                <a href="">
+                  <span id="feedbackSum">1</span>
+                  <span class="summary-small"
+                    >Awaiting<br />
+                    Feedback</span
+                  >
+                </a>
+              </div>
             </div>
-          </a>
-          <a
-            onmouseover="summaryChangeImage('check')"
-            onmouseout="summaryChangeImageBack('check')"
-            href=""
-            ><img
-              id="imagesSummaryCheck"
-              class="imagesSummary"
-              src="./img/summary-check.svg"
-            />
-            <div class="summary-sum">
-              <span id="doneSum">1</span>
-              <span class="summary-small">Done</span>
-            </div></a
-          >
-        </div>
-        <div class="d-flex-ai-center-jc-center summary-container-second-row">
-          <a class="d-flex-ai-center-jc-center" href=""
-            ><img class="summary-images" src="./img/summary-prio-high.svg" />
-            <div class="summary-urgent-counter" id="urgentSum">1
-              <span class="summary-small">urgent</span>
+            <div class="summary-welcome">
+              <span id="greeting"></span><br />
+              <span class="summary-welcome-name" id="welcomeName"></span>
             </div>
-            <div class="summary-seperator-second-container"></div>
-            <div class="summary-urgent-date">
-              <span id="urgendDate">1.1.1111</span>
-              <span class="summary-small">Upcoming Deadline</span>
-            </div></a
-          >
-        </div>
-        <div class="summary-container-third-row">
-          <a href="">
-            <span id="numberofTasks">1</span
-            ><span class="summary-small">Tasks in Board</span>
-          </a>
-          <a href="">
-            <span id="inProgressSum">1</span>
-            <span class="summary-small"
-              >Tasks in<br />
-              Progress</span
-            >
-          </a>
-          <a href="">
-            <span id="feedbackSum">1</span>
-            <span class="summary-small"
-              >Awaiting<br />
-              Feedback</span
-            >
-          </a>
+          </div>
         </div>
       </div>
-      <div class="summary-welcome">
-        <span id="greeting"></span><br />
-        <span class="summary-welcome-name" id="welcomeName"></span>
-      </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>
-
