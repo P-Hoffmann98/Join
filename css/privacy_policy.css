@@ -1,17 +1,17 @@
-.legal-notice-content-container {
+.privacy-policy-content-container {
   margin-left: 230px;
-  margin-top: 80px;
+  margin-top: 2px;
   padding-left: 50px;
   flex-wrap: wrap;
 }
 
-.legal-notice-content-container h1 {
-  font-size: 61px;
+.privacy-policy-content-container h1 {
   margin-top: 15px;
   margin-bottom: 25px;
+  font-size: 61px;
 }
 
-.legal-notice-content-container h2 {
+.privacy-policy-content-container h2 {
   margin-top: 35px;
   margin-bottom: 15px;
   font-size: 27px;
