@@ -1,18 +1,10 @@
-.board {
-    height: 100vh;
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.board-body {
-    flex: 1;
-}
-
 .board-headline {
     display: flex;
-    width: 1056px;
+    max-width: 1056px;
     justify-content: space-between;
     align-items: center;
+    padding-top: 79.5px;
+    padding-left: 64px;
 }
 
 .board-headline-text {
@@ -23,6 +15,34 @@
     font-weight: 700;
     line-height: 120%;
     /* 73.2px */
+}
+
+.board-headline-container-search-add {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 32px;
+}
+
+.board-button-addTask {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    background: #2A3647;
+}
+
+.board-text-addTask {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 25.2px */
 }
 
 @media (max-width: 550px) {
