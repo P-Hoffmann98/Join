@@ -5,5 +5,29 @@
 }
 
 .board-body {
-    flex: 1;  
+    flex: 1;
+}
+
+.board-headline {
+    display: flex;
+    width: 1056px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board-headline-text {
+    color: #000;
+    /* Version 2/t1 */
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 73.2px */
+}
+
+@media (max-width: 550px) {
+
+    .board-headline-text {
+        font-size: 47px;
+    }
 }
