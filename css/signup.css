@@ -30,6 +30,7 @@ button {
   background-color: white;
   padding: 48px 115px 48px 115px;
   border-radius: 30px;
+  align-items: center;
 }
 
 .signup-centering {
@@ -69,6 +70,12 @@ button {
   background-size: auto;
 }
 
+#signup-input-name {
+  background: url(/img/login_input_name.svg) right center / contain no-repeat;
+  background-origin: content-box;
+  background-size: auto;
+}
+
 .signup-remember {
   display: flex;
   justify-content: space-between;
@@ -78,29 +85,19 @@ button {
   border: 0;
 }
 
-.signup-buttons {
+.accept-button {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 35px;
   margin-top: 32px;
+  background-color: white;
+  border: 0;
 }
 
-#user-signup-button {
-  height: 48px;
+#signup-button {
+  margin-top: 32px;
   padding: 15px 24px;
   border-radius: 8px;
   background-color: #2a3647;
   color: white;
-  font-weight: bold;
-}
-
-#guest-signup-button {
-  height: 48px;
-  padding: 15px 24px;
-  border-radius: 8px;
-  background-color: white;
-  color: #2a3647;
-  border: 1px solid #2a3647;
   font-weight: bold;
 }
