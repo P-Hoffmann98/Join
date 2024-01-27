@@ -1,6 +1,6 @@
 .board-headline {
     display: flex;
-    max-width: 1056px;
+    max-width: 1208px;
     justify-content: space-between;
     align-items: center;
     padding-top: 79.5px;
@@ -64,6 +64,14 @@
     font-weight: 700;
     line-height: 120%;
     /* 25.2px */
+}
+
+.board-task-main {
+    display: flex;
+    max-width: 1208px;
+    padding: 0px 64px;
+    align-items: flex-start;
+    gap: 26px;
 }
 
 @media (max-width: 550px) {
