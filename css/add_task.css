@@ -137,6 +137,19 @@ h3 {
   text-align: center;
 }
 
+.add-task-prio-low {
+  width: 136px;
+  height: 56px;
+  border-radius: 10px;
+  padding: 16px 10px;
+  border: 0px;
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
 .add-task-prio-low:hover {
   cursor: pointer;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
@@ -160,27 +173,17 @@ h3 {
 
 .add-task-prio-low-pressed-button {
   background-color: #a2e96d;
+  color: #ffffff;
 }
 
 .add-task-prio-medium-pressed-button {
   background-color: #feb017;
+  color: #ffffff;
 }
 
 .add-task-prio-high-pressed-button {
   background-color: #fe4f18;
-}
-
-.add-task-prio-low {
-  width: 136px;
-  height: 56px;
-  border-radius: 10px;
-  padding: 16px 10px;
-  border: 0px;
-  font-size: 20px;
-  font-weight: 400;
-  margin-right: 20px;
-  background-color: #ffffff;
-  text-align: center;
+  color: #ffffff;
 }
 
 .add-task-prio-low img {
