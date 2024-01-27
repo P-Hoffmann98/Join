@@ -71,7 +71,31 @@
     max-width: 1208px;
     padding: 0px 64px;
     align-items: flex-start;
-    gap: 26px;
+    /* gap: 26px; */
+}
+
+.board-task-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 244px;
+}
+
+.board-add-task-headline {
+    color: var(--menu-color, #42526E);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.board-add-task-category {
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+    color: #2A3647;
+    border-radius: 8px;
+    border: 2px solid #2A3647;
 }
 
 @media (max-width: 550px) {
