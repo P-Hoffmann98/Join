@@ -1,3 +1,7 @@
+body {
+  white-space: nowrap;
+}
+
 h1 {
   font-size: 61px;
   font-weight: 700;
@@ -18,14 +22,6 @@ button {
   gap: 35px;
 }
 
-#signup-button {
-  padding: 15px 16px;
-  border-radius: 8px;
-  background-color: #2a3647;
-  color: white;
-  font-weight: bold;
-}
-
 .login-img {
   position: absolute;
   top: 80px;
@@ -43,6 +39,7 @@ button {
 
 .login-container {
   display: flex;
+  align-items: center;
   flex-direction: column;
   background-color: white;
   padding: 48px 115px 48px 115px;
@@ -58,6 +55,7 @@ button {
 .login-inputs-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -73,22 +71,8 @@ button {
   align-items: center;
 }
 
-#login-input-email {
-  background: url(/img/login_input_email.svg) right center / contain no-repeat;
-  background-origin: content-box;
-  background-size: auto;
-}
-
-#login-input-password {
-  background: url(/img/login_input_password.svg) right center / contain
-    no-repeat;
-  background-origin: content-box;
-  background-size: auto;
-}
-
 .login-remember {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0px 241px 0px 39px;
   background-color: white;
@@ -101,6 +85,27 @@ button {
   align-items: center;
   gap: 35px;
   margin-top: 32px;
+}
+
+#signup-button {
+  padding: 15px 16px;
+  border-radius: 8px;
+  background-color: #2a3647;
+  color: white;
+  font-weight: bold;
+}
+
+#login-input-email {
+  background: url(/img/login_input_email.svg) right center / contain no-repeat;
+  background-origin: content-box;
+  background-size: auto;
+}
+
+#login-input-password {
+  background: url(/img/login_input_password.svg) right center / contain
+    no-repeat;
+  background-origin: content-box;
+  background-size: auto;
 }
 
 #user-login-button {
@@ -120,4 +125,36 @@ button {
   color: #2a3647;
   border: 1px solid #2a3647;
   font-weight: bold;
+}
+
+@media (max-width: 550px) {
+  .login-img {
+    position: absolute;
+    top: 37px;
+    left: 38px;
+  }
+
+  .signup-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 70px;
+  }
+  .login-container {
+    margin-top: 205px;
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 48px 115px 48px 115px;
+    border-radius: 30px;
+  }
+  .login-buttons {
+    flex-direction: column;
+  }
+  .login-buttons > * {
+    width: 180px;
+  }
 }
