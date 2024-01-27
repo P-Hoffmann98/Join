@@ -3,9 +3,7 @@
     max-width: 1208px;
     justify-content: space-between;
     align-items: center;
-    padding-top: 79.5px;
-    padding-left: 64px;
-    padding-right: 88px;
+    margin: 79.5px 88px 48px 64px;
 }
 
 .board-headline-text {
@@ -66,12 +64,13 @@
     /* 25.2px */
 }
 
+/* sytle task area */
 .board-task-main {
     display: flex;
     max-width: 1208px;
     padding: 0px 64px;
     align-items: flex-start;
-    /* gap: 26px; */
+    justify-content: space-between;
 }
 
 .board-task-headline {
@@ -100,7 +99,91 @@
 
 @media (max-width: 550px) {
 
+    .board-headline {
+        justify-content: space-between;
+        align-items: center;
+        margin: 48px 16px 24px 16px;
+        /* Anpassen nach Einbindung serach input */
+    }
+
     .board-headline-text {
         font-size: 47px;
+    }
+
+    .board-input-search {
+        display: none;
+    }
+
+    .board-text-addTask {
+        display: none;
+    }
+
+    .board-button-addTask {
+        height: 40px;
+        width: 40px;
+        padding: 3px;
+    }
+
+    .board-task-main {
+        flex-direction: column;
+        padding: 0;
+        margin: 0 16px;
+    }
+
+    .board-task-category {
+        width: 100%;
+    }
+
+    .board-task-headline {
+        width: 100%;
+    }
+
+    .board-add-task-headline {
+        font-size: 27px;
+    }
+
+    .board-add-task-category {
+        width: 30px;
+        height: 30px;
+        padding: 3px;
+    }
+
+    /* media mobile nav-leiste */
+    .nav-desktop {
+        width: auto;
+        height: auto;
+        padding: 0 16px;
+    }
+
+    .nav-logo {
+        display: none;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+    }
+
+    .nav-menu-point {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    .nav-menu-point img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-menu-point p {
+        font-size: 14px;
+    }
+
+    .legal-notice {
+        display: none;
     }
 }
