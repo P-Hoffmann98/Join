@@ -1,19 +1,72 @@
+h1 {
+  font-size: 61px;
+  font-weight: 700;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.signup-container {
+  position: absolute;
+  top: 67px;
+  right: 122px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+#signup-button {
+  padding: 15px 16px;
+  border-radius: 8px;
+  background-color: #2a3647;
+  color: white;
+  font-weight: bold;
+}
+
+.login-img {
+  position: absolute;
+  top: 80px;
+  left: 77px;
+  width: 14vw;
+  height: 8vh;
+}
+
+.login-spacer {
+  width: 150px;
+  height: 3px;
+  background-color: #29abe2;
+  align-self: center;
+  padding-bottom: ;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
+  background-color: white;
+  padding: 48px 115px 48px 115px;
+  border-radius: 30px;
+}
+
+.login-centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-inputs-container {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  margin-bottom: 20px;
 }
 
 .login-inputs {
-  padding: 0px 0px 0px 20px;
+  padding: 20px;
   width: 380px;
-  height: 20px;
+  height: 21px;
   border-radius: 10px;
+  margin-top: 32px;
   border: 1px solid #d1d1d1;
   display: flex;
   justify-content: space-between;
@@ -21,17 +74,16 @@
 }
 
 #login-input-email {
-  background: url(/img/login_input_password.svg) right center / contain
-    no-repeat;
-  padding-right: 20px;
+  background: url(/img/login_input_email.svg) right center / contain no-repeat;
   background-origin: content-box;
+  background-size: auto;
 }
 
 #login-input-password {
   background: url(/img/login_input_password.svg) right center / contain
     no-repeat;
-  padding-right: 20px;
   background-origin: content-box;
+  background-size: auto;
 }
 
 .login-remember {
@@ -41,4 +93,31 @@
   padding: 0px 241px 0px 39px;
   background-color: white;
   border: 0;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 32px;
+}
+
+#user-login-button {
+  height: 48px;
+  padding: 15px 24px;
+  border-radius: 8px;
+  background-color: #2a3647;
+  color: white;
+  font-weight: bold;
+}
+
+#guest-login-button {
+  height: 48px;
+  padding: 15px 24px;
+  border-radius: 8px;
+  background-color: white;
+  color: #2a3647;
+  border: 1px solid #2a3647;
+  font-weight: bold;
 }
