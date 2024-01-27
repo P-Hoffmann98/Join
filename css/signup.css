@@ -1,3 +1,7 @@
+body {
+  white-space: nowrap;
+}
+
 h1 {
   font-size: 61px;
   font-weight: 700;
@@ -100,4 +104,63 @@ button {
   background-color: #2a3647;
   color: white;
   font-weight: bold;
+}
+
+@media (max-width: 620px) {
+  .signup-container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 550px) {
+  .signup-centering {
+    align-items: flex-start;
+  }
+
+  .signup-img {
+    position: absolute;
+    top: 37px;
+    left: 38px;
+  }
+
+  .signup-container {
+    margin-top: 205px;
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 48px 60px 48px 60px;
+    border-radius: 30px;
+  }
+
+  .signup-inputs {
+    width: 350px;
+  }
+
+  .signup-buttons {
+    flex-direction: column;
+  }
+  .signup-buttons > * {
+    width: 180px;
+  }
+}
+
+@media (max-width: 400px) {
+  .signup-container {
+    width: 300px;
+  }
+
+  .signup-inputs {
+    width: 250px;
+  }
+
+  .signup-remember {
+    display: flex;
+    align-items: center;
+    padding: 0px 75px 0px 40px;
+  }
+
+  .signup-buttons {
+    width: 150px;
+  }
 }
