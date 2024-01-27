@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+    <link rel="icon" type="image/x-icon" href="/img/Logo for Favicon.svg" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <script src="/js/script.js"></script>
+  </head>
+
+  <body onload="init()">
+    <div class="main-container">
+      <div class="main-container-body signup-centering">
+        <img class="signup-img" src="img/login_icon.svg" />
+
+        <div class="signup-container">
+          <h1>Sign up</h1>
+          <div class="signup-spacer"></div>
+          <form class="signup-inputs-container">
+            <input
+              type="text"
+              class="signup-inputs"
+              id="signup-input-email"
+              placeholder="E-Mail"
+            />
+            <input
+              type="text"
+              class="signup-inputs"
+              id="signup-input-password"
+              placeholder="Password"
+            />
+          </form>
+          <button class="signup-remember">
+            <img src="img/rememberme_button.svg" />
+            <p>Remember me</p>
+          </button>
+          <div class="signup-buttons">
+            <button id="user-signup-button">Log in</button>
+            <button id="guest-signup-button">Guest Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

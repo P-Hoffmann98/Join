@@ -9,24 +9,7 @@ button {
   cursor: pointer;
 }
 
-.signup-container {
-  position: absolute;
-  top: 67px;
-  right: 122px;
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
-
-#signup-button {
-  padding: 15px 16px;
-  border-radius: 8px;
-  background-color: #2a3647;
-  color: white;
-  font-weight: bold;
-}
-
-.login-img {
+.signup-img {
   position: absolute;
   top: 80px;
   left: 77px;
@@ -34,14 +17,14 @@ button {
   height: 8vh;
 }
 
-.login-spacer {
+.signup-spacer {
   width: 150px;
   height: 3px;
   background-color: #29abe2;
   align-self: center;
 }
 
-.login-container {
+.signup-container {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -49,19 +32,19 @@ button {
   border-radius: 30px;
 }
 
-.login-centering {
+.signup-centering {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.login-inputs-container {
+.signup-inputs-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
 
-.login-inputs {
+.signup-inputs {
   padding: 20px;
   width: 380px;
   height: 21px;
@@ -73,20 +56,20 @@ button {
   align-items: center;
 }
 
-#login-input-email {
+#signup-input-email {
   background: url(/img/login_input_email.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
 
-#login-input-password {
+#signup-input-password {
   background: url(/img/login_input_password.svg) right center / contain
     no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
 
-.login-remember {
+.signup-remember {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,7 +78,7 @@ button {
   border: 0;
 }
 
-.login-buttons {
+.signup-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +86,7 @@ button {
   margin-top: 32px;
 }
 
-#user-login-button {
+#user-signup-button {
   height: 48px;
   padding: 15px 24px;
   border-radius: 8px;
@@ -112,7 +95,7 @@ button {
   font-weight: bold;
 }
 
-#guest-login-button {
+#guest-signup-button {
   height: 48px;
   padding: 15px 24px;
   border-radius: 8px;
