@@ -4,6 +4,8 @@ function addTaskInit() {
   addTaskGetToday();
 }
 
+let addTaskPrio = "medium";
+
 function addTaskSetPrioMedium() {
   let prioMedium = document.getElementById("add_task_prio_medium");
   prioMedium.classList.add("add-task-prio-medium-pressed-button");
@@ -44,7 +46,7 @@ function addTaskSelectedPrioLow() {
     .classList.remove("add-task-prio-high-pressed-button");
   document.getElementById("add_task_img-prio-high").src =
     "./img/add-task-prio-high.svg";
-  prioAddTask = "low";
+  addTaskPrio = "low";
 }
 
 function addTaskSelectedPrioMedium() {
@@ -63,7 +65,7 @@ function addTaskSelectedPrioMedium() {
     .classList.remove("add-task-prio-high-pressed-button");
   document.getElementById("add_task_img-prio-high").src =
     "./img/add-task-prio-high.svg";
-  prioAddTask = "medium";
+  addTaskPrio = "medium";
 }
 
 function addTaskSelectedPrioHigh() {
@@ -82,7 +84,7 @@ function addTaskSelectedPrioHigh() {
     .classList.remove("add-task-prio-low-pressed-button");
   document.getElementById("add_task_img_prio_low").src =
     "./img/add-task-prio-low.svg";
-  prioAddTask = "urgent";
+  addTaskPrio = "urgent";
 }
 
 function addTaskGetToday() {
