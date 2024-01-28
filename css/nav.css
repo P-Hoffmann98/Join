@@ -36,7 +36,6 @@
 
 @media (max-width: 550px) {
   .nav-desktop {
-    position: absolute;
     bottom: 0;
     width: 100%;
     height: auto;
