@@ -96,7 +96,8 @@ button {
 }
 
 #login-input-email {
-  background: url(/img/login/login_input_email.svg) right center / contain no-repeat;
+  background: url(/img/login/login_input_email.svg) right center / contain
+    no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
@@ -125,6 +126,12 @@ button {
   color: #2a3647;
   border: 1px solid #2a3647;
   font-weight: bold;
+}
+
+@media (max-width: 650px) {
+  .login-container {
+    width: 500px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -174,7 +181,7 @@ button {
   }
 
   .login-inputs {
-    width: 200px;
+    width: 250px;
   }
 
   .login-remember {

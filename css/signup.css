@@ -30,11 +30,11 @@ button {
 
 .signup-container {
   display: flex;
+  align-items: center;
   flex-direction: column;
   background-color: white;
   padding: 48px 115px 48px 115px;
   border-radius: 30px;
-  align-items: center;
 }
 
 .signup-centering {
@@ -62,7 +62,8 @@ button {
 }
 
 #signup-input-email {
-  background: url(/img/login/login_input_email.svg) right center / contain no-repeat;
+  background: url(/img/login/login_input_email.svg) right center / contain
+    no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
@@ -75,7 +76,8 @@ button {
 }
 
 #signup-input-name {
-  background: url(/img/login/login_input_name.svg) right center / contain no-repeat;
+  background: url(/img/login/login_input_name.svg) right center / contain
+    no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
@@ -106,7 +108,7 @@ button {
   font-weight: bold;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 650px) {
   .signup-container {
     width: 500px;
   }
