@@ -62,20 +62,20 @@ button {
 }
 
 #signup-input-email {
-  background: url(/img/login_input_email.svg) right center / contain no-repeat;
+  background: url(/img/login/login_input_email.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
 
 #signup-input-password {
-  background: url(/img/login_input_password.svg) right center / contain
+  background: url(/img/login/login_input_password.svg) right center / contain
     no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
 
 #signup-input-name {
-  background: url(/img/login_input_name.svg) right center / contain no-repeat;
+  background: url(/img/login/login_input_name.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }

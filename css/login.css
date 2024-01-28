@@ -96,13 +96,13 @@ button {
 }
 
 #login-input-email {
-  background: url(/img/login_input_email.svg) right center / contain no-repeat;
+  background: url(/img/login/login_input_email.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
 
 #login-input-password {
-  background: url(/img/login_input_password.svg) right center / contain
+  background: url(/img/login/login_input_password.svg) right center / contain
     no-repeat;
   background-origin: content-box;
   background-size: auto;
