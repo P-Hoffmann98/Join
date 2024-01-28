@@ -26,7 +26,8 @@
                     <span class="board-headline-text">Board</span>
                     <div class="board-headline-container-search-add">
                         <input class="board-input-search" type="search" placeholder="Find Task" autocomplete="off">
-                        <button class="board-button-addTask"><span class="board-text-addTask">Add task</span><img src="./img/board/add.svg" alt=""></button>
+                        <button class="board-button-addTask"><span class="board-text-addTask">Add task</span><img
+                                src="./img/board/add.svg" alt=""></button>
                     </div>
                 </div>
                 <div class="board-task-main">
@@ -47,7 +48,19 @@
                             <span class="board-add-task-headline">In progress</span>
                             <img class="board-add-task-category" src="./img/board/board_add_task_category.svg" alt="">
                         </div>
-                        <div class="board-task-container"></div>
+                        <div class="board-task-container">
+                            <!-- render board-no-task-feedback or render board-task-preview -->
+                            <div class="board-task-card-preview">
+                                <span class="board-task-card-taskcategory">User Story</span>
+                                <span class="board-task-card-headline">Kochwelt Page & Recipe Recommender</span>
+                                <span class="board-task-card-description">Build start page with recipe recommendation...</span>
+                                <div class="board-task-card-progress-container">
+                                    <div class="board-task-card-progressbar">
+                                        <div class="board-task-card-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="board-task-category">
                         <div class="board-task-headline">

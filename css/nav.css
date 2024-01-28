@@ -8,6 +8,8 @@
   width: 232px;
   height: 100vh;
   background-color: #2a3647;
+  position: fixed;
+  z-index: 999;
 }
 
 .nav-menu {
