@@ -281,7 +281,7 @@ line-height: 120%; */
     }
 
     /* media mobile nav-leiste */
-    .nav-desktop {
+    /* .nav-desktop {
         position: absolut;
         bottom: 0;
         width: auto;
@@ -319,5 +319,5 @@ line-height: 120%; */
 
     .legal-notice {
         display: none;
-    }
+    } */
 }

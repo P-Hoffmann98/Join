@@ -36,11 +36,11 @@
 
 @media (max-width: 550px) {
   .nav-desktop {
-    position: absolut;
+    position: absolute;
     bottom: 0;
-    width: auto;
+    width: 100vw;
     height: auto;
-    padding: 0 16px;
+    padding: 0;
   }
 
   .nav-logo {
