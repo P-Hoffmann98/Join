@@ -194,15 +194,11 @@ line-height: 120%; */
     /* 19.2px */
 }
 
-.board-task-card-progress {
-    display: flex;
-    padding: 0px 8px 2px 0px;
-    align-items: center;
-}
-
 .board-task-card-progress-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0px 8px 2px 0px;
     width: 220px;
     height: 16px;
 }
@@ -219,6 +215,11 @@ line-height: 120%; */
     height: 8px;
     border-radius: 16px;
     background: var(--Version-2-main-color, #4589FF);
+}
+
+.board-task-card-progress-text {
+    color: #000;
+    font-size: 12px;
 }
 
 @media (max-width: 550px) {
