@@ -8,6 +8,8 @@
   width: 232px;
   height: 100vh;
   background-color: #2a3647;
+  position: fixed;
+  z-index: 999;
 }
 
 .nav-menu {
@@ -34,6 +36,41 @@
 
 @media (max-width: 550px) {
   .nav-desktop {
+    bottom: 0;
+    width: 100%;
     height: auto;
+    padding: 0;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+  }
+
+  .nav-menu-point {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .nav-menu-point img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav-menu-point p {
+    font-size: 14px;
+  }
+
+  .legal-notice {
+    display: none;
   }
 }

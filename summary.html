@@ -10,20 +10,9 @@
     <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/script.js"></script>
     <script src="./js/summary.js"></script>
-    <title>Join</title>
+    <title>Join - Summary</title>
     <style>
-      .summary-container {
-        width: 70%;
-        border: 0px solid black;
-      }
-
-      .main-container {
-        width: 100%;
-        border: 0px solid black;
-      }
-
       .index-body {
-        border: 0px solid black;
         width: 100%;
       }
       .nav-desktop {
@@ -32,7 +21,7 @@
     </style>
   </head>
 
-  <body onload="init()">
+  <body onload="summaryInit()">
     <div class="main-container">
       <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
       <div class="index-body">
@@ -55,12 +44,12 @@
                   onmouseout="summaryChangeImageBack('edit')"
                   href=""
                   ><img
-                    id="imagesSummaryEdit"
+                    id="summary_images_edit"
                     class="summary-images"
-                    src="./img/edit.svg"
+                    src="./img/summary_edit.svg"
                   />
                   <div class="summary-sum d-flex-ai-center-jc-center">
-                    <span id="summary_to_do_sum">1</span>
+                    <span id="summary_to_do_sum"></span>
 
                     <span class="summary-small">to do</span>
                   </div>
@@ -70,12 +59,12 @@
                   onmouseout="summaryChangeImageBack('check')"
                   href=""
                   ><img
-                    id="imagesSummaryCheck"
-                    class="imagesSummary"
-                    src="./img/summary-check.svg"
+                    id="summary_images_check"
+                    class="summary-images"
+                    src="./img/summary_check.svg"
                   />
                   <div class="summary-sum">
-                    <span id="doneSum">1</span>
+                    <span id="summary_done_sum"></span>
                     <span class="summary-small">Done</span>
                   </div></a
                 >
@@ -88,31 +77,30 @@
                     class="summary-images"
                     src="./img/summary-prio-high.svg"
                   />
-                  <div class="summary-urgent-counter" id="urgentSum">
-                    1
+                  <div class="summary-urgent-counter" id="summary_urgent_sum">
                     <span class="summary-small">urgent</span>
                   </div>
                   <div class="summary-seperator-second-container"></div>
                   <div class="summary-urgent-date">
-                    <span id="urgendDate">1.1.1111</span>
+                    <span id="summary_urgent_date">1.1.1111</span>
                     <span class="summary-small">Upcoming Deadline</span>
                   </div></a
                 >
               </div>
               <div class="summary-container-third-row">
                 <a href="">
-                  <span id="numberofTasks">1</span
+                  <span id="summary_number_of_tasks"></span
                   ><span class="summary-small">Tasks in Board</span>
                 </a>
                 <a href="">
-                  <span id="inProgressSum">1</span>
+                  <span id="summary_in_progress_sum"></span>
                   <span class="summary-small"
                     >Tasks in<br />
                     Progress</span
                   >
                 </a>
                 <a href="">
-                  <span id="feedbackSum">1</span>
+                  <span id="summary_feedback_sum"></span>
                   <span class="summary-small"
                     >Awaiting<br />
                     Feedback</span
