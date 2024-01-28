@@ -139,10 +139,14 @@
     /* 19.2px */
 }
 
+span.board-task-card-preview {
+    font-size: 16px;
+}
+
 .board-task-card-preview {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     margin-top: 16px;
     max-width: 252px;
     padding: 16px;
@@ -150,6 +154,30 @@
     background: var(--white, #FFF);
     /* shadoe backlog box */
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+}
+
+.board-task-card-taskcategory {
+    width: fit-content;
+    padding: 4px 16px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    background: #0038FF;
+    color: #FFF;
+    /* font-size: 16px; */
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.board-task-card-headline {
+    padding-right: 8px;
+    padding-bottom: 8px;
+    color: var(--Version-2-main-color, #2A3647);
+    /* font-size: 16px; */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 19.2px */
 }
 
 @media (max-width: 550px) {
