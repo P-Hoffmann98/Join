@@ -1,10 +1,9 @@
 async function addUserToServer(user) {
-  const response = await setItem(`user_${user.id}`, user);
+  const response = await setItem('users', user);
   console.log(response);
 }
 
-async function registerUser(event) {
-  event.preventDefault();
+async function registerUser() {
 
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
@@ -27,8 +26,6 @@ async function registerUser(event) {
     email: email,
     password: password,
     initials: initials,
-    tasks: [],
-    contacts: [],
   };
 
   addUserToServer(newUser);
@@ -42,7 +39,7 @@ function generateUserInitials(name) {
 }
 
 function generateUserId() {
-  return "user" + Date.now();
+  return Date.now();
 }
 
 function checkPasswordMatch() {
