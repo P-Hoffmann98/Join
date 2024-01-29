@@ -25,7 +25,6 @@ async function getItem(key) {
     });
 }
 
-<<<<<<< HEAD
 /*array structure on server:
 users = [
   {
@@ -61,7 +60,6 @@ users = [
   },
 ];
 */
-=======
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
@@ -85,4 +83,3 @@ async function loadContacts() {
     console.error("Loading error:", e);
   }
 }
->>>>>>> c1d1c4dd7580d9f897034759bc0180c012b62454
