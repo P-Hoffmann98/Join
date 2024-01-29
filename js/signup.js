@@ -1,58 +1,11 @@
-users = [
-  {
-    id: "",
-    name: "",
-    email: "",
-    password: "",
-    initials: "",
-    tasks: [
-      {
-        id: "",
-        autor: "",
-        title: "",
-        description: "",
-        assignedTo: "",
-        dueDate: "",
-        prio: "",
-        category: "",
-        subtasks: "",
-        contacts: "",
-        status: "",
-      },
-    ],
-    contacts: [
-      {
-        id: "",
-        name: "",
-        email: "",
-        phone: "",
-        color: "",
-      },
-    ],
-  },
-];
-
-function addUser(id, name, email, password) {
-  let initials = name
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase())
-    .join("");
-
-  let newUser = {
-    id: id,
-    name: name,
-    email: email,
-    password: password,
-    initials: initials,
-    tasks: [],
-    contacts: [],
-  };
-
-  users.push(newUser);
-  console.log(users);
+async function addUserToServer(user) {
+  const response = await setItem(`user_${user.id}`, user);
+  console.log(response);
 }
 
-function registerUser() {
+async function registerUser(event) {
+  event.preventDefault();
+
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
   let password = document.getElementById("signup-input-password").value;
@@ -61,11 +14,31 @@ function registerUser() {
   ).value;
 
   if (password !== confirmPassword) {
-    alert("Passwörter müssen übereinstimmen!");
+    alert("Passwords must match!");
     return;
   }
 
-  addUser(generateUserId(), name, email, password);
+  let userId = generateUserId();
+  let initials = generateUserInitials(name);
+
+  let newUser = {
+    id: userId,
+    name: name,
+    email: email,
+    password: password,
+    initials: initials,
+    tasks: [],
+    contacts: [],
+  };
+
+  addUserToServer(newUser);
+}
+
+function generateUserInitials(name) {
+  return name
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase())
+    .join("");
 }
 
 function generateUserId() {
@@ -88,7 +61,7 @@ function checkPasswordMatch() {
   }
 }
 
-function togglePrivacyButtonColor(){
-  let button = document.getElementById('privacy-button')
-  button.classList.toggle('button-img');
+function togglePrivacyButtonColor() {
+  let button = document.getElementById("privacy-button");
+  button.classList.toggle("button-img");
 }

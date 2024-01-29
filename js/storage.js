@@ -20,3 +20,39 @@ async function getItem(key) {
       throw `Could not find data with key "${key}".`;
     });
 }
+
+/*array structure on server:
+users = [
+  {
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    initials: "",
+    tasks: [
+      {
+        id: "",
+        autor: "",
+        title: "",
+        description: "",
+        assignedTo: "",
+        dueDate: "",
+        prio: "",
+        category: "",
+        subtasks: "",
+        contacts: "",
+        status: "",
+      },
+    ],
+    contacts: [
+      {
+        id: "",
+        name: "",
+        email: "",
+        phone: "",
+        color: "",
+      },
+    ],
+  },
+];
+*/
