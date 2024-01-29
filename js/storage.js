@@ -33,33 +33,32 @@ users = [
     email: "",
     password: "",
     initials: "",
-    tasks: [
-      {
-        id: "",
-        autor: "",
-        title: "",
-        description: "",
-        assignedTo: "",
-        dueDate: "",
-        prio: "",
-        category: "",
-        subtasks: "",
-        contacts: "",
-        status: "",
-      },
-    ],
-    contacts: [
-      {
-        id: "",
-        name: "",
-        email: "",
-        phone: "",
-        color: "",
-      },
-    ],
-  },
-];
+  }];
+
+
+tasks [{
+    id:
+    autor:
+    title:
+    descripption:
+    assignedTo:
+    dueDate:
+    prio:
+    category:
+    subtasks: [ {subtask_name:  , subtask_status: ,} ]
+    contacts: []
+    status:
+}];
+    
+contacts: [{
+    id: "",
+    name: "",
+    email: "",
+    phone: "",
+    color: "",
+}];
 */
+
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
