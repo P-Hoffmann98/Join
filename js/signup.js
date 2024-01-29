@@ -1,5 +1,5 @@
 async function addUserToServer(user) {
-  const response = await setItem(`user_${user.id}`, user);
+  const response = await setItem("users", user);
   console.log(response);
 }
 

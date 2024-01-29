@@ -21,7 +21,10 @@
         <div class="signup-container">
           <h1>Sign up</h1>
           <div class="signup-spacer"></div>
-          <form class="signup-inputs-container" onsubmit="registerUser(event)">
+          <form
+            class="signup-inputs-container"
+            onsubmit="registerUser(); return false"
+          >
             <input
               type="text"
               class="signup-inputs"
