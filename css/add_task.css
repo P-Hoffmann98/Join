@@ -10,6 +10,12 @@
   align-items: center;
   margin-top: 80px;
 }
+
+.add-task-container {
+  margin-left: 328px;
+  margin-top: 206px;
+}
+
 .add-task-container-left {
   width: 460px;
   height: 450px;
@@ -327,4 +333,8 @@ label input {
   border: none;
   width: 95%;
   font-size: 16px;
+}
+
+.borderColorMistake {
+  border-color: red;
 }

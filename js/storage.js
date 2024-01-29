@@ -1,6 +1,10 @@
 const STORAGE_TOKEN = "ZE2UHDN0ZNZ1NK5SZMO83CGMAD73WG0SLNIZYU6W";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
+let users = [];
+let tasks = [];
+let contacts = [];
+
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, {
@@ -21,6 +25,7 @@ async function getItem(key) {
     });
 }
 
+<<<<<<< HEAD
 /*array structure on server:
 users = [
   {
@@ -56,3 +61,28 @@ users = [
   },
 ];
 */
+=======
+async function loadUsers() {
+  try {
+    users = JSON.parse(await getItem("users"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+
+async function loadTasks() {
+  try {
+    tasks = JSON.parse(await getItem("tasks"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+
+async function loadContacts() {
+  try {
+    contacts = JSON.parse(await getItem("contacts"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+>>>>>>> c1d1c4dd7580d9f897034759bc0180c012b62454

@@ -119,3 +119,28 @@ function addTaskCloseContextMenuAssignedTo() {
 function addTaskSearchName() {}
 
 function addTaskRenderSearchName() {}
+
+function addTaskShowTitleMsg() {
+  document.getElementById("add_task_title_mistake").classList.remove("d-none");
+  document
+    .getElementById("add_task_label_title")
+    .classList.add("borderColorMistake");
+}
+
+function addTaskShowDueDateMsg() {
+  document
+    .getElementById("add_task_mistake_due_date")
+    .classList.remove("d-none");
+  document
+    .getElementById("add_task_label_dueDate")
+    .classList.add("borderColorMistake");
+}
+
+function addTaskShowCategoryMsg() {
+  document
+    .getElementById("add_task_mistake_category")
+    .classList.remove("d-none");
+  document
+    .getElementById("add_task_label_category")
+    .classList.add("borderColorMistake");
+}
