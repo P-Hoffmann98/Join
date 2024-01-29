@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/signup.css" />
     <script src="/js/script.js"></script>
+    <script src="/js/signup.js"></script>
   </head>
 
   <body onload="init()">
@@ -19,37 +20,60 @@
         <div class="signup-container">
           <h1>Sign up</h1>
           <div class="signup-spacer"></div>
-          <form class="signup-inputs-container">
+          <form
+            class="signup-inputs-container"
+            onsubmit="return registerUser()"
+          >
             <input
               type="text"
               class="signup-inputs"
               id="signup-input-name"
               placeholder="Name"
+              required
+              minlength="2"
             />
             <input
               type="email"
               class="signup-inputs"
               id="signup-input-email"
               placeholder="E-mail"
+              required
             />
             <input
               type="password"
               class="signup-inputs"
               id="signup-input-password"
               placeholder="Password"
+              required
+              minlength="8"
+              pattern="^(?=.*[A-Za-z])(?=.*\d).+$"
+              title="Das Passwort muss mindestens 8 Zeichen lang sein und mindestens einen Buchstaben und eine Zahl enthalten."
             />
             <input
               type="password"
               class="signup-inputs"
-              id="signup-input-password"
+              id="signup-input-confirm-password"
               placeholder="Confirm Password"
+              required
+              pattern="^(?=.*[A-Za-z])(?=.*\d).+$"
+              title="Password must be at least 8 characters long and contain at least one letter and one number."
+              oninput="checkPasswordMatch()"
             />
+            <div class="button-and-text">
+              <button
+                type="button"
+                class="accept-button"
+                onclick="togglePrivacyButtonColor()"
+              >
+                <img
+                  id="privacy-button"
+                  src="img/login/rememberme_button.svg"
+                />
+              </button>
+              <p>I accept the <a href="#">Privacy Policy</a></p>
+            </div>
+            <button type="submit" id="signup-button">Sign up</button>
           </form>
-          <button class="accept-button">
-            <img src="img/login/rememberme_button.svg" />
-            <p>I accept the <a href="#">Privacy Policy</a></p>
-          </button>
-          <button id="signup-button">Sign up</button>
         </div>
       </div>
     </div>

@@ -74,6 +74,12 @@ button {
   background-origin: content-box;
   background-size: auto;
 }
+#signup-input-confirm-password {
+  background: url(/img/login/login_input_password.svg) right center / contain
+    no-repeat;
+  background-origin: content-box;
+  background-size: auto;
+}
 
 #signup-input-name {
   background: url(/img/login/login_input_name.svg) right center / contain
@@ -91,12 +97,25 @@ button {
   border: 0;
 }
 
+.button-and-text {
+  margin-top: 32px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
 .accept-button {
   display: flex;
   align-items: center;
-  margin-top: 32px;
   background-color: white;
   border: 0;
+  margin-right: 20px;
+}
+
+.button-img {
+  background-color: #2A3647;
+  border-radius: 5px;
+
 }
 
 #signup-button {
