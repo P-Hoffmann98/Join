@@ -266,7 +266,7 @@ line-height: 120%; */
     .board-main-container {
         margin-left: 0;
         margin-top: 88px;
-        height: calc(100% - 88px);
+        height: calc(100% - 168px);
     }
 
     .board-headline {
@@ -295,8 +295,10 @@ line-height: 120%; */
     }
 
     .board-task-main {
+        flex-wrap: nowrap;
         flex-direction: column;
         padding: 0 16px;
+        overflow: auto;
     }
 
     .board-task-category {
