@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/nav.css">
     <script src="./js/script.js"></script>
     <script src="./js/add_task.js"></script>
+    <script src="./js/storage.js"></script>
     <title>Join - Add Task</title>
   </head>
   <body onload="addTaskInit();">
@@ -17,87 +18,8 @@
       <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
         <div class="index-body">
           <div w3-include-html="./templates/desktop/header_desktop.html"></div>
-            <div class="add-task-container">
-            
-              <div class="add-task-header-container">
-                <h1 class="add-task-headline">Add Task</h1>
-              </div>
-              <div class="add-task-content d-flex-ai-center-jc-center">
-                <div class="add-task-container-left">
-                  <form onsubmit="addTaskToVar(); return false;">
-                    <h3>Title <span class="required-star">*</span></h3>
-                      <label for="title" class="add-task-label"> 
-                        <input type="text" name="title" class="add-task-title" id="add_task_title" placeholder="Enter a Title" onkeyup="addTaskCheckForm()">
-                      </label>
-                  
-                        <div class="d-none extra-small" id="add_task_title_mistake">This field is required</div>
-                    
-                    <h3 class="m-top-40">Description</h3>
-                      <label for="description" class="add-task-label m-bottom-40">
-                        <textarea name="description" id="add_task_description" placeholder="Enter a Description" class="add-task-description"></textarea>
-                      </label>
-                        
-                    <h3>Assigned to:</h3>
-                      <label for="assigned" class="add-task-label bgC-white"> 
-                        <input type="text" name="assigned" id="add_task_assigned_to" class="add-task-title add-task-assigned-to"  autocomplete="off" onclick="addTaskOpenContextMenuAssignedTo()" onkeyup="addTaskSearchName()" onblur="addTaskCloseContextMenuAssignedTo()">
-                          <img class="m-right-20" src="./img/add-task-arrow-down.svg" onclick="addTaskOpenContextMenuAssignedTo()"   onblur="addTaskCloseContextMenuAssignedTo()">
-                      </label>
-                  
-                        <div class="d-none add-task-select-field-container" id="add_task_select_user_box" >TEST INHALT</div>
-                                              
-                      <div class="add-task-required-container">
-                        <span class="required-star">* </span>
-                          <span class="add-task-required-small">This field is required</span>
-                      </div>
-                </div>
-                          
-                <div class="add-task-seperator"></div>
-                              
-                <div class="add-task-container-right">
-
-                    <h3>Due date <span class="required-star">*</span></h3>
-                      <label for="title" class="add-task-label"> 
-                        <input type="date" name="dueDate" class="add-task-due-date" id="add_task_due_date" required onchange="addTaskCheckForm();">
-                      </label>
-                    
-                        <div class="d-none extra-small" id="add_task_mistake_due_date">This field is required</div>
-                
-                    <h3 class="m-top-40">Prio</h3>
-                      <div class="add-task-prio">
-                        <div id="add_task_prio_high" class="add-task-prio-high"  onclick="addTaskSelectedPrioHigh()">Urgent<img id="add_task_img-prio-high" src="./img/add-task-prio-high.svg"></div>
-                        <div id="add_task_prio_medium" class="add-task-prio-medium" onclick="addTaskSelectedPrioMedium()">Medium<img id="add_task_img_prio_medium" src="./img/add-task-prio-medium.png"></div>
-                        <div id="add_task_prio_low" class="add-task-prio-low" onclick="addTaskSelectedPrioLow()">Low<img id="add_task_img_prio_low" src="./img/add-task-prio-low.svg"></div>
-                      </div>
-                               
-                    <h3>Category<span class="required-star">*</span></h3>
-                      <label for="category" class="add-task-label"> 
-                        <select name="category" id="add_task_category" class="add-task-title" onchange="addTaskCheckForm()">
-                          <option value="" disabled="" selected="" hidden="">Select task category</option>
-                          <option value="1">Technical Task</option>
-                          <option value="2">User Story</option>
-                        </select>
-                      </label>
-                                  
-                        <div class="d-none extra-small" id="add_task_mistake_category">This field is required</div>
-                                             
-                    <h3 class="m-top-40">Subtasks</h3>
-                      <label for="subtaskAddTask" class="add-task-label m-bottom-40 bgC-white"> 
-                        <input type="text" name="subtaskAddTask"  class="add-task-title" id="add_task_subtask" placeholder="Add new Subtask">
-                          <img src="./img/add-task-subtask.svg" class="m-right-20">
-                      </label>
-                                
-                    <div class="add-task-bottom-container">
-                      <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center">Clear X</button>
-                      <button class="d-none add-task-add-button d-flex-ai-center-jc-center" id="add_task_button">Add Task <img src="./img/add-task-check.svg"></button>
-                  </form>
-                    </div>
-                </div>  
-              
-                  <div class="add-task-popup-container d-none" id="add_task_popup_container">
-                    <div class="add-task-popup-reg" id="add_task_popup_reg">Task add</div>
-                  </div> 
-            </div>
-        </div>  
+          <div w3-include-html="./templates/desktop/add_task.html"></div>
+           
     </div>
   </body>            
 
