@@ -71,12 +71,25 @@ button {
   align-items: center;
 }
 
-.login-remember {
+.button-and-text {
+  margin-top: 32px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
-  padding: 0px 241px 0px 39px;
+}
+
+.button-img {
+  background-color: #2a3647;
+  border-radius: 5px;
+
+}
+
+.remember-button {
+  display: flex;
+  align-items: center;
   background-color: white;
   border: 0;
+  margin-right: 20px;
 }
 
 .login-buttons {
