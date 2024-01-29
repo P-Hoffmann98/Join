@@ -20,3 +20,27 @@ async function getItem(key) {
       throw `Could not find data with key "${key}".`;
     });
 }
+
+async function loadUsers() {
+  try {
+    users = JSON.parse(await getItem("users"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+
+async function loadTasks() {
+  try {
+    tasks = JSON.parse(await getItem("tasks"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
+
+async function loadContacts() {
+  try {
+    contacts = JSON.parse(await getItem("contacts"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
