@@ -75,7 +75,7 @@
 /* sytle task area */
 .board-task-main {
     display: flex;
-    flex: 1;
+    flex-wrap: wrap;
     max-width: 1208px;
     padding: 0px 64px;
     align-items: flex-start;
@@ -87,6 +87,7 @@
     width: 252px;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 26px;
 }
 
 .board-task-headline {
