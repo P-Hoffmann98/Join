@@ -9,6 +9,7 @@ function summaryInit() {
   summaryCountTasksUrgent();
   summaryCountTasksDone();
   summaryCountTasksToDo();
+  summaryFindDueDate();
 }
 
 function summaryGreetigAtDayTime() {
@@ -110,4 +111,25 @@ function summaryChangeImageBack(param) {
     document.getElementById("summary_images_edit").src =
       "./img/summary_edit.svg";
   }
+}
+
+function summaryFindDueDate() {
+  let urgendDate = document.getElementById("summary_urgent_date");
+  let closestDate = Infinity;
+
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i]["prio"] == "urgent") {
+      //console.log(tasks[i]["dueDate"]);
+      //wenn priorität urgent ist dann
+      let task = new Date(tasks[i]["dueDate"]); //der variablen task wir der wir createdAt im date format übergeben
+      if (task < closestDate || closestDate === null)
+        //wenn task kleiner als unendlich ODER closestsDate NULL DANN
+        closestDate = task; //weise der Variablen closestDate den wert aus der Variablen task zu
+    }
+  }
+  if (closestDate == Infinity)
+    //wenn closestDate Infinity ist dann
+    return; //gib zurück
+  //ansonsten
+  else urgendDate.innerHTML = closestDate.toLocaleDateString(); //gib closestsDate mit der funktion an die funktion toLocaleDateString weiter und gebe es dann aus
 }
