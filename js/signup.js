@@ -1,5 +1,9 @@
 async function addUserToServer(user) {
+<<<<<<< HEAD
+  const response = await setItem("users", user);
+=======
   const response = await setItem('users', user);
+>>>>>>> 59a54fd8ec4f6f8f1ca933c1c03df73c59265555
   console.log(response);
 }
 
