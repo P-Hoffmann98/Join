@@ -14,6 +14,12 @@
     padding: 79.5px 88px 48px 64px;
 }
 
+.board-headline-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .board-headline-text {
     color: #000;
     /* Version 2/t1 */
@@ -49,6 +55,10 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+}
+
+.board-button-addTask-mobile {
+    display: none;
 }
 
 .board-button-addTask {
@@ -265,33 +275,51 @@ line-height: 120%; */
 
     .board-main-container {
         margin-left: 0;
-        margin-top: 88px;
-        height: calc(100% - 168px);
+        margin-top: 80px;
+        margin-bottom: 80px;
+        height: calc(100vh - 160px);
     }
 
     .board-headline {
-        justify-content: space-between;
+        flex-direction: column;
+        /* justify-content: space-between; */
         align-items: center;
         padding: 48px 16px 24px 16px;
         /* Anpassen nach Einbindung serach input */
+    }
+
+    .board-headline-button {
+        width: 100%;
+        padding-bottom: 48px;
     }
 
     .board-headline-text {
         font-size: 47px;
     }
 
-    .board-input-search {
-        display: none;
+    .board-headline-container-search-add {
+        width: 100%;
     }
 
-    .board-text-addTask {
-        display: none;
+    .board-input-search {
+        width: 100%;
     }
 
     .board-button-addTask {
+        display: none;
+    }
+
+    .board-button-addTask-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 40px;
         width: 40px;
         padding: 3px;
+        padding: 8px 16px;
+        border-radius: 10px;
+        border: 1px solid #2A3647;
+        background: #2A3647;
     }
 
     .board-task-main {
