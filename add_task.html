@@ -26,8 +26,8 @@
               <div class="add-task-container-left">
                 <form onsubmit="addTaskToVar(); return false;">
                   <h3>Title <span class="required-star">*</span></h3>
-                    <label for="title" class="add-task-label"> 
-                      <input type="text" name="title" class="add-task-title" id="add_task_title" placeholder="Enter a Title" onkeyup="addTaskCheckForm()">
+                    <label for="title" class="add-task-label" id="add_task_label_title"> 
+                      <input type="text" name="title" class="add-task-title" id="add_task_title" placeholder="Enter a Title" onkeyup="addTaskCheckForm()" onfocus="addTaskShowTitleMsg()">
                     </label>
                 
                       <div class="d-none extra-small" id="add_task_title_mistake">This field is required</div>
@@ -44,11 +44,6 @@
                     </label>
                 
                       <div class="d-none add-task-select-field-container" id="add_task_select_user_box" >TEST INHALT</div>
-                                            
-                    <div class="add-task-required-container">
-                      <span class="required-star">* </span>
-                        <span class="add-task-required-small">This field is required</span>
-                    </div>
               </div>
                         
               <div class="add-task-seperator"></div>
@@ -56,8 +51,8 @@
               <div class="add-task-container-right">
         
                   <h3>Due date <span class="required-star">*</span></h3>
-                    <label for="dueDate" class="add-task-label"> 
-                      <input type="date" name="dueDate" class="add-task-due-date" id="add_task_due_date" required onchange="addTaskCheckForm();">
+                    <label for="dueDate" class="add-task-label" id="add_task_label_dueDate"> 
+                      <input type="date" name="dueDate" class="add-task-due-date" id="add_task_due_date" required onchange="addTaskCheckForm();"  onfocus="addTaskShowDueDateMsg()">
                     </label>
                   
                       <div class="d-none extra-small" id="add_task_mistake_due_date">This field is required</div>
@@ -70,8 +65,8 @@
                     </div>
                              
                   <h3>Category<span class="required-star">*</span></h3>
-                    <label for="category" class="add-task-label"> 
-                      <select name="category" id="add_task_category" class="add-task-title" onchange="addTaskCheckForm()">
+                    <label for="category" class="add-task-label" id="add_task_label_category"> 
+                      <select name="category" id="add_task_category" class="add-task-title" onchange="addTaskCheckForm()"  onfocus="addTaskShowCategoryMsg()">
                         <option value="" disabled="" selected="" hidden="">Select task category</option>
                         <option value="1">Technical Task</option>
                         <option value="2">User Story</option>
