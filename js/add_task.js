@@ -1,8 +1,8 @@
-function addTaskInit() {
+async function addTaskInit() {
   includeHTML();
   addTaskSetPrioMedium();
   addTaskGetToday();
-  loadTasks();
+  await loadTasks();
 }
 
 let addTaskPrio = "medium";
@@ -176,7 +176,19 @@ function addTaskShowCategoryMsg() {
     .classList.add("borderColorMistake");
 }
 
-//########################################################################
+function addTaskOpenContextCategory() {
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.remove("d-none");
+}
+
+function addTaskCloseContextCategory() {
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.add("d-none");
+}
+
+//######FÜR CONTACTS LISTE##################################################################
 
 let selectUserBox;
 let taskInput;
@@ -217,4 +229,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//################################################################################
+//####FÜR CATEGORY LISTE############################################################################
+
+// let selectCategoryBox;
+// let taskInput;
+
+// // Funktion, um das select user box div zu öffnen
+// function addTaskOpenContextMenuCategory() {
+//   // selectUserBox.style.display = "block";
+//   selectCategoryBox.classList.remove("d-none");
+// }
+
+// // Funktion, um das select user box div zu schließen
+// function addTaskCloseContextMenuCategry() {
+//   // selectUserBox.style.display = "none";
+//   selectCategoryBox.classList.add("d-none");
+// }
+
+// // Event-Listener für das Input-Feld und das Bild
+// function handleOpenContextMenuCategory(event) {
+//   event.stopPropagation();
+//   addTaskOpenContextMenuCategory();
+// }
+
+// // Funktion, um das select user box div zu schließen, wenn außerhalb davon geklickt wird
+// document.addEventListener("click", function (event) {
+//   if (!selectCategoryBox.contains(event.target) && event.target !== taskInput) {
+//     addTaskCloseContextMenuCategory();
+//   }
+// });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   selectCategoryBox = document.getElementById("add_task_select_user_box");
+//   taskInput = document.getElementById("add_task_assigned_to");
+//   taskInput.addEventListener("click", handleOpenContextMenuCategory);
+
+//   // Event-Listener für das select user box div
+//   selectCategoryBox.addEventListener("click", function (event) {
+//     event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
+//   });
+// });
