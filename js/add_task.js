@@ -229,43 +229,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//####FÜR CATEGORY LISTE############################################################################
+//#######FÜR CATEGORY LIST#####################################################################
 
-// let selectCategoryBox;
-// let taskInput;
+let selectCategoryBox;
+let taskInputCategory;
 
-// // Funktion, um das select user box div zu öffnen
-// function addTaskOpenContextMenuCategory() {
-//   // selectUserBox.style.display = "block";
-//   selectCategoryBox.classList.remove("d-none");
-// }
+// Funktion, um das select category box div zu öffnen
+function addTaskOpenContextMenuCategory() {
+  selectCategoryBox.classList.remove("d-none");
+}
 
-// // Funktion, um das select user box div zu schließen
-// function addTaskCloseContextMenuCategry() {
-//   // selectUserBox.style.display = "none";
-//   selectCategoryBox.classList.add("d-none");
-// }
+// Funktion, um das select category box div zu schließen
+function addTaskCloseContextMenuCategory() {
+  selectCategoryBox.classList.add("d-none");
+}
 
-// // Event-Listener für das Input-Feld und das Bild
-// function handleOpenContextMenuCategory(event) {
-//   event.stopPropagation();
-//   addTaskOpenContextMenuCategory();
-// }
+// Event-Listener für das Input-Feld und das Bild
+function handleOpenContextMenuCategory(event) {
+  event.stopPropagation();
+  addTaskOpenContextMenuCategory();
+}
 
-// // Funktion, um das select user box div zu schließen, wenn außerhalb davon geklickt wird
-// document.addEventListener("click", function (event) {
-//   if (!selectCategoryBox.contains(event.target) && event.target !== taskInput) {
-//     addTaskCloseContextMenuCategory();
-//   }
-// });
+// Funktion, um das select category box div zu schließen, wenn außerhalb davon geklickt wird
+document.addEventListener("click", function (event) {
+  if (
+    !selectCategoryBox.contains(event.target) &&
+    event.target !== taskInputCategory
+  ) {
+    addTaskCloseContextMenuCategory();
+  }
+});
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   selectCategoryBox = document.getElementById("add_task_select_user_box");
-//   taskInput = document.getElementById("add_task_assigned_to");
-//   taskInput.addEventListener("click", handleOpenContextMenuCategory);
-
-//   // Event-Listener für das select user box div
-//   selectCategoryBox.addEventListener("click", function (event) {
-//     event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
-//   });
-// });
+document.addEventListener("DOMContentLoaded", function () {
+  selectCategoryBox = document.getElementById("add_task_select_category_box");
+  taskInputCategory = document.getElementById("add_task_category");
+  taskInputCategory.addEventListener("click", handleOpenContextMenuCategory);
+  // Event-Listener für das select category box div
+  selectCategoryBox.addEventListener("click", function (event) {
+    event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
+  });
+});
