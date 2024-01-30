@@ -27,7 +27,7 @@
                 <form onsubmit="addTaskToVar(); return false;">
                   <h3>Title <span class="required-star">*</span></h3>
                     <label for="title" class="add-task-label" id="add_task_label_title"> 
-                      <input type="text" name="title" class="add-task-title" id="add_task_title" placeholder="Enter a Title" onkeyup="addTaskCheckForm()" onfocus="addTaskShowTitleMsg()">
+                      <input type="text" name="title" class="add-task-title" id="add_task_title" minlength="3" maxlength="20" placeholder="Enter a Title" required onkeyup="addTaskCheckForm()" onfocus="addTaskShowTitleMsg()">
                     </label>
                 
                       <div class="d-none extra-small" id="add_task_title_mistake">This field is required</div>
@@ -66,7 +66,7 @@
                              
                   <h3>Category<span class="required-star">*</span></h3>
                     <label for="category" class="add-task-label" id="add_task_label_category"> 
-                      <select name="category" id="add_task_category" class="add-task-title" onchange="addTaskCheckForm()"  onfocus="addTaskShowCategoryMsg()">
+                      <select name="category" id="add_task_category" class="add-task-title" required onchange="addTaskCheckForm()"  onfocus="addTaskShowCategoryMsg()">
                         <option value="" disabled="" selected="" hidden="">Select task category</option>
                         <option value="1">Technical Task</option>
                         <option value="2">User Story</option>
