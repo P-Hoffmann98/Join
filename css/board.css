@@ -176,6 +176,7 @@ span.board-task-card-preview {
   cursor: pointer;
   transform: rotate(5deg);
   transition: ease-in-out;
+  transition-duration: 0.2s;
 }
 
 .board-task-card-taskcategory {
