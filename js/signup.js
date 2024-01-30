@@ -1,14 +1,9 @@
 async function addUserToServer(user) {
-<<<<<<< HEAD
   const response = await setItem("users", user);
-=======
-  const response = await setItem('users', user);
->>>>>>> 59a54fd8ec4f6f8f1ca933c1c03df73c59265555
   console.log(response);
 }
 
 async function registerUser() {
-
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
   let password = document.getElementById("signup-input-password").value;
