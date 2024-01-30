@@ -145,19 +145,9 @@ function addTaskGetToday() {
   document.getElementById("add_task_due_date").min = today;
 }
 
-function addTaskOpenContextMenuAssignedTo() {
-  document
-    .getElementById("add_task_select_user_box")
-    .classList.toggle("d-none");
-  //addTaskSearchName
+function addTaskSearchName() {
+  console.log("1");
 }
-
-function addTaskCloseContextMenuAssignedTo() {
-  document.getElementById("add_task_select_user_box").classList.add("d-none");
-  //addTaskSearchName
-}
-
-function addTaskSearchName() {}
 
 function addTaskRenderSearchName() {}
 
@@ -185,3 +175,50 @@ function addTaskShowCategoryMsg() {
     .getElementById("add_task_label_category")
     .classList.add("borderColorMistake");
 }
+
+//########################################################################
+
+let selectUserBox;
+let taskInput;
+
+// Funktion, um das select user box div zu öffnen
+function addTaskOpenContextMenuAssignedTo() {
+  // selectUserBox.style.display = "block";
+  selectUserBox.classList.remove("d-none");
+}
+
+// Funktion, um das select user box div zu schließen
+function addTaskCloseContextMenuAssignedTo() {
+  // selectUserBox.style.display = "none";
+  selectUserBox.classList.add("d-none");
+}
+
+// Event-Listener für das Input-Feld und das Bild
+function handleOpenContextMenu(event) {
+  event.stopPropagation();
+  addTaskOpenContextMenuAssignedTo();
+}
+
+// Funktion, um das select user box div zu schließen, wenn außerhalb davon geklickt wird
+document.addEventListener("click", function (event) {
+  if (
+    !selectUserBox.contains(event.target) &&
+    event.target !== taskInput
+    // event.target !== imageElement
+  ) {
+    addTaskCloseContextMenuAssignedTo();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  selectUserBox = document.getElementById("add_task_select_user_box");
+  taskInput = document.getElementById("add_task_assigned_to");
+  taskInput.addEventListener("click", handleOpenContextMenu);
+
+  // Event-Listener für das select user box div
+  selectUserBox.addEventListener("click", function (event) {
+    event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
+  });
+});
+
+//################################################################################
