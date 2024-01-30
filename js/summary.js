@@ -1,7 +1,11 @@
 function summaryInit() {
   includeHTML();
-  //loadTasks();
+  loadTasks();
+}
 
+setTimeout(loadCounts, 500);
+
+function loadCounts() {
   summaryGreetigAtDayTime();
   summaryCountTasksAwaitingFeedback();
   summaryCountTasksInProgress();
