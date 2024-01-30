@@ -2,6 +2,7 @@ function addTaskInit() {
   includeHTML();
   addTaskSetPrioMedium();
   addTaskGetToday();
+  loadTasks();
 }
 
 let addTaskPrio = "medium";
@@ -24,11 +25,45 @@ function addTaskCheckForm() {
   }
 }
 
-async function addTaskSave() {}
+function addTaskToVar() {
+  titleAddTask = document.getElementById("add_task_title").value;
+  descriptionAddTask = document.getElementById("add_task_description").value;
+  assignedToAddTask = document.getElementById("add_task_assigned_to").value;
+  dueDateAddTask = document.getElementById("add_task_due_date").value;
+  categoryAddTask = document.getElementById("add_task_category").value;
+  subtaskAddTask = document.getElementById("add_task_subtask").value;
+  addTaskSave();
+}
 
-function saveCompleted() {}
+async function addTaskSave() {
+  tasks.push({
+    id: Date.now(),
+    autor: "",
+    title: titleAddTask,
+    description: descriptionAddTask,
+    assignedTo: assignedToAddTask,
+    dueDate: dueDateAddTask,
+    prio: addTaskPrio,
+    category: categoryAddTask,
+    subtask: subtaskAddTask,
+    contacts: "",
+    status: "todo",
+  });
+  console.log(tasks);
+  await setItem("tasks", JSON.stringify(tasks));
+  addTaskSaveCompleted();
+}
 
-function addTaskToVar() {}
+function addTaskSaveCompleted() {
+  document
+    .getElementById("add_task_popup_container")
+    .classList.remove("d-none");
+  setTimeout(addTaskGoToBoard, 1000);
+}
+
+function addTaskGoToBoard() {
+  window.location.href = "board.html";
+}
 
 function addTaskSelectedPrioLow() {
   document
