@@ -6,6 +6,12 @@ function addTaskInit() {
 }
 
 let addTaskPrio = "medium";
+let subtaskAddTask;
+let categoryAddTask;
+let dueDateAddTask;
+let assignedToAddTask;
+let descriptionAddTask;
+let titleAddTask;
 
 function addTaskSetPrioMedium() {
   let prioMedium = document.getElementById("add_task_prio_medium");
@@ -49,7 +55,7 @@ async function addTaskSave() {
     contacts: "",
     status: "todo",
   });
-  console.log(tasks);
+
   await setItem("tasks", JSON.stringify(tasks));
   addTaskSaveCompleted();
 }
