@@ -22,9 +22,16 @@
 
 .nav-menu-point {
   display: flex;
-  gap: 8px;
+  gap: 15px;
   cursor: pointer;
   align-items: center;
+}
+
+.nav-menu-point a {
+  color: #cdcdcd;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .legal-notice {
