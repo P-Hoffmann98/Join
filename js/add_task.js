@@ -201,11 +201,7 @@ function handleOpenContextMenu(event) {
 
 // Funktion, um das select user box div zu schließen, wenn außerhalb davon geklickt wird
 document.addEventListener("click", function (event) {
-  if (
-    !selectUserBox.contains(event.target) &&
-    event.target !== taskInput
-    // event.target !== imageElement
-  ) {
+  if (!selectUserBox.contains(event.target) && event.target !== taskInput) {
     addTaskCloseContextMenuAssignedTo();
   }
 });
