@@ -1,39 +1,30 @@
-async function addUserToServer(user) {
-  const response = await setItem("users", user);
-<<<<<<< HEAD
-  debugger;
-=======
->>>>>>> fb531d5945c027fc9bd40b62c8149a7fe8185ba4
-  console.log(response);
-}
+let users = [];
 
 async function registerUser() {
+  signupbutton.disabled = true;
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
   let password = document.getElementById("signup-input-password").value;
-  let confirmPassword = document.getElementById(
-    "signup-input-confirm-password"
-  ).value;
-
   let userId = generateUserId();
   let initials = generateUserInitials(name);
 
-  let newUser = [
-    (users = {
-      id: userId,
-      name: name,
-      email: email,
-      password: password,
-      initials: initials,
-    }),
-  ];
+  users.push({
+    id: userId.valueOf,
+    name: name,
+    email: email,
+    password: password,
+    initials: initials,
+  }),
+    await setItem("users", JSON.stringify(users));
+  signupbutton.disabled = false;
+  resetForm();
+}
 
-  name = "";
-  email = "";
-  password = "";
-  confirmPassword = "";
-
-  await addUserToServer(newUser);
+function resetForm() {
+  document.getElementById("signup-input-name").value = "";
+  document.getElementById("signup-input-email").value = "";
+  document.getElementById("signup-input-password").value = "";
+  document.getElementById("signup-input-confirm-password").value = "";
 }
 
 function generateUserInitials(name) {
@@ -44,7 +35,7 @@ function generateUserInitials(name) {
 }
 
 function generateUserId() {
-  return Date.now();
+  return "user" + Date.now();
 }
 
 function checkPasswordMatch() {

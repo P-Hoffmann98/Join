@@ -1,5 +1,10 @@
 async function init() {
   await includeHTML();
+  await loadUsers();
+}
+
+async function loadUsers() {
+  users = JSON.parse(await getItem("users"));
 }
 
 async function includeHTML() {
