@@ -67,13 +67,13 @@
                   <h3>Category<span class="required-star">*</span></h3>
                     <label for="category" class="add-task-label bgC-white" id="add_task_label_category"> 
                         <!-- <input type="text" name="category" id="add_task_category" readonly placeholder="Select Task category" class="add-task-title add-task-assigned-to inputCategory" autocomplete="off" onfocus="addTaskShowMsg('category')" oninput="addTaskCheckForm()"> -->
-                        <div class="add-task-category-input"id="add_task_category" onclick="addTaskShowMsg('category'); addTaskOpenContextMenuCategory()" oninput="addTaskCheckForm()">Select Task category</div>
+                        <div class="add-task-category-input"id="add_task_category" onclick="addTaskShowMsg('category'); addTaskOpenContextMenuCategory()" onchange="addTaskCheckForm()">Select task category</div>
                           <img class="m-right-20" src="./img/add-task-arrow-down.svg">
                       </label>
                   
                         <div class="d-none" id="add_task_select_category_box" onclick="addTaskCloseContextMenuCategory()">
-                            <div class="addTaskCategorySelect" onclick="selectCategory(1)">Technical Task</div>
-                            <div class="addTaskCategorySelect" onclick="selectCategory(2)">User Story</div>
+                            <div class="addTaskCategorySelect" onclick="selectCategory(1); addTaskCheckForm()">Technical Task</div>
+                            <div class="addTaskCategorySelect" onclick="selectCategory(2); addTaskCheckForm()">User Story</div>
                         </div>
                                                     
                       <div class="d-none extra-small" id="add_task_mistake_category">This field is required</div>
