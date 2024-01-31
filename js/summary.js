@@ -1,7 +1,11 @@
 function summaryInit() {
   includeHTML();
-  //loadTasks();
+  loadTasks();
+}
 
+setTimeout(loadCounts, 500);
+
+function loadCounts() {
   summaryGreetigAtDayTime();
   summaryCountTasksAwaitingFeedback();
   summaryCountTasksInProgress();
@@ -16,7 +20,7 @@ function summaryGreetigAtDayTime() {
   let today = new Date();
   let hours = today.getHours();
 
-  if (hours >= 17 && hours <= 23) {
+  if ((hours >= 17 && hours <= 23) || (hours >= 0 && hours <= 5)) {
     document.getElementById("greeting").innerHTML = `Good evening,`;
   } else if (hours >= 5 && hours <= 12) {
     document.getElementById("greeting").innerHTML = `Good morning,`;

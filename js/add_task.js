@@ -1,10 +1,17 @@
-function addTaskInit() {
+async function addTaskInit() {
   includeHTML();
   addTaskSetPrioMedium();
   addTaskGetToday();
+  await loadTasks();
 }
 
 let addTaskPrio = "medium";
+let subtaskAddTask;
+let categoryAddTask;
+let dueDateAddTask;
+let assignedToAddTask;
+let descriptionAddTask;
+let titleAddTask;
 
 function addTaskSetPrioMedium() {
   let prioMedium = document.getElementById("add_task_prio_medium");
@@ -24,11 +31,45 @@ function addTaskCheckForm() {
   }
 }
 
-async function addTaskSave() {}
+function addTaskToVar() {
+  titleAddTask = document.getElementById("add_task_title").value;
+  descriptionAddTask = document.getElementById("add_task_description").value;
+  assignedToAddTask = document.getElementById("add_task_assigned_to").value;
+  dueDateAddTask = document.getElementById("add_task_due_date").value;
+  categoryAddTask = document.getElementById("add_task_category").value;
+  subtaskAddTask = document.getElementById("add_task_subtask").value;
+  addTaskSave();
+}
 
-function saveCompleted() {}
+async function addTaskSave() {
+  tasks.push({
+    id: Date.now(),
+    autor: "",
+    title: titleAddTask,
+    description: descriptionAddTask,
+    assignedTo: assignedToAddTask,
+    dueDate: dueDateAddTask,
+    prio: addTaskPrio,
+    category: categoryAddTask,
+    subtask: subtaskAddTask,
+    contacts: "",
+    status: "todo",
+  });
 
-function addTaskToVar() {}
+  await setItem("tasks", JSON.stringify(tasks));
+  addTaskSaveCompleted();
+}
+
+function addTaskSaveCompleted() {
+  document
+    .getElementById("add_task_popup_container")
+    .classList.remove("d-none");
+  setTimeout(addTaskGoToBoard, 1000);
+}
+
+function addTaskGoToBoard() {
+  window.location.href = "board.html";
+}
 
 function addTaskSelectedPrioLow() {
   document
@@ -104,19 +145,9 @@ function addTaskGetToday() {
   document.getElementById("add_task_due_date").min = today;
 }
 
-function addTaskOpenContextMenuAssignedTo() {
-  document
-    .getElementById("add_task_select_user_box")
-    .classList.toggle("d-none");
-  //addTaskSearchName
+function addTaskSearchName() {
+  console.log("1");
 }
-
-function addTaskCloseContextMenuAssignedTo() {
-  document.getElementById("add_task_select_user_box").classList.add("d-none");
-  //addTaskSearchName
-}
-
-function addTaskSearchName() {}
 
 function addTaskRenderSearchName() {}
 
@@ -144,3 +175,97 @@ function addTaskShowCategoryMsg() {
     .getElementById("add_task_label_category")
     .classList.add("borderColorMistake");
 }
+
+function addTaskOpenContextCategory() {
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.remove("d-none");
+}
+
+function addTaskCloseContextCategory() {
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.add("d-none");
+}
+
+//######FÜR CONTACTS LISTE##################################################################
+
+let selectUserBox;
+let taskInput;
+
+// Funktion, um das select user box div zu öffnen
+function addTaskOpenContextMenuAssignedTo() {
+  // selectUserBox.style.display = "block";
+  selectUserBox.classList.remove("d-none");
+}
+
+// Funktion, um das select user box div zu schließen
+function addTaskCloseContextMenuAssignedTo() {
+  // selectUserBox.style.display = "none";
+  selectUserBox.classList.add("d-none");
+}
+
+// Event-Listener für das Input-Feld und das Bild
+function handleOpenContextMenu(event) {
+  event.stopPropagation();
+  addTaskOpenContextMenuAssignedTo();
+}
+
+// Funktion, um das select user box div zu schließen, wenn außerhalb davon geklickt wird
+document.addEventListener("click", function (event) {
+  if (!selectUserBox.contains(event.target) && event.target !== taskInput) {
+    addTaskCloseContextMenuAssignedTo();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  selectUserBox = document.getElementById("add_task_select_user_box");
+  taskInput = document.getElementById("add_task_assigned_to");
+  taskInput.addEventListener("click", handleOpenContextMenu);
+
+  // Event-Listener für das select user box div
+  selectUserBox.addEventListener("click", function (event) {
+    event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
+  });
+});
+
+//#######FÜR CATEGORY LIST#####################################################################
+
+let selectCategoryBox;
+let taskInputCategory;
+
+// Funktion, um das select category box div zu öffnen
+function addTaskOpenContextMenuCategory() {
+  selectCategoryBox.classList.remove("d-none");
+}
+
+// Funktion, um das select category box div zu schließen
+function addTaskCloseContextMenuCategory() {
+  selectCategoryBox.classList.add("d-none");
+}
+
+// Event-Listener für das Input-Feld und das Bild
+function handleOpenContextMenuCategory(event) {
+  event.stopPropagation();
+  addTaskOpenContextMenuCategory();
+}
+
+// Funktion, um das select category box div zu schließen, wenn außerhalb davon geklickt wird
+document.addEventListener("click", function (event) {
+  if (
+    !selectCategoryBox.contains(event.target) &&
+    event.target !== taskInputCategory
+  ) {
+    addTaskCloseContextMenuCategory();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  selectCategoryBox = document.getElementById("add_task_select_category_box");
+  taskInputCategory = document.getElementById("add_task_category");
+  taskInputCategory.addEventListener("click", handleOpenContextMenuCategory);
+  // Event-Listener für das select category box div
+  selectCategoryBox.addEventListener("click", function (event) {
+    event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
+  });
+});

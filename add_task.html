@@ -27,7 +27,7 @@
                 <form onsubmit="addTaskToVar(); return false;">
                   <h3>Title <span class="required-star">*</span></h3>
                     <label for="title" class="add-task-label" id="add_task_label_title"> 
-                      <input type="text" name="title" class="add-task-title" id="add_task_title" placeholder="Enter a Title" onkeyup="addTaskCheckForm()" onfocus="addTaskShowTitleMsg()">
+                      <input type="text" name="title" class="add-task-title" id="add_task_title" minlength="3" maxlength="20" placeholder="Enter a Title" required onkeyup="addTaskCheckForm()" onfocus="addTaskShowTitleMsg()">
                     </label>
                 
                       <div class="d-none extra-small" id="add_task_title_mistake">This field is required</div>
@@ -39,11 +39,11 @@
                       
                   <h3>Assigned to:</h3>
                     <label for="assigned" class="add-task-label bgC-white"> 
-                      <input type="text" name="assigned" id="add_task_assigned_to" class="add-task-title add-task-assigned-to"  autocomplete="off" onclick="addTaskOpenContextMenuAssignedTo()" onkeyup="addTaskSearchName()" onblur="addTaskCloseContextMenuAssignedTo()">
-                        <img class="m-right-20" src="./img/add-task-arrow-down.svg" onclick="addTaskOpenContextMenuAssignedTo()"   onblur="addTaskCloseContextMenuAssignedTo()">
+                      <input type="text" name="assigned" id="add_task_assigned_to" class="add-task-title add-task-assigned-to"  autocomplete="off" onkeyup="addTaskSearchName()">
+                        <img class="m-right-20" src="./img/add-task-arrow-down.svg">
                     </label>
                 
-                      <div class="d-none add-task-select-field-container" id="add_task_select_user_box" >TEST INHALT</div>
+                      <div class="d-none add-task-select-field-container" id="add_task_select_user_box">TEST INHALT</div>
               </div>
                         
               <div class="add-task-seperator"></div>
@@ -65,20 +65,19 @@
                     </div>
                              
                   <h3>Category<span class="required-star">*</span></h3>
-                    <label for="category" class="add-task-label" id="add_task_label_category"> 
-                      <select name="category" id="add_task_category" class="add-task-title" onchange="addTaskCheckForm()"  onfocus="addTaskShowCategoryMsg()">
-                        <option value="" disabled="" selected="" hidden="">Select task category</option>
-                        <option value="1">Technical Task</option>
-                        <option value="2">User Story</option>
-                      </select>
-                    </label>
-                                
+                    <label for="category" class="add-task-label bgC-white" id="add_task_label_category"> 
+                        <input type="text" name="category" id="add_task_category" class="add-task-title add-task-assigned-to"  autocomplete="off">
+                          <img class="m-right-20" src="./img/add-task-arrow-down.svg">
+                      </label>
+                  
+                        <div class="d-none" id="add_task_select_category_box">TEST INHALT Category</div>
+                                                    
                       <div class="d-none extra-small" id="add_task_mistake_category">This field is required</div>
                                            
                   <h3 class="m-top-40">Subtasks</h3>
                     <label for="subtaskAddTask" class="add-task-label m-bottom-40 bgC-white"> 
                       <input type="text" name="subtaskAddTask"  class="add-task-title" id="add_task_subtask" placeholder="Add new Subtask">
-                        <img src="./img/add-task-subtask.svg" class="m-right-20">
+                        <img src="./img/add-task-subtask.svg" class="m-right-20 addSubtaskImg" onclick="addSubtask()">
                     </label>
                               
                   <div class="add-task-bottom-container">
@@ -94,8 +93,7 @@
           </div>
         </div>  
            
-    </div>
-  </body>            
+    </div>         
 
 
   </body>
