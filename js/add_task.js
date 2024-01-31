@@ -237,6 +237,9 @@ function addTaskOpenContextMenuCategory() {
   document
     .getElementById("add_task_select_category_box")
     .classList.remove("d-none");
+  document.getElementById(
+    "add_task_category"
+  ).innerHTML = `Select Task category`;
 }
 
 // Funktion, um das select category box div zu schließen
