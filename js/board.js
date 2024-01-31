@@ -35,13 +35,13 @@ function boardSortTasks(id, status) {
             boardTasksToDo.push(id);
             break;
         case 'progress':
-            boardTasksToDo.push(id);
+            boardTasksProgress.push(id);
             break;
         case 'feedback':
-            boardTasksToDo.push(id);
+            boardTasksFeedback.push(id);
             break;
         case 'done':
-            boardTasksToDo.push(id);
+            boardTasksDone.push(id);
             break;
         default:
             console.warn = "Wrong status in tasksArray";
