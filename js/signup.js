@@ -1,4 +1,7 @@
-let users = [];
+async function signupInit() {
+  await includeHTML();
+  await loadUsers();
+}
 
 async function registerUser() {
   signupbutton.disabled = true;

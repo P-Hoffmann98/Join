@@ -3,10 +3,6 @@ async function init() {
   await loadUsers();
 }
 
-async function loadUsers() {
-  users = JSON.parse(await getItem("users"));
-}
-
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
