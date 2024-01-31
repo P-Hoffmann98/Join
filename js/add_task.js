@@ -195,7 +195,7 @@ function addTaskRenderSearchName() {
   ).innerHTML += `                     
           <div class="selectField">
             <span class="selectInitial dFlexAiCenterJcCenter">${resultInitials}</span>
-              <span class="selectName">${resultName}</span>
+              <span class="selectName">${resultNames}</span>
                 <input class="mRight10" type="checkbox" id="selectUser" value="${resultId}">
           </div>`;
 }
