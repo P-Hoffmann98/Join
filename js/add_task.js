@@ -31,12 +31,11 @@ function addTaskSetPrioMedium() {
 }
 
 function addTaskCheckForm() {
-  console.log(categoryAddTask);
-  console.log(document.getElementById("add_task_category").value.length);
   if (
     document.getElementById("add_task_title").value.length > 0 &&
     document.getElementById("add_task_due_date").value.length > 0 &&
-    document.getElementById("add_task_category").value.length > 0
+    document.getElementById("add_task_category").textContent !=
+      "Select task category"
   ) {
     document.getElementById("add_task_button").classList.remove("d-none");
   } else {
