@@ -68,6 +68,10 @@ h3 {
   border: 0px solid rgba(209, 209, 209, 1);
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 .add-task-title {
   height: 48px;
   width: 440px;
@@ -358,4 +362,39 @@ label input {
   padding: 0 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.inputCategory::placeholder {
+  color: #000000;
+}
+
+.addTaskCategorySelect {
+  line-height: 24px;
+  padding: 12px;
+}
+
+.addTaskCategorySelect:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.inputCategory:hover {
+  cursor: pointer;
+}
+
+.add-task-category-input {
+  display: flex;
+  align-items: center;
+  width: 422px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 21px;
+  outline: none;
+  border: none;
+  width: 95%;
+  font-size: 16px;
 }
