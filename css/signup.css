@@ -9,6 +9,10 @@ h1 {
   margin-bottom: 16px;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 button {
   cursor: pointer;
 }
@@ -113,9 +117,8 @@ button {
 }
 
 .button-img {
-  background-color: #2A3647;
+  background-color: #2a3647;
   border-radius: 5px;
-
 }
 
 #signup-button {

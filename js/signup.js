@@ -1,14 +1,10 @@
 async function addUserToServer(user) {
-<<<<<<< HEAD
   const response = await setItem("users", user);
-=======
-  const response = await setItem('users', user);
->>>>>>> 59a54fd8ec4f6f8f1ca933c1c03df73c59265555
+  debugger;
   console.log(response);
 }
 
 async function registerUser() {
-
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
   let password = document.getElementById("signup-input-password").value;
@@ -16,23 +12,25 @@ async function registerUser() {
     "signup-input-confirm-password"
   ).value;
 
-  if (password !== confirmPassword) {
-    alert("Passwords must match!");
-    return;
-  }
-
   let userId = generateUserId();
   let initials = generateUserInitials(name);
 
-  let newUser = {
-    id: userId,
-    name: name,
-    email: email,
-    password: password,
-    initials: initials,
-  };
+  let newUser = [
+    (users = {
+      id: userId,
+      name: name,
+      email: email,
+      password: password,
+      initials: initials,
+    }),
+  ];
 
-  addUserToServer(newUser);
+  name = "";
+  email = "";
+  password = "";
+  confirmPassword = "";
+
+  await addUserToServer(newUser);
 }
 
 function generateUserInitials(name) {
@@ -58,7 +56,7 @@ function checkPasswordMatch() {
   if (password !== confirmPassword) {
     confirmPwdInput.setCustomValidity("Die Passwörter stimmen nicht überein!");
   } else {
-    confirmPwdInput.setCustomValidity(""); // Reset the custom validation message
+    confirmPwdInput.setCustomValidity("");
   }
 }
 
