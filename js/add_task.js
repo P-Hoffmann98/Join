@@ -1,25 +1,38 @@
 async function addTaskInit() {
-  includeHTML();
   addTaskSetPrioMedium();
   addTaskGetToday();
   await loadTasks();
 }
 
 let addTaskPrio = "medium";
-let subtaskAddTask;
+let subtaskAddTask = [];
 let categoryAddTask;
 let dueDateAddTask;
 let assignedToAddTask;
 let descriptionAddTask;
 let titleAddTask;
+let contactsAddTask = [];
+let selectUserBox;
+let taskInput;
+let prioMedium;
+let prioMediumImg;
+let today;
+let day;
+let month;
+let year;
+let labelId;
+let mistakeId;
 
 function addTaskSetPrioMedium() {
-  let prioMedium = document.getElementById("add_task_prio_medium");
+  prioMedium = document.getElementById("add_task_prio_medium");
   prioMedium.classList.add("add-task-prio-medium-pressed-button");
-  let prioMediumImg = document.getElementById("add_task_img_prio_medium");
+  prioMediumImg = document.getElementById("add_task_img_prio_medium");
   prioMediumImg.src = "./img/add-task-prio-medium.svg";
 }
+
 function addTaskCheckForm() {
+  console.log(categoryAddTask);
+  console.log(document.getElementById("add_task_category").value.length);
   if (
     document.getElementById("add_task_title").value.length > 0 &&
     document.getElementById("add_task_due_date").value.length > 0 &&
@@ -52,7 +65,7 @@ async function addTaskSave() {
     prio: addTaskPrio,
     category: categoryAddTask,
     subtask: subtaskAddTask,
-    contacts: "",
+    contacts: contactsAddTask,
     status: "todo",
   });
 
@@ -129,11 +142,11 @@ function addTaskSelectedPrioHigh() {
 }
 
 function addTaskGetToday() {
-  let today = new Date();
-  let day = today.getDate(); // Tag
+  today = new Date();
+  day = today.getDate(); // Tag
   // Monatsangabe startet bei 0!
-  let month = today.getMonth() + 1; // Monat
-  let year = today.getFullYear(); // Jahr
+  month = today.getMonth() + 1; // Monat
+  year = today.getFullYear(); // Jahr
   if (day < 10) {
     day = "0" + day;
   }
@@ -145,54 +158,44 @@ function addTaskGetToday() {
   document.getElementById("add_task_due_date").min = today;
 }
 
+function removeRedBorder(param) {
+  let labelId = "add_task_label_" + param;
+  let mistakeId = "add_task_mistake_" + param;
+
+  document.getElementById(labelId).classList.remove("borderColorMistake");
+  document.getElementById(mistakeId).classList.add("d-none");
+}
+
 function addTaskSearchName() {
   console.log("1");
 }
 
 function addTaskRenderSearchName() {}
 
-function addTaskShowTitleMsg() {
-  document.getElementById("add_task_title_mistake").classList.remove("d-none");
-  document
-    .getElementById("add_task_label_title")
-    .classList.add("borderColorMistake");
+function addTaskShowMsg(param) {
+  labelId = "add_task_label_" + param;
+  mistakeId = "add_task_mistake_" + param;
+  document.getElementById(mistakeId).classList.remove("d-none");
+  document.getElementById(labelId).classList.add("borderColorMistake");
 }
 
-function addTaskShowDueDateMsg() {
-  document
-    .getElementById("add_task_mistake_due_date")
-    .classList.remove("d-none");
-  document
-    .getElementById("add_task_label_dueDate")
-    .classList.add("borderColorMistake");
-}
-
-function addTaskShowCategoryMsg() {
-  document
-    .getElementById("add_task_mistake_category")
-    .classList.remove("d-none");
-  document
-    .getElementById("add_task_label_category")
-    .classList.add("borderColorMistake");
-}
-
-function addTaskOpenContextCategory() {
-  document
-    .getElementById("add_task_select_category_box")
-    .classList.remove("d-none");
-}
-
-function addTaskCloseContextCategory() {
+function selectCategory(param) {
+  categoryAddTask = param;
+  if (param == 1) {
+    document.getElementById("add_task_category").innerHTML = "Technical Task";
+  } else if (param == 2) {
+    document.getElementById("add_task_category").innerHTML = "User Story";
+  }
   document
     .getElementById("add_task_select_category_box")
     .classList.add("d-none");
+  document
+    .getElementById("add_task_label_category")
+    .classList.remove("borderColorMistake");
+  document.getElementById("add_task_mistake_category").classList.add("d-none");
 }
 
 //######FÜR CONTACTS LISTE##################################################################
-
-let selectUserBox;
-let taskInput;
-
 // Funktion, um das select user box div zu öffnen
 function addTaskOpenContextMenuAssignedTo() {
   // selectUserBox.style.display = "block";
@@ -229,43 +232,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//#######FÜR CATEGORY LIST#####################################################################
-
-let selectCategoryBox;
-let taskInputCategory;
-
 // Funktion, um das select category box div zu öffnen
 function addTaskOpenContextMenuCategory() {
-  selectCategoryBox.classList.remove("d-none");
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.remove("d-none");
 }
 
 // Funktion, um das select category box div zu schließen
 function addTaskCloseContextMenuCategory() {
-  selectCategoryBox.classList.add("d-none");
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.add("d-none");
 }
-
-// Event-Listener für das Input-Feld und das Bild
-function handleOpenContextMenuCategory(event) {
-  event.stopPropagation();
-  addTaskOpenContextMenuCategory();
-}
-
-// Funktion, um das select category box div zu schließen, wenn außerhalb davon geklickt wird
-document.addEventListener("click", function (event) {
-  if (
-    !selectCategoryBox.contains(event.target) &&
-    event.target !== taskInputCategory
-  ) {
-    addTaskCloseContextMenuCategory();
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  selectCategoryBox = document.getElementById("add_task_select_category_box");
-  taskInputCategory = document.getElementById("add_task_category");
-  taskInputCategory.addEventListener("click", handleOpenContextMenuCategory);
-  // Event-Listener für das select category box div
-  selectCategoryBox.addEventListener("click", function (event) {
-    event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
-  });
-});
