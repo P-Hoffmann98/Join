@@ -8,10 +8,9 @@ let addTaskPrio = "medium";
 let subtaskAddTask = [];
 let categoryAddTask;
 let dueDateAddTask;
-let assignedToAddTask;
+let assignedToAddTask = [];
 let descriptionAddTask;
 let titleAddTask;
-let contactsAddTask = [];
 let selectUserBox;
 let taskInput;
 let prioMedium;
@@ -48,7 +47,6 @@ function addTaskToVar() {
   descriptionAddTask = document.getElementById("add_task_description").value;
   assignedToAddTask = document.getElementById("add_task_assigned_to").value;
   dueDateAddTask = document.getElementById("add_task_due_date").value;
-  categoryAddTask = document.getElementById("add_task_category").value;
   subtaskAddTask = document.getElementById("add_task_subtask").value;
   addTaskSave();
 }
@@ -62,10 +60,9 @@ async function addTaskSave() {
     assignedTo: assignedToAddTask,
     dueDate: dueDateAddTask,
     prio: addTaskPrio,
-    category: categoryAddTask,
+    categoryTask: categoryAddTask,
     subtask: subtaskAddTask,
-    contacts: contactsAddTask,
-    status: "todo",
+    status: "done",
   });
 
   await setItem("tasks", JSON.stringify(tasks));
