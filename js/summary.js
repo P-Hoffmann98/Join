@@ -72,7 +72,7 @@ function summaryCountTasksAll() {
 function summaryCountTasksInProgress() {
   let countTasksInProgresss = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["status"] == "inprogress") {
+    if (tasks[i]["status"] == "progress") {
       countTasksInProgresss++;
     }
   }
