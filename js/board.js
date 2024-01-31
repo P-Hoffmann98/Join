@@ -47,3 +47,30 @@ function boardSortTasks(id, status) {
             console.warn = "Wrong status in tasksArray";
     }
 }
+
+
+function boardIndexOfTasks(/* array mit den Daten */) {
+    
+    for (let i = 0; i < boardTasksToDo.length; i++) {
+
+        const id = boardTasksToDo[i];
+
+        for (let j = 0; j < tasks.length; j++) {
+            const task = tasks[j];
+
+
+            if (task['id'] == id) {
+                console.log(task['id']);
+                console.log(id);
+                console.log(j);
+                return j;
+            }
+        }
+    }
+}
+/* ******************* Render Functions ******************* */
+function boardRenderTasksPreview(boardTasksToDo, tasksCategory) { /* tasksList*/
+    let tasksCategoryDiv = document.getElementById(tasksCategory) /*'board_task_category_todo'*/
+
+}
+/* ******************* Render Functions - end ******************* */
