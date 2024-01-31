@@ -11,16 +11,29 @@ let dueDateAddTask;
 let assignedToAddTask = [];
 let descriptionAddTask;
 let titleAddTask;
+
+//Variablen für
 let selectUserBox;
 let taskInput;
+
+//
 let prioMedium;
 let prioMediumImg;
+
+//Variablen für inputy type date
 let today;
 let day;
 let month;
 let year;
+
+//Vaariablen für Fehlermeldung
 let labelId;
 let mistakeId;
+
+//Variablen für Suchergebisse
+let resultInitials;
+let resultId;
+let resultNames;
 
 function addTaskSetPrioMedium() {
   prioMedium = document.getElementById("add_task_prio_medium");
@@ -163,10 +176,29 @@ function removeRedBorder(param) {
 }
 
 function addTaskSearchName() {
-  console.log("1");
+  let searchInput = document.getElementById("add_task_assigned_to").value;
+  searchInput = searchInput.toLowerCase();
+  document.getElementById("add_task_select_user_box").innerHTML = ``;
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i]["name"].toLowerCase().includes(searchInput)) {
+      resultNames = contacts[i]["name"];
+      resultId = contacts[i]["id"];
+      resultInitials = contacts[i]["initials"];
+      addTaskRenderSearchName();
+    }
+  }
 }
 
-function addTaskRenderSearchName() {}
+function addTaskRenderSearchName() {
+  document.getElementById(
+    "add_task_select_user_box"
+  ).innerHTML += `                     
+          <div class="selectField">
+            <span class="selectInitial dFlexAiCenterJcCenter">${resultInitials}</span>
+              <span class="selectName">${resultName}</span>
+                <input class="mRight10" type="checkbox" id="selectUser" value="${resultId}">
+          </div>`;
+}
 
 function addTaskShowMsg(param) {
   labelId = "add_task_label_" + param;
