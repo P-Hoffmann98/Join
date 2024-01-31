@@ -8,25 +8,23 @@ async function registerUser() {
   let userId = generateUserId();
   let initials = generateUserInitials(name);
 
-  let newUser = [
-    (users = {
-      id: userId.valueOf,
-      name: name,
-      email: email,
-      password: password,
-      initials: initials,
-    }),
-  ];
-  await setItem("users", JSON.stringify(users));
+  users.push({
+    id: userId.valueOf,
+    name: name,
+    email: email,
+    password: password,
+    initials: initials,
+  }),
+    await setItem("users", JSON.stringify(users));
   signupbutton.disabled = false;
   resetForm();
 }
 
 function resetForm() {
-  name = "";
-  email = "";
-  password = "";
-  confirmPassword = "";
+  document.getElementById("signup-input-name").value = "";
+  document.getElementById("signup-input-email").value = "";
+  document.getElementById("signup-input-password").value = "";
+  document.getElementById("signup-input-confirm-password").value = "";
 }
 
 function generateUserInitials(name) {
@@ -37,7 +35,7 @@ function generateUserInitials(name) {
 }
 
 function generateUserId() {
-  return Date.now();
+  return "user" + Date.now();
 }
 
 function checkPasswordMatch() {

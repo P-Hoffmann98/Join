@@ -4,7 +4,7 @@ async function init() {
 }
 
 async function loadUsers() {
-  users = await getItem("users");
+  users = JSON.parse(await getItem("users"));
 }
 
 async function includeHTML() {
