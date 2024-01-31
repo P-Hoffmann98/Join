@@ -2,8 +2,10 @@ async function addTaskInit() {
   addTaskSetPrioMedium();
   addTaskGetToday();
   await loadTasks();
+  await loadContacts();
 }
 
+//Variablen für eingabefelder
 let addTaskPrio = "medium";
 let subtaskAddTask = [];
 let categoryAddTask;
@@ -16,7 +18,7 @@ let titleAddTask;
 let selectUserBox;
 let taskInput;
 
-//
+//Variablen für standart priorität bei start
 let prioMedium;
 let prioMediumImg;
 
