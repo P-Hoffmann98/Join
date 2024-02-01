@@ -2,6 +2,7 @@ async function addTaskInit() {
   addTaskSetPrioMedium();
   addTaskGetToday();
   await loadTasks();
+  await loadUsers();
   await loadContacts();
 }
 
