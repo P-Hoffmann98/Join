@@ -67,7 +67,6 @@
                              
                   <h3>Category<span class="required-star">*</span></h3>
                     <label for="category" class="add-task-label bgC-white" id="add_task_label_category"> 
-                        <!-- <input type="text" name="category" id="add_task_category" readonly placeholder="Select Task category" class="add-task-title add-task-assigned-to inputCategory" autocomplete="off" onfocus="addTaskShowMsg('category')" oninput="addTaskCheckForm()"> -->
                         <div class="add-task-category-input"id="add_task_category" onclick="addTaskShowMsg('category'); addTaskOpenContextMenuCategory()" onchange="addTaskCheckForm()">Select task category</div>
                           <img class="m-right-20" src="./img/add-task-arrow-down.svg">
                       </label>
@@ -87,11 +86,14 @@
                     </label>
                     <div id="outputSubtasks" class="outputSubtaskClass">
                       
-                        <div ondblclick="editSubTask()" class="cursorPointer li" contenteditable="true"><span>&#8226; Contact form </span><div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></div>
-                        <div ondblclick="editSubTask()" class="cursorPointer li" contenteditable="true"><span>&#8226; Contact form</span> <div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></div>
-                        <div ondblclick="editSubTask()" class="cursorPointer li" contenteditable="true"><span>&#8226; Contact form</span> <div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></div>
-                        <div ondblclick="editSubTask()" class="cursorPointer li" contenteditable="true"><span>&#8226; Contact form</span> <div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></div>
-                      
+                        <div ondblclick="editSubTask()" class="cursorPointer li" contenteditable="true">
+                          <span>&#8226; Contact form </span>
+                            <div>
+                              <img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()">
+                              <img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()">
+                            </div>
+                        </div>
+                        
                     </div>
                               
                   <div class="add-task-bottom-container">
