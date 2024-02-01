@@ -224,7 +224,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: right;
   margin-right: 20px;
-  margin-top: 0px;
+  margin-top: 20px;
+
   border: 0px solid black;
 }
 
@@ -294,6 +295,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #ffffff;
 }
 
+.m-right20 {
+  margin-right: 20px;
+}
+
 .add-task-select-field-container {
   margin-top: -5px;
   overflow-y: scroll;
@@ -334,6 +339,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .d-none {
   display: none;
 }
+
 label {
   display: flex;
   align-items: center;
@@ -444,4 +450,15 @@ label input {
 .selectedContact:hover {
   background-color: rgba(42, 54, 71, 0.9);
   color: #ffffff;
+}
+
+li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+.cursorPointer {
+  cursor: pointer;
 }
