@@ -2,8 +2,10 @@ async function addTaskInit() {
   addTaskSetPrioMedium();
   addTaskGetToday();
   await loadTasks();
+  await loadContacts();
 }
 
+//Variablen für eingabefelder
 let addTaskPrio = "medium";
 let subtaskAddTask = [];
 let categoryAddTask;
@@ -16,7 +18,7 @@ let titleAddTask;
 let selectUserBox;
 let taskInput;
 
-//
+//Variablen für standart priorität bei start
 let prioMedium;
 let prioMediumImg;
 
@@ -195,7 +197,7 @@ function addTaskRenderSearchName() {
   ).innerHTML += `                     
           <div class="selectField">
             <span class="selectInitial dFlexAiCenterJcCenter">${resultInitials}</span>
-              <span class="selectName">${resultName}</span>
+              <span class="selectName">${resultNames}</span>
                 <input class="mRight10" type="checkbox" id="selectUser" value="${resultId}">
           </div>`;
 }
