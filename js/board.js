@@ -125,4 +125,13 @@ function boardRenderTasksPlaceholder(tasksCategory) {
 }
 
 
+function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
+    return /* html */`
+    <div class="board-no-task-feedback">
+        <span class="board-no-task-feedback-text">No tasks ${tasksCategoryStatus}</span>
+    </div>
+    `;
+}
+
+
 /* ******************* Render Functions - end ******************* */
