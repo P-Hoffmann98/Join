@@ -7,7 +7,7 @@ async function addTaskInit() {
 
 //Variablen für eingabefelder
 let addTaskPrio = "medium";
-let subtaskAddTask = [];
+let subtaskAddTask = ["123456789", "12354678974"];
 let categoryAddTask;
 let dueDateAddTask;
 let assignedToAddTask = [];
@@ -195,10 +195,10 @@ function addTaskRenderSearchName() {
   document.getElementById(
     "add_task_select_user_box"
   ).innerHTML += `                     
-          <div class="selectField" onclick="addContactToTask(${resultId}); addStyleToSelectedContact()">
+          <div class="selectField" id="${resultId}" onclick="addStyleToSelectedContact(${resultId})">
             <span class="selectInitial dFlexAiCenterJcCenter">${resultInitials}</span>
               <span class="selectName">${resultNames}</span>
-                <input class="mRight10" type="checkbox" id="selectUser" value="${resultId}">
+                <img src="./img/add_task_rectangle.svg" id="selectContactBox${resultId}">
           </div>`;
 }
 
@@ -207,6 +207,41 @@ function addTaskShowMsg(param) {
   mistakeId = "add_task_mistake_" + param;
   document.getElementById(mistakeId).classList.remove("d-none");
   document.getElementById(labelId).classList.add("borderColorMistake");
+}
+
+function addStyleToSelectedContact(id) {
+  let resultIdIsInAssignedToAddTask = assignedToAddTask.includes(id);
+  if (!resultIdIsInAssignedToAddTask) {
+    document.getElementById(id).classList.add("selectedContact");
+    document.getElementById("selectContactBox" + id).src =
+      "./img/add_task_rectangle_check.svg";
+    addContactToTask(id);
+  } else {
+    document.getElementById(id).classList.remove("selectedContact");
+    document.getElementById("selectContactBox" + id).src =
+      "./img/add_task_rectangle.svg";
+    deleteContactFromTask(id);
+  }
+}
+
+function addContactToTask(contactId) {
+  assignedToAddTask.push(contactId);
+  renderSelectedContactsFromTask();
+}
+
+function deleteContactFromTask(contactId) {
+  let resultIdToDelete = assignedToAddTask.indexOf(contactId);
+  assignedToAddTask.splice(resultIdToDelete, 1);
+  renderSelectedContactsFromTask();
+}
+
+function renderSelectedContactsFromTask() {
+  for (let i = 0; i < assignedToAddTask.length; i++) {
+    let resultUserIndex = contacts.indexOf(assignedToAddTask[i]);
+    // document.getElementById(
+    //   "outputSelectedContacts"
+    // ).innerHTML = `${users[resultUserIndex]["initials"]}`;
+  }
 }
 
 function selectCategory(param) {
