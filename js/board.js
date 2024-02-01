@@ -12,6 +12,7 @@ async function boardInit() {
     await loadTasks();
     await boardReadTasks();
     boardRenderTasksPlaceholder('board_task_category_todo');
+    boardRenderTasksPreview(boardTasksToDo, 'board_task_category_todo');
 }
 
 
@@ -131,6 +132,39 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
     return /* html */`
     <div class="board-no-task-feedback">
         <span class="board-no-task-feedback-text">No tasks ${tasksCategoryStatus}</span>
+    </div>
+    `;
+}
+
+
+function boardRenderTasksPreviewHTML(tasksIndex) {
+    return /* html */`
+    <div class="board-task-card-preview">
+        <span class="board-task-card-taskcategory">User Story</span>
+        <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
+        <span class="board-task-card-description">Build start page with recipe
+            recommendation...</span>
+        <div class="board-task-card-progress-container">
+            <div class="board-task-card-progressbar">
+                <div class="board-task-card-progress"></div>
+            </div>
+            <span class="board-task-card-progress-text">1/2 Subtasks</span>
+        </div>
+        <div class="board-task-card-profile-priority">
+            <div class="board-task-card-profile-container">
+                <!-- render profile icons -->
+                <div class="board-task-card-profile">
+                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
+                    <span class="board-task-card-profile-text">TN</span>
+                </div>
+                <div class="board-task-card-profile" style="left: -8px;">
+                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
+                    <span class="board-task-card-profile-text">NT</span>
+                </div>
+            </div>
+            <img class="board-task-card-priority" src="./img/board/board_task_urgent.svg"
+                alt="">
+        </div>
     </div>
     `;
 }
