@@ -297,7 +297,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .add-task-select-field-container {
   margin-top: -5px;
   overflow-y: scroll;
-  height: 100px;
+  height: 200px;
   background-color: #ffffff;
   /* padding: 0 10px; */
   border-radius: 10px;
@@ -437,11 +437,11 @@ label input {
 }
 
 .selectedContact {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(42, 54, 71, 1);
   color: #ffffff;
 }
 
 .selectedContact:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(42, 54, 71, 0.9);
   color: #ffffff;
 }
