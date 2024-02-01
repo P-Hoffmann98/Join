@@ -12,7 +12,7 @@ async function registerUser() {
   let initials = generateUserInitials(name);
 
   users.push({
-    id: userId.valueOf,
+    id: userId,
     name: name,
     email: email,
     password: password,
@@ -20,15 +20,18 @@ async function registerUser() {
   }),
     await setItem("users", JSON.stringify(users));
   signupbutton.disabled = false;
-  resetForm();
+  /*resetForm();*/
+  window.location.href = "login.html";
 }
 
+/*
 function resetForm() {
   document.getElementById("signup-input-name").value = "";
   document.getElementById("signup-input-email").value = "";
   document.getElementById("signup-input-password").value = "";
   document.getElementById("signup-input-confirm-password").value = "";
 }
+*/
 
 function generateUserInitials(name) {
   return name
@@ -38,7 +41,7 @@ function generateUserInitials(name) {
 }
 
 function generateUserId() {
-  return "user" + Date.now();
+  return Date.now();
 }
 
 function checkPasswordMatch() {
