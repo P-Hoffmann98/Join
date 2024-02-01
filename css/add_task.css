@@ -452,7 +452,7 @@ label input {
   color: #ffffff;
 }
 
-li {
+.li {
   width: 100%;
   display: flex;
   align-items: center;
