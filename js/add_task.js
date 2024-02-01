@@ -195,7 +195,7 @@ function addTaskRenderSearchName() {
   document.getElementById(
     "add_task_select_user_box"
   ).innerHTML += `                     
-          <div class="selectField">
+          <div class="selectField" onclick="addContactToTask(${resultId}); addStyleToSelectedContact()">
             <span class="selectInitial dFlexAiCenterJcCenter">${resultInitials}</span>
               <span class="selectName">${resultNames}</span>
                 <input class="mRight10" type="checkbox" id="selectUser" value="${resultId}">
