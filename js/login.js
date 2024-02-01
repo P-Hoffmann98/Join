@@ -13,12 +13,12 @@ function login() {
     currentUser = {
       email: user.email,
       userId: user.id,
+      name: user.name,
       initials: user.initials,
     };
     console.log(currentUser);
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    // Hier zur Summary Page weiterleiten
-    // Beispiel: window.location.href = "summary.html";
+    window.location.href = "summary.html";
   } else {
     console.log("User nicht gefunden");
   }

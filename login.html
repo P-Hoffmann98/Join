@@ -13,7 +13,7 @@
     <script src="/js/login.js"></script>
   </head>
 
-  <body onload="init()">
+  <body onload="loginInit()">
     <div class="main-container">
       <div class="main-container-body login-centering">
         <img class="login-img" src="img/login/login_icon.svg" />
@@ -43,6 +43,7 @@
             <button
             type="button"
             class="remember-button"
+            required
             onclick="toggleRememberButtonColor()"
           >
             <img
@@ -54,9 +55,9 @@
         </div>
           <div class="login-buttons">
             <button id="user-login-button">Log in</button>
+          </form>
             <button id="guest-login-button">Guest Log in</button>
           </div>
-        </form>
           <div class="signup-container">
             <p>Not a Join user?</p>
             <a href="signup.html""><button id="signup-button">Sign up</button></a>

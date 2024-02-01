@@ -18,6 +18,14 @@ async function registerUser() {
     password: password,
     initials: initials,
   }),
+    contacts.push({
+      id: userId,
+      name: name,
+      email: email,
+      initials: initials,
+      phone: "",
+      color: "",
+    }),
     await setItem("users", JSON.stringify(users));
   signupbutton.disabled = false;
   /*resetForm();*/
