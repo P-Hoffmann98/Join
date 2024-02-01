@@ -27,42 +27,8 @@ async function getItem(key) {
 }
 
 async function loadUsers() {
-  users = JSON.parse(await getItem("users"));
+  users = JSON.parse(await getItem(users));
 }
-
-/*array structure on server:
-users = [
-  {
-    id: "",
-    name: "",
-    email: "",
-    password: "",
-    initials: "",
-  }];
-
-
-tasks [{
-    id:
-    autor:
-    title:
-    descripption:
-    assignedTo:
-    dueDate:
-    prio:
-    category:
-    subtasks: [ {subtask_name:  , subtask_status: ,} ]
-    contacts: []
-    status:
-}];
-    
-contacts: [{
-    id: "",
-    name: "",
-    email: "",
-    phone: "",
-    color: "",
-}];
-*/
 
 async function loadUsers() {
   try {

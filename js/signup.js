@@ -1,6 +1,7 @@
 async function signupInit() {
   await includeHTML();
   await loadUsers();
+  await loadContacts();
 }
 
 async function registerUser() {
@@ -17,6 +18,7 @@ async function registerUser() {
     email: email,
     password: password,
     initials: initials,
+    color: "",
   }),
     contacts.push({
       id: userId,
@@ -27,6 +29,7 @@ async function registerUser() {
       color: "",
     }),
     await setItem("users", JSON.stringify(users));
+  await setItem("contacts", JSON.stringify(contacts));
   signupbutton.disabled = false;
   /*resetForm();*/
   window.location.href = "login.html";
