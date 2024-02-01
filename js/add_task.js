@@ -240,7 +240,7 @@ function renderSelectedContactsFromTask() {
     let resultUserIndex = contacts.indexOf(assignedToAddTask[i]);
     // document.getElementById(
     //   "outputSelectedContacts"
-    // ).innerHTML = `${users[resultUserIndex]["initials"]}`;
+    // ).innerHTML += `${users[resultUserIndex]["initials"]}`;
   }
 }
 
