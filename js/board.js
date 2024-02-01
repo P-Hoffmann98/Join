@@ -69,8 +69,18 @@ function boardIndexOfTasks(/* array mit den Daten */) {
     }
 }
 /* ******************* Render Functions ******************* */
-function boardRenderTasksPreview(boardTasksToDo, tasksCategory) { /* tasksList*/
+
+
+function boardRenderStatusPreview(boardTasksArray, tasksCategory) { /* tasksList*/
     let tasksCategoryDiv = document.getElementById(tasksCategory) /*'board_task_category_todo'*/
+    
+    if (boardTasksArray == []) {
+        boardRenderTasksPlaceholder(tasksCategory);
+    } else {
+        boardRenderTasksPreview(boardTasksArray, tasksCategory);
+    }
 
 }
+
+
 /* ******************* Render Functions - end ******************* */
