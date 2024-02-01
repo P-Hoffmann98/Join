@@ -50,30 +50,53 @@ function boardSortTasks(id, status) {
 
 
 function boardIndexOfTasks(id) {
-    
+
     /* for (let i = 0; i < boardTasksToDo.length; i++) {
 
         const id = boardTasksToDo[i]; */
 
-        for (let j = 0; j < tasks.length; j++) {
-            const task = tasks[j];
+    for (let j = 0; j < tasks.length; j++) {
+        const task = tasks[j];
 
 
-            if (task['id'] == id) {
-                console.log(task['id']);
-                console.log(id);
-                console.log(j);
-                return j;
-            }
+        if (task['id'] == id) {
+            console.log(task['id']);
+            console.log(id);
+            console.log(j);
+            return j;
         }
+    }
     /* } */
 }
+
+
+function boardGetNameStatusCategory(tasksCategory) {
+    switch (tasksCategory) {
+        case 'board_task_category_todo':
+            return 'To do'
+            break;
+        case 'board_task_category_progress':
+            return 'In progress'
+            break;
+        case 'board_task_category_feedback':
+            return 'Await feedback'
+            break;
+        case 'board_task_category_done':
+            return 'Done'
+            break;
+        default:
+            console.error('Wrong Category hand over in function board GetStatusCategory()')
+            break;
+    }
+}
+
+
 /* ******************* Render Functions ******************* */
 
 
 function boardRenderStatusPreview(boardTasksArray, tasksCategory) { /* tasksList*/
     let tasksCategoryDiv = document.getElementById(tasksCategory) /*'board_task_category_todo'*/
-    
+
     if (boardTasksArray == []) {
         boardRenderTasksPlaceholder(tasksCategory);
     } else {
@@ -83,14 +106,22 @@ function boardRenderStatusPreview(boardTasksArray, tasksCategory) { /* tasksList
 
 
 function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
-    let tasksCategoryDiv = document.getElementById(tasksCategory) /*'board_task_category_todo'*/
+    let tasksCategoryDiv = document.getElementById(tasksCategory); /*'board_task_category_todo'*/
     tasksCategoryDiv.innerHTML = '';
 
     for (let i = 0; i < boardTasksArray.length; i++) {
         const id = boardTasksArray[i];
-        let tasksIndex = boardIndexOfTasks(id); 
-        tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);  
+        let tasksIndex = boardIndexOfTasks(id);
+        tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
     }
+}
+
+
+function boardRenderTasksPlaceholder(tasksCategory) {
+    let tasksCategoryDiv = document.getElementById(tasksCategory); /*'board_task_category_todo'*/
+    tasksCategoryDiv.innerHTML = '';
+    let tasksCategoryStatus = boardGetNameStatusCategory(tasksCategory);
+    tasksCategoryDiv.innerHTML = boardRenderTasksPlaceholderHTML(tasksCategoryStatus);
 }
 
 
