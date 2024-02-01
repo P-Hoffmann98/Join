@@ -81,9 +81,18 @@
                                            
                   <h3 class="m-top-40">Subtasks</h3>
                     <label for="subtaskAddTask" class="add-task-label m-bottom-40 bgC-white"> 
-                      <input type="text" name="subtaskAddTask"  class="add-task-title" id="add_task_subtask" placeholder="Add new Subtask">
-                        <img src="./img/add-task-subtask.svg" class="m-right-20 addSubtaskImg" onclick="addSubtask()">
+                      <input type="text" name="subtaskAddTask"  class="add-task-title" id="add_task_subtask" placeholder="Add new Subtask" onkeyup="changeSubTaskImg()">
+                        <img src="./img/add_task_close.png" class="m-right-20 addSubtaskImg" onclick="clearSubTaskInput();">
+                        <img src="./img/add-task-subtask.svg" class="m-right-20 addSubtaskImg" id="subtaskImg" onclick="addSubtask()">
                     </label>
+                    <div id="outputSubtasks" class="outputSubtaskClass">
+                      <ul>
+                        <li ondblclick="editSubTask()" class="cursorPointer">&#8226;Contact form <div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></li>
+                        <li ondblclick="editSubTask()" class="cursorPointer">&#8226;Contact form <div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></li>
+                        <li ondblclick="editSubTask()" class="cursorPointer">&#8226;Contact form <div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></li>
+                        <li ondblclick="editSubTask()" class="cursorPointer">&#8226;Contact form <div><img src="./img/add_task_edit_small.png" class="m-right20 cursorPointer" onclick="editSubTask()"><img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask()"></div></li>
+                      </ul>
+                    </div>
                               
                   <div class="add-task-bottom-container">
                     <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center">Clear X</button>
