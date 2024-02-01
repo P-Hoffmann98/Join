@@ -10,13 +10,15 @@ let boardTasksDone = [];
 async function boardInit() {
     await includeHTML();
     await loadTasks();
+    await boardReadTasks();
+    boardRenderTasksPlaceholder('board_task_category_todo');
 }
 
 
 /**
  * function read tasks from tasks-json and start function boardSortTasks()
  */
-function boardReadTasks() {
+async function boardReadTasks() {
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         boardSortTasks(task['id'], task['status'])
@@ -122,6 +124,15 @@ function boardRenderTasksPlaceholder(tasksCategory) {
     tasksCategoryDiv.innerHTML = '';
     let tasksCategoryStatus = boardGetNameStatusCategory(tasksCategory);
     tasksCategoryDiv.innerHTML = boardRenderTasksPlaceholderHTML(tasksCategoryStatus);
+}
+
+
+function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
+    return /* html */`
+    <div class="board-no-task-feedback">
+        <span class="board-no-task-feedback-text">No tasks ${tasksCategoryStatus}</span>
+    </div>
+    `;
 }
 
 
