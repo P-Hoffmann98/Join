@@ -31,18 +31,8 @@ async function registerUser() {
     await setItem("users", JSON.stringify(users));
   await setItem("contacts", JSON.stringify(contacts));
   signupbutton.disabled = false;
-  /*resetForm();*/
   window.location.href = "login.html";
 }
-
-/*
-function resetForm() {
-  document.getElementById("signup-input-name").value = "";
-  document.getElementById("signup-input-email").value = "";
-  document.getElementById("signup-input-password").value = "";
-  document.getElementById("signup-input-confirm-password").value = "";
-}
-*/
 
 function generateUserInitials(name) {
   return name
