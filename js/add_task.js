@@ -314,3 +314,7 @@ function addTaskCloseContextMenuCategory() {
     .getElementById("add_task_select_category_box")
     .classList.add("d-none");
 }
+
+function changeSubTaskImg() {}
+
+function deleteSubTask() {}
