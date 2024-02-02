@@ -22,9 +22,17 @@
 
 .nav-menu-point {
   display: flex;
-  gap: 15px;
+  justify-content: left;
   cursor: pointer;
   align-items: center;
+  width: 100%;
+  border: 0px solid white;
+  padding: 8px 62px 8px 61px;
+  gap: 8px;
+}
+
+.nav-menu-point:hover {
+  background-color: rgba(9, 25, 49, 1);
 }
 
 .nav-menu-point a {
@@ -39,6 +47,21 @@
   flex-direction: column;
   color: #a8a8a8;
   cursor: pointer;
+  gap: 8px;
+}
+
+.legal-notice a {
+  font-size: 16px;
+  padding: 8px;
+  color: rgba(168, 168, 168, 1);
+}
+
+.legal-notice a:hover {
+  color: rgba(41, 171, 226, 1);
+}
+
+.active-menu-link {
+  background-color: rgba(9, 25, 49, 1);
 }
 
 @media (max-width: 550px) {
