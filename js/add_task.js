@@ -70,7 +70,7 @@ function addTaskToVar() {
 async function addTaskSave() {
   tasks.push({
     id: Date.now(),
-    autor: currentUser["userID"],
+    autor: currentUser["userId"],
     title: titleAddTask,
     description: descriptionAddTask,
     assignedTo: assignedToAddTask,
@@ -187,10 +187,21 @@ function addTaskSearchName() {
       resultNames = contacts[i]["name"];
       resultId = contacts[i]["id"];
       resultInitials = contacts[i]["initials"];
+      // markSelectedContacts(resultId);
       addTaskRenderSearchName();
     }
   }
 }
+
+// function markSelectedContacts(id) {
+//   if (assignedToAddTask.includes(id)) {
+//     console.log("Ist Da");
+//     addTaskRenderSearchName();
+//   } else {
+//     console.log("Ist nicht da");
+//     addTaskRenderSearchName();
+//   }
+// }
 
 function addTaskRenderSearchName() {
   document.getElementById(
@@ -237,11 +248,15 @@ function deleteContactFromTask(contactId) {
 }
 
 function renderSelectedContactsFromTask() {
+  document.getElementById("outputSelectedContacts").innerHTML = ``;
   for (let i = 0; i < assignedToAddTask.length; i++) {
-    let resultUserIndex = contacts.indexOf(assignedToAddTask[i]);
-    // document.getElementById(
-    //   "outputSelectedContacts"
-    // ).innerHTML += `${users[resultUserIndex]["initials"]}`;
+    for (let j = 0; j < contacts.length; j++) {
+      if (assignedToAddTask[i] == contacts[j]["id"]) {
+        document.getElementById(
+          "outputSelectedContacts"
+        ).innerHTML += `<span class="initialsOverview" style="background-color:${contacts[j]["color"]}">${contacts[j]["initials"]}</span>`;
+      }
+    }
   }
 }
 
