@@ -315,12 +315,24 @@ function addTaskCloseContextMenuCategory() {
     .classList.add("d-none");
 }
 
-function addSubtask() {}
+function addSubtask() {
+  console.log("add");
+}
 
-function clearSubTaskInput() {}
+function editSubTask() {
+  console.log("edit");
+}
 
-function changeSubTaskImg() {}
+function clearSubTaskInput() {
+  console.log("clear");
+}
 
-function deleteSubtask() {}
+function changeSubTaskImg() {
+  console.log("changeImg");
+}
+
+function deleteSubtask() {
+  console.log("delete");
+}
 
 function renderSubTasks() {}
