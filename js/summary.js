@@ -1,6 +1,7 @@
 function summaryInit() {
   includeHTML();
   loadTasks();
+  loadCurrentUser();
 }
 
 setTimeout(loadCounts, 500);
