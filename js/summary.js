@@ -2,6 +2,7 @@ function summaryInit() {
   includeHTML();
   loadTasks();
   loadCurrentUser();
+  showCurrentUserName();
 }
 
 setTimeout(loadCounts, 500);
@@ -137,4 +138,8 @@ function summaryFindDueDate() {
     return; //gib zurück
   //ansonsten
   else urgendDate.innerHTML = closestDate.toLocaleDateString(); //gib closestsDate mit der funktion an die funktion toLocaleDateString weiter und gebe es dann aus
+}
+
+function showCurrentUserName() {
+  document.getElementById("welcomeName").innerHTML = `${currentUser["name"]}`;
 }
