@@ -1,3 +1,21 @@
+let allColors = [
+  "#FF7A00",
+  "#FF5EB3",
+  "#6E52FF",
+  "#9327FF",
+  "#00BEE8",
+  "#1FD7C1",
+  "#FF745E",
+  "#FFA35E",
+  "#FC71FF",
+  "#FFC701",
+  "#0038FF",
+  "#C3FF2B",
+  "#FFE62B",
+  "#FF4646",
+  "#FFBB2B",
+];
+
 async function signupInit() {
   await includeHTML();
   await loadUsers();
@@ -11,6 +29,8 @@ async function registerUser() {
   let password = document.getElementById("signup-input-password").value;
   let userId = generateUserId();
   let initials = generateUserInitials(name);
+  let i = Math.floor(Math.random() * allColors.length);
+  let color = allColors[i];
 
   users.push({
     id: userId,
@@ -18,17 +38,18 @@ async function registerUser() {
     email: email,
     password: password,
     initials: initials,
-    color: "",
-  }),
-    contacts.push({
-      id: userId,
-      name: name,
-      email: email,
-      initials: initials,
-      phone: "",
-      color: "",
-    }),
-    await setItem("users", JSON.stringify(users));
+    color: color,
+  });
+  contacts.push({
+    id: userId,
+    name: name,
+    email: email,
+    initials: initials,
+    phone: "",
+    color: color,
+  });
+
+  await setItem("users", JSON.stringify(users));
   await setItem("contacts", JSON.stringify(contacts));
   signupbutton.disabled = false;
   window.location.href = "login.html";
