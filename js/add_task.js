@@ -4,11 +4,12 @@ async function addTaskInit() {
   await loadTasks();
   await loadUsers();
   await loadContacts();
+  loadCurrentUser();
 }
 
 //Variablen für eingabefelder
 let addTaskPrio = "medium";
-let subtaskAddTask = ["123456789", "12354678974"];
+let subtaskAddTask = [];
 let categoryAddTask;
 let dueDateAddTask;
 let assignedToAddTask = [];
@@ -78,7 +79,7 @@ async function addTaskSave() {
     prio: addTaskPrio,
     categoryTask: categoryAddTask,
     subtask: subtaskAddTask,
-    status: "done",
+    status: "todo",
   });
 
   await setItem("tasks", JSON.stringify(tasks));
