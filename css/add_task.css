@@ -283,6 +283,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-bottom: 40px;
 }
 
+.m-bottom-20 {
+  margin-bottom: 20px;
+}
+
 .extra-small {
   color: red;
   font-size: 10px;
@@ -291,6 +295,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .m-top-40 {
   margin-top: 40px;
 }
+
+.m-top-20 {
+  margin-top: 20px;
+}
+
 .bgC-white {
   background-color: #ffffff;
 }
@@ -305,6 +314,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 200px;
   background-color: #ffffff;
   /* padding: 0 10px; */
+  margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   width: 440px;
@@ -462,4 +472,17 @@ label input {
 }
 .cursorPointer {
   cursor: pointer;
+}
+
+.initialsOverview {
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  height: 50px;
+  width: 50px;
+  margin-top: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
 }
