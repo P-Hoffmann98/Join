@@ -27,10 +27,6 @@ async function getItem(key) {
 }
 
 async function loadUsers() {
-  users = JSON.parse(await getItem(users));
-}
-
-async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
   } catch (e) {
@@ -52,4 +48,9 @@ async function loadContacts() {
   } catch (e) {
     console.error("Loading error:", e);
   }
+}
+
+function loadCurrentUser() {
+  let currentUserJSONTOText = localStorage.getItem("currentUser");
+  currentUser = JSON.parse(currentUserJSONTOText);
 }
