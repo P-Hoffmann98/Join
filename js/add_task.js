@@ -62,7 +62,6 @@ function addTaskCheckForm() {
 function addTaskToVar() {
   titleAddTask = document.getElementById("add_task_title").value;
   descriptionAddTask = document.getElementById("add_task_description").value;
-  assignedToAddTask = document.getElementById("add_task_assigned_to").value;
   dueDateAddTask = document.getElementById("add_task_due_date").value;
   subtaskAddTask = document.getElementById("add_task_subtask").value;
   addTaskSave();
@@ -71,7 +70,7 @@ function addTaskToVar() {
 async function addTaskSave() {
   tasks.push({
     id: Date.now(),
-    autor: "",
+    autor: currentUser["userID"],
     title: titleAddTask,
     description: descriptionAddTask,
     assignedTo: assignedToAddTask,
