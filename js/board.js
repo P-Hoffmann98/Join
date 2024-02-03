@@ -51,27 +51,31 @@ function boardSortTasks(id, status) {
 }
 
 
+/**
+ * Function read index of the id into tasks json
+ * @param {number} id 
+ * @returns index of tasks array
+ */
 function boardIndexOfTasks(id) {
-
-    /* for (let i = 0; i < boardTasksToDo.length; i++) {
-
-        const id = boardTasksToDo[i]; */
 
     for (let j = 0; j < tasks.length; j++) {
         const task = tasks[j];
 
-
         if (task['id'] == id) {
-            console.log(task['id']);
+            /* console.log(task['id']);
             console.log(id);
-            console.log(j);
+            console.log(j); */
             return j;
         }
     }
-    /* } */
 }
 
 
+/**
+ * finction return a stirng to render right name into placeholder if no task exist into any task category
+ * @param {string} tasksCategory is the id of the category div
+ * @returns Name of category as string
+ */
 function boardGetNameStatusCategory(tasksCategory) {
     switch (tasksCategory) {
         case 'board_task_category_todo':
@@ -96,6 +100,9 @@ function boardGetNameStatusCategory(tasksCategory) {
 /* ******************* Render Functions ******************* */
 
 
+/**
+ * function call boardRenderStatusPreview for all categorys of tasks
+ */
 function boardRenderInit() {
     boardRenderStatusPreview(boardTasksToDo, 'board_task_category_todo');
     boardRenderStatusPreview(boardTasksProgress, 'board_task_category_progress');
@@ -104,8 +111,12 @@ function boardRenderInit() {
 }
 
 
-function boardRenderStatusPreview(boardTasksArray, tasksCategory) { /* tasksList*/
-    let tasksCategoryDiv = document.getElementById(tasksCategory) /*'board_task_category_todo'*/
+/**
+ * function checked if boardTasksArray is empty an call the right render function for placeholder or cards preview
+ * @param {Array} boardTasksArray 
+ * @param {string} tasksCategory 
+ */
+function boardRenderStatusPreview(boardTasksArray, tasksCategory) {  
 
     if (boardTasksArray == []) {
         boardRenderTasksPlaceholder(tasksCategory);
@@ -115,8 +126,13 @@ function boardRenderStatusPreview(boardTasksArray, tasksCategory) { /* tasksList
 }
 
 
+/**
+ * function render all preview cards of tasks
+ * @param {Array} boardTasksArray 
+ * @param {string} tasksCategory 
+ */
 function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
-    let tasksCategoryDiv = document.getElementById(tasksCategory); /*'board_task_category_todo'*/
+    let tasksCategoryDiv = document.getElementById(tasksCategory);
     tasksCategoryDiv.innerHTML = '';
 
     for (let i = 0; i < boardTasksArray.length; i++) {
@@ -127,6 +143,10 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
 }
 
 
+/**
+ * function render placeholder if no tasks exist into category
+ * @param {string} tasksCategory 
+ */
 function boardRenderTasksPlaceholder(tasksCategory) {
     let tasksCategoryDiv = document.getElementById(tasksCategory); /*'board_task_category_todo'*/
     tasksCategoryDiv.innerHTML = '';
@@ -135,6 +155,11 @@ function boardRenderTasksPlaceholder(tasksCategory) {
 }
 
 
+/**
+ * function return html code to render
+ * @param {string} tasksCategoryStatus name of category
+ * @returns html code to render placeholder
+ */
 function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
     return /* html */`
     <div class="board-no-task-feedback">
@@ -144,6 +169,11 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
 }
 
 
+/**
+ * function return html code to render
+ * @param {number} tasksIndex index of dataset into tasks array
+ * @returns html code to render preview card
+ */
 function boardRenderTasksPreviewHTML(tasksIndex) {
     return /* html */`
     <div class="board-task-card-preview">
