@@ -145,8 +145,7 @@ function boardRenderInit() {
  * @param {string} tasksCategory 
  */
 function boardRenderStatusPreview(boardTasksArray, tasksCategory) {
-
-    if (boardTasksArray == []) {
+    if (boardTasksArray.length == 0) {
         boardRenderTasksPlaceholder(tasksCategory);
     } else {
         boardRenderTasksPreview(boardTasksArray, tasksCategory);
