@@ -97,6 +97,14 @@ function boardGetNameStatusCategory(tasksCategory) {
 /* ******************* Render Functions ******************* */
 
 
+function boardRenderInit() {
+    boardRenderStatusPreview(boardTasksToDo, 'board_task_category_todo');
+    boardRenderStatusPreview(boardTasksProgress, 'board_task_category_progress');
+    boardRenderStatusPreview(boardTasksFeedback, 'board_task_category_feedback');
+    boardRenderStatusPreview(boardTasksDone, 'board_task_category_done');
+}
+
+
 function boardRenderStatusPreview(boardTasksArray, tasksCategory) { /* tasksList*/
     let tasksCategoryDiv = document.getElementById(tasksCategory) /*'board_task_category_todo'*/
 
