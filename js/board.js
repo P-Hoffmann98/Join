@@ -11,8 +11,7 @@ async function boardInit() {
     await includeHTML();
     await loadTasks();
     await boardReadTasks();
-    boardRenderTasksPlaceholder('board_task_category_todo');
-    boardRenderTasksPreview(boardTasksToDo, 'board_task_category_todo');
+    boardRenderInit();
 }
 
 
