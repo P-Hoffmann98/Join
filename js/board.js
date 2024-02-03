@@ -16,10 +16,20 @@ async function boardInit() {
 }
 
 
+function boardCleanTaksArrays() {
+    boardTasksToDo = [];
+    boardTasksProgress = [];
+    boardTasksFeedback = [];
+    boardTasksDone = [];
+}
+
+
 /**
  * function read tasks from tasks-json and start function boardSortTasks()
  */
 async function boardReadTasks() {
+    boardCleanTaksArrays();
+
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         boardSortTasks(task['id'], task['status'])
