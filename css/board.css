@@ -286,21 +286,12 @@ line-height: 120%; */
     padding-right: 7.5px;
 }
 
-@media (max-width: 550px) {
-
-    .board-main-container {
-        margin-left: 0;
-        margin-top: 80px;
-        margin-bottom: 80px;
-        height: calc(100vh - 160px);
-    }
+@media (max-width: 1100px) {
 
     .board-headline {
         flex-direction: column;
-        /* justify-content: space-between; */
         align-items: center;
         padding: 48px 16px 24px 16px;
-        /* Anpassen nach Einbindung serach input */
     }
 
     .board-headline-button {
@@ -336,6 +327,56 @@ line-height: 120%; */
         border: 1px solid #2A3647;
         background: #2A3647;
     }
+}
+
+@media (max-width: 550px) {
+
+    .board-main-container {
+        margin-left: 0;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        height: calc(100vh - 160px);
+    }
+
+    /* .board-headline {
+        flex-direction: column;
+        align-items: center;
+        padding: 48px 16px 24px 16px;
+    }
+
+    .board-headline-button {
+        width: 100%;
+        padding-bottom: 48px;
+    }
+
+    .board-headline-text {
+        font-size: 47px;
+    }
+
+    .board-headline-container-search-add {
+        width: 100%;
+    }
+
+    .board-input-search {
+        width: 100%;
+    }
+
+    .board-button-addTask {
+        display: none;
+    }
+
+    .board-button-addTask-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        padding: 3px;
+        padding: 8px 16px;
+        border-radius: 10px;
+        border: 1px solid #2A3647;
+        background: #2A3647;
+    } */
 
     .board-task-main {
         flex-wrap: nowrap;
@@ -374,7 +415,7 @@ line-height: 120%; */
     }
 
     /* media mobile nav-leiste */
-  /*   header {
+    /*   header {
         padding: 16px 20px;
     } */
 
