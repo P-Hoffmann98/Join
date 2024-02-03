@@ -125,6 +125,16 @@ async function boardDrop(category) {
 }
 
 
+function boardAddBackgroundMoveTask(id) {
+    document.getElementById(id).classList.add('board-drop-category-background');
+}
+
+
+function boardRemoveBackgroundMoveTask(id) {
+    document.getElementById(id).classList.remove('board-drop-category-background');
+}
+
+
 /* **************************************************************** Render Functions ************************************************************** */
 
 
