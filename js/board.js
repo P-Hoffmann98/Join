@@ -2,6 +2,7 @@ let boardTasksToDo = [];
 let boardTasksProgress = [];
 let boardTasksFeedback = [];
 let boardTasksDone = [];
+let boardCurrentDraggedTask;
 
 
 /**
@@ -97,7 +98,24 @@ function boardGetNameStatusCategory(tasksCategory) {
 }
 
 
-/* ******************* Render Functions ******************* */
+function boardStartDragging(tasksIndex) {
+    boardCurrentDraggedTask = tasksIndex;
+}
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
+async function boardDrop(category) {
+    tasks[boardCurrentDraggedTask]['status'] = category;
+    await boardReadTasks();
+    boardRenderInit();
+}
+
+
+/* **************************************************************** Render Functions ************************************************************** */
 
 
 /**
@@ -116,7 +134,7 @@ function boardRenderInit() {
  * @param {Array} boardTasksArray 
  * @param {string} tasksCategory 
  */
-function boardRenderStatusPreview(boardTasksArray, tasksCategory) {  
+function boardRenderStatusPreview(boardTasksArray, tasksCategory) {
 
     if (boardTasksArray == []) {
         boardRenderTasksPlaceholder(tasksCategory);
@@ -176,7 +194,7 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
  */
 function boardRenderTasksPreviewHTML(tasksIndex) {
     return /* html */`
-    <div class="board-task-card-preview">
+    <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" class="board-task-card-preview">
         <span class="board-task-card-taskcategory">User Story</span>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description">Build start page with recipe
