@@ -239,8 +239,7 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
     <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" class="board-task-card-preview">
         <span class="board-task-card-taskcategory">User Story</span>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
-        <span class="board-task-card-description">Build start page with recipe
-            recommendation...</span>
+        <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
         <div class="board-task-card-progress-container">
             <div class="board-task-card-progressbar">
                 <div class="board-task-card-progress"></div>
