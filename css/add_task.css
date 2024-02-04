@@ -257,6 +257,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
+.add-subtask-img {
+  margin-right: 5px;
+}
+
 .add-task-clear-button {
   height: 56px;
   width: 110px;
@@ -463,13 +467,22 @@ label input {
 }
 
 .li {
-  width: 100%;
+  width: 440px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
   padding-right: 30px;
 }
+
+.li span {
+  width: 80%;
+}
+
+.container_img_subtask {
+  display: flex;
+}
+
 .cursorPointer {
   cursor: pointer;
 }
@@ -485,4 +498,14 @@ label input {
   text-align: center;
   font-size: 12px;
   padding: 10px;
+}
+
+[contenteditable] {
+  outline: 1px solid transparent;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+}
+
+[contenteditable]:focus {
+  outline: 1px solid #29abe2;
 }
