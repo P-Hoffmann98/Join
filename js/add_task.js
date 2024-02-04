@@ -4,6 +4,7 @@ async function addTaskInit() {
   await loadTasks();
   await loadUsers();
   await loadContacts();
+  renderSubTasks();
   loadCurrentUser();
 }
 
@@ -331,23 +332,74 @@ function addTaskCloseContextMenuCategory() {
 }
 
 function addSubtask() {
-  console.log("add");
+  let subtaskInput = document.getElementById("add_task_subtask").value;
+  subtaskAddTask.push(subtaskInput);
+  clearSubTaskInput();
+  renderSubTasks();
 }
 
-function editSubTask() {
-  console.log("edit");
+function editSubTask(index) {
+  let editContent = document.getElementById(`subtaskContent${index}`);
+  editContent.contentEditable = true;
+  editContent.focus();
+  changeImagesByEditingSubtask(index);
+}
+
+function changeImagesByEditingSubtask(index) {
+  document
+    .getElementById(`img_add_subtask_check${index}`)
+    .classList.remove("d-none");
+  document.getElementById(`img_add_subtask${index}`).classList.add("d-none");
+}
+
+function saveEditing(index) {
+  let output = document.getElementById(`subtaskContent${index}`).innerHTML;
+  subtaskAddTask[index] = output;
+  document
+    .getElementById(`img_add_subtask_check${index}`)
+    .classList.add("d-none");
+  document.getElementById(`img_add_subtask${index}`).classList.remove("d-none");
+  renderSubTasks();
 }
 
 function clearSubTaskInput() {
-  console.log("clear");
+  document.getElementById("add_task_subtask").value = ``;
+  changeSubTaskImg();
 }
 
 function changeSubTaskImg() {
-  console.log("changeImg");
+  if (document.getElementById("add_task_subtask").value.length > 0) {
+    document.getElementById("add_task_subtask_img").src =
+      "./img/add_task_check_small.png";
+    document
+      .getElementById("add_task_subtask_img")
+      .classList.add("add-subtask-img");
+  } else {
+    document.getElementById("add_task_subtask_img").src =
+      "./img/add-task-subtask.svg";
+    document
+      .getElementById("add_task_subtask_img")
+      .classList.add("add-subtask-img");
+  }
 }
 
-function deleteSubtask() {
-  console.log("delete");
+function deleteSubtask(index) {
+  subtaskAddTask.splice(index, 1);
+  renderSubTasks();
 }
 
-function renderSubTasks() {}
+function renderSubTasks() {
+  let output = document.getElementById("outputSubtasks");
+  output.innerHTML = ``;
+  for (let i = 0; i < subtaskAddTask.length; i++) {
+    output.innerHTML += `                        
+    <div ondblclick="editSubTask(${i})" class="cursorPointer li"  contenteditable="false">
+      &#8226;<span id="subtaskContent${i}"> ${subtaskAddTask[i]}</span>
+        <div class="container_img_subtask">
+          <img id="img_add_subtask_check${i}" src="./img/add_task_check_small.png" onclick="saveEditing(${i})" class="m-right20 cursorPointer d-none">
+          <img id="img_add_subtask${i}" src="./img/add_task_edit_small.png" onclick="editSubTask(${i})" class="m-right20 cursorPointer">
+          <img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask(${i})">
+        </div>
+    </div>`;
+  }
+}
