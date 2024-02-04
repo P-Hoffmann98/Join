@@ -27,8 +27,21 @@ header {
   cursor: pointer;
 }
 
-.user-icon {
+/* .user-icon {
   cursor: pointer;
+} */
+
+.header-initials {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  border: 3px solid rgba(42, 54, 71, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(41, 171, 226, 1);
+  font-weight: 600;
+  font-size: 20px;
 }
 
 @media (max-width: 750px) {
