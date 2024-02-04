@@ -37,6 +37,7 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
         let tasksIndex = boardIndexOfTasks(id);
         tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
         boardRenderStoryline(tasksIndex);
+        boardRenderImgPrio(tasksIndex);
     }
 }
 
@@ -59,6 +60,12 @@ function boardRenderStoryline(tasksIndex) {
 
     document.getElementById(`board_task_storyline_${tasksIndex}`).innerHTML = storyline;
     document.getElementById(`board_task_storyline_${tasksIndex}`).classList.add(cssClass);
+}
+
+
+function boardRenderImgPrio(tasksIndex) {
+    let imgName = tasks[tasksIndex]['prio'];
+    document.getElementById(`board-task-card-priority_${tasksIndex}`).src = `./img/board/board_task_${imgName}.svg`;
 }
 
 
@@ -120,8 +127,7 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
                     <span class="board-task-card-profile-text">NT</span>
                 </div>
             </div>
-            <img class="board-task-card-priority" src="./img/board/board_task_urgent.svg"
-                alt="">
+            <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
         </div>
     </div>
     `;
