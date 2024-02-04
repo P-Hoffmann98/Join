@@ -87,7 +87,11 @@ function boardRenderDetailCard(tasksIndex) {
     tasksCategoryDiv.parentElement.classList.add('d-flex');
     tasksCategoryDiv.innerHTML = '';
     tasksCategoryDiv.innerHTML = /* html */`
-        <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
+        <div>
+            <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory"></span>
+        </div>
+
+
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
         <div class="board-task-card-progress-container">
