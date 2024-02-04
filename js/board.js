@@ -16,6 +16,9 @@ async function boardInit() {
 }
 
 
+/**
+ * clean all data in the sort arrays
+ */
 function boardCleanTaksArrays() {
     boardTasksToDo = [];
     boardTasksProgress = [];
@@ -83,7 +86,7 @@ function boardIndexOfTasks(id) {
 
 
 /**
- * finction return a stirng to render right name into placeholder if no task exist into any task category
+ * function return a stirng to render right name into placeholder if no task exist into any task category
  * @param {string} tasksCategory is the id of the category div
  * @returns Name of category as string
  */
@@ -108,16 +111,28 @@ function boardGetNameStatusCategory(tasksCategory) {
 }
 
 
+/**
+ * store the index in variable boardCurrentDraggedTask if card will clicked an hold
+ * @param {number} tasksIndex is a number of Index into the tasks array
+ */
 function boardStartDragging(tasksIndex) {
     boardCurrentDraggedTask = tasksIndex;
 }
 
 
+/**
+ * 
+ * @param {Event} ev 
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
 
+/**
+ * function change the status of the task to the droped category status (todo, progress, feedback or done) and call the render functions
+ * @param {string} category 
+ */
 async function boardDrop(category) {
     tasks[boardCurrentDraggedTask]['status'] = category;
     await boardReadTasks();
@@ -125,11 +140,19 @@ async function boardDrop(category) {
 }
 
 
+/**
+ * set background-color to a div with called id
+ * @param {string} id is a container id
+ */
 function boardAddBackgroundMoveTask(id) {
     document.getElementById(id).classList.add('board-drop-category-background');
 }
 
 
+/**
+ * remove background-color to a div with called id
+ * @param {string} id is a container id
+ */
 function boardRemoveBackgroundMoveTask(id) {
     document.getElementById(id).classList.remove('board-drop-category-background');
 }
