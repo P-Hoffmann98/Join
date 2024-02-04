@@ -187,23 +187,19 @@ function addTaskSearchName() {
       resultNames = contacts[i]["name"];
       resultId = contacts[i]["id"];
       resultInitials = contacts[i]["initials"];
-      // markSelectedContacts(resultId);
-      addTaskRenderSearchName();
+      let selectContact = markSelectedContacts(resultId);
+      addTaskRenderSearchName(selectContact);
     }
   }
 }
 
-// function markSelectedContacts(id) {
-//   if (assignedToAddTask.includes(id)) {
-//     console.log("Ist Da");
-//     addTaskRenderSearchName();
-//   } else {
-//     console.log("Ist nicht da");
-//     addTaskRenderSearchName();
-//   }
-// }
+function markSelectedContacts(id) {
+  if (assignedToAddTask.includes(id)) {
+    return true;
+  }
+}
 
-function addTaskRenderSearchName() {
+function addTaskRenderSearchName(color) {
   document.getElementById(
     "add_task_select_user_box"
   ).innerHTML += `                     
@@ -212,6 +208,9 @@ function addTaskRenderSearchName() {
               <span class="selectName">${resultNames}</span>
                 <img src="./img/add_task_rectangle.svg" id="selectContactBox${resultId}">
           </div>`;
+  if (color) {
+    document.getElementById(resultId).classList.add("selectedContact");
+  }
 }
 
 function addTaskShowMsg(param) {
