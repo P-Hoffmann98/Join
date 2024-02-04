@@ -213,6 +213,7 @@ span.board-task-card-preview {
 }
 
 .board-task-card-description {
+
     color: var(--icon, #A8A8A8);
     margin-bottom: 24px;
     /* Version 2/body */
@@ -222,6 +223,13 @@ font-style: normal;
 font-weight: 400;
 line-height: 120%; */
     /* 19.2px */
+}
+
+.board-line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .board-task-card-progress-container {
