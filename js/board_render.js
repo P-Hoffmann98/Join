@@ -36,7 +36,29 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
         const id = boardTasksArray[i];
         let tasksIndex = boardIndexOfTasks(id);
         tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
+        boardRenderStoryline(tasksIndex);
     }
+}
+
+
+/**
+ * Render categoryTask from tasks-json
+ * @param {number} tasksIndex 
+ */
+function boardRenderStoryline(tasksIndex) {
+    let storyline;
+    let cssClass;
+
+    if (tasks[tasksIndex]['categoryTask'] == 1) {
+        storyline = 'Technical Task';
+        cssClass = 'board-technicaltask-color'
+    } else {
+        storyline = 'User Story';
+        cssClass = 'board-userstory-color'
+    }
+
+    document.getElementById(`board_task_storyline_${tasksIndex}`).innerHTML = storyline;
+    document.getElementById(`board_task_storyline_${tasksIndex}`).classList.add(cssClass);
 }
 
 
@@ -50,6 +72,9 @@ function boardRenderTasksPlaceholder(tasksCategory) {
     let tasksCategoryStatus = boardGetNameStatusCategory(tasksCategory);
     tasksCategoryDiv.innerHTML = boardRenderTasksPlaceholderHTML(tasksCategoryStatus);
 }
+
+
+/* ************************************************* return HTML code ********************************************************************************************* */
 
 
 /**
@@ -74,7 +99,7 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
 function boardRenderTasksPreviewHTML(tasksIndex) {
     return /* html */`
     <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" class="board-task-card-preview">
-        <span class="board-task-card-taskcategory">User Story</span>
+        <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
         <div class="board-task-card-progress-container">

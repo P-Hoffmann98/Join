@@ -194,12 +194,20 @@ span.board-task-card-preview {
     padding: 4px 16px;
     margin-bottom: 24px;
     border-radius: 8px;
-    background: #0038FF;
+    /* background: #0038FF; */
     color: #FFF;
     /* font-size: 16px; */
     /* font-style: normal;
     font-weight: 400;
     line-height: 120%; */
+}
+
+.board-userstory-color {
+    background: #0038FF;
+}
+
+.board-technicaltask-color {
+    background: #1FD7C1;
 }
 
 .board-task-card-headline {
