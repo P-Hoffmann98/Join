@@ -187,6 +187,7 @@ function addTaskSearchName() {
       resultNames = contacts[i]["name"];
       resultId = contacts[i]["id"];
       resultInitials = contacts[i]["initials"];
+      resultColor = contacts[i]["color"];
       let selectContact = markSelectedContacts(resultId);
       addTaskRenderSearchName(selectContact);
     }
@@ -204,7 +205,7 @@ function addTaskRenderSearchName(color) {
     "add_task_select_user_box"
   ).innerHTML += `                     
           <div class="selectField" id="${resultId}" onclick="addStyleToSelectedContact(${resultId})">
-            <span class="selectInitial dFlexAiCenterJcCenter">${resultInitials}</span>
+            <span class="selectInitial dFlexAiCenterJcCenter" style="background-color:${resultColor}">${resultInitials}</span>
               <span class="selectName">${resultNames}</span>
                 <img src="./img/add_task_rectangle.svg" id="selectContactBox${resultId}">
           </div>`;
