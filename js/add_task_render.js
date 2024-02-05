@@ -9,6 +9,8 @@ function addTaskRenderSearchName(color) {
             </div>`;
   if (color) {
     document.getElementById(resultId).classList.add("selectedContact");
+    document.getElementById("selectContactBox" + resultId).src =
+      "./img/add_task_rectangle_check.svg";
   }
 }
 
