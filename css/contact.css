@@ -2,18 +2,21 @@
   padding-left: 232px;
   padding-top: 96px;
 }
+
 .contact-container {
   display: flex;
 }
+
 .contact-container-left {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 40%;
-  height: 100vh;
+  height: 100%;
   background-color: white;
   box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
+
 .contact-container-right {
   display: flex;
   margin-left: 50px;
@@ -31,14 +34,17 @@
 .contact-container-right-header > h1 {
   font-size: 64px;
 }
+
 .contact-container-right-header > p {
   font-size: 28px;
 }
+
 .contact-spacer {
   height: 60px;
   width: 1px;
   background-color: #29abe2;
 }
+
 .add-contact {
   font-family: Inter;
   font-size: 21px;
@@ -54,18 +60,23 @@
   background: #2a3647;
   gap: 16px;
   height: 56px;
-  width: 352px;
+  width: 80%;
   padding: 12px 0px;
   margin: 22.5px 52px 22.5px 52px;
 }
-.contact-list {
-  margin-left: 52px;
-}
-.contact-card {
+
+.contact-list > * {
   margin: 15px 24px 15px 24px;
   display: flex;
   gap: 35px;
+  cursor: pointer;
 }
+
+.contact-card {
+  border-radius: 10px;
+  padding: 15px 24px;
+}
+
 .circle {
   display: flex;
   justify-content: center;
@@ -73,14 +84,98 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: red;
+  border: solid 2px white;
   color: white;
   font-size: 16px;
 }
-.contact-card > h1 {
+
+.contact > h1 {
   font-size: 20px;
 }
-.contact.card > p {
+
+.contact > p {
   font-size: 16px;
   color: #007cee;
 }
+
+.big-contact-card {
+  height: fit-content;
+  margin-top: 200px;
+}
+
+.big-contact-header {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+  margin-bottom: 21px;
+}
+
+.big-contact-header > h1 {
+  font-size: 47px;
+  font-weight: 500;
+}
+
+.big-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 4px white;
+  color: white;
+  font-size: 48px;
+}
+
+.big-contact-name-edits {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.big-contact-edit-delete {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.big-contact-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.big-contact-delete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.big-contact-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.big-contact-infos > h2 {
+  margin-bottom: 21px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.big-contact-infos > h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.big-contact-infos > a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #007cee;
+  color: #000000;
+  cursor: pointer;
+}
+
+
