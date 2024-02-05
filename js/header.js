@@ -3,4 +3,4 @@ function loadInitials() {
     currentUser["initials"];
 }
 
-setTimeout(loadInitials, 500);
+setTimeout(loadInitials, 700);
