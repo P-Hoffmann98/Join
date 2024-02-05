@@ -1,11 +1,30 @@
-<body onload="init()">
-    <div class="main-container">
-      <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
-      <div class="main-container-body">
-        <div w3-include-html="./templates/desktop/header_desktop.html"></div>
-        <div>
-          Inhalt
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+    <link rel="icon" type="image/x-icon" href="/img/Logo for Favicon.svg" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/nav.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <script src="/js/script.js"></script>
+    <script src="/js/storage.js"></script>
+    <script src="/js/contact.js"></script>
+  </head>
+
+  <body onload="contactInit()">
+    <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
+    <div class="main-container-body">
+      <div w3-include-html="./templates/desktop/header_desktop.html"></div>
+      <div id="contact-container">
+        <div id="contact-container-left">
+        <button class="add-contact">Add new contact<img src="img/contact/add_contact.svg"></button>
+        <div id="contact-list"></div>
       </div>
-    </div>
+        <div id="contact-container-right"></div>
+     </div>
   </body>
+</html>

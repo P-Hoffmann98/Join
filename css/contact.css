@@ -1,0 +1,35 @@
+.main-container-body {
+  padding-left: 232px;
+  padding-top: 96px;
+}
+#contact-container {
+  display: flex;
+}
+#contact-container-left {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+#contact-container-right {
+  width: 60%;
+}
+.add-contact {
+  font-family: Inter;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #2a3647;
+  background: #2a3647;
+  gap: 16px;
+  height: 56px;
+  margin: 22.5px 52px 22.5px 52px;
+}
