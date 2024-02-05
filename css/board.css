@@ -182,7 +182,8 @@
     /* 19.2px */
 }
 
-span.board-task-card-preview {
+span.board-task-card-preview,
+p.board-task-card-preview {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -341,6 +342,20 @@ line-height: 120%; */
     z-index: 999;
 }
 
+.board-task-detail-card p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.board-task-detail-card h1 {
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
 .board-task-detail-card {
     width: 525px;
     background: #FFFFFF;
@@ -348,7 +363,7 @@ line-height: 120%; */
     border-radius: 30px;
 }
 
-.board-task-card-detail-headline{
+.board-task-card-detail-storyline{
     margin-bottom: 24px;
 }
 
@@ -367,7 +382,20 @@ line-height: 120%; */
 }
 
 .board-task-card-detail-close:hover {
-    background-color: rgba(217, 217, 217, 1);
+    background-color: #D9D9D9;
+}
+
+.board-task-card-detail-headline {
+    margin-bottom: 24px;
+}
+
+.board-task-card-detail-description {
+    margin-bottom: 24px;
+}
+
+.board-task-card-detail-duedate {
+    color: #2A3647;
+    padding-right: 25px;
 }
 
 
