@@ -157,3 +157,10 @@ function boardAddBackgroundMoveTask(id) {
 function boardRemoveBackgroundMoveTask(id) {
     document.getElementById(id).classList.remove('board-drop-category-background');
 }
+
+
+function boardCloseDetailCard() {
+    let tasksCategoryDiv = document.getElementById('board_task_detail_card');
+    tasksCategoryDiv.parentElement.classList.add('d-none');
+    tasksCategoryDiv.parentElement.classList.remove('d-flex');
+}

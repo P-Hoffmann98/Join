@@ -10,6 +10,10 @@
     justify-content: center;
 }
 
+.jc-between {
+    justify-content: space-between;
+}
+
 .ai-center {
     align-items: center;
 }
@@ -343,6 +347,29 @@ line-height: 120%; */
     Padding: 48px 40px;
     border-radius: 30px;
 }
+
+.board-task-card-detail-headline{
+    margin-bottom: 24px;
+}
+
+.board-task-card-detail-taskcategory {
+    width: fit-content;
+    padding: 4px 24px;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 23px;
+}
+
+.board-task-card-detail-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50px;
+}
+
+.board-task-card-detail-close:hover {
+    background-color: rgba(217, 217, 217, 1);
+}
+
 
 /* ************************************************ tasks detail ende *********************************************************************************** */
 
