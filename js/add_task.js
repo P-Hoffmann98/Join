@@ -6,6 +6,8 @@ async function addTaskInit() {
   await loadContacts();
   renderSubTasks();
   loadCurrentUser();
+  //   let tasks = [];
+  //   await setItem("tasks", JSON.stringify(tasks));
 }
 
 //Variablen für eingabefelder
@@ -16,6 +18,7 @@ let dueDateAddTask;
 let assignedToAddTask = [];
 let descriptionAddTask;
 let titleAddTask;
+let statusSubtaskAddTask = [];
 
 //Variablen für
 let selectUserBox;
@@ -74,7 +77,7 @@ function addTaskToVar() {
   titleAddTask = document.getElementById("add_task_title").value;
   descriptionAddTask = document.getElementById("add_task_description").value;
   dueDateAddTask = document.getElementById("add_task_due_date").value;
-  subtaskAddTask = document.getElementById("add_task_subtask").value;
+  // subtaskAddTask = document.getElementById("add_task_subtask").value;
   addTaskSave();
 }
 
@@ -93,6 +96,7 @@ async function addTaskSave() {
     prio: addTaskPrio,
     categoryTask: categoryAddTask,
     subtask: subtaskAddTask,
+    status_subtask: statusSubtaskAddTask,
     status: "todo",
   });
 
@@ -338,6 +342,7 @@ function addSubtask() {
   let subtaskInput = document.getElementById("add_task_subtask").value;
   if (subtaskInput.length > 0) {
     subtaskAddTask.push(subtaskInput);
+    statusSubtaskAddTask.push("do");
     clearSubTaskInput();
     renderSubTasks();
   }
@@ -390,5 +395,6 @@ function changeSubTaskImg() {
 
 function deleteSubtask(index) {
   subtaskAddTask.splice(index, 1);
+  statusSubtaskAddTask.splice(index, 1);
   renderSubTasks();
 }
