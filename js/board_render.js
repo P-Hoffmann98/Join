@@ -81,6 +81,43 @@ function boardRenderTasksPlaceholder(tasksCategory) {
 }
 
 
+function boardRenderDetailCard(tasksIndex) {
+    let tasksCategoryDiv = document.getElementById('board_task_detail_card');
+    tasksCategoryDiv.parentElement.classList.remove('d-none');
+    tasksCategoryDiv.parentElement.classList.add('d-flex');
+    tasksCategoryDiv.innerHTML = '';
+    tasksCategoryDiv.innerHTML = /* html */`
+        <div>
+            <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory"></span>
+        </div>
+
+
+        <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
+        <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
+        <div class="board-task-card-progress-container">
+            <div class="board-task-card-progressbar">
+                <div class="board-task-card-progress"></div>
+            </div>
+            <span class="board-task-card-progress-text">1/2 Subtasks</span>
+        </div>
+        <div class="board-task-card-profile-priority">
+            <div class="board-task-card-profile-container">
+                <!-- render profile icons -->
+                <div class="board-task-card-profile">
+                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
+                    <span class="board-task-card-profile-text">TN</span>
+                </div>
+                <div class="board-task-card-profile" style="left: -8px;">
+                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
+                    <span class="board-task-card-profile-text">NT</span>
+                </div>
+            </div>
+            <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
+        </div>
+    `
+}
+
+
 /* ************************************************* return HTML code ********************************************************************************************* */
 
 
@@ -105,7 +142,7 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
  */
 function boardRenderTasksPreviewHTML(tasksIndex) {
     return /* html */`
-    <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" class="board-task-card-preview">
+    <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview">
         <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
