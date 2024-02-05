@@ -76,7 +76,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 48px;
   width: 440px;
   font-size: 20px;
-  border: 1px solid rgba(209, 209, 209, 1);
+  border: 0px solid rgba(209, 209, 209, 1);
   border-radius: 10px;
   padding: 12px 21px;
 }
