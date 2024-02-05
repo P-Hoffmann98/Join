@@ -3,18 +3,7 @@ const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 let users = [];
 let tasks = [];
-let contacts = [
-  {
-    name: "Test Contact1",
-    email: "testcontact1@test",
-    phone: "12345/12345",
-  },
-  {
-    name: "Test Contact2",
-    email: "testcontact2@test",
-    phone: "67890/67890",
-  },
-];
+let contacts = [];
 let currentUser = [];
 let allColors = [
   "#FF7A00",
