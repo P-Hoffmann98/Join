@@ -40,6 +40,9 @@ let resultInitials;
 let resultId;
 let resultNames;
 
+/**
+ * This function sets the priority medium style at onload
+ */
 function addTaskSetPrioMedium() {
   prioMedium = document.getElementById("add_task_prio_medium");
   prioMedium.classList.add("add-task-prio-medium-pressed-button");
@@ -47,6 +50,10 @@ function addTaskSetPrioMedium() {
   prioMediumImg.src = "./img/add-task-prio-medium.svg";
 }
 
+/**
+ * Check if all required input field are filled
+ * Requiered fields: title, due date, categorx
+ */
 function addTaskCheckForm() {
   if (
     document.getElementById("add_task_title").value.length > 0 &&
@@ -60,6 +67,9 @@ function addTaskCheckForm() {
   }
 }
 
+/**
+ * input value from formular put in variable
+ */
 function addTaskToVar() {
   titleAddTask = document.getElementById("add_task_title").value;
   descriptionAddTask = document.getElementById("add_task_description").value;
@@ -68,6 +78,10 @@ function addTaskToVar() {
   addTaskSave();
 }
 
+/**
+ * put all informations from formular to tasks JSON array
+ * and put it to backendstorage
+ */
 async function addTaskSave() {
   tasks.push({
     id: Date.now(),
@@ -86,6 +100,9 @@ async function addTaskSave() {
   addTaskSaveCompleted();
 }
 
+/**
+ * show message added done if save at backendstorage is complete
+ */
 function addTaskSaveCompleted() {
   document
     .getElementById("add_task_popup_container")
@@ -93,6 +110,9 @@ function addTaskSaveCompleted() {
   setTimeout(addTaskGoToBoard, 1000);
 }
 
+/**
+ * redirects user to board page
+ */
 function addTaskGoToBoard() {
   window.location.href = "board.html";
 }
@@ -154,6 +174,9 @@ function addTaskSelectedPrioHigh() {
   addTaskPrio = "urgent";
 }
 
+/**
+ * set min attribut to input type date fr due date form field
+ */
 function addTaskGetToday() {
   today = new Date();
   day = today.getDate(); // Tag
@@ -171,6 +194,9 @@ function addTaskGetToday() {
   document.getElementById("add_task_due_date").min = today;
 }
 
+/**
+ *
+ */
 function removeRedBorder(param) {
   let labelId = "add_task_label_" + param;
   let mistakeId = "add_task_mistake_" + param;
