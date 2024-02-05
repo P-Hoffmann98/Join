@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 
 .add-task-container {
@@ -508,4 +508,36 @@ label input {
 
 [contenteditable]:focus {
   outline: 1px solid #29abe2;
+}
+
+@media (max-width: 1280px) {
+  .add-task-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .add-task-seperator {
+    display: none;
+  }
+
+  .add-task-headline {
+    width: 463px;
+  }
+
+  .add-task-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+  }
+
+  .add-task-container-right {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  .add-task-container {
+    margin-left: 250px;
+  }
 }
