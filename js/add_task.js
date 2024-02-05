@@ -332,7 +332,7 @@ function addTaskCloseContextMenuCategory() {
 
 function addSubtask() {
   let subtaskInput = document.getElementById("add_task_subtask").value;
-  if (subtaskInput.length >= 0) {
+  if (subtaskInput.length > 0) {
     subtaskAddTask.push(subtaskInput);
     clearSubTaskInput();
     renderSubTasks();
