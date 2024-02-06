@@ -4,8 +4,9 @@ async function signupInit() {
   await loadContacts();
 }
 
+let acceptChecked = false;
+
 async function registerUser() {
-  signupbutton.disabled = true;
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
   let password = document.getElementById("signup-input-password").value;
@@ -14,27 +15,34 @@ async function registerUser() {
   let i = Math.floor(Math.random() * allColors.length);
   let color = allColors[i];
 
-  users.push({
-    id: userId,
-    name: name,
-    email: email,
-    password: password,
-    initials: initials,
-    color: color,
-  });
-  contacts.push({
-    id: userId,
-    name: name,
-    email: email,
-    initials: initials,
-    phone: "",
-    color: color,
-  });
+  if (!acceptChecked) {
+    document.getElementById("errorbox").innerHTML =
+      "Please accept our Privacy Policy to sign up!";
+    return;
+  } else {
+    signupbutton.disabled = true;
+    users.push({
+      id: userId,
+      name: name,
+      email: email,
+      password: password,
+      initials: initials,
+      color: color,
+    });
+    contacts.push({
+      id: userId,
+      name: name,
+      email: email,
+      initials: initials,
+      phone: "",
+      color: color,
+    });
 
-  await setItem("users", JSON.stringify(users));
-  await setItem("contacts", JSON.stringify(contacts));
-  signupbutton.disabled = false;
-  window.location.href = "login.html";
+    await setItem("users", JSON.stringify(users));
+    await setItem("contacts", JSON.stringify(contacts));
+    signupbutton.disabled = false;
+    window.location.href = "login.html";
+  }
 }
 
 function generateUserInitials(name) {
@@ -64,7 +72,8 @@ function checkPasswordMatch() {
   }
 }
 
-function togglePrivacyButtonColor() {
+function togglePrivacyButton() {
+  acceptChecked = !acceptChecked;
   let button = document.getElementById("privacy-button");
   button.classList.toggle("button-img");
 }

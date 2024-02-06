@@ -53,6 +53,13 @@ button {
   margin-bottom: 20px;
 }
 
+#errorbox {
+  margin-top: 10px;
+  text-align: left;
+  font-size: 14px;
+  color: #ff8190;
+}
+
 .signup-inputs {
   padding: 20px;
   width: 380px;

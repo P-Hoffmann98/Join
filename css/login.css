@@ -55,7 +55,6 @@ button {
 .login-inputs-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -71,6 +70,13 @@ button {
   align-items: center;
 }
 
+#errorbox {
+  margin-top: 10px;
+  text-align: left;
+  font-size: 14px;
+  color: #ff8190;
+}
+
 .button-and-text {
   margin-top: 32px;
   margin-left: 20px;
@@ -81,7 +87,6 @@ button {
 .button-img {
   background-color: #2a3647;
   border-radius: 5px;
-
 }
 
 .remember-button {
@@ -90,7 +95,7 @@ button {
   background-color: white;
   border: 0;
   margin-right: 20px;
-} 
+}
 
 .login-buttons {
   display: flex;

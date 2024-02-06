@@ -4,6 +4,7 @@ async function loginInit() {
   await loadContacts();
 }
 
+
 function login() {
   let email = document.getElementById("login-input-email").value;
   let password = document.getElementById("login-input-password").value;
@@ -22,10 +23,12 @@ function login() {
     window.location.href = "summary.html";
   } else {
     console.log("User nicht gefunden");
+    document.getElementById("errorbox").innerHTML =
+      "Wrong password Ups! Try again.";
   }
 }
 
-function toggleRememberButtonColor() {
+function toggleRememberButton() {
   let button = document.getElementById("remember-button");
   button.classList.toggle("button-img");
 }
