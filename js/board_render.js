@@ -87,7 +87,7 @@ function boardRenderDetailCard(tasksIndex) {
     tasksCategoryDiv.parentElement.classList.add('d-flex');
     tasksCategoryDiv.innerHTML = '';
     tasksCategoryDiv.innerHTML = /* html */`
-        <div class="board-task-card-detail-headline d-flex jc-between ai-center">
+        <div class="board-task-card-detail-storyline d-flex jc-between ai-center">
             <span id="board_task_storyline_detail_${tasksIndex}" class="board-task-card-detail-taskcategory"></span>
             <div class="board-task-card-detail-close d-flex jc-center ai-center" onclick="boardCloseDetailCard()">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="./img/board/board_detail_clos.svg">
@@ -97,14 +97,13 @@ function boardRenderDetailCard(tasksIndex) {
         </div>
 
 
-        <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
-        <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
-        <div class="board-task-card-progress-container">
-            <div class="board-task-card-progressbar">
-                <div class="board-task-card-progress"></div>
-            </div>
-            <span class="board-task-card-progress-text">1/2 Subtasks</span>
-        </div>
+        <h1 class="board-task-card-detail-headline">${tasks[tasksIndex]['title']}</h1>
+
+        <p class="board-task-card-detail-description">${tasks[tasksIndex]['description']}</p>
+
+        <div class="d-flex ai-center"><p class="board-task-card-detail-duedate">Due date:</p><p>Datums-Funktion schreiben</p></div>
+
+        
         <div class="board-task-card-profile-priority">
             <div class="board-task-card-profile-container">
                 <!-- render profile icons -->
