@@ -107,7 +107,7 @@ function boardRenderDetailCard(tasksIndex) {
             <p class="board-task-card-detail-asignedto mb-8">Assigned To:</p>
             <div class="board-task-card-detail-profile d-flex ai-center">
                 <div class="board-task-card-detail-initals">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
                         <circle cx="21" cy="21" r="20" fill="#6E52FF" stroke="white" stroke-width="2"/>
                     </svg>
                     <span class="board-task-card-detail-profile-text">TN</span>
@@ -116,7 +116,7 @@ function boardRenderDetailCard(tasksIndex) {
             </div>
             <div class="board-task-card-detail-profile d-flex ai-center">
                 <div class="board-task-card-detail-initals">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
                         <circle cx="21" cy="21" r="20" fill="#6E52FF" stroke="white" stroke-width="2"/>
                     </svg>
                     <span class="board-task-card-detail-profile-text">TN</span>
