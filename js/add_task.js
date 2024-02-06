@@ -10,7 +10,6 @@ async function addTaskInit() {
   //   await setItem("tasks", JSON.stringify(tasks));
 }
 
-//Variablen für eingabefelder
 let addTaskPrio = "medium";
 let subtaskAddTask = [];
 let categoryAddTask;
@@ -19,20 +18,10 @@ let assignedToAddTask = [];
 let descriptionAddTask;
 let titleAddTask;
 let statusSubtaskAddTask = [];
-
-//Variablen für
 let selectUserBox;
 let taskInput;
-
-//Variablen für standart priorität bei start
 let prioMedium;
 let prioMediumImg;
-
-//Variablen für inputy type date
-let today;
-let day;
-let month;
-let year;
 
 //Vaariablen für Fehlermeldung
 let labelId;
@@ -55,7 +44,7 @@ function addTaskSetPrioMedium() {
 
 /**
  * Check if all required input field are filled
- * Requiered fields: title, due date, categorx
+ * Requiered fields: title, due date, category
  */
 function addTaskCheckForm() {
   if (
@@ -121,6 +110,9 @@ function addTaskGoToBoard() {
   window.location.href = "board.html";
 }
 
+/**
+ * The class add-task-prio-low-pressed-button is added to the prio button low and the colored image is exchanged for a white one
+ */
 function addTaskSelectedPrioLow() {
   document
     .getElementById("add_task_prio_low")
@@ -140,6 +132,9 @@ function addTaskSelectedPrioLow() {
   addTaskPrio = "low";
 }
 
+/**
+ * The class add-task-prio-medium-pressed-button is added to the prio button medium and the colored image is exchanged for a white one
+ */
 function addTaskSelectedPrioMedium() {
   document
     .getElementById("add_task_prio_medium")
@@ -159,6 +154,9 @@ function addTaskSelectedPrioMedium() {
   addTaskPrio = "medium";
 }
 
+/**
+ * The class add-task-prio-high-pressed-button is added to the prio button high and the colored image is exchanged for a white one
+ */
 function addTaskSelectedPrioHigh() {
   document
     .getElementById("add_task_prio_high")
@@ -182,11 +180,11 @@ function addTaskSelectedPrioHigh() {
  * set min attribut to input type date fr due date form field
  */
 function addTaskGetToday() {
-  today = new Date();
-  day = today.getDate(); // Tag
+  let today = new Date();
+  let day = today.getDate(); // Tag
   // Monatsangabe startet bei 0!
-  month = today.getMonth() + 1; // Monat
-  year = today.getFullYear(); // Jahr
+  let month = today.getMonth() + 1; // Monat
+  let year = today.getFullYear(); // Jahr
   if (day < 10) {
     day = "0" + day;
   }
@@ -199,7 +197,7 @@ function addTaskGetToday() {
 }
 
 /**
- *
+ *The red frame around the input field if there is no input is hidden
  */
 function removeRedBorder(param) {
   let labelId = "add_task_label_" + param;
@@ -209,6 +207,9 @@ function removeRedBorder(param) {
   document.getElementById(mistakeId).classList.add("d-none");
 }
 
+/**
+ * The search results are saved in variables after entering them into the search field and function addTaskRenderSeaarchName and markSelectedContacts  are called
+ */
 function addTaskSearchName() {
   let searchInput = document.getElementById("add_task_assigned_to").value;
   searchInput = searchInput.toLowerCase();
@@ -225,12 +226,21 @@ function addTaskSearchName() {
   }
 }
 
+/**
+ *The contacts that are selected are shown in color
+ * @param {number} id
+ * @returns boolean true
+ */
 function markSelectedContacts(id) {
   if (assignedToAddTask.includes(id)) {
     return true;
   }
 }
 
+/**
+ * If no entry is made, a red frame is placed around the text field and an error message is displayed
+ * @param {title, dueDate, category} param
+ */
 function addTaskShowMsg(param) {
   labelId = "add_task_label_" + param;
   mistakeId = "add_task_mistake_" + param;
@@ -238,6 +248,10 @@ function addTaskShowMsg(param) {
   document.getElementById(labelId).classList.add("borderColorMistake");
 }
 
+/**
+ * style class is added to the contact and the selection box is checked
+ * @param {number of contact} id
+ */
 function addStyleToSelectedContact(id) {
   let resultIdIsInAssignedToAddTask = assignedToAddTask.includes(id);
   if (!resultIdIsInAssignedToAddTask) {
@@ -255,7 +269,7 @@ function addStyleToSelectedContact(id) {
 
 /**
  *
- * @param {*} contactId
+ * @param {number of contact} contactId
  */
 function addContactToTask(contactId) {
   assignedToAddTask.push(contactId);
