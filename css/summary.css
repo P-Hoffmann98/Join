@@ -1,7 +1,6 @@
 .summary-seperator {
   height: 59px;
   background-color: #29abe2;
-  width: 0px;
   width: 3px;
   margin: 0 36px;
 }
@@ -185,4 +184,44 @@ h3 {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+@media (max-width: 1500px) {
+  .summary-welcome {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .summary-headline {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+  }
+  .summary-wrapper {
+    width: 0px;
+  }
+  .summary-seperator {
+    height: 3px;
+    background-color: #29abe2;
+    width: 59px;
+    margin: 0 36px;
+    display: none;
+  }
+
+  .summary-seperator-mobil {
+    display: block;
+    height: 3px;
+    background-color: #29abe2;
+    width: 212px;
+    margin-top: 3px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .summary-headline h2 {
+    font-size: 47px;
+  }
 }
