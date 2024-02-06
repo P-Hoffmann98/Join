@@ -41,7 +41,7 @@ async function registerUser() {
     await setItem("users", JSON.stringify(users));
     await setItem("contacts", JSON.stringify(contacts));
     signupbutton.disabled = false;
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 }
 
