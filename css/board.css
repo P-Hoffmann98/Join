@@ -6,6 +6,10 @@
     display: flex;
 }
 
+.flex-d-col{
+    flex-direction: column;
+}
+
 .jc-center {
     justify-content: center;
 }
@@ -331,6 +335,13 @@ line-height: 120%; */
 }
 
 /* ************************************************ tasks detail *********************************************************************************** */
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
 
 .board-task-detail-main {
     background-color: rgba(0, 0, 0, 0.16);
@@ -393,9 +404,33 @@ line-height: 120%; */
     margin-bottom: 24px;
 }
 
-.board-task-card-detail-duedate {
+.board-task-card-detail-duedate,
+.board-task-card-detail-priority,
+.board-task-card-detail-asignedto {
     color: #2A3647;
     padding-right: 25px;
+}
+
+.board-task-card-detail-profile{
+    padding: 7px 16px 7px 16px;
+    gap: 16px;
+}
+
+.board-task-card-detail-initals {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 45px;
+    background: #FFF;
+}
+
+.board-task-card-detail-profile-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: #FFF;
 }
 
 

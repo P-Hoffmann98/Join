@@ -101,23 +101,30 @@ function boardRenderDetailCard(tasksIndex) {
 
         <p class="board-task-card-detail-description">${tasks[tasksIndex]['description']}</p>
 
-        <div class="d-flex ai-center"><p class="board-task-card-detail-duedate">Due date:</p><p>Datums-Funktion schreiben</p></div>
-
-        
-        <div class="board-task-card-profile-priority">
-            <div class="board-task-card-profile-container">
-                <!-- render profile icons -->
-                <div class="board-task-card-profile">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">TN</span>
+        <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p>Datums-Funktion schreiben</p></div>
+        <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-priority">Priority:</p><p>Priority-Funktion schreiben</p></div>
+        <div class="d-flex flex-d-col mb-24">
+            <p class="board-task-card-detail-asignedto mb-8">Assigned To:</p>
+            <div class="board-task-card-detail-profile d-flex ai-center">
+                <div class="board-task-card-detail-initals">
+                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="21" cy="21" r="20" fill="#6E52FF" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <span class="board-task-card-detail-profile-text">TN</span>
                 </div>
-                <div class="board-task-card-profile" style="left: -8px;">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">NT</span>
-                </div>
+                <p>Tobias Nölle Funktion schreiben</p>  
             </div>
-            <img id="board-task-card-priority_detail_${tasksIndex}" class="board-task-card-priority" src="" alt="">
+            <div class="board-task-card-detail-profile d-flex ai-center">
+                <div class="board-task-card-detail-initals">
+                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="21" cy="21" r="20" fill="#6E52FF" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <span class="board-task-card-detail-profile-text">TN</span>
+                </div>
+                <p>Tobias Nölle Funktion schreiben</p>  
+            </div>
         </div>
+
     `;
 
     boardRenderStoryline(`board_task_storyline_detail_${tasksIndex}`, tasksIndex);
