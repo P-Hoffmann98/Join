@@ -14,6 +14,10 @@
     justify-content: center;
 }
 
+.jc-end {
+    justify-content: end;
+}
+
 .jc-between {
     justify-content: space-between;
 }
@@ -406,12 +410,14 @@ line-height: 120%; */
 
 .board-task-card-detail-duedate,
 .board-task-card-detail-priority,
-.board-task-card-detail-asignedto {
+.board-task-card-detail-asignedto,
+.board-task-card-detail-subtasks {
     color: #2A3647;
     padding-right: 25px;
 }
 
-.board-task-card-detail-profile{
+.board-task-card-detail-profile,
+.board-task-card-detail-tasks {
     padding: 7px 16px 7px 16px;
     gap: 16px;
 }
@@ -431,6 +437,28 @@ line-height: 120%; */
     transform: translate(-50%, -50%);
     font-size: 12px;
     color: #FFF;
+}
+
+.board-task-card-detail-tasks-text {
+    font-size: 16px!important;
+}
+
+.board-task-card-detail-edit,
+.board-task-card-detail-delete {
+    gap: 8px;
+}
+
+.board-task-card-detail-delete {
+    padding-right: 8px;
+}
+
+.board-task-card-detail-edit {
+    padding-left: 8px;
+}
+
+.board-task-card-detail-edit-text {
+    font-size: 16px!important;
+    color: #2A3647;
 }
 
 
