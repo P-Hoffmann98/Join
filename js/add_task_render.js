@@ -1,3 +1,7 @@
+/**
+ * The list of contacts is rendered and output in the div container add_task_select_user_box_
+ * @param {color in HEX of contact} color
+ */
 function addTaskRenderSearchName(color) {
   document.getElementById(
     "add_task_select_user_box"
@@ -14,6 +18,9 @@ function addTaskRenderSearchName(color) {
   }
 }
 
+/**
+ * displays the selected contacts
+ */
 function renderSelectedContactsFromTask() {
   document.getElementById("outputSelectedContacts").innerHTML = ``;
   for (let i = 0; i < assignedToAddTask.length; i++) {
@@ -27,6 +34,9 @@ function renderSelectedContactsFromTask() {
   }
 }
 
+/**
+ * the created subtasks are output
+ */
 function renderSubTasks() {
   let output = document.getElementById("outputSubtasks");
   output.innerHTML = ``;

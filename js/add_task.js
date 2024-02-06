@@ -276,12 +276,20 @@ function addContactToTask(contactId) {
   renderSelectedContactsFromTask();
 }
 
+/**
+ * Contact is deselected from the list of assigned to and the function renderSelectedContactsFromTask is called
+ * @param {number of contact} contactId
+ */
+
 function deleteContactFromTask(contactId) {
   let resultIdToDelete = assignedToAddTask.indexOf(contactId);
   assignedToAddTask.splice(resultIdToDelete, 1);
   renderSelectedContactsFromTask();
 }
-
+/**
+ * Category is selected If no entry is entered, an error message is displayed and the frame of the input field is marked red
+ * @param {number of caegory} param
+ */
 function selectCategory(param) {
   categoryAddTask = param;
   if (param == 1) {
@@ -299,25 +307,34 @@ function selectCategory(param) {
 }
 
 //######FÜR CONTACTS LISTE##################################################################
-// Funktion, um das select user box div zu öffnen
+/**
+ * Function to open the select user box div
+ */
 function addTaskOpenContextMenuAssignedTo() {
   // selectUserBox.style.display = "block";
   selectUserBox.classList.remove("d-none");
 }
 
-// Funktion, um das select user box div zu schließen
+/**
+ * Function to close the select user box div
+ */
 function addTaskCloseContextMenuAssignedTo() {
   // selectUserBox.style.display = "none";
   selectUserBox.classList.add("d-none");
 }
 
-// Event-Listener für das Input-Feld und das Bild
+/**
+ * Event listener for the input field and the image
+ * @param {click} event
+ */
 function handleOpenContextMenu(event) {
   event.stopPropagation();
   addTaskOpenContextMenuAssignedTo();
 }
 
-// Funktion, um das select user box div zu schließen, wenn außerhalb davon geklickt wird
+/**
+ * Function to close the select user box div when clicked outside of itFunction to close the select user box div when clicked outside of it
+ */
 document.addEventListener("click", function (event) {
   if (!selectUserBox.contains(event.target) && event.target !== taskInput) {
     addTaskCloseContextMenuAssignedTo();
@@ -335,7 +352,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Funktion, um das select category box div zu öffnen
+/**
+ * Function to open the select category box div
+ */
 function addTaskOpenContextMenuCategory() {
   document
     .getElementById("add_task_select_category_box")
@@ -345,13 +364,18 @@ function addTaskOpenContextMenuCategory() {
   ).innerHTML = `Select Task category`;
 }
 
-// Funktion, um das select category box div zu schließen
+/**
+ * Function to close the select category box div
+ */
 function addTaskCloseContextMenuCategory() {
   document
     .getElementById("add_task_select_category_box")
     .classList.add("d-none");
 }
 
+/**
+ * a subtask is added to the task and then the functions clearSubTaskInput and renderSubTasks are executed
+ */
 function addSubtask() {
   let subtaskInput = document.getElementById("add_task_subtask").value;
   if (subtaskInput.length > 0) {
@@ -362,6 +386,10 @@ function addSubtask() {
   }
 }
 
+/**
+ * subtask can be edited, subtask is set in focus and the div container is set editable
+ * @param {number f subtask} index
+ */
 function editSubTask(index) {
   let editContent = document.getElementById(`subtaskContent${index}`);
   editContent.contentEditable = true;
@@ -369,6 +397,10 @@ function editSubTask(index) {
   changeImagesByEditingSubtask(index);
 }
 
+/**
+ *Images for editing and deleting the subtask are exchanged
+ * @param {number of subtask} index
+ */
 function changeImagesByEditingSubtask(index) {
   document
     .getElementById(`img_add_subtask_check${index}`)
@@ -376,6 +408,10 @@ function changeImagesByEditingSubtask(index) {
   document.getElementById(`img_add_subtask${index}`).classList.add("d-none");
 }
 
+/**
+ * The edited subtask is saved and the images are reset again
+ * @param {number of subtasks} index
+ */
 function saveEditing(index) {
   let output = document.getElementById(`subtaskContent${index}`).innerHTML;
   subtaskAddTask[index] = output;
@@ -386,11 +422,16 @@ function saveEditing(index) {
   renderSubTasks();
 }
 
+/**
+ * the input field for the subtasks is cleared
+ */
 function clearSubTaskInput() {
   document.getElementById("add_task_subtask").value = ``;
   changeSubTaskImg();
 }
-
+/**
+ * The images in the subtask input fled are exchanged after a text is entered
+ */
 function changeSubTaskImg() {
   if (document.getElementById("add_task_subtask").value.length > 0) {
     document.getElementById("add_task_subtask_img").src =
@@ -407,6 +448,10 @@ function changeSubTaskImg() {
   }
 }
 
+/**
+ * the subtask is deleted
+ * @param {number of subtask} index
+ */
 function deleteSubtask(index) {
   subtaskAddTask.splice(index, 1);
   statusSubtaskAddTask.splice(index, 1);
