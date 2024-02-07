@@ -99,6 +99,10 @@
     padding: 0;
   }
 
+  .nav-menu-point a {
+    flex-direction: column;
+  }
+
   .nav-menu-point img {
     width: 24px;
     height: 24px;
