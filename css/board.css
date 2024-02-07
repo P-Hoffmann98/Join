@@ -410,7 +410,7 @@ line-height: 120%; */
 
 .board-task-card-detail-duedate,
 .board-task-card-detail-priority,
-.board-task-card-detail-asignedto,
+.board-task-card-detail-assignedto,
 .board-task-card-detail-subtasks {
     color: #2A3647;
     padding-right: 25px;

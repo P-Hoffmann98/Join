@@ -11,6 +11,7 @@ let boardCurrentDraggedTask;
 async function boardInit() {
     await includeHTML();
     await loadTasks();
+    await loadContacts();
     await boardReadTasks();
     boardRenderInit();
 }
@@ -70,12 +71,12 @@ function boardSortTasks(id, status) {
  * @param {number} id 
  * @returns index of tasks array
  */
-function boardIndexOfTasks(id) {
+function boardIndexOfJSON(json, id) {
+    
+    for (let j = 0; j < json.length; j++) {
+        const jsonRecord = json[j];
 
-    for (let j = 0; j < tasks.length; j++) {
-        const task = tasks[j];
-
-        if (task['id'] == id) {
+        if (jsonRecord['id'] == id) {
             /* console.log(task['id']);
             console.log(id);
             console.log(j); */

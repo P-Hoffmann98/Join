@@ -34,7 +34,7 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
 
     for (let i = 0; i < boardTasksArray.length; i++) {
         const id = boardTasksArray[i];
-        let tasksIndex = boardIndexOfTasks(id);
+        let tasksIndex = boardIndexOfJSON(tasks, id);
         tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
         boardRenderStoryline(`board_task_storyline_${tasksIndex}`, tasksIndex);
         boardRenderImgPrio(tasksIndex);
@@ -63,9 +63,37 @@ function boardRenderStoryline(id, tasksIndex) {
 }
 
 
+function boardRenderDueDate(tasksIndex) {
+    let dueDateDiv = document.getElementById('');
+    dueDateDiv = '';
+}
+
+
 function boardRenderImgPrio(tasksIndex) {
     let imgName = tasks[tasksIndex]['prio'];
     document.getElementById(`board-task-card-priority_${tasksIndex}`).src = `./img/board/board_task_${imgName}.svg`;
+}
+
+
+/**
+ * Render assignedTo from tasks-json
+ * @param {number} tasksIndex Index of task into tasks-json
+ */
+function boardRenderAssignedTo(tasksIndex) {
+    let assignedToDiv = document.getElementById('board_task_detail_assignedto');
+    assignedToDiv.innerHTML = /*html*/`
+        <p class="board-task-card-detail-assignedto mb-8">Assigned To:</p>
+    `;
+
+    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length; i++) {
+        const id = tasks[tasksIndex]['assignedTo'][i];
+        let contactsIndex = boardIndexOfJSON(contacts, id);
+        let name = contacts[contactsIndex]['name'];
+        let color = contacts[contactsIndex]['color'];
+        let initials = contacts[contactsIndex]['initials'];
+
+        assignedToDiv.innerHTML += boardRenderAssignedToHTML(name, initials, color);
+    }
 }
 
 
@@ -88,7 +116,7 @@ function boardRenderDetailCard(tasksIndex) {
     tasksCategoryDiv.innerHTML = '';
     tasksCategoryDiv.innerHTML = /* html */`
         <div class="board-task-card-detail-storyline d-flex jc-between ai-center">
-            <span id="board_task_storyline_detail_${tasksIndex}" class="board-task-card-detail-taskcategory"></span>
+            <span id="board_task_storyline_detail" class="board-task-card-detail-taskcategory"></span>
             <div class="board-task-card-detail-close d-flex jc-center ai-center" onclick="boardCloseDetailCard()">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="./img/board/board_detail_clos.svg">
                 <path d="M6.99999 8.40005L2.09999 13.3C1.91665 13.4834 1.68332 13.575 1.39999 13.575C1.11665 13.575 0.883321 13.4834 0.699988 13.3C0.516654 13.1167 0.424988 12.8834 0.424988 12.6C0.424988 12.3167 0.516654 12.0834 0.699988 11.9L5.59999 7.00005L0.699988 2.10005C0.516654 1.91672 0.424988 1.68338 0.424988 1.40005C0.424988 1.11672 0.516654 0.883382 0.699988 0.700049C0.883321 0.516715 1.11665 0.425049 1.39999 0.425049C1.68332 0.425049 1.91665 0.516715 2.09999 0.700049L6.99999 5.60005L11.9 0.700049C12.0833 0.516715 12.3167 0.425049 12.6 0.425049C12.8833 0.425049 13.1167 0.516715 13.3 0.700049C13.4833 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4833 1.91672 13.3 2.10005L8.39999 7.00005L13.3 11.9C13.4833 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4833 13.1167 13.3 13.3C13.1167 13.4834 12.8833 13.575 12.6 13.575C12.3167 13.575 12.0833 13.4834 11.9 13.3L6.99999 8.40005Z" fill="#2A3647"/>
@@ -103,9 +131,9 @@ function boardRenderDetailCard(tasksIndex) {
 
         <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p>Datums-Funktion schreiben</p></div>
         <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-priority">Priority:</p><p>Priority-Funktion schreiben</p></div>
-
-        <div class="d-flex flex-d-col mb-24">
-            <p class="board-task-card-detail-asignedto mb-8">Assigned To:</p>
+        <!------------------------------------ Render initals and names from assignedTo users --------------------------------------------->
+        <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24">
+            <p class="board-task-card-detail-assignedto mb-8">Assigned To:</p>
             <div class="board-task-card-detail-profile d-flex ai-center">
                 <div class="board-task-card-detail-initals">
                     <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
@@ -125,7 +153,7 @@ function boardRenderDetailCard(tasksIndex) {
                 <p>Tobias Nölle Funktion schreiben</p>  
             </div>
         </div>
-
+        <!------------------------------------ Render initals and names from assignedTo users --------------------------------------------->
         <div class="d-flex flex-d-col mb-24">
             <p class="board-task-card-detail-subtasks mb-8">Subtasks</p>
             <div class="board-task-card-detail-tasks d-flex ai-center">
@@ -176,7 +204,8 @@ function boardRenderDetailCard(tasksIndex) {
 
     `;
 
-    boardRenderStoryline(`board_task_storyline_detail_${tasksIndex}`, tasksIndex);
+    boardRenderStoryline(`board_task_storyline_detail`, tasksIndex);
+    boardRenderAssignedTo(tasksIndex);
 }
 
 
@@ -228,6 +257,21 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
             </div>
             <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
         </div>
+    </div>
+    `;
+}
+
+
+function boardRenderAssignedToHTML(name, initials, color) {
+    return /* html */`
+    <div class="board-task-card-detail-profile d-flex ai-center">
+        <div class="board-task-card-detail-initals">
+            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
+                <circle cx="21" cy="21" r="20" fill="${color}" stroke="white" stroke-width="2"/>
+            </svg>
+            <span class="board-task-card-detail-profile-text">${initials}</span>
+        </div>
+        <p>${name}</p>  
     </div>
     `;
 }
