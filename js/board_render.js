@@ -63,15 +63,25 @@ function boardRenderStoryline(id, tasksIndex) {
 }
 
 
+function boardRenderDueDate(tasksIndex) {
+    let dueDateDiv = document.getElementById('');
+    dueDateDiv = '';
+}
+
+
 function boardRenderImgPrio(tasksIndex) {
     let imgName = tasks[tasksIndex]['prio'];
     document.getElementById(`board-task-card-priority_${tasksIndex}`).src = `./img/board/board_task_${imgName}.svg`;
 }
 
 
+/**
+ * Render assignedTo from tasks-json
+ * @param {number} tasksIndex Index of task into tasks-json
+ */
 function boardRenderAssignedTo(tasksIndex) {
-    let assignedTo = document.getElementById('board_task_detail_assignedto');
-    assignedTo.innerHTML = /*html*/`
+    let assignedToDiv = document.getElementById('board_task_detail_assignedto');
+    assignedToDiv.innerHTML = /*html*/`
         <p class="board-task-card-detail-assignedto mb-8">Assigned To:</p>
     `;
 
@@ -82,19 +92,8 @@ function boardRenderAssignedTo(tasksIndex) {
         let color = contacts[contactsIndex]['color'];
         let initials = contacts[contactsIndex]['initials'];
 
-        assignedTo.innerHTML += /* html */`
-        <div class="board-task-card-detail-profile d-flex ai-center">
-            <div class="board-task-card-detail-initals">
-                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
-                    <circle cx="21" cy="21" r="20" fill="${color}" stroke="white" stroke-width="2"/>
-                </svg>
-                <span class="board-task-card-detail-profile-text">${initials}</span>
-            </div>
-            <p>${name}</p>  
-        </div>
-        `;
+        assignedToDiv.innerHTML += boardRenderAssignedToHTML(name, initials, color);
     }
-
 }
 
 
@@ -258,6 +257,21 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
             </div>
             <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
         </div>
+    </div>
+    `;
+}
+
+
+function boardRenderAssignedToHTML(name, initials, color) {
+    return /* html */`
+    <div class="board-task-card-detail-profile d-flex ai-center">
+        <div class="board-task-card-detail-initals">
+            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
+                <circle cx="21" cy="21" r="20" fill="${color}" stroke="white" stroke-width="2"/>
+            </svg>
+            <span class="board-task-card-detail-profile-text">${initials}</span>
+        </div>
+        <p>${name}</p>  
     </div>
     `;
 }
