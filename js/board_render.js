@@ -64,8 +64,11 @@ function boardRenderStoryline(id, tasksIndex) {
 
 
 function boardRenderDueDate(tasksIndex) {
-    let dueDateDiv = document.getElementById('');
-    dueDateDiv = '';
+    let dueDateDiv = document.getElementById('board_task_detail_duedate');
+    let dueDate = tasks[tasksIndex]['dueDate'];
+    let d = new Date(dueDate);
+    dueDate = d.toLocaleDateString('en-US');
+    dueDateDiv.innerHTML = `${dueDate}`;
 }
 
 
@@ -129,30 +132,10 @@ function boardRenderDetailCard(tasksIndex) {
 
         <p class="board-task-card-detail-description">${tasks[tasksIndex]['description']}</p>
 
-        <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p>Datums-Funktion schreiben</p></div>
+        <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p id="board_task_detail_duedate"></p></div>
         <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-priority">Priority:</p><p>Priority-Funktion schreiben</p></div>
         <!------------------------------------ Render initals and names from assignedTo users --------------------------------------------->
-        <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24">
-            <p class="board-task-card-detail-assignedto mb-8">Assigned To:</p>
-            <div class="board-task-card-detail-profile d-flex ai-center">
-                <div class="board-task-card-detail-initals">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
-                        <circle cx="21" cy="21" r="20" fill="#6E52FF" stroke="white" stroke-width="2"/>
-                    </svg>
-                    <span class="board-task-card-detail-profile-text">TN</span>
-                </div>
-                <p>Tobias Nölle Funktion schreiben</p>  
-            </div>
-            <div class="board-task-card-detail-profile d-flex ai-center">
-                <div class="board-task-card-detail-initals">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
-                        <circle cx="21" cy="21" r="20" fill="#6E52FF" stroke="white" stroke-width="2"/>
-                    </svg>
-                    <span class="board-task-card-detail-profile-text">TN</span>
-                </div>
-                <p>Tobias Nölle Funktion schreiben</p>  
-            </div>
-        </div>
+        <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24"></div>
         <!------------------------------------ Render initals and names from assignedTo users --------------------------------------------->
         <div class="d-flex flex-d-col mb-24">
             <p class="board-task-card-detail-subtasks mb-8">Subtasks</p>
@@ -205,6 +188,7 @@ function boardRenderDetailCard(tasksIndex) {
     `;
 
     boardRenderStoryline(`board_task_storyline_detail`, tasksIndex);
+    boardRenderDueDate(tasksIndex);
     boardRenderAssignedTo(tasksIndex);
 }
 
