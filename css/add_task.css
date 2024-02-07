@@ -543,11 +543,7 @@ label input {
 
   .add-task-container-right {
     margin-top: 0px;
-  }
-
-  .add-task-main-container {
-    margin-bottom: 190px;
-    height: calc(100vh - 400px);
+    height: calc(100vh - 160px);
   }
 
   .add-task-headline {
