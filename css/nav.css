@@ -101,6 +101,12 @@
 
   .nav-menu-point a {
     flex-direction: column;
+    margin-left: 0px;
+    padding: 18px 0;
+  }
+
+  .nav-menu-point:hover {
+    border-radius: 10px;
   }
 
   .nav-menu-point img {
