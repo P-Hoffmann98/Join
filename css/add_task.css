@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+.add-task-main-container {
+  display: flex;
+}
+
 .add-task-header-container {
   display: flex;
   justify-content: center;
@@ -511,68 +515,63 @@ label input {
   outline: 1px solid #29abe2;
 }
 
-@media (max-width: 1280px) {
-  .add-task-content {
+.add-task-container-responsive {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .add-task-container {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
+
+  .add-task-content {
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    border: 0px solid black;
+  }
+
   .add-task-seperator {
     display: none;
   }
 
+  .add-task-container-right {
+    margin-top: 0px;
+  }
+
+  .add-task-main-container {
+    margin-bottom: 190px;
+    height: calc(100vh - 400px);
+  }
+
   .add-task-headline {
-    width: 463px;
+    width: 100%;
   }
 
   .add-task-header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
+    position: fixed;
+    top: 90px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    padding-left: 60px;
+    background-color: #f6f7f8;
   }
 
-  .add-task-container-right {
-    margin-left: 0px;
-  }
-}
-
-@media (max-width: 800px) {
-  .add-task-container {
-    margin-left: 250px;
-  }
-
-  .add-task-label {
-    margin-top: 0;
-    margin-bottom: 5px;
-    padding: 0px;
-    width: 250px;
-    border: 1px solid rgba(209, 209, 209, 1);
-  }
-
-  .add-task-title {
-    width: 248px;
-  }
-}
-
-@media (max-width: 550px) {
-  .add-task-container {
-    margin-top: 50px;
-    margin-left: 10px;
-  }
-
-  .add-task-container-left {
-    margin-top: 150px;
-  }
-  .add-task-label {
-    margin-top: 0;
-    margin-bottom: 5px;
-    padding: 0px;
-    width: 300px;
-    border: 1px solid rgba(209, 209, 209, 1);
-  }
-
-  .add-task-title {
-    width: 298px;
+  .add-task-bottom-container {
+    position: fixed;
+    bottom: 80px;
+    right: -20px;
+    width: 100%;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border: 0px solid black;
+    background-color: #f6f7f8;
   }
 }
