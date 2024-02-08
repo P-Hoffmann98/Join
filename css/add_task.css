@@ -545,6 +545,13 @@ label input {
     margin-top: 0px;
     margin-left: 15;
     height: calc(100vh - 160px);
+    width: 300px;
+    margin-left: 10px;
+  }
+
+  .add-task-container-left {
+    width: 300px;
+    margin-left: 10px;
   }
 
   .add-task-headline {
@@ -553,6 +560,10 @@ label input {
   }
 
   .add-task-title {
+    padding: 16px;
+  }
+
+  #add_task_subtask {
     padding: 0;
   }
 
@@ -579,5 +590,38 @@ label input {
 
   .add-task-label {
     width: 320px;
+  }
+
+  .add-task-prio-high {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    width: 110px;
+    height: 41px;
+    margin-right: 10px;
+  }
+
+  .add-task-prio-low {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    width: 80px;
+    height: 41px;
+    margin-right: 0;
+  }
+
+  .add-task-prio-medium {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    width: 110px;
+    height: 41px;
+    margin-right: 10px;
+  }
+
+  .add-task-prio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
