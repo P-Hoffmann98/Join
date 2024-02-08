@@ -63,6 +63,10 @@ function boardRenderStoryline(id, tasksIndex) {
 }
 
 
+/**
+ * Render dueDate in short date format
+ * @param {number} tasksIndex 
+ */
 function boardRenderDueDate(tasksIndex) {
     let dueDateDiv = document.getElementById('board_task_detail_duedate');
     let dueDate = tasks[tasksIndex]['dueDate'];
@@ -131,12 +135,16 @@ function boardRenderDetailCard(tasksIndex) {
         <h1 class="board-task-card-detail-headline">${tasks[tasksIndex]['title']}</h1>
 
         <p class="board-task-card-detail-description">${tasks[tasksIndex]['description']}</p>
-
+        <!--------------------------------------------------- Render dueDate ----------------------------------------------------------------->
         <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p id="board_task_detail_duedate"></p></div>
+        <!--------------------------------------------------- Render dueDate ----------------------------------------------------------------->
+
         <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-priority">Priority:</p><p>Priority-Funktion schreiben</p></div>
+
         <!------------------------------------ Render initals and names from assignedTo users --------------------------------------------->
         <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24"></div>
         <!------------------------------------ Render initals and names from assignedTo users --------------------------------------------->
+
         <div class="d-flex flex-d-col mb-24">
             <p class="board-task-card-detail-subtasks mb-8">Subtasks</p>
             <div class="board-task-card-detail-tasks d-flex ai-center">
@@ -246,6 +254,13 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
 }
 
 
+/**
+ * function return html code to render
+ * @param {string} name 
+ * @param {string} initials 
+ * @param {string} color 
+ * @returns 
+ */
 function boardRenderAssignedToHTML(name, initials, color) {
     return /* html */`
     <div class="board-task-card-detail-profile d-flex ai-center">
