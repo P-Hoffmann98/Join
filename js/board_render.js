@@ -37,6 +37,7 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
         let tasksIndex = boardIndexOfJSON(tasks, id);
         tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
         boardRenderStoryline(`board_task_storyline_${tasksIndex}`, tasksIndex);
+        boardRenderInitials(`board_task_preview_initials_${tasksIndex}`, tasksIndex);
         boardRenderImgPrio(`board-task-card-priority_${tasksIndex}`, tasksIndex);
     }
 }
@@ -107,6 +108,24 @@ function boardRenderAssignedTo(tasksIndex) {
         let initials = contacts[contactsIndex]['initials'];
 
         assignedToDiv.innerHTML += boardRenderAssignedToHTML(name, initials, color);
+    }
+}
+
+
+/**
+ * Render initials from tasks-json
+ * @param {number} tasksIndex Index of task into tasks-json
+ */
+function boardRenderInitials(id, tasksIndex) {
+    let initialsDiv = document.getElementById(id);
+
+    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length; i++) {
+        const id = tasks[tasksIndex]['assignedTo'][i];
+        let contactsIndex = boardIndexOfJSON(contacts, id);
+        let color = contacts[contactsIndex]['color'];
+        let initials = contacts[contactsIndex]['initials'];
+
+        initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color);
     }
 }
 
@@ -249,16 +268,8 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
             <span class="board-task-card-progress-text">1/2 Subtasks</span>
         </div>
         <div class="board-task-card-profile-priority">
-            <div class="board-task-card-profile-container">
+            <div id="board_task_preview_initials_${tasksIndex}" class="board-task-card-profile-container">
                 <!-- render profile icons -->
-                <div class="board-task-card-profile">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">TN</span>
-                </div>
-                <div class="board-task-card-profile" style="left: -8px;">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">NT</span>
-                </div>
             </div>
             <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
         </div>
@@ -284,6 +295,18 @@ function boardRenderAssignedToHTML(name, initials, color) {
             <span class="board-task-card-detail-profile-text">${initials}</span>
         </div>
         <p>${name}</p>  
+    </div>
+    `;
+}
+
+
+function boardRenderInitialsHTML(initials, color) {
+    return /* html */`
+    <div class="board-task-card-profile">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="./img/board/board_ellipse_initials.svg">
+            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="${color}" stroke="white"/>
+        </svg>
+        <span class="board-task-card-profile-text">${initials}</span>
     </div>
     `;
 }

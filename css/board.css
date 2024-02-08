@@ -307,8 +307,10 @@ line-height: 120%; */
 .board-task-card-profile-container {
     display: flex;
     align-items: center;
-    /* padding-top: 16px;
-    margin-bottom: 16px; */
+}
+
+.board-task-card-profile:nth-child(n + 2) {
+    left: -8px;
 }
 
 .board-task-card-profile {
