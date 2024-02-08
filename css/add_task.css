@@ -519,6 +519,32 @@ label input {
   display: none;
 }
 
+@media (max-width: 1300px) {
+  .add-task-container {
+    margin-left: 348px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-task-content {
+    width: 100%;
+    margin-left: 348;
+    display: flex;
+    /* align-items: baseline; */
+    flex-direction: column;
+    border: 0px solid black;
+  }
+  .add-task-seperator {
+    display: none;
+  }
+
+  .add-task-headline {
+    /* margin-left: 348px; */
+  }
+}
+
 @media (max-width: 850px) {
   .add-task-container {
     margin-left: 0px;
@@ -572,7 +598,7 @@ label input {
     top: 90px;
     left: 0px;
     right: 0px;
-    width: 100%;
+    width: auto;
     padding-left: 60px;
     background-color: #f6f7f8;
   }
