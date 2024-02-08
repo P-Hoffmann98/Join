@@ -37,7 +37,7 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
         let tasksIndex = boardIndexOfJSON(tasks, id);
         tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
         boardRenderStoryline(`board_task_storyline_${tasksIndex}`, tasksIndex);
-        boardRenderImgPrio(tasksIndex);
+        boardRenderImgPrio(`board-task-card-priority_${tasksIndex}`, tasksIndex);
     }
 }
 
@@ -76,9 +76,16 @@ function boardRenderDueDate(tasksIndex) {
 }
 
 
-function boardRenderImgPrio(tasksIndex) {
+function boardRenderImgPrio(id, tasksIndex) {
     let imgName = tasks[tasksIndex]['prio'];
-    document.getElementById(`board-task-card-priority_${tasksIndex}`).src = `./img/board/board_task_${imgName}.svg`;
+    document.getElementById(id).src = `./img/board/board_task_${imgName}.svg`;
+}
+
+
+function boardRenderPrioText(id, tasksIndex) {
+    let prioText = tasks[tasksIndex]['prio'];
+    prioText = prioText[0].toUpperCase() + prioText.slice(1);
+    document.getElementById(id).innerHTML = `${prioText}`;
 }
 
 
@@ -139,7 +146,11 @@ function boardRenderDetailCard(tasksIndex) {
         <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p id="board_task_detail_duedate"></p></div>
         <!--------------------------------------------------- Render dueDate ----------------------------------------------------------------->
 
-        <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-priority">Priority:</p><p>Priority-Funktion schreiben</p></div>
+        <div class="d-flex ai-center mb-24">
+            <p class="board-task-card-detail-priority">Priority:</p>
+            <p id="board-task-card-priority-text">Priority-Funktion schreiben</p>
+            <img id="board-task-card-priority-img" src="" alt="Prio Image">
+        </div>
 
         <!------------------------------------ Render initals and names from assignedTo users --------------------------------------------->
         <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24"></div>
@@ -198,6 +209,8 @@ function boardRenderDetailCard(tasksIndex) {
     boardRenderStoryline(`board_task_storyline_detail`, tasksIndex);
     boardRenderDueDate(tasksIndex);
     boardRenderAssignedTo(tasksIndex);
+    boardRenderImgPrio('board-task-card-priority-img', tasksIndex);
+    boardRenderPrioText('board-task-card-priority-text', tasksIndex);
 }
 
 
