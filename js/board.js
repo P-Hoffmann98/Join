@@ -171,6 +171,10 @@ function boardCloseDetailCard() {
 }
 
 
+/**
+ * function remoce a tasks from tasks json and call functions to save changhes in the backend an render new
+ * @param {number} tasksIndex 
+ */
 async function boardDeleteTask(tasksIndex) {
     tasks.splice(tasksIndex, 1);
     await setItem('tasks', tasks);
