@@ -172,7 +172,7 @@ function boardCloseDetailCard() {
 
 
 /**
- * function remoce a tasks from tasks json and call functions to save changhes in the backend an render new
+ * function remoce a tasks from tasks json and call functions to save changes in the backend and render new
  * @param {number} tasksIndex 
  */
 async function boardDeleteTask(tasksIndex) {
