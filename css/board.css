@@ -450,6 +450,12 @@ line-height: 120%; */
     gap: 8px;
 }
 
+.board-task-card-detail-edit:hover,
+.board-task-card-detail-delete:hover,
+.board-task-card-detail-close:hover {
+    cursor: pointer;
+}
+
 .board-task-card-detail-delete {
     padding-right: 8px;
 }
@@ -458,9 +464,20 @@ line-height: 120%; */
     padding-left: 8px;
 }
 
+
+/* Hover-Effekt auf den icons edit und delete geht noch nicht */
+.board-task-card-detail-delete:hover {
+    fill: #29ABE2;
+}
+
 .board-task-card-detail-edit-text {
     font-size: 16px!important;
     color: #2A3647;
+}
+
+.board-task-card-detail-edit-text:hover {
+    color: #29ABE2;
+    font-weight: bold;
 }
 
 #board-task-card-priority-img {

@@ -169,3 +169,12 @@ function boardCloseDetailCard() {
     tasksCategoryDiv.parentElement.classList.add('d-none');
     tasksCategoryDiv.parentElement.classList.remove('d-flex');
 }
+
+
+async function boardDeleteTask(tasksIndex) {
+    tasks.splice(tasksIndex, 1);
+    await setItem('tasks', tasks);
+    await boardReadTasks();
+    boardRenderInit();
+    boardCloseDetailCard();
+}

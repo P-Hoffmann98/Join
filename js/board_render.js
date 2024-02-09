@@ -194,7 +194,7 @@ function boardRenderDetailCard(tasksIndex) {
         </div>
 
         <div class="d-flex jc-end">
-            <div class="board-task-card-detail-delete d-flex ai-center">
+            <div class="board-task-card-detail-delete d-flex ai-center" onclick="boardDeleteTask(${tasksIndex})">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/board_tasks_delete.svg">
                     <mask id="mask0_133737_4270" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                     <rect width="24" height="24" fill="#D9D9D9"/>
