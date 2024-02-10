@@ -147,9 +147,14 @@ function boardNoSubtasksRemoveMargin(id) {
 }
 
 
-function boardSubtaskChangeStatus(id, tasksIndex) {
-    console.log(id, tasksIndex);
-
+function boardSubtaskChangeStatus(id, tasksIndex, subtasksIndex) {
+    console.log(id, tasksIndex, subtasksIndex);
+    let subtaskStatus = tasks[tasksIndex]['status_subtask'];
+    if (subtaskStatus[subtasksIndex] == 'do') {
+        subtaskStatus[subtasksIndex] = 'done'; 
+    } else {
+        subtaskStatus[subtasksIndex] = 'do';
+    }
 }
 
 
@@ -167,7 +172,7 @@ function boardRenderSubtasksDetail(subtasks, subtasksStatus, tasksIndex) {
         if (subtaskStatus == 'do') {
             subtasksDiv.innerHTML += /* html */`
             <div class="board-task-card-detail-tasks d-flex ai-center">
-                <svg id="subtask_${i}" onclick="boardSubtaskChangeStatus('subtask_${i}', ${tasksIndex})" class="board_task_detail_subtasks_checked" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg id="subtask_${i}" onclick="boardSubtaskChangeStatus('subtask_${i}', ${tasksIndex}, ${i})" class="board_task_detail_subtasks_checked" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                     <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
                 <p class="board-task-card-detail-tasks-text">${subtask}</p>  
