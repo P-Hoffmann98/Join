@@ -150,26 +150,26 @@ function boardNoSubtasksRemoveMargin(id) {
 function boardRenderSubtasksDetail(subtasks, subtasksStatus, tasksIndex) {
     let subtasksDiv = document.getElementById('board_task_detail_subtasks')
     subtasksDiv.classList.add('mb-24');
-
-    subtasksDiv.innerHTML = /* html */`
+    subtasksDiv.innerHTML += /* html */`
     <p class="board-task-card-detail-subtasks mb-8">Subtasks</p>
-            <div class="board-task-card-detail-tasks d-flex ai-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/board_subtask_checkbutton_checked.svg">
-                    <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <p class="board-task-card-detail-tasks-text">Subtask Funktion schreiben</p>  
-            </div>
-            <div class="board-task-card-detail-tasks d-flex ai-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/board_subtask_checkbutton_checked.svg">
-                    <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <p class="board-task-card-detail-tasks-text">Subtask Funktion schreiben</p>  
-            </div>
     `;
-     
 
+    for (let i = 0; i < subtasks.length; i++) {
+        const subtask = subtasks[i];
+        const subtaskStatus = subtasksStatus[i];
+        subtasksDiv.innerHTML += /* html */`
+            <div class="board-task-card-detail-tasks d-flex ai-center">
+                <svg class="board_task_detail_subtasks_checked" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/board_subtask_checkbutton_unchecked.svg">
+                    <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+                <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/board_subtask_checkbutton_checked.svg">
+                    <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg> -->
+                <p class="board-task-card-detail-tasks-text">${subtask}</p>  
+            </div>
+        `;
+    }
 }
 
 
