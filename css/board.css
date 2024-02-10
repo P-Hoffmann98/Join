@@ -456,18 +456,17 @@ line-height: 120%; */
     cursor: pointer;
 }
 
+/* Hover-Effekt auf den icons edit und delete geht noch nicht */
+.board-task-card-detail-edit:hover > rect:hover {
+    fill: #29ABE2;
+}
+
 .board-task-card-detail-delete {
     padding-right: 8px;
 }
 
 .board-task-card-detail-edit {
     padding-left: 8px;
-}
-
-
-/* Hover-Effekt auf den icons edit und delete geht noch nicht */
-.board-task-card-detail-delete:hover {
-    fill: #29ABE2;
 }
 
 .board-task-card-detail-edit-text {
