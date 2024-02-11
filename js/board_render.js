@@ -37,6 +37,7 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
         let tasksIndex = boardIndexOfJSON(tasks, id);
         tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
         boardRenderStoryline(`board_task_storyline_${tasksIndex}`, tasksIndex);
+        boardSubtasksAvailablePreview(tasksIndex);
         boardRenderInitials(`board_task_preview_initials_${tasksIndex}`, tasksIndex);
         boardRenderImgPrio(`board-task-card-priority_${tasksIndex}`, tasksIndex);
     }
@@ -61,6 +62,26 @@ function boardRenderStoryline(id, tasksIndex) {
 
     document.getElementById(id).innerHTML = storyline;
     document.getElementById(id).classList.add(cssClass);
+}
+
+
+function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex) {
+    let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`)
+    let progressDiv = document.getElementById(`board_task_preview_subtasks_progress_${tasksIndex}`)
+    subtasksDiv.innerHTML = /* html */`
+        <div class="board-task-card-progressbar">
+            <div id="board_task_preview_subtasks_progress_${tasksIndex}" class="board-task-card-progress"></div>
+        </div>
+        <span class="board-task-card-progress-text">${doneSubtasksCount}/${subtasksCount} Subtasks</span>
+    `;
+
+    boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex);
+}
+
+
+function boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex) {
+    let progressDiv = document.getElementById(`board_task_preview_subtasks_progress_${tasksIndex}`)
+    progressDiv.style.width = subtasksProgress + "%";
 }
 
 
@@ -136,6 +157,24 @@ function boardSubtasksAvailable(tasksIndex) {
     } else {
         return false;
     }    
+}
+
+
+function countOccurrences(arr, value) {
+    return arr.filter(item => item === value).length;
+}
+
+
+function boardSubtasksAvailablePreview(tasksIndex) {
+    tasksAvailable = boardSubtasksAvailable(tasksIndex);
+    if (tasksAvailable == true) {
+        let subtasksCount = tasks[tasksIndex]['subtask'].length;
+        let doneSubtasksCount = countOccurrences(tasks[tasksIndex]['status_subtask'], 'done');
+        let subtasksProgress = doneSubtasksCount / subtasksCount * 100
+        boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex);
+    } else {
+        
+    }
 }
 
 
@@ -339,12 +378,14 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
         <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
-        <div class="board-task-card-progress-container">
-            <div class="board-task-card-progressbar">
+
+        <div id="board_task_preview_subtasks_${tasksIndex}" class="board-task-card-progress-container">
+            <!-- <div class="board-task-card-progressbar">
                 <div class="board-task-card-progress"></div>
             </div>
-            <span class="board-task-card-progress-text">1/2 Subtasks</span>
+            <span class="board-task-card-progress-text">1/2 Subtasks</span> -->
         </div>
+
         <div class="board-task-card-profile-priority">
             <div id="board_task_preview_initials_${tasksIndex}" class="board-task-card-profile-container">
                 <!-- render profile icons -->
