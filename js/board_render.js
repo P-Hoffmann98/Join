@@ -207,6 +207,7 @@ async function boardSubtaskChangeStatus(id, tasksIndex, subtasksIndex) {
 
     await setItem('tasks', tasks);
     boardRenderSubtaskChangeStatus(id, subtaskStatus[subtasksIndex]);
+    boardSubtasksAvailablePreview(tasksIndex);
 }
 
 
