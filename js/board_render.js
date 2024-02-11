@@ -130,6 +130,15 @@ function boardRenderInitials(id, tasksIndex) {
 }
 
 
+function boardSubtasksAvailable(tasksIndex) {
+    if (tasks[tasksIndex]['subtask'].length != 0) {
+        return true;
+    } else {
+        return false;
+    }    
+}
+
+
 function boardSubtasksAvailableDetail(tasksIndex) {
     if (tasks[tasksIndex]['subtask'].length != 0) {
         let subtasks = tasks[tasksIndex]['subtask'];
