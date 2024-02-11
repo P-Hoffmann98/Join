@@ -67,7 +67,8 @@ function boardRenderStoryline(id, tasksIndex) {
 
 function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex) {
     let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`)
-    let progressDiv = document.getElementById(`board_task_preview_subtasks_progress_${tasksIndex}`)
+    subtasksDiv.classList.add('board-task-card-progress-container');
+    subtasksDiv.classList.remove('d-none');
     subtasksDiv.innerHTML = /* html */`
         <div class="board-task-card-progressbar">
             <div id="board_task_preview_subtasks_progress_${tasksIndex}" class="board-task-card-progress"></div>
@@ -173,7 +174,9 @@ function boardSubtasksAvailablePreview(tasksIndex) {
         let subtasksProgress = doneSubtasksCount / subtasksCount * 100
         boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex);
     } else {
-        
+        let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`)
+        subtasksDiv.classList.remove('board-task-card-progress-container');
+        subtasksDiv.classList.add('d-none'); 
     }
 }
 

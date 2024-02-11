@@ -276,6 +276,7 @@ line-height: 120%; */
     padding: 0px 8px 2px 0px;
     width: 220px;
     height: 16px;
+    margin-bottom: 24px;
 }
 
 .board-task-card-progressbar {
@@ -301,7 +302,6 @@ line-height: 120%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 24px;
 }
 
 .board-task-card-profile-container {
