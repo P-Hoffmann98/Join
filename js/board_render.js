@@ -140,7 +140,8 @@ function boardSubtasksAvailable(tasksIndex) {
 
 
 function boardSubtasksAvailableDetail(tasksIndex) {
-    if (tasks[tasksIndex]['subtask'].length != 0) {
+    tasksAvailable = boardSubtasksAvailable(tasksIndex);
+    if (tasksAvailable == true) {
         let subtasks = tasks[tasksIndex]['subtask'];
         let subtasksStatus = tasks[tasksIndex]['status_subtask'];
         boardRenderSubtasksDetail(subtasks, subtasksStatus, tasksIndex);
