@@ -1,13 +1,12 @@
-function summaryInit() {
-  includeHTML();
-  loadTasks();
-  loadCurrentUser();
+async function summaryInit() {
+  await includeHTML();
+  await loadTasks();
+  await loadCurrentUser();
   showCurrentUserName();
+  await loadCounts();
 }
 
-setTimeout(loadCounts, 500);
-
-function loadCounts() {
+async function loadCounts() {
   summaryGreetigAtDayTime();
   summaryCountTasksAwaitingFeedback();
   summaryCountTasksInProgress();

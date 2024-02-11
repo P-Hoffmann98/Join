@@ -6,6 +6,7 @@ async function addTaskInit() {
   await loadContacts();
   renderSubTasks();
   loadCurrentUser();
+  loadInitials();
   //   let tasks = [];
   //   await setItem("tasks", JSON.stringify(tasks));
 }

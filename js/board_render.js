@@ -34,10 +34,12 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
 
     for (let i = 0; i < boardTasksArray.length; i++) {
         const id = boardTasksArray[i];
-        let tasksIndex = boardIndexOfTasks(id);
+        let tasksIndex = boardIndexOfJSON(tasks, id);
         tasksCategoryDiv.innerHTML += boardRenderTasksPreviewHTML(tasksIndex);
         boardRenderStoryline(`board_task_storyline_${tasksIndex}`, tasksIndex);
-        boardRenderImgPrio(tasksIndex);
+        boardSubtasksAvailablePreview(tasksIndex);
+        boardRenderInitials(`board_task_preview_initials_${tasksIndex}`, tasksIndex);
+        boardRenderImgPrio(`board-task-card-priority_${tasksIndex}`, tasksIndex);
     }
 }
 
@@ -63,9 +65,242 @@ function boardRenderStoryline(id, tasksIndex) {
 }
 
 
-function boardRenderImgPrio(tasksIndex) {
+/**
+ * function render progressbar and text into preview card
+ * @param {string} subtasksCount count of all subtasks
+ * @param {string} doneSubtasksCount count of done subtasks
+ * @param {number} subtasksProgress progress as number between 0 - 100
+ * @param {number} tasksIndex of current task
+ */
+function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex) {
+    let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`);
+    subtasksDiv.classList.add('board-task-card-progress-container');
+    subtasksDiv.classList.remove('d-none');
+    subtasksDiv.innerHTML = boardRenderSubtasksPreviewHTML(subtasksCount, doneSubtasksCount, tasksIndex);
+    boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex);
+}
+
+
+/**
+ * function change style propertys of progressbar
+ * @param {string} subtasksProgress number of progress as string
+ * @param {number} tasksIndex of current task
+ */
+function boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex) {
+    let progressDiv = document.getElementById(`board_task_preview_subtasks_progress_${tasksIndex}`)
+    progressDiv.style.width = subtasksProgress + "%";
+}
+
+
+/**
+ * Render dueDate in short date format
+ * @param {number} tasksIndex 
+ */
+function boardRenderDueDate(tasksIndex) {
+    let dueDateDiv = document.getElementById('board_task_detail_duedate');
+    let dueDate = tasks[tasksIndex]['dueDate'];
+    let d = new Date(dueDate);
+    dueDate = d.toLocaleDateString('en-US');
+    dueDateDiv.innerHTML = `${dueDate}`;
+}
+
+
+/**
+ * function render prio image
+ * @param {string} id 
+ * @param {number} tasksIndex of current task
+ */
+function boardRenderImgPrio(id, tasksIndex) {
     let imgName = tasks[tasksIndex]['prio'];
-    document.getElementById(`board-task-card-priority_${tasksIndex}`).src = `./img/board/board_task_${imgName}.svg`;
+    document.getElementById(id).src = `./img/board/board_task_${imgName}.svg`;
+}
+
+
+/**
+ * function render prio text
+ * @param {string} id 
+ * @param {number} tasksIndex of current task
+ */
+function boardRenderPrioText(id, tasksIndex) {
+    let prioText = tasks[tasksIndex]['prio'];
+    prioText = prioText[0].toUpperCase() + prioText.slice(1);
+    document.getElementById(id).innerHTML = `${prioText}`;
+}
+
+
+/**
+ * Render assignedTo from tasks-json
+ * @param {number} tasksIndex Index of task into tasks-json
+ */
+function boardRenderAssignedTo(tasksIndex) {
+    let assignedToDiv = document.getElementById('board_task_detail_assignedto');
+    assignedToDiv.innerHTML = /*html*/`
+        <p class="board-task-card-detail-assignedto mb-8">Assigned To:</p>
+    `;
+
+    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length; i++) {
+        const id = tasks[tasksIndex]['assignedTo'][i];
+        let contactsIndex = boardIndexOfJSON(contacts, id);
+        let name = contacts[contactsIndex]['name'];
+        let color = contacts[contactsIndex]['color'];
+        let initials = contacts[contactsIndex]['initials'];
+
+        assignedToDiv.innerHTML += boardRenderAssignedToHTML(name, initials, color);
+    }
+}
+
+
+/**
+ * Render initials from tasks-json
+ * @param {number} tasksIndex Index of task into tasks-json
+ */
+function boardRenderInitials(id, tasksIndex) {
+    let initialsDiv = document.getElementById(id);
+
+    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length; i++) {
+        const id = tasks[tasksIndex]['assignedTo'][i];
+        let contactsIndex = boardIndexOfJSON(contacts, id);
+        let color = contacts[contactsIndex]['color'];
+        let initials = contacts[contactsIndex]['initials'];
+
+        initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color);
+    }
+}
+
+
+/**
+ * function check if subtasks ar created
+ * @param {number} tasksIndex of current task
+ * @returns status if subtasks ar created
+ */
+function boardSubtasksAvailable(tasksIndex) {
+    if (tasks[tasksIndex]['subtask'].length != 0) {
+        return true;
+    } else {
+        return false;
+    }    
+}
+
+/**
+ * count occurrences values in arrays
+ * @param {Array} arr 
+ * @param {string} value 
+ * @returns count of occurrences values
+ */
+function countOccurrences(arr, value) {
+    return arr.filter(item => item === value).length;
+}
+
+
+/**
+ * function call render function for subtasks in preview card
+ * @param {number} tasksIndex of current task
+ */
+function boardSubtasksAvailablePreview(tasksIndex) {
+    tasksAvailable = boardSubtasksAvailable(tasksIndex);
+    if (tasksAvailable == true) {
+        let subtasksCount = tasks[tasksIndex]['subtask'].length;
+        let doneSubtasksCount = countOccurrences(tasks[tasksIndex]['status_subtask'], 'done');
+        let subtasksProgress = doneSubtasksCount / subtasksCount * 100
+        boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex);
+    } else {
+        let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`)
+        subtasksDiv.classList.remove('board-task-card-progress-container');
+        subtasksDiv.classList.add('d-none'); 
+    }
+}
+
+
+/**
+ * function call render function for subtasks in detail card
+ * @param {number} tasksIndex of current task
+ */
+function boardSubtasksAvailableDetail(tasksIndex) {
+    tasksAvailable = boardSubtasksAvailable(tasksIndex);
+    if (tasksAvailable == true) {
+        let subtasks = tasks[tasksIndex]['subtask'];
+        let subtasksStatus = tasks[tasksIndex]['status_subtask'];
+        boardRenderSubtasksDetail(subtasks, subtasksStatus, tasksIndex);
+    } else {
+        boardNoSubtasksRemoveMargin('board_task_detail_subtasks');
+    }
+}
+
+
+/**
+ * function remove class mb-24 if no subtask is created
+ * @param {string} id 
+ */
+function boardNoSubtasksRemoveMargin(id) {
+    let subtasksDiv = document.getElementById(id);
+    subtasksDiv.classList.remove('mb-24');
+}
+
+
+/**
+ * function change status of clicked subtask
+ * @param {string} id 
+ * @param {number} tasksIndex of current task
+ * @param {number} subtasksIndex of current subtask
+ */
+async function boardSubtaskChangeStatus(id, tasksIndex, subtasksIndex) {
+    let subtaskStatus = tasks[tasksIndex]['status_subtask'];
+    if (subtaskStatus[subtasksIndex] == 'do') {
+        subtaskStatus[subtasksIndex] = 'done'; 
+    } else {
+        subtaskStatus[subtasksIndex] = 'do';
+    }
+
+    await setItem('tasks', tasks);
+    boardRenderSubtaskChangeStatus(id, subtaskStatus[subtasksIndex]);
+    boardSubtasksAvailablePreview(tasksIndex);
+}
+
+
+/**
+ * function render right svg tag after changed status of subtask
+ * @param {string} id 
+ * @param {string} status of subtask
+ */
+function boardRenderSubtaskChangeStatus(id, status) {
+    let svgDiv = document.getElementById(id);
+
+    if (status == 'do') {
+        svgDiv.innerHTML = /* html */`
+        <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+        `;    
+    } else {
+        svgDiv.innerHTML = /* html */`
+        <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        `;      
+    }   
+}
+
+
+/**
+ * function read status of subtasks and call the right render function for status 'done' or 'do'
+ * @param {Array} subtasks text description of subtasks
+ * @param {Array} subtasksStatus status of subtusks
+ * @param {number} tasksIndex 
+ */
+function boardRenderSubtasksDetail(subtasks, subtasksStatus, tasksIndex) {
+    let subtasksDiv = document.getElementById('board_task_detail_subtasks')
+    subtasksDiv.classList.add('mb-24');
+    subtasksDiv.innerHTML += /* html */`
+    <p class="board-task-card-detail-subtasks mb-8">Subtasks</p>
+    `;
+
+    for (let i = 0; i < subtasks.length; i++) {
+        const subtask = subtasks[i];
+        const subtaskStatus = subtasksStatus[i];
+
+        if (subtaskStatus == 'do') {
+            subtasksDiv.innerHTML += boardRenderSubtasksDetailUncheckedSvgHTML(subtask, tasksIndex, i);
+        } else {
+            subtasksDiv.innerHTML += boardRenderSubtasksDetailCheckedSvgHTML(subtask, tasksIndex, i);
+        }
+    }
 }
 
 
@@ -81,97 +316,21 @@ function boardRenderTasksPlaceholder(tasksCategory) {
 }
 
 
+/**
+ * function render detail card of clicked task and call subfunctions for render details into card (Storyline, DueDate, ImgPrio, AssignedTo, AvailableDetail and PrioText)
+ * @param {number} tasksIndex 
+ */
 function boardRenderDetailCard(tasksIndex) {
     let tasksCategoryDiv = document.getElementById('board_task_detail_card');
     tasksCategoryDiv.parentElement.classList.remove('d-none');
     tasksCategoryDiv.parentElement.classList.add('d-flex');
     tasksCategoryDiv.innerHTML = '';
-    tasksCategoryDiv.innerHTML = /* html */`
-        <div class="board-task-card-detail-storyline d-flex jc-between ai-center">
-            <span id="board_task_storyline_detail_${tasksIndex}" class="board-task-card-detail-taskcategory"></span>
-            <div class="board-task-card-detail-close d-flex jc-center ai-center" onclick="boardCloseDetailCard()">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="./img/board/board_detail_clos.svg">
-                <path d="M6.99999 8.40005L2.09999 13.3C1.91665 13.4834 1.68332 13.575 1.39999 13.575C1.11665 13.575 0.883321 13.4834 0.699988 13.3C0.516654 13.1167 0.424988 12.8834 0.424988 12.6C0.424988 12.3167 0.516654 12.0834 0.699988 11.9L5.59999 7.00005L0.699988 2.10005C0.516654 1.91672 0.424988 1.68338 0.424988 1.40005C0.424988 1.11672 0.516654 0.883382 0.699988 0.700049C0.883321 0.516715 1.11665 0.425049 1.39999 0.425049C1.68332 0.425049 1.91665 0.516715 2.09999 0.700049L6.99999 5.60005L11.9 0.700049C12.0833 0.516715 12.3167 0.425049 12.6 0.425049C12.8833 0.425049 13.1167 0.516715 13.3 0.700049C13.4833 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4833 1.91672 13.3 2.10005L8.39999 7.00005L13.3 11.9C13.4833 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4833 13.1167 13.3 13.3C13.1167 13.4834 12.8833 13.575 12.6 13.575C12.3167 13.575 12.0833 13.4834 11.9 13.3L6.99999 8.40005Z" fill="#2A3647"/>
-            </svg>
-            </div>
-        </div>
-
-
-        <h1 class="board-task-card-detail-headline">${tasks[tasksIndex]['title']}</h1>
-
-        <p class="board-task-card-detail-description">${tasks[tasksIndex]['description']}</p>
-
-        <div class="d-flex ai-center"><p class="board-task-card-detail-duedate">Due date:</p><p>Datums-Funktion schreiben</p></div>
-
-        
-        <div class="board-task-card-profile-priority">
-            <div class="board-task-card-profile-container">
-                <!-- render profile icons -->
-                <div class="board-task-card-profile">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">TN</span>
-                </div>
-                <div class="board-task-card-profile" style="left: -8px;">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">NT</span>
-                </div>
-            </div>
-            <img id="board-task-card-priority_detail_${tasksIndex}" class="board-task-card-priority" src="" alt="">
-        </div>
-    `;
-
-    boardRenderStoryline(`board_task_storyline_detail_${tasksIndex}`, tasksIndex);
-}
-
-
-/* ************************************************* return HTML code ********************************************************************************************* */
-
-
-/**
- * function return html code to render
- * @param {string} tasksCategoryStatus name of category
- * @returns html code to render placeholder
- */
-function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
-    return /* html */`
-    <div class="board-no-task-feedback">
-        <span class="board-no-task-feedback-text">No tasks ${tasksCategoryStatus}</span>
-    </div>
-    `;
-}
-
-
-/**
- * function return html code to render
- * @param {number} tasksIndex index of dataset into tasks array
- * @returns html code to render preview card
- */
-function boardRenderTasksPreviewHTML(tasksIndex) {
-    return /* html */`
-    <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview">
-        <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
-        <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
-        <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
-        <div class="board-task-card-progress-container">
-            <div class="board-task-card-progressbar">
-                <div class="board-task-card-progress"></div>
-            </div>
-            <span class="board-task-card-progress-text">1/2 Subtasks</span>
-        </div>
-        <div class="board-task-card-profile-priority">
-            <div class="board-task-card-profile-container">
-                <!-- render profile icons -->
-                <div class="board-task-card-profile">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">TN</span>
-                </div>
-                <div class="board-task-card-profile" style="left: -8px;">
-                    <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                    <span class="board-task-card-profile-text">NT</span>
-                </div>
-            </div>
-            <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
-        </div>
-    </div>
-    `;
+    tasksCategoryDiv.innerHTML = boardRenderDetailCardHTML(tasksIndex);
+     
+    boardRenderStoryline(`board_task_storyline_detail`, tasksIndex);
+    boardRenderDueDate(tasksIndex);
+    boardRenderImgPrio('board-task-card-priority-img', tasksIndex);
+    boardRenderAssignedTo(tasksIndex);
+    boardSubtasksAvailableDetail(tasksIndex);
+    boardRenderPrioText('board-task-card-priority-text', tasksIndex);
 }

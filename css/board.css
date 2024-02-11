@@ -6,8 +6,16 @@
     display: flex;
 }
 
+.flex-d-col{
+    flex-direction: column;
+}
+
 .jc-center {
     justify-content: center;
+}
+
+.jc-end {
+    justify-content: end;
 }
 
 .jc-between {
@@ -268,6 +276,7 @@ line-height: 120%; */
     padding: 0px 8px 2px 0px;
     width: 220px;
     height: 16px;
+    margin-bottom: 24px;
 }
 
 .board-task-card-progressbar {
@@ -293,14 +302,15 @@ line-height: 120%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 24px;
 }
 
 .board-task-card-profile-container {
     display: flex;
     align-items: center;
-    /* padding-top: 16px;
-    margin-bottom: 16px; */
+}
+
+.board-task-card-profile:nth-child(n + 2) {
+    left: -8px;
 }
 
 .board-task-card-profile {
@@ -331,6 +341,13 @@ line-height: 120%; */
 }
 
 /* ************************************************ tasks detail *********************************************************************************** */
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
 
 .board-task-detail-main {
     background-color: rgba(0, 0, 0, 0.16);
@@ -393,9 +410,83 @@ line-height: 120%; */
     margin-bottom: 24px;
 }
 
-.board-task-card-detail-duedate {
+.board-task-card-detail-duedate,
+.board-task-card-detail-priority,
+.board-task-card-detail-assignedto,
+.board-task-card-detail-subtasks {
     color: #2A3647;
     padding-right: 25px;
+}
+
+.board-task-card-detail-profile,
+.board-task-card-detail-tasks {
+    padding: 7px 16px 7px 16px;
+    gap: 16px;
+}
+
+.board-task-card-detail-initals {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 45px;
+    background: #FFF;
+}
+
+.board-task-card-detail-profile-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: #FFF;
+}
+
+.board_task_detail_subtasks_checked:hover {
+    border-radius: 43px;
+    background: #D1D1D1;
+    cursor: pointer;
+}
+
+.board-task-card-detail-tasks-text {
+    font-size: 16px!important;
+}
+
+.board-task-card-detail-edit,
+.board-task-card-detail-delete {
+    gap: 8px;
+}
+
+.board-task-card-detail-edit:hover,
+.board-task-card-detail-delete:hover,
+.board-task-card-detail-close:hover {
+    cursor: pointer;
+}
+
+/* Hover-Effekt auf den icons edit und delete geht noch nicht */
+.board-task-card-detail-edit:hover > rect:hover {
+    fill: #29ABE2;
+}
+
+.board-task-card-detail-delete {
+    padding-right: 8px;
+}
+
+.board-task-card-detail-edit {
+    padding-left: 8px;
+}
+
+.board-task-card-detail-edit-text {
+    font-size: 16px!important;
+    color: #2A3647;
+}
+
+.board-task-card-detail-edit-text:hover {
+    color: #29ABE2;
+    font-weight: bold;
+}
+
+#board-task-card-priority-img {
+    padding-left: 8px; 
 }
 
 

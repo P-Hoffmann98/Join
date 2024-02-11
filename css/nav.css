@@ -64,7 +64,7 @@
   background-color: rgba(9, 25, 49, 1);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 850px) {
   .nav-desktop {
     bottom: 0;
     width: 100%;

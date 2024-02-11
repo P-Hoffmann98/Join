@@ -10,7 +10,9 @@ let boardCurrentDraggedTask;
  */
 async function boardInit() {
     await includeHTML();
+    loadInitials();
     await loadTasks();
+    await loadContacts();
     await boardReadTasks();
     boardRenderInit();
 }
@@ -70,12 +72,12 @@ function boardSortTasks(id, status) {
  * @param {number} id 
  * @returns index of tasks array
  */
-function boardIndexOfTasks(id) {
+function boardIndexOfJSON(json, id) {
+    
+    for (let j = 0; j < json.length; j++) {
+        const jsonRecord = json[j];
 
-    for (let j = 0; j < tasks.length; j++) {
-        const task = tasks[j];
-
-        if (task['id'] == id) {
+        if (jsonRecord['id'] == id) {
             /* console.log(task['id']);
             console.log(id);
             console.log(j); */
@@ -159,8 +161,24 @@ function boardRemoveBackgroundMoveTask(id) {
 }
 
 
+/**
+ * Function set css classes to close detail card of selcted task
+ */
 function boardCloseDetailCard() {
     let tasksCategoryDiv = document.getElementById('board_task_detail_card');
     tasksCategoryDiv.parentElement.classList.add('d-none');
     tasksCategoryDiv.parentElement.classList.remove('d-flex');
+}
+
+
+/**
+ * function remoce a tasks from tasks json and call functions to save changes in the backend and render new
+ * @param {number} tasksIndex 
+ */
+async function boardDeleteTask(tasksIndex) {
+    tasks.splice(tasksIndex, 1);
+    await setItem('tasks', tasks);
+    await boardReadTasks();
+    boardRenderInit();
+    boardCloseDetailCard();
 }
