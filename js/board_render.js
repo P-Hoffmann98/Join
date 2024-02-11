@@ -76,13 +76,7 @@ function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksP
     let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`);
     subtasksDiv.classList.add('board-task-card-progress-container');
     subtasksDiv.classList.remove('d-none');
-    subtasksDiv.innerHTML = /* html */`
-        <div class="board-task-card-progressbar">
-            <div id="board_task_preview_subtasks_progress_${tasksIndex}" class="board-task-card-progress"></div>
-        </div>
-        <span class="board-task-card-progress-text">${doneSubtasksCount}/${subtasksCount} Subtasks</span>
-    `;
-
+    subtasksDiv.innerHTML = boardRenderSubtasksPreviewHTML(subtasksCount, doneSubtasksCount, tasksIndex);
     boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex);
 }
 
