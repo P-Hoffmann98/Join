@@ -65,8 +65,15 @@ function boardRenderStoryline(id, tasksIndex) {
 }
 
 
+/**
+ * function render progressbar and text into preview card
+ * @param {string} subtasksCount count of all subtasks
+ * @param {string} doneSubtasksCount count of done subtasks
+ * @param {number} subtasksProgress progress as number between 0 - 100
+ * @param {number} tasksIndex of current task
+ */
 function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex) {
-    let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`)
+    let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`);
     subtasksDiv.classList.add('board-task-card-progress-container');
     subtasksDiv.classList.remove('d-none');
     subtasksDiv.innerHTML = /* html */`
@@ -80,6 +87,11 @@ function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksP
 }
 
 
+/**
+ * function change style propertys of progressbar
+ * @param {string} subtasksProgress number of progress as string
+ * @param {number} tasksIndex of current task
+ */
 function boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex) {
     let progressDiv = document.getElementById(`board_task_preview_subtasks_progress_${tasksIndex}`)
     progressDiv.style.width = subtasksProgress + "%";
@@ -99,12 +111,22 @@ function boardRenderDueDate(tasksIndex) {
 }
 
 
+/**
+ * function render prio image
+ * @param {string} id 
+ * @param {number} tasksIndex of current task
+ */
 function boardRenderImgPrio(id, tasksIndex) {
     let imgName = tasks[tasksIndex]['prio'];
     document.getElementById(id).src = `./img/board/board_task_${imgName}.svg`;
 }
 
 
+/**
+ * function render prio text
+ * @param {string} id 
+ * @param {number} tasksIndex of current task
+ */
 function boardRenderPrioText(id, tasksIndex) {
     let prioText = tasks[tasksIndex]['prio'];
     prioText = prioText[0].toUpperCase() + prioText.slice(1);
@@ -152,6 +174,11 @@ function boardRenderInitials(id, tasksIndex) {
 }
 
 
+/**
+ * function check if subtasks ar created
+ * @param {number} tasksIndex of current task
+ * @returns status if subtasks ar created
+ */
 function boardSubtasksAvailable(tasksIndex) {
     if (tasks[tasksIndex]['subtask'].length != 0) {
         return true;
@@ -160,12 +187,21 @@ function boardSubtasksAvailable(tasksIndex) {
     }    
 }
 
-
+/**
+ * count occurrences values in arrays
+ * @param {Array} arr 
+ * @param {string} value 
+ * @returns count of occurrences values
+ */
 function countOccurrences(arr, value) {
     return arr.filter(item => item === value).length;
 }
 
 
+/**
+ * function call render function for subtasks in preview card
+ * @param {number} tasksIndex of current task
+ */
 function boardSubtasksAvailablePreview(tasksIndex) {
     tasksAvailable = boardSubtasksAvailable(tasksIndex);
     if (tasksAvailable == true) {
@@ -181,6 +217,10 @@ function boardSubtasksAvailablePreview(tasksIndex) {
 }
 
 
+/**
+ * function call render function for subtasks in detail card
+ * @param {number} tasksIndex of current task
+ */
 function boardSubtasksAvailableDetail(tasksIndex) {
     tasksAvailable = boardSubtasksAvailable(tasksIndex);
     if (tasksAvailable == true) {
@@ -193,14 +233,23 @@ function boardSubtasksAvailableDetail(tasksIndex) {
 }
 
 
+/**
+ * function remove class mb-24 if no subtask is created
+ * @param {string} id 
+ */
 function boardNoSubtasksRemoveMargin(id) {
     let subtasksDiv = document.getElementById(id);
     subtasksDiv.classList.remove('mb-24');
 }
 
 
+/**
+ * function change status of clicked subtask
+ * @param {string} id 
+ * @param {number} tasksIndex of current task
+ * @param {number} subtasksIndex of current subtask
+ */
 async function boardSubtaskChangeStatus(id, tasksIndex, subtasksIndex) {
-    /* console.log(id, tasksIndex, subtasksIndex); */
     let subtaskStatus = tasks[tasksIndex]['status_subtask'];
     if (subtaskStatus[subtasksIndex] == 'do') {
         subtaskStatus[subtasksIndex] = 'done'; 
@@ -214,6 +263,11 @@ async function boardSubtaskChangeStatus(id, tasksIndex, subtasksIndex) {
 }
 
 
+/**
+ * function render right svg tag after changed status of subtask
+ * @param {string} id 
+ * @param {string} status of subtask
+ */
 function boardRenderSubtaskChangeStatus(id, status) {
     let svgDiv = document.getElementById(id);
 

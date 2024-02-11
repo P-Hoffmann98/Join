@@ -172,3 +172,13 @@ function boardRenderSubtasksDetailCheckedSvgHTML(subtask, tasksIndex, i) {
         </div>
     `;
 }
+
+
+function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, tasksIndex) {
+    return /* html */`
+        <div class="board-task-card-progressbar">
+            <div id="board_task_preview_subtasks_progress_${tasksIndex}" class="board-task-card-progress"></div>
+        </div>
+        <span class="board-task-card-progress-text">${doneSubtasksCount}/${subtasksCount} Subtasks</span>
+    `;
+}
