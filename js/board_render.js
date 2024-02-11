@@ -130,7 +130,7 @@ function boardRenderInitials(id, tasksIndex) {
 }
 
 
-function boardSubtasksAvailable(tasksIndex) {
+function boardSubtasksAvailableDetail(tasksIndex) {
     if (tasks[tasksIndex]['subtask'].length != 0) {
         let subtasks = tasks[tasksIndex]['subtask'];
         let subtasksStatus = tasks[tasksIndex]['status_subtask'];
@@ -296,7 +296,7 @@ function boardRenderDetailCard(tasksIndex) {
     boardRenderDueDate(tasksIndex);
     boardRenderImgPrio('board-task-card-priority-img', tasksIndex);
     boardRenderAssignedTo(tasksIndex);
-    boardSubtasksAvailable(tasksIndex);
+    boardSubtasksAvailableDetail(tasksIndex);
     boardRenderPrioText('board-task-card-priority-text', tasksIndex);
 }
 
