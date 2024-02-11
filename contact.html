@@ -15,14 +15,96 @@
     <script src="/js/storage.js"></script>
     <script src="/js/contact.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/signup.js"></script>
   </head>
 
   <body onload="contactInit()">
-    <div id="add-contact-filter" class="bg-filter d-none"></div>
-    <div id="add-contact-card" class="add-contact-card">
-      <div class="add-contact-card-left"></div>
-      <div class="add-contact-card-right"></div>
+    <div id="add-contact-filter" class="d-none bg-filter"></div>
+    <div id="add-contact-card" class="d-none add-contact-card">
+      <div class="add-contact-card-left">
+        <div class="add-contact-card-imgtext">
+
+      <img class="add-contact-logo" src="img/logo_nav_desktop.svg">
+      <br>
+      <h1>Add Contact</h1>
+      <p>Tasks are better with a Team!</p>
+      <div class="add-contact-card-spacer"></div>
     </div>
+  </div>
+      <div class="add-contact-card-right">
+      <div><img src="/img/contact/person.svg" class="add-contact-person"></div>
+      <form class="signup-inputs-container" onsubmit="handleFormSubmission(); return false">
+        <input
+        type="text"
+        class="contact-inputs"
+        id="contact-input-name"
+        placeholder="Name"
+        minlength="2"
+        required
+      />
+      <input
+        type="email"
+        class="contact-inputs"
+        id="contact-input-email"
+        placeholder="E-mail"
+        required
+      />    
+      <input
+      type="number"
+      class="contact-inputs"
+      id="contact-input-phone"
+      placeholder="Phone"
+      required
+    />
+    <div class="add-contact-button">
+      <button id="contact-cancel-button" type="button" onclick="closeAddContact()">Cancel <img src="/img/contact/cancel.svg"></button>
+      <button id="contact-create-button" type="submit">Create contact <img src="/img/contact/check.svg"></button>
+    </div>
+  </form>
+      </div>
+    </div>
+
+    <div id="edit-contact-filter" class="d-none bg-filter"></div>
+    <div id="edit-contact-card" class="d-none add-contact-card">
+      <div class="add-contact-card-left">
+        <div class="add-contact-card-imgtext">
+
+      <img class="add-contact-logo" src="img/logo_nav_desktop.svg">
+      <br>
+      <h1>Edit Contact</h1>
+      <div class="add-contact-card-spacer"></div>
+    </div>
+  </div>
+      <div class="add-contact-card-right">
+      <div><img src="/img/contact/person.svg" class="add-contact-person"></div>
+      <form class="signup-inputs-container" onsubmit="editContact(); return false">
+        <input
+        type="text"
+        class="contact-inputs"
+        id="contact-edit-name"
+        placeholder="Name"
+        minlength="2"
+      />
+      <input
+        type="email"
+        class="contact-inputs"
+        id="contact-edit-email"
+        placeholder="E-mail"
+      />    
+      <input
+      type="number"
+      class="contact-inputs"
+      id="contact-edit-phone"
+      placeholder="Phone"
+    />
+    <div class="add-contact-button">
+      <button id="contact-cancel-button" type="button" onclick="deleteContact(c)">Delete</button>
+      <button id="contact-create-button" type="submit">Save <img src="/img/contact/check.svg"></button>
+    </div>
+  </form>
+      </div>
+    </div>
+
     <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
     <div class="main-container-body">
       <div w3-include-html="./templates/desktop/header_desktop.html"></div>

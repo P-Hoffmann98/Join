@@ -1,3 +1,5 @@
+let c;
+
 async function contactInit() {
   await includeHTML();
   await loadUsers();
@@ -34,11 +36,11 @@ function showContact(i) {
       <div class="big-contact-name-edits">
         <h1>${contact.name}</h1>
         <div class="big-contact-edit-delete">
-          <div class="big-contact-edit">
+          <div class="big-contact-edit" onclick="openEditContact(${i})">
             <img src="img/contact/edit.svg">
             <p>Edit</p>
           </div>
-          <div class="big-contact-delete">
+          <div class="big-contact-delete" onclick="deleteContact(${i})">
             <img src="img/contact/delete.svg">
             <p>Delete</p>
           </div>
@@ -63,10 +65,93 @@ function showContact(i) {
   document.getElementById(`contact-card-${i}`).style.color = "#FFFFFF";
 }
 
-function openAddContact() {
-  document.getElementById("add-contact-filter").classList.remove("d-none");
+async function deleteContact(c) {
+  contacts.splice(c, 1);
+  let bigContactCard = document.getElementById("big-contact-card");
+  bigContactCard.innerHTML = "";
+  renderContacts();
+  await setItem("contacts", JSON.stringify(contacts));
+}
+
+function openEditContact(i) {
+  document.getElementById("edit-contact-filter").classList.remove("d-none");
+  document.getElementById("edit-contact-card").classList.remove("d-none");
+  c = i;
+  loadUsers();
+  loadContacts();
+}
+
+function closeEditContact() {
+  document.getElementById("edit-contact-filter").classList.add("d-none");
+  document.getElementById("edit-contact-card").classList.add("d-none");
+  renderContacts();
+}
+
+async function editContact() {
+  let name = document.getElementById("contact-edit-name").value;
+  let email = document.getElementById("contact-edit-email").value;
+  let phone = document.getElementById("contact-edit-phone").value;
+
+  if (name) {
+    contacts[c].name = name;
+  }
+  if (email) {
+    contacts[c].email = email;
+  }
+  if (phone) {
+    contacts[c].phone = phone;
+  }
+
+  await setItem("contacts", JSON.stringify(contacts));
+  document.getElementById("contact-edit-name").value = "";
+  document.getElementById("contact-edit-email").value = "";
+  document.getElementById("contact-edit-phone").value = "";
+  closeEditContact();
+  renderContacts();
+  showContact(c);
 }
 
 function openAddContact() {
-  document.getElementById("add-contact-filter").classList.add("d-none");
+  document.getElementById("add-contact-filter").classList.remove("d-none");
+  document.getElementById("add-contact-card").classList.remove("d-none");
+  loadUsers();
+  loadContacts();
 }
+
+function closeAddContact() {
+  document.getElementById("add-contact-filter").classList.add("d-none");
+  document.getElementById("add-contact-card").classList.add("d-none");
+}
+
+async function addContact() {
+  let name = document.getElementById("contact-input-name").value;
+  let email = document.getElementById("contact-input-email").value;
+  let phone = document.getElementById("contact-input-phone").value;
+  let i = Math.floor(Math.random() * allColors.length);
+  let color = allColors[i];
+  let userId = generateUserId();
+  let initials = generateUserInitials(name);
+
+  contacts.push({
+    id: userId,
+    name: name,
+    email: email,
+    initials: initials,
+    phone: phone,
+    color: color,
+  });
+  await setItem("contacts", JSON.stringify(contacts));
+  document.getElementById("contact-input-name").value = "";
+  document.getElementById("contact-input-email").value = "";
+  document.getElementById("contact-input-phone").value = "";
+  closeAddContact();
+  renderContacts();
+}
+
+function handleFormSubmission() {
+  addContact();
+}
+
+document
+  .getElementById("contact-create-button")
+  .addEventListener("click", handleFormSubmission);
