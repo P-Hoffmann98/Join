@@ -62,3 +62,11 @@ function showContact(i) {
     "#2A3647";
   document.getElementById(`contact-card-${i}`).style.color = "#FFFFFF";
 }
+
+function openAddContact() {
+  document.getElementById("add-contact-filter").classList.remove("d-none");
+}
+
+function openAddContact() {
+  document.getElementById("add-contact-filter").classList.add("d-none");
+}

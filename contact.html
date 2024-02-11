@@ -10,18 +10,25 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/nav.css" />
     <link rel="stylesheet" href="./css/contact.css" />
+
     <script src="/js/script.js"></script>
     <script src="/js/storage.js"></script>
     <script src="/js/contact.js"></script>
+    <script src="./js/header.js"></script>
   </head>
 
   <body onload="contactInit()">
+    <div id="add-contact-filter" class="bg-filter d-none"></div>
+    <div id="add-contact-card" class="add-contact-card">
+      <div class="add-contact-card-left"></div>
+      <div class="add-contact-card-right"></div>
+    </div>
     <div w3-include-html="./templates/desktop/nav_desktop.html"></div>
     <div class="main-container-body">
       <div w3-include-html="./templates/desktop/header_desktop.html"></div>
       <div class="contact-container">
         <div class="contact-container-left">
-        <button class="add-contact">Add new contact<img src="img/contact/add_contact.svg"></button>
+        <button onclick="openAddContact()" class="add-contact">Add new contact<img src="img/contact/add_contact.svg"></button>
         <div class="contact-list" id="contact-list"></div>
       </div>
         <div class="contact-container-right">

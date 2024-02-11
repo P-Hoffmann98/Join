@@ -64,6 +64,7 @@
   width: 80%;
   padding: 12px 0px;
   margin: 22.5px 52px 22.5px 52px;
+  cursor: pointer;
 }
 
 .contact-list > * {
@@ -176,4 +177,27 @@
   font-weight: 400;
   color: #007cee;
   cursor: pointer;
+}
+
+.add-contact-card {
+  position: absolute;
+  z-index: 999;
+  height: 50vh;
+  width: 80vw;
+  top: 25vh;
+  left: 10vw;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+}
+
+.bg-filter {
+  z-index: 999;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.d-none {
+  display: none;
 }
