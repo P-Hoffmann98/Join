@@ -320,6 +320,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .add-task-select-field-container {
   margin-top: -5px;
   overflow-y: scroll;
+  position: relative;
+  z-index: 999;
   height: 200px;
   background-color: #ffffff;
   /* padding: 0 10px; */
@@ -528,6 +530,10 @@ label input {
     align-items: center;
   }
 
+  .add-task-container-right {
+    margin-left: 0;
+  }
+
   .add-task-content {
     width: 100%;
     margin-left: 348;
@@ -542,6 +548,12 @@ label input {
 
   .add-task-headline {
     /* margin-left: 348px; */
+    /* width: 150px; */
+    font-size: 44px;
+  }
+
+  .add-task-header-container {
+    width: 200px;
   }
 }
 
@@ -595,10 +607,11 @@ label input {
 
   .add-task-header-container {
     position: fixed;
-    top: 90px;
+    top: 88px;
     left: 0px;
     right: 0px;
     width: auto;
+    padding-top: 30px;
     padding-left: 60px;
     background-color: #f6f7f8;
   }
