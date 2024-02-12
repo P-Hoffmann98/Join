@@ -19,7 +19,7 @@ function renderContacts() {
         <div class="circle" style="background-color: ${contact.color};">${contact.initials}</div>
         <div class="contact">
           <h1>${contact.name}</h1>
-          <p>${contact.email}</p>
+          <p class="contact-email">${contact.email}</p>
         </div>
       </div>
     `;

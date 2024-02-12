@@ -11,11 +11,18 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0px 30px;
   width: 40%;
   min-height: 100vh;
   height: 100%;
   background-color: white;
   box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
 }
 
 .contact-container-right {
@@ -40,22 +47,35 @@
   font-size: 28px;
 }
 
-.contact-spacer {
+.contact-spacer1 {
   height: 60px;
-  width: 1px;
+  width: 3px;
+  background-color: #29abe2;
+}
+.contact-spacer2 {
+  display: none;
+  width: 150px;
+  height: 3px;
   background-color: #29abe2;
 }
 
 .contact-list > * {
-  margin: 15px 24px 15px 24px;
+  margin: 15px 0px 15px 0px;
   display: flex;
-  gap: 35px;
+  align-items: center;
   cursor: pointer;
+  gap: 35px;
 }
 
 .contact-card {
   border-radius: 10px;
   padding: 15px 24px;
+}
+
+.contact-card .contact .contact-email {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .circle {
@@ -173,7 +193,8 @@
   background: #2a3647;
   gap: 16px;
   height: 56px;
-  width: 80%;
+  width: 100%;
+  max-width: 500px;
   padding: 12px 0px;
   margin: 22.5px 52px 22.5px 52px;
   cursor: pointer;
@@ -338,4 +359,100 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+@media (max-width: 1350px) {
+  .contact-list > * {
+    margin: 10px 0px 10px 0px;
+    gap: 15px;
+  }
+  .circle {
+    height: 40px;
+    width: 40px;
+    font-size: 14px;
+  }
+  .contact > h1 {
+    font-size: 16px;
+  }
+  .contact > p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .contact-list > * {
+    margin: 5px 0px 5px 0px;
+    gap: 10px;
+  }
+  .circle {
+    height: 30px;
+    width: 30px;
+    font-size: 12px;
+  }
+  .contact > h1 {
+    font-size: 14px;
+  }
+  .contact > p {
+    font-size: 10px;
+  }
+  .contact-spacer1 {
+    display: none;
+  }
+  .contact-spacer2 {
+    display: block;
+  }
+  .contact-container-right-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .big-contact-card {
+    margin-top: 250px;
+  }
+  .big-contact-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .big-circle {
+    width: 150px;
+    height: 150px;
+  }
+  .big-contact-name-edits {
+    gap: 16px;
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 850px) {
+  .main-container-body {
+    padding-left: 0px;
+  }
+  .contact-container-left {
+    width: 100%;
+  }
+  .contact-container-right {
+    display: none;
+  }
+  .contact > h1 {
+    font-size: 20px;
+  }
+  .contact > p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .contact > h1 {
+    font-size: 16px;
+  }
+  .contact > p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .contact > h1 {
+    font-size: 14px;
+  }
+  .contact > p {
+    font-size: 10px;
+  }
 }
