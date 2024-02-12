@@ -7,8 +7,12 @@ async function addTaskInit() {
   renderSubTasks();
   loadCurrentUser();
   loadInitials();
-  //   let tasks = [];
-  //   await setItem("tasks", JSON.stringify(tasks));
+  // let tasks = [];
+  // await setItem("tasks", JSON.stringify(tasks));
+  // let contacts = [];
+  // await setItem("contacts", JSON.stringify(contacts));
+  // let users = [];
+  // await setItem("users", JSON.stringify(users));
 }
 
 let addTaskPrio = "medium";
