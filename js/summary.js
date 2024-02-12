@@ -4,6 +4,7 @@ async function summaryInit() {
   await loadCurrentUser();
   showCurrentUserName();
   await loadCounts();
+  loadInitials();
 }
 
 async function loadCounts() {
