@@ -4,6 +4,8 @@ async function contactInit() {
   await includeHTML();
   await loadUsers();
   await loadContacts();
+  loadCurrentUser();
+  loadInitials();
   renderContacts();
 }
 
