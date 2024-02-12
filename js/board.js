@@ -10,6 +10,7 @@ let boardCurrentDraggedTask;
  */
 async function boardInit() {
     await includeHTML();
+    loadCurrentUser();
     loadInitials();
     await loadTasks();
     await loadContacts();
