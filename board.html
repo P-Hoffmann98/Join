@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="board-task-main">
-                    <div class="board-task-category">
+                    <div id="board_task_category_todo_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">To do</span>
                             <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
@@ -55,13 +55,13 @@
                             </svg>
                         </div>
                         <div id="board_task_category_todo"
-                            ondrop="boardDrop('todo'); boardRemoveBackgroundMoveTask('board_task_category_todo')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_todo')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_todo')"
+                            ondrop="boardDrop('todo'); boardRemoveBackgroundMoveTask('board_task_category_todo_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_todo_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_todo_move')"
                             class="board-task-container">
                         </div>
                     </div>
-                    <div class="board-task-category">
+                    <div id="board_task_category_progress_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">In progress</span>
                             <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
@@ -77,13 +77,13 @@
                             </svg>
                         </div>
                         <div id="board_task_category_progress"
-                            ondrop="boardDrop('progress'); boardRemoveBackgroundMoveTask('board_task_category_progress')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_progress')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_progress')"
+                            ondrop="boardDrop('progress'); boardRemoveBackgroundMoveTask('board_task_category_progress_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_progress_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_progress_move')"
                             class="board-task-container">
                         </div>
                     </div>
-                    <div class="board-task-category">
+                    <div id="board_task_category_feedback_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">Await feedback</span>
                             <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
@@ -99,20 +99,20 @@
                             </svg>
                         </div>
                         <div id="board_task_category_feedback"
-                            ondrop="boardDrop('feedback'); boardRemoveBackgroundMoveTask('board_task_category_feedback')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_feedback')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_feedback')"
+                            ondrop="boardDrop('feedback'); boardRemoveBackgroundMoveTask('board_task_category_feedback_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_feedback_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_feedback_move')"
                             class="board-task-container">
                         </div>
                     </div>
-                    <div class="board-task-category">
+                    <div id="board_task_category_done_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">Done</span>
                         </div>
-                        <div id="board_task_category_done"
-                            ondrop="boardDrop('done'); boardRemoveBackgroundMoveTask('board_task_category_done')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_done')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_done')"
+                        <div id="board_task_category_done" 
+                            ondrop="boardDrop('done'); boardRemoveBackgroundMoveTask('board_task_category_done_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_done_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_done_move')"
                             class="board-task-container">
                         </div>
                     </div>
