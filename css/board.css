@@ -115,8 +115,8 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 1208px;
+    height: 100%;
     padding: 0px 64px;
-    /* align-items: flex-start; */
     justify-content: space-between;
     gap: 24px;
 }
