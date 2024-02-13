@@ -197,9 +197,12 @@ h3 {
     display: flex;
     flex-direction: column;
     width: 220px;
+    margin-left: 270px;
+    margin-top: 20px;
   }
   .summary-wrapper {
     width: 0px;
+    margin-left: 270px;
   }
   .summary-seperator {
     height: 3px;
@@ -207,6 +210,15 @@ h3 {
     width: 59px;
     margin: 0 36px;
     display: none;
+  }
+
+  .summary-container {
+    margin-top: 80px;
+    width: 0px;
+  }
+
+  .summary-container-inside {
+    height: calc(100vh - 180px);
   }
 
   .summary-seperator-mobil {
@@ -223,5 +235,75 @@ h3 {
 
   .summary-headline h2 {
     font-size: 47px;
+  }
+}
+
+@media (max-width: 850px) {
+  .summary-headline {
+    margin-left: 20px;
+    font-size: 47px;
+  }
+  .summary-wrapper {
+    margin-left: 20px;
+  }
+
+  .summary-sum {
+    font-size: 26px;
+  }
+
+  .summary-images {
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+  }
+
+  .summary-urgent-counter {
+    font-size: 26px;
+  }
+
+  .summary-urgent-date {
+    font-size: 16px;
+  }
+
+  .summary-small {
+    font-size: 16px;
+  }
+
+  .summary-container-third-row a {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 550px) {
+  .summary-headline {
+    margin-top: -170px;
+  }
+
+  .summary-container-third-row a {
+    width: 104px;
+    height: 128px;
+  }
+
+  .summary-small {
+    text-align: center;
+  }
+
+  .summary-container-first-row {
+    gap: 25px;
+  }
+
+  .summary-container-third-row {
+    gap: 5px;
+  }
+
+  .summary-container-first-row a {
+    width: 150px;
+    height: 128px;
+    padding: 25px 20px;
+  }
+
+  .summary-container-second-row a {
+    width: 320px;
+    height: 128px;
   }
 }
