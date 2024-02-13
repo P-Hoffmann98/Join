@@ -575,6 +575,14 @@ label input {
     border: 0px solid black;
   }
 
+  #add_task_select_category_box {
+    width: 315px;
+  }
+
+  .add-task-select-field-container {
+    width: 315px;
+  }
+
   .add-task-seperator {
     display: none;
   }
