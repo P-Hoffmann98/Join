@@ -159,8 +159,9 @@
     border: 2px solid #2A3647;
 }
 
-.board-add-task-category:hover {
-    color: #29ABE2;
+.board-add-task-category:hover,
+.board-add-task-category:hover path {
+    stroke: #29ABE2;
     border: 2px solid var(--Ligth-blue, #29ABE2);
     transition: ease-out;
     transition-duration: 0.3s;
