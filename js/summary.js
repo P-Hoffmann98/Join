@@ -155,18 +155,12 @@ function summaryFindDueDate() {
 
   for (let i = 0; i < tasks.length; i++) {
     if (tasks[i]["prio"] == "urgent" && tasks[i]["status"] != "done") {
-      //wenn priorität urgent ist dann
-      let task = new Date(tasks[i]["dueDate"]); //der variablen task wir der wir createdAt im date format übergeben
-      if (task < closestDate || closestDate === null)
-        //wenn task kleiner als unendlich ODER closestsDate NULL DANN
-        closestDate = task; //weise der Variablen closestDate den wert aus der Variablen task zu
+      let task = new Date(tasks[i]["dueDate"]);
+      if (task < closestDate || closestDate === null) closestDate = task;
     }
   }
-  if (closestDate == Infinity)
-    //wenn closestDate Infinity ist dann
-    return; //gib zurück
-  //ansonsten
-  else urgendDate.innerHTML = closestDate.toLocaleDateString(); //gib closestsDate mit der funktion an die funktion toLocaleDateString weiter und gebe es dann aus
+  if (closestDate == Infinity) return;
+  else urgendDate.innerHTML = closestDate.toLocaleDateString();
 }
 
 /**
