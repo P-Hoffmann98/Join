@@ -17,7 +17,7 @@ function renderContacts() {
     const contact = contacts[i];
 
     contactlist.innerHTML += `
-      <div class="contact-card" id="contact-card-${i}" onclick="showContact(${i})">
+      <div class="contact-card" id="contact-card-${i}" onclick="showContact(${i});">
         <div class="circle" style="background-color: ${contact.color};">${contact.initials}</div>
         <div class="contact">
           <h1>${contact.name}</h1>
@@ -65,6 +65,18 @@ function showContact(i) {
   document.getElementById(`contact-card-${i}`).style.backgroundColor =
     "#2A3647";
   document.getElementById(`contact-card-${i}`).style.color = "#FFFFFF";
+  if (document.documentElement.clientWidth < 850) {
+    document.getElementById("contact-container-right").style.display = "flex";
+    document.getElementById("contact-container-left").style.display = "none";
+    bigContactCard.innerHTML += `
+    <img 
+    class="contact-back-button-mobile" 
+    src="img/contact/arrow-left-line.svg"
+    onclick="closeMobileBigContact()"
+    >    
+    `;
+    document.getElementById(`contact-card-${j}`).style.color = "#000000";
+  }
 }
 
 async function deleteContact(c) {
@@ -154,6 +166,8 @@ function handleFormSubmission() {
   addContact();
 }
 
-document
-  .getElementById("contact-create-button")
-  .addEventListener("click", handleFormSubmission);
+function closeMobileBigContact() {
+  document.getElementById("contact-container-right").style.display = "none";
+  document.getElementById("contact-container-left").style.display = "flex";
+  renderContacts();
+}
