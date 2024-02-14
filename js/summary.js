@@ -66,7 +66,7 @@ function summaryCountTasksDone() {
 function summaryCountTasksUrgent() {
   let countTasksUrgent = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["prio"] == "urgent") {
+    if (tasks[i]["prio"] == "urgent" && tasks[i]["status"] != "done") {
       countTasksUrgent++;
     }
   }
