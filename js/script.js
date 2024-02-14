@@ -1,6 +1,8 @@
 async function init() {
   await includeHTML();
   await loadUsers();
+  loadCurrentUser();
+  loadInitials();
 }
 
 async function includeHTML() {
