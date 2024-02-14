@@ -502,8 +502,11 @@ line-height: 120%; */
 }
 
 /* Hover-Effekt auf den icons edit und delete geht noch nicht */
-.board-task-card-detail-edit:hover path{
+.board-task-card-detail-edit:hover path,
+.board-task-card-detail-edit:hover p {
     fill: #29ABE2;
+    color: #29ABE2;
+    font-weight: bold;
 }
 
 .board-task-card-detail-delete {
@@ -519,10 +522,10 @@ line-height: 120%; */
     color: #2A3647;
 }
 
-.board-task-card-detail-edit-text:hover {
+/* .board-task-card-detail-edit-text:hover {
     color: #29ABE2;
     font-weight: bold;
-}
+} */
 
 #board-task-card-priority-img {
     padding-left: 8px; 
