@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .summary-seperator {
   height: 59px;
   background-color: #29abe2;
@@ -105,7 +109,6 @@ h3 {
   font-size: 20px;
 }
 
-/*Anders Schreiben*/
 .summary-container-first-row a:hover {
   color: white;
   background-color: #2a3647;
@@ -120,7 +123,7 @@ h3 {
   color: white;
   background-color: #2a3647;
 }
-/*Bis hier*/
+
 .summary-seperator-second-container {
   width: 2px;
   height: 102px;
@@ -166,6 +169,16 @@ h3 {
   margin-left: 40px;
   width: 500px;
   border: 0px solid black;
+  animation: welcomeSlideIn 3s forwards;
+}
+
+@keyframes welcomeSlideIn {
+  from {
+    transform: translateX(800px);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }
 
 .d-flex-ai-center-jc-center {
@@ -173,6 +186,7 @@ h3 {
   align-items: center;
   justify-content: center;
 }
+
 .content {
   margin-left: 230px;
   margin-top: 2px;
@@ -180,6 +194,7 @@ h3 {
   flex-wrap: wrap;
   flex-direction: column;
 }
+
 .summary-urgent-counter {
   display: flex;
   align-items: center;
@@ -200,10 +215,12 @@ h3 {
     margin-left: 270px;
     margin-top: 20px;
   }
+
   .summary-wrapper {
     width: 0px;
     margin-left: 270px;
   }
+
   .summary-seperator {
     height: 3px;
     background-color: #29abe2;
@@ -243,6 +260,7 @@ h3 {
     margin-left: 20px;
     font-size: 47px;
   }
+
   .summary-wrapper {
     margin-left: 20px;
   }
