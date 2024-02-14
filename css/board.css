@@ -101,7 +101,16 @@ textarea:focus, input:focus{
 }
 
 .board-input-search:focus {
-    color: #D1D1D1;
+    color: #000000;
+}
+
+.board-input-serch-icon:hover {
+    background: #EEEEEE;
+    border-radius: 45px;
+}
+
+.board-input-serch-icon:focus > rect:focus {
+    fill: #0038FF;
 }
 
 .board-input-search-icons {
@@ -493,7 +502,7 @@ line-height: 120%; */
 }
 
 /* Hover-Effekt auf den icons edit und delete geht noch nicht */
-.board-task-card-detail-edit:hover > rect:hover {
+.board-task-card-detail-edit:hover svg {
     fill: #29ABE2;
 }
 
