@@ -23,5 +23,5 @@ async function includeHTML() {
       element.innerHTML = "Error loading the page.";
     }
   }
-  //changeMenuLinkBgColor();
+  changeMenuLinkBgColor();
 }
