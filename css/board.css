@@ -502,7 +502,7 @@ line-height: 120%; */
 }
 
 /* Hover-Effekt auf den icons edit und delete geht noch nicht */
-.board-task-card-detail-edit:hover svg {
+.board-task-card-detail-edit:hover path{
     fill: #29ABE2;
 }
 
