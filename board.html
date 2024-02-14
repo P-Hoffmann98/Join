@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/board.css">
     <script src="./js/script.js"></script>
     <script src="./js/storage.js"></script>
+    <script src="./js/nav.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/board_templates.js"></script>
     <script src="./js/board_render.js"></script>
@@ -33,80 +34,109 @@
                         <button class="board-button-addTask-mobile"><img src="./img/board/add.svg" alt=""></button>
                     </div>
                     <div class="board-headline-container-search-add">
-                        <input class="board-input-search" type="search" placeholder="Find Task" autocomplete="off">
+                        <div class="board-input-search-container"> <!-- Border coler change on click -->
+                            <input class="board-input-search" type="search" placeholder="Find Task" autocomplete="off">
+                            <div class="board-input-search-icons"><!-- container for stroke and find icon -->
+                                <svg width="2" height="32" viewBox="0 0 2 32" fill="none"
+                                    xmlns="./img/board/svg">
+                                    <path id="Vector 3" d="M1 0.5V31.5" stroke="#D1D1D1" />
+                                </svg>
+                                <svg class="board-input-serch-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                    xmlns="./img/board/svg">
+                                    <g id="search">
+                                        <mask id="mask0_129320_5742" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="32" height="32">
+                                            <rect id="Bounding box" width="32" height="32" fill="#D9D9D9" />
+                                        </mask>
+                                        <g mask="url(#mask0_129320_5742)">
+                                            <path id="search_2"
+                                                d="M13.7118 20.2137C11.8946 20.2137 10.3567 19.5843 9.098 18.3256C7.83931 17.0669 7.20996 15.529 7.20996 13.7118C7.20996 11.8946 7.83931 10.3567 9.098 9.098C10.3567 7.83931 11.8946 7.20996 13.7118 7.20996C15.529 7.20996 17.0669 7.83931 18.3256 9.098C19.5843 10.3567 20.2137 11.8946 20.2137 13.7118C20.2137 14.4454 20.097 15.1372 19.8636 15.7874C19.6302 16.4376 19.3134 17.0127 18.9133 17.5129L24.5149 23.1145C24.6983 23.2979 24.79 23.5313 24.79 23.8147C24.79 24.0981 24.6983 24.3315 24.5149 24.5149C24.3315 24.6983 24.0981 24.79 23.8147 24.79C23.5313 24.79 23.2979 24.6983 23.1145 24.5149L17.5129 18.9133C17.0127 19.3134 16.4376 19.6302 15.7874 19.8636C15.1372 20.097 14.4454 20.2137 13.7118 20.2137ZM13.7118 18.2131C14.9622 18.2131 16.025 17.7755 16.9002 16.9002C17.7755 16.025 18.2131 14.9622 18.2131 13.7118C18.2131 12.4615 17.7755 11.3987 16.9002 10.5234C16.025 9.64815 14.9622 9.21053 13.7118 9.21053C12.4615 9.21053 11.3987 9.64815 10.5234 10.5234C9.64815 11.3987 9.21053 12.4615 9.21053 13.7118C9.21053 14.9622 9.64815 16.025 10.5234 16.9002C11.3987 17.7755 12.4615 18.2131 13.7118 18.2131Z"
+                                                fill="#2A3647" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
                         <button class="board-button-addTask"><span class="board-text-addTask">Add task</span><img
                                 src="./img/board/add.svg" alt=""></button>
                     </div>
                 </div>
                 <div class="board-task-main">
-                    <div class="board-task-category">
+                    <div id="board_task_category_todo_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">To do</span>
-                            <img class="board-add-task-category" src="./img/board/board_add_task_category.svg" alt="">
+                            <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                                xmlns="./img/board/svg">
+                                <g id="Capa 1">
+                                    <g id="Group 11">
+                                        <path id="Vector 13" d="M5 1.5V9.5" stroke="#2A3647" stroke-width="2"
+                                            stroke-linecap="round" />
+                                        <path id="Vector 14" d="M9 5.57544L1 5.57544" stroke="#2A3647" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
-                        <div id="board_task_category_todo" ondrop="boardDrop('todo'); boardRemoveBackgroundMoveTask('board_task_category_todo')" ondragleave="boardRemoveBackgroundMoveTask('board_task_category_todo')"  ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_todo')" class="board-task-container">
-                            <!-- render board-no-task-feedback or render board-task-preview -->
-                            <!-- <div class="board-no-task-feedback">
-                                <span class="board-no-task-feedback-text">No tasks To do</span>
-                            </div> -->
+                        <div id="board_task_category_todo"
+                            ondrop="boardDrop('todo'); boardRemoveBackgroundMoveTask('board_task_category_todo_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_todo_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_todo_move')"
+                            class="board-task-container">
                         </div>
                     </div>
-                    <div class="board-task-category">
+                    <div id="board_task_category_progress_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">In progress</span>
-                            <img class="board-add-task-category" src="./img/board/board_add_task_category.svg" alt="">
+                            <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                                xmlns="./img/board/svg">
+                                <g id="Capa 1">
+                                    <g id="Group 11">
+                                        <path id="Vector 13" d="M5 1.5V9.5" stroke="#2A3647" stroke-width="2"
+                                            stroke-linecap="round" />
+                                        <path id="Vector 14" d="M9 5.57544L1 5.57544" stroke="#2A3647" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
-                        <div id="board_task_category_progress" ondrop="boardDrop('progress'); boardRemoveBackgroundMoveTask('board_task_category_progress')" ondragleave="boardRemoveBackgroundMoveTask('board_task_category_progress')"  ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_progress')" class="board-task-container">
-                            <!-- render board-no-task-feedback or render board-task-preview -->
-                            <!-- <div class="board-task-card-preview">
-                                <span class="board-task-card-taskcategory">User Story</span>
-                                <span class="board-task-card-headline">Kochwelt Page & Recipe Recommender</span>
-                                <span class="board-task-card-description">Build start page with recipe
-                                    recommendation...</span>
-                                <div class="board-task-card-progress-container">
-                                    <div class="board-task-card-progressbar">
-                                        <div class="board-task-card-progress"></div>
-                                    </div>
-                                    <span class="board-task-card-progress-text">1/2 Subtasks</span>
-                                </div>
-                                <div class="board-task-card-profile-priority">
-                                    <div class="board-task-card-profile-container">
-                                        <div class="board-task-card-profile">
-                                            <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                                            <span class="board-task-card-profile-text">TN</span>
-                                        </div>
-                                        <div class="board-task-card-profile" style="left: -8px;">
-                                            <img src="./img/board/board_task_profile_ellipse.svg" alt="">
-                                            <span class="board-task-card-profile-text">NT</span>
-                                        </div>
-                                    </div>
-                                    <img class="board-task-card-priority" src="./img/board/board_task_urgent.svg"
-                                        alt="">
-                                </div> 
-                            </div> -->
+                        <div id="board_task_category_progress"
+                            ondrop="boardDrop('progress'); boardRemoveBackgroundMoveTask('board_task_category_progress_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_progress_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_progress_move')"
+                            class="board-task-container">
                         </div>
                     </div>
-                    <div class="board-task-category">
+                    <div id="board_task_category_feedback_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">Await feedback</span>
-                            <img class="board-add-task-category" src="./img/board/board_add_task_category.svg" alt="">
+                            <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                                xmlns="./img/board/svg">
+                                <g id="Capa 1">
+                                    <g id="Group 11">
+                                        <path id="Vector 13" d="M5 1.5V9.5" stroke="#2A3647" stroke-width="2"
+                                            stroke-linecap="round" />
+                                        <path id="Vector 14" d="M9 5.57544L1 5.57544" stroke="#2A3647" stroke-width="2"
+                                            stroke-linecap="round" />
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
-                        <div id="board_task_category_feedback" ondrop="boardDrop('feedback'); boardRemoveBackgroundMoveTask('board_task_category_feedback')" ondragleave="boardRemoveBackgroundMoveTask('board_task_category_feedback')"  ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_feedback')" class="board-task-container">
-                            <!-- render board-no-task-feedback or render board-task-preview -->
-                           <!--  <div class="board-no-task-feedback">
-                                <span class="board-no-task-feedback-text">No tasks To do</span>
-                            </div> -->
+                        <div id="board_task_category_feedback"
+                            ondrop="boardDrop('feedback'); boardRemoveBackgroundMoveTask('board_task_category_feedback_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_feedback_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_feedback_move')"
+                            class="board-task-container">
                         </div>
                     </div>
-                    <div class="board-task-category">
+                    <div id="board_task_category_done_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">Done</span>
                         </div>
-                        <div id="board_task_category_done" ondrop="boardDrop('done'); boardRemoveBackgroundMoveTask('board_task_category_done')" ondragleave="boardRemoveBackgroundMoveTask('board_task_category_done')" ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_done')" class="board-task-container">
-                            <!-- render board-no-task-feedback or render board-task-preview -->
-                            <!-- <div class="board-no-task-feedback">
-                                <span class="board-no-task-feedback-text">No tasks To do</span>
-                            </div> -->
+                        <div id="board_task_category_done"
+                            ondrop="boardDrop('done'); boardRemoveBackgroundMoveTask('board_task_category_done_move')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_done_move')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_done_move')"
+                            class="board-task-container">
                         </div>
                     </div>
 

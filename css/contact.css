@@ -72,8 +72,9 @@
   padding: 15px 24px;
 }
 
-.contact-card:hover{
+.contact-card:hover {
   background-color: #2a3647;
+  color: white;
 }
 
 .contact-email {
@@ -470,22 +471,23 @@
   }
   .contact-container-right-header {
     top: 125px;
-}
+  }
 
-@media (max-width: 450px) {
-  .contact > h1 {
-    font-size: 16px;
+  @media (max-width: 450px) {
+    .contact > h1 {
+      font-size: 16px;
+    }
+    .contact > p {
+      font-size: 12px;
+    }
   }
-  .contact > p {
-    font-size: 12px;
-  }
-}
 
-@media (max-width: 350px) {
-  .contact > h1 {
-    font-size: 14px;
-  }
-  .contact > p {
-    font-size: 10px;
+  @media (max-width: 350px) {
+    .contact > h1 {
+      font-size: 14px;
+    }
+    .contact > p {
+      font-size: 10px;
+    }
   }
 }

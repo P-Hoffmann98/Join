@@ -1,6 +1,8 @@
 async function init() {
   await includeHTML();
   await loadUsers();
+  loadCurrentUser();
+  loadInitials();
 }
 
 async function includeHTML() {
@@ -21,4 +23,5 @@ async function includeHTML() {
       element.innerHTML = "Error loading the page.";
     }
   }
+  changeMenuLinkBgColor();
 }

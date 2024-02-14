@@ -26,6 +26,10 @@
     align-items: center;
 }
 
+.main-container-body {
+    width: 100%;
+  }
+
 .board-main-container {
     margin-left: 232px;
     margin-top: 96px;
@@ -65,24 +69,54 @@
     gap: 32px;
 }
 
-.board-input-search {
+.board-input-search-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex: 1 0 0;
     width: 314px;
     padding: 8px 16px;
-    align-items: center;
     border-radius: 10px;
     border: 1px solid #A8A8A8;
     background: #FFF;
-    /* placeholder */
+}
+
+/* Boarder vom eltern-Container in blau anzeigen??? */
+.board-input-search:active .board-input-search-container {
+    border-color: #0038FF;
+}
+
+.board-input-search {
+    width: 232px;
     color: #D1D1D1;
-    /* Version 2/t6 */
+    border: none;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.board-input-search:focus {
+    color: #000000;
+}
+
+.board-input-serch-icon:hover {
+    background: #EEEEEE;
+    border-radius: 45px;
+}
+
+.board-input-serch-icon:focus > rect:focus {
+    fill: #0038FF;
+}
+
+.board-input-search-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .board-button-addTask-mobile {
@@ -113,21 +147,24 @@
 /* sytle task area */
 .board-task-main {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     max-width: 1208px;
+    height: 100%;
     padding: 0px 64px;
-    /* align-items: flex-start; */
     justify-content: space-between;
     gap: 24px;
 }
 
 .board-task-category {
+    /* Padding for hover effekt drag and drop */
+    padding-top: 16px;
+    /*  */
     display: flex;
     width: 252px;
     flex-direction: column;
     align-items: center;
     justify-content: stretch;
-    margin-bottom: 26px;
+    margin-bottom: 10px;
 }
 
 .board-task-headline {
@@ -159,8 +196,9 @@
     border: 2px solid #2A3647;
 }
 
-.board-add-task-category:hover {
-    color: #29ABE2;
+.board-add-task-category:hover,
+.board-add-task-category:hover path {
+    stroke: #29ABE2;
     border: 2px solid var(--Ligth-blue, #29ABE2);
     transition: ease-out;
     transition-duration: 0.3s;
@@ -338,6 +376,7 @@ line-height: 120%; */
 .board-drop-category-background {
     background-color: #d6d6d6;
     border-radius: 24px;
+    opacity: 0.4;
 }
 
 /* ************************************************ tasks detail *********************************************************************************** */
@@ -463,7 +502,7 @@ line-height: 120%; */
 }
 
 /* Hover-Effekt auf den icons edit und delete geht noch nicht */
-.board-task-card-detail-edit:hover > rect:hover {
+.board-task-card-detail-edit:hover svg {
     fill: #29ABE2;
 }
 
@@ -491,6 +530,47 @@ line-height: 120%; */
 
 
 /* ************************************************ tasks detail ende *********************************************************************************** */
+@media (max-width: 1439px) {
+    .board-task-main {
+        /* flex-wrap: nowrap; */
+        padding: 0 16px;
+        overflow: auto;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .board-task-category {
+        width: 100%;
+    }
+
+    .board-task-headline {
+        width: 100%;
+    }
+
+    .board-no-task-feedback {
+        width: 252px;
+        padding: 0 8px;
+    }
+
+    .board-task-container {
+        display: flex;
+        min-height: 150px;
+        gap: 24px;
+        overflow-x: auto;
+    }
+
+    .board-add-task-category {
+        width: 30px;
+        height: 30px;
+        padding: 3px;
+    }
+
+    .board-task-card-preview {
+        min-width: 256px;
+        margin-bottom: 16px;
+    }
+
+}
 
 @media (max-width: 1100px) {
 
@@ -535,7 +615,7 @@ line-height: 120%; */
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 850px) {
 
     .board-main-container {
         margin-left: 0;
@@ -584,41 +664,40 @@ line-height: 120%; */
         background: #2A3647;
     } */
 
-    .board-task-main {
-        flex-wrap: nowrap;
+/*     .board-task-main {
+       flex-wrap: nowrap;
         flex-direction: column;
         padding: 0 16px;
         overflow: auto;
-    }
+    } */
 
-    .board-task-category {
+   /*  .board-task-category {
+        /* width: 100%;
+    } */
+
+    /* .board-task-headline {
         width: 100%;
-    }
+    } */
 
-    .board-task-headline {
-        width: 100%;
-    }
-
-    .board-task-container {
+  /*   .board-task-container {
         display: flex;
         gap: 24px;
         overflow-x: auto;
-
-    }
+    } */
 
     .board-add-task-headline {
         font-size: 27px;
     }
 
-    .board-add-task-category {
+   /*  .board-add-task-category {
         width: 30px;
         height: 30px;
         padding: 3px;
-    }
+    } */
 
-    .board-task-card-preview {
+    /* .board-task-card-preview {
         margin-bottom: 16px;
-    }
+    } */
 
     /* media mobile nav-leiste */
     /*   header {

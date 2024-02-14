@@ -28,10 +28,6 @@ let taskInput;
 let prioMedium;
 let prioMediumImg;
 
-//Vaariablen für Fehlermeldung
-let labelId;
-let mistakeId;
-
 //Variablen für Suchergebisse
 let resultInitials;
 let resultId;
@@ -247,8 +243,8 @@ function markSelectedContacts(id) {
  * @param {title, dueDate, category} param
  */
 function addTaskShowMsg(param) {
-  labelId = "add_task_label_" + param;
-  mistakeId = "add_task_mistake_" + param;
+  let labelId = "add_task_label_" + param;
+  let mistakeId = "add_task_mistake_" + param;
   document.getElementById(mistakeId).classList.remove("d-none");
   document.getElementById(labelId).classList.add("borderColorMistake");
 }
