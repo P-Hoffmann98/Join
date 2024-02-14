@@ -1,5 +1,4 @@
 async function loginInit() {
-  await includeHTML();
   await loadUsers();
   await loadContacts();
 }
