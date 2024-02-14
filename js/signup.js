@@ -1,5 +1,4 @@
 async function signupInit() {
-  await includeHTML();
   await loadUsers();
   await loadContacts();
 }
