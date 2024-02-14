@@ -69,24 +69,45 @@
     gap: 32px;
 }
 
-.board-input-search {
+.board-input-search-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex: 1 0 0;
     width: 314px;
     padding: 8px 16px;
-    align-items: center;
     border-radius: 10px;
     border: 1px solid #A8A8A8;
     background: #FFF;
-    /* placeholder */
+}
+
+/* Boarder vom eltern-Container in blau anzeigen??? */
+.board-input-search:active .board-input-search-container {
+    border-color: #0038FF;
+}
+
+.board-input-search {
+    width: 232px;
     color: #D1D1D1;
-    /* Version 2/t6 */
+    border: none;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.board-input-search:focus {
+    color: #D1D1D1;
+}
+
+.board-input-search-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .board-button-addTask-mobile {
