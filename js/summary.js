@@ -124,7 +124,7 @@ function summaryFindDueDate() {
   let closestDate = Infinity;
 
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["prio"] == "urgent") {
+    if (tasks[i]["prio"] == "urgent" && tasks[i]["status"] != "done") {
       //wenn priorität urgent ist dann
       let task = new Date(tasks[i]["dueDate"]); //der variablen task wir der wir createdAt im date format übergeben
       if (task < closestDate || closestDate === null)
