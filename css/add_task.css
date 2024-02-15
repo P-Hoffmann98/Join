@@ -109,6 +109,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   outline: none;
   display: flex;
   justify-content: space-between;
+  background: url(/img/add-task-arrow-down.svg) right center / contain no-repeat;
+  background-origin: content-box;
+  background-size: auto;
 }
 
 .add-task-assigned-to:hover {
@@ -427,8 +430,12 @@ label input {
   padding: 12px 21px;
   outline: none;
   border: none;
-  width: 95%;
+  width: 100%;
   font-size: 16px;
+  cursor: pointer;
+  background: url(/img/add-task-arrow-down.svg) right center / contain no-repeat;
+  background-origin: content-box;
+  background-size: auto;
 }
 
 .selectField {
@@ -453,7 +460,6 @@ label input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
   border: 2px solid rgba(255, 255, 255, 1);
   color: #ffffff;
 }
@@ -494,23 +500,31 @@ label input {
   cursor: pointer;
 }
 
+.assignedToOutput {
+  display: flex;
+}
+
 .initialsOverview {
-  border-radius: 50%;
-  border: 2px solid #ffffff;
-  height: 50px;
   width: 50px;
-  margin-top: 20px;
-  margin-right: 10px;
-  vertical-align: middle;
+  height: 50px;
+  border-radius: 50%;
   text-align: center;
-  font-size: 12px;
-  padding: 10px;
+  line-height: 50px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.initialsOverview span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 [contenteditable] {
   outline: 1px solid transparent;
-  border-radius: 0.2rem;
-  padding: 0.1rem;
+  border-radius: 3px;
+  padding: 2px;
 }
 
 [contenteditable]:focus {
