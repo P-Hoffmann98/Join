@@ -17,6 +17,7 @@
     <script src="./js/header.js"></script>
     <script src="./js/board_templates.js"></script>
     <script src="./js/board_render.js"></script>
+    <script src="./js/board_add_task.js"></script>
     <script src="./js/board.js"></script>
 </head>
 
@@ -31,7 +32,7 @@
                 <div class="board-headline">
                     <div class="board-headline-button">
                         <span class="board-headline-text">Board</span>
-                        <button class="board-button-addTask-mobile"><img src="./img/board/add.svg" alt=""></button>
+                        <button class="board-button-addTask-mobile"><img src="./img/board/add.svg" alt="" onclick="boardShowAddTask()"></button>
                     </div>
                     <div class="board-headline-container-search-add">
                         <div class="board-input-search-container">
@@ -57,7 +58,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <button class="board-button-addTask"><span class="board-text-addTask">Add task</span><img
+                        <button class="board-button-addTask" onclick="boardShowAddTask()"><span class="board-text-addTask">Add task</span><img
                                 src="./img/board/add.svg" alt=""></button>
                     </div>
                 </div>
@@ -148,8 +149,8 @@
             <div id="board_task_detail_card" class="board-task-detail-card"></div>
         </div>
 
-        <div class="board-task-add-task-main d-none jc-center ai-center">
-            <div id="board-task-add-task" class="">
+        <div id="board_task_add_task_main" class="board-task-add-task-main d-none jc-center ai-center">
+            <div class="board-task-add-task">
                 <div w3-include-html="./add_task.html"></div>
             </div>
         </div>
