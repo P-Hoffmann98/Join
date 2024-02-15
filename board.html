@@ -34,9 +34,9 @@
                         <button class="board-button-addTask-mobile"><img src="./img/board/add.svg" alt=""></button>
                     </div>
                     <div class="board-headline-container-search-add">
-                        <div class="board-input-search-container"> <!-- Border coler change on click -->
+                        <div class="board-input-search-container">
                             <input class="board-input-search" type="search" placeholder="Find Task" autocomplete="off">
-                            <div class="board-input-search-icons"><!-- container for stroke and find icon -->
+                            <div class="board-input-search-icons">
                                 <svg width="2" height="32" viewBox="0 0 2 32" fill="none"
                                     xmlns="./img/board/svg">
                                     <path id="Vector 3" d="M1 0.5V31.5" stroke="#D1D1D1" />
@@ -146,6 +146,12 @@
 
         <div class="board-task-detail-main d-none jc-center ai-center">
             <div id="board_task_detail_card" class="board-task-detail-card"></div>
+        </div>
+
+        <div class="board-task-add-task-main d-none jc-center ai-center">
+            <div id="board-task-add-task" class="">
+                <div w3-include-html="./add_task.html"></div>
+            </div>
         </div>
     </div>
 

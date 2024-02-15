@@ -507,7 +507,6 @@ line-height: 120%; */
     cursor: pointer;
 }
 
-/* Hover-Effekt auf den icons edit und delete geht noch nicht */
 .board-task-card-detail-edit:hover :where(path, p),
 .board-task-card-detail-delete:hover :where(path, p) {
     fill: #29ABE2;
@@ -539,6 +538,27 @@ line-height: 120%; */
 
 
 /* ************************************************ tasks detail ende *********************************************************************************** */
+
+.board-task-add-task-main {
+    background-color: rgba(0, 0, 0, 0.16);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+#board-task-add-task {
+    width: 1116px;
+    height: 870px;
+    border-radius: 30px;
+}
+
+/* ************************************************ add tasks******************************************************************************************** */
+
+/* ************************************************ add tasks ende ************************************************************************************** */
+
 @media (max-width: 1439px) {
     .board-task-main {
         /* flex-wrap: nowrap; */
