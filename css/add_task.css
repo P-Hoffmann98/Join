@@ -289,6 +289,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #ffffff;
   border: 1px solid #29abe2;
   color: #29abe2;
+  cursor: pointer;
 }
 
 .m-bottom-40 {
