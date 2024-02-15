@@ -517,6 +517,7 @@ label input {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  border: 3px solid #ffffff;
   text-align: center;
   line-height: 50px;
   margin-right: 10px;
@@ -554,6 +555,7 @@ label input {
   }
 
   .add-task-container-right {
+    margin-top: 40px;
     margin-left: 0;
   }
 
@@ -599,11 +601,11 @@ label input {
   }
 
   #add_task_select_category_box {
-    width: 315px;
+    width: 348px;
   }
 
-  .add-task-select-field-container {
-    width: 315px;
+  #add-task-select-field-container {
+    width: 340px;
   }
 
   .add-task-seperator {
@@ -611,7 +613,7 @@ label input {
   }
 
   .add-task-container-right {
-    margin-top: 0px;
+    margin-top: 40px;
     margin-left: 15;
     height: calc(100vh - 160px);
     width: 300px;
