@@ -412,12 +412,35 @@ function changeImagesByEditingSubtask(index) {
  */
 function saveEditing(index) {
   let output = document.getElementById(`subtaskContent${index}`).innerHTML;
+  if (output.length == 0) {
+    document
+      .getElementById(`img_add_subtask_check${index}`)
+      .classList.add("d-none");
+  }
   subtaskAddTask[index] = output;
   document
     .getElementById(`img_add_subtask_check${index}`)
     .classList.add("d-none");
   document.getElementById(`img_add_subtask${index}`).classList.remove("d-none");
   renderSubTasks();
+}
+
+/**
+ * check if editfield foor subtasks is empty or not
+ * id empty save button not visibil
+ * @param {number} index
+ */
+function checkSubTaskEditInput(index) {
+  let output = document.getElementById(`subtaskContent${index}`).innerHTML;
+  if (output.length == 0) {
+    document
+      .getElementById(`img_add_subtask_check${index}`)
+      .classList.add("d-none");
+  } else {
+    document
+      .getElementById(`img_add_subtask_check${index}`)
+      .classList.remove("d-none");
+  }
 }
 
 /**
@@ -454,4 +477,14 @@ function deleteSubtask(index) {
   subtaskAddTask.splice(index, 1);
   statusSubtaskAddTask.splice(index, 1);
   renderSubTasks();
+}
+
+/**
+ *
+ */
+function clearContactsAndSubtasks() {
+  assignedToAddTask = [];
+  subtaskAddTask = [];
+  renderSubTasks();
+  renderSelectedContactsFromTask();
 }
