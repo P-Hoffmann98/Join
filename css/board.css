@@ -6,7 +6,7 @@
     display: flex;
 }
 
-.flex-d-col{
+.flex-d-col {
     flex-direction: column;
 }
 
@@ -28,7 +28,7 @@
 
 .main-container-body {
     width: 100%;
-  }
+}
 
 .board-main-container {
     margin-left: 232px;
@@ -81,9 +81,8 @@
     background: #FFF;
 }
 
-/* Boarder vom eltern-Container in blau anzeigen??? */
-.board-input-search:active .board-input-search-container {
-    border-color: #0038FF;
+.board-input-search-container:focus-within {
+    border-color: #29ABE2;
 }
 
 .board-input-search {
@@ -96,7 +95,8 @@
     line-height: 120%;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
     outline: none;
 }
 
@@ -109,8 +109,8 @@ textarea:focus, input:focus{
     border-radius: 45px;
 }
 
-.board-input-serch-icon:focus > rect:focus {
-    fill: #0038FF;
+.board-input-serch-icon:active path {
+    fill: #29ABE2;
 }
 
 .board-input-search-icons {
@@ -132,6 +132,12 @@ textarea:focus, input:focus{
     border-radius: 10px;
     border: 1px solid #2A3647;
     background: #2A3647;
+}
+
+.board-button-addTask-mobile:hover,
+.board-button-addTask:hover {
+    background: #29ABE2;
+    border-color: #29ABE2;
 }
 
 .board-text-addTask {
@@ -419,7 +425,7 @@ line-height: 120%; */
     border-radius: 30px;
 }
 
-.board-task-card-detail-storyline{
+.board-task-card-detail-storyline {
     margin-bottom: 24px;
 }
 
@@ -487,7 +493,7 @@ line-height: 120%; */
 }
 
 .board-task-card-detail-tasks-text {
-    font-size: 16px!important;
+    font-size: 16px !important;
 }
 
 .board-task-card-detail-edit,
@@ -502,8 +508,8 @@ line-height: 120%; */
 }
 
 /* Hover-Effekt auf den icons edit und delete geht noch nicht */
-.board-task-card-detail-edit:hover path,
-.board-task-card-detail-edit:hover p {
+.board-task-card-detail-edit:hover :where(path, p),
+.board-task-card-detail-delete:hover :where(path, p) {
     fill: #29ABE2;
     color: #29ABE2;
     font-weight: bold;
@@ -518,7 +524,7 @@ line-height: 120%; */
 }
 
 .board-task-card-detail-edit-text {
-    font-size: 16px!important;
+    font-size: 16px !important;
     color: #2A3647;
 }
 
@@ -528,7 +534,7 @@ line-height: 120%; */
 } */
 
 #board-task-card-priority-img {
-    padding-left: 8px; 
+    padding-left: 8px;
 }
 
 
@@ -667,14 +673,14 @@ line-height: 120%; */
         background: #2A3647;
     } */
 
-/*     .board-task-main {
+    /*     .board-task-main {
        flex-wrap: nowrap;
         flex-direction: column;
         padding: 0 16px;
         overflow: auto;
     } */
 
-   /*  .board-task-category {
+    /*  .board-task-category {
         /* width: 100%;
     } */
 
@@ -682,7 +688,7 @@ line-height: 120%; */
         width: 100%;
     } */
 
-  /*   .board-task-container {
+    /*   .board-task-container {
         display: flex;
         gap: 24px;
         overflow-x: auto;
@@ -692,7 +698,7 @@ line-height: 120%; */
         font-size: 27px;
     }
 
-   /*  .board-add-task-category {
+    /*  .board-add-task-category {
         width: 30px;
         height: 30px;
         padding: 3px;
