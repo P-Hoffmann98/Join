@@ -591,6 +591,10 @@ label input {
     align-items: center;
   }
 
+  .li {
+    width: 350px;
+  }
+
   .add-task-content {
     width: 100%;
     margin-left: 0;
@@ -695,5 +699,9 @@ label input {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .add-task-container-right {
+    height: calc(100vh - 10px);
   }
 }
