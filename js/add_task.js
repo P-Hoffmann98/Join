@@ -451,7 +451,7 @@ function clearSubTaskInput() {
   changeSubTaskImg();
 }
 /**
- * The images in the subtask input fled are exchanged after a text is entered
+ * The images in the subtask input fled are changed after a text is entered
  */
 function changeSubTaskImg() {
   if (document.getElementById("add_task_subtask").value.length > 0) {
@@ -460,12 +460,14 @@ function changeSubTaskImg() {
     document
       .getElementById("add_task_subtask_img")
       .classList.add("add-subtask-img");
+    document.getElementById("add_task_subtask_img").classList.remove("img1414");
   } else {
     document.getElementById("add_task_subtask_img").src =
       "./img/add-task-subtask.svg";
     document
       .getElementById("add_task_subtask_img")
       .classList.add("add-subtask-img");
+    document.getElementById("add_task_subtask_img").classList.add("img1414");
   }
 }
 
