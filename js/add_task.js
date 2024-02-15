@@ -40,7 +40,7 @@ function addTaskSetPrioMedium() {
   prioMedium = document.getElementById("add_task_prio_medium");
   prioMedium.classList.add("add-task-prio-medium-pressed-button");
   prioMediumImg = document.getElementById("add_task_img_prio_medium");
-  prioMediumImg.src = "./img/add-task-prio-medium.svg";
+  prioMediumImg.src = "./img/add_task/prio_medium_white.svg";
 }
 
 /**
@@ -119,17 +119,17 @@ function addTaskSelectedPrioLow() {
     .getElementById("add_task_prio_low")
     .classList.add("add-task-prio-low-pressed-button");
   document.getElementById("add_task_img_prio_low").src =
-    "./img/add-task-prio-low-white.svg";
+    "./img/add_task/prio_low_white.svg";
   document
     .getElementById("add_task_prio_medium")
     .classList.remove("add-task-prio-medium-pressed-button");
   document.getElementById("add_task_img_prio_medium").src =
-    "./img/add-task-prio-medium.png";
+    "./img/add_task/prio_medium.svg";
   document
     .getElementById("add_task_prio_high")
     .classList.remove("add-task-prio-high-pressed-button");
   document.getElementById("add_task_img-prio-high").src =
-    "./img/add-task-prio-high.svg";
+    "./img/add_task/prio_high.svg";
   addTaskPrio = "low";
 }
 
@@ -141,17 +141,17 @@ function addTaskSelectedPrioMedium() {
     .getElementById("add_task_prio_medium")
     .classList.add("add-task-prio-medium-pressed-button");
   document.getElementById("add_task_img_prio_medium").src =
-    "./img/add-task-prio-medium-white.svg";
+    "./img/add_task/prio_medium_white.svg";
   document
     .getElementById("add_task_prio_low")
     .classList.remove("add-task-prio-low-pressed-button");
   document.getElementById("add_task_img_prio_low").src =
-    "./img/add-task-prio-low.svg";
+    "./img/add_task/prio_low.svg";
   document
     .getElementById("add_task_prio_high")
     .classList.remove("add-task-prio-high-pressed-button");
   document.getElementById("add_task_img-prio-high").src =
-    "./img/add-task-prio-high.svg";
+    "./img/add_task/prio_high.svg";
   addTaskPrio = "medium";
 }
 
@@ -163,17 +163,17 @@ function addTaskSelectedPrioHigh() {
     .getElementById("add_task_prio_high")
     .classList.add("add-task-prio-high-pressed-button");
   document.getElementById("add_task_img-prio-high").src =
-    "./img/add-task-prio-high-white.svg";
+    "./img/add_task/prio_high_white.svg";
   document
     .getElementById("add_task_prio_medium")
     .classList.remove("add-task-prio-medium-pressed-button");
   document.getElementById("add_task_img_prio_medium").src =
-    "./img/add-task-prio-medium.png";
+    "./img/add_task/prio_medium.svg";
   document
     .getElementById("add_task_prio_low")
     .classList.remove("add-task-prio-low-pressed-button");
   document.getElementById("add_task_img_prio_low").src =
-    "./img/add-task-prio-low.svg";
+    "./img/add_task/prio_low.svg";
   addTaskPrio = "urgent";
 }
 
@@ -258,12 +258,12 @@ function addStyleToSelectedContact(id) {
   if (!resultIdIsInAssignedToAddTask) {
     document.getElementById(id).classList.add("selectedContact");
     document.getElementById("selectContactBox" + id).src =
-      "./img/add_task_rectangle_check.svg";
+      "./img/add_task/rectangle_check_white.svg";
     addContactToTask(id);
   } else {
     document.getElementById(id).classList.remove("selectedContact");
     document.getElementById("selectContactBox" + id).src =
-      "./img/add_task_rectangle.svg";
+      "./img/add_task/rectangle.svg";
     deleteContactFromTask(id);
   }
 }
@@ -456,14 +456,14 @@ function clearSubTaskInput() {
 function changeSubTaskImg() {
   if (document.getElementById("add_task_subtask").value.length > 0) {
     document.getElementById("add_task_subtask_img").src =
-      "./img/add_task_check_small.png";
+      "./img/add_task/check.svg";
     document
       .getElementById("add_task_subtask_img")
       .classList.add("add-subtask-img");
     document.getElementById("add_task_subtask_img").classList.remove("img1414");
   } else {
     document.getElementById("add_task_subtask_img").src =
-      "./img/add-task-subtask.svg";
+      "./img/add_task/plus.svg";
     document
       .getElementById("add_task_subtask_img")
       .classList.add("add-subtask-img");

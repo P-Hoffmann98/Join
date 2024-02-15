@@ -14,7 +14,7 @@ function addTaskRenderSearchName(color) {
   if (color) {
     document.getElementById(resultId).classList.add("selectedContact");
     document.getElementById("selectContactBox" + resultId).src =
-      "./img/add_task_rectangle_check.svg";
+      "./img/add_task/rectangle_check_white.svg";
   }
 }
 
@@ -47,9 +47,9 @@ function renderSubTasks() {
       <div ondblclick="editSubTask(${i})" class="cursorPointer li"  contenteditable="false">
         &#8226;<span id="subtaskContent${i}" onkeyup="checkSubTaskEditInput(${i})"> ${subtaskAddTask[i]}</span>
           <div class="container_img_subtask">
-            <img id="img_add_subtask_check${i}" src="./img/add_task_check_small.png" onclick="saveEditing(${i})" class="m-right20 cursorPointer d-none">
-            <img id="img_add_subtask${i}" src="./img/add_task_edit_small.png" onclick="editSubTask(${i})" class="m-right20 cursorPointer">
-            <img src="./img/add_task_delete_small.png" class="cursorPointer" onclick="deleteSubtask(${i})">
+            <img id="img_add_subtask_check${i}" src="./img/add_task/check.svg" onclick="saveEditing(${i})" class="m-right20 cursorPointer d-none">
+            <img id="img_add_subtask${i}" src="./img/add_task/edit.svg" onclick="editSubTask(${i})" class="m-right20 cursorPointer">
+            <img src="./img/add_task/delete.svg" class="cursorPointer" onclick="deleteSubtask(${i})">
           </div>
       </div>`;
   }
