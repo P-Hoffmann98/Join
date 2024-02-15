@@ -43,12 +43,11 @@
                       
                   <h3>Assigned to:</h3>
                     <label for="assigned" class="add-task-label bgC-white"> 
-                      <input type="text" name="assigned" id="add_task_assigned_to" class="add-task-title add-task-assigned-to"  autocomplete="off" onkeyup="addTaskSearchName()" onclick="addTaskSearchName()">
-                        <img class="m-right-20" src="./img/add-task-arrow-down.svg">
+                      <input type="text" name="assigned" id="add_task_assigned_to" class="add-task-title add-task-assigned-to" placeholder="chose contacts" autocomplete="off" onkeyup="addTaskSearchName()" onclick="addTaskSearchName()">
                     </label>
                 
                       <div class="d-none add-task-select-field-container" id="add_task_select_user_box"></div>
-                      <div class="m-top-20" id="outputSelectedContacts"></div>
+                      <div class="m-top-20 assignedToOutput" id="outputSelectedContacts"></div>
               </div>
                         
               <div class="add-task-seperator"></div>
@@ -71,8 +70,7 @@
                              
                   <h3>Category<span class="required-star">*</span></h3>
                     <label for="category" class="add-task-label bgC-white" id="add_task_label_category"> 
-                        <div class="add-task-category-input"id="add_task_category" onclick="addTaskShowMsg('category'); addTaskOpenContextMenuCategory()" onchange="addTaskCheckForm()">Select task category</div>
-                          <img class="m-right-20" src="./img/add-task-arrow-down.svg">
+                        <div class="add-task-category-input" id="add_task_category" onclick="addTaskShowMsg('category'); addTaskOpenContextMenuCategory()" onchange="addTaskCheckForm()">Select task category</div>
                       </label>
                   
                         <div class="d-none" id="add_task_select_category_box" onclick="addTaskCloseContextMenuCategory()">
@@ -92,7 +90,7 @@
                     <div id="outputSubtasks" class="outputSubtaskClass"></div>
                               
                   <div class="add-task-bottom-container">
-                    <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center">Clear X</button>
+                    <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center" onclick="clearContactsAndSubtasks()">Clear X</button>
                     <button class="d-none add-task-add-button d-flex-ai-center-jc-center" id="add_task_button">Add Task <img src="./img/add-task-check.svg"></button>
                 </form>
                   </div>
