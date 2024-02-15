@@ -235,7 +235,7 @@ h3 {
   }
 
   .summary-container-inside {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 150px);
   }
 
   .summary-seperator-mobil {
@@ -294,7 +294,7 @@ h3 {
 
 @media (max-width: 550px) {
   .summary-headline {
-    margin-top: -170px;
+    margin-top: 0px;
   }
 
   .summary-container-third-row a {
