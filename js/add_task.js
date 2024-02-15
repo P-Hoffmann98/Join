@@ -307,12 +307,10 @@ function selectCategory(param) {
   document.getElementById("add_task_mistake_category").classList.add("d-none");
 }
 
-//######FÜR CONTACTS LISTE##################################################################
 /**
  * Function to open the select user box div
  */
 function addTaskOpenContextMenuAssignedTo() {
-  // selectUserBox.style.display = "block";
   selectUserBox.classList.remove("d-none");
 }
 
@@ -320,7 +318,6 @@ function addTaskOpenContextMenuAssignedTo() {
  * Function to close the select user box div
  */
 function addTaskCloseContextMenuAssignedTo() {
-  // selectUserBox.style.display = "none";
   selectUserBox.classList.add("d-none");
 }
 
