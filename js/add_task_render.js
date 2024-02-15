@@ -28,7 +28,9 @@ function renderSelectedContactsFromTask() {
       if (assignedToAddTask[i] == contacts[j]["id"]) {
         document.getElementById(
           "outputSelectedContacts"
-        ).innerHTML += `<span class="initialsOverview" style="background-color:${contacts[j]["color"]}">${contacts[j]["initials"]}</span>`;
+        ).innerHTML += `<div class="container initialsOverview" style="background-color:${contacts[j]["color"]}">
+                            <span >${contacts[j]["initials"]}</span>
+                        </div>`;
       }
     }
   }
@@ -43,7 +45,7 @@ function renderSubTasks() {
   for (let i = 0; i < subtaskAddTask.length; i++) {
     output.innerHTML += `                        
       <div ondblclick="editSubTask(${i})" class="cursorPointer li"  contenteditable="false">
-        &#8226;<span id="subtaskContent${i}"> ${subtaskAddTask[i]}</span>
+        &#8226;<span id="subtaskContent${i}" onkeyup="checkSubTaskEditInput(${i})"> ${subtaskAddTask[i]}</span>
           <div class="container_img_subtask">
             <img id="img_add_subtask_check${i}" src="./img/add_task_check_small.png" onclick="saveEditing(${i})" class="m-right20 cursorPointer d-none">
             <img id="img_add_subtask${i}" src="./img/add_task_edit_small.png" onclick="editSubTask(${i})" class="m-right20 cursorPointer">
