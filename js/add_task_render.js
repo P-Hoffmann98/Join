@@ -44,7 +44,7 @@ function renderSubTasks() {
   output.innerHTML = ``;
   for (let i = 0; i < subtaskAddTask.length; i++) {
     output.innerHTML += `                        
-      <div ondblclick="editSubTask(${i})" class="cursorPointer li"  contenteditable="false">
+      <div ondblclick="editSubTask(${i})" class="cursorPointer li" contenteditable="false">
         &#8226;<span id="subtaskContent${i}" onkeyup="checkSubTaskEditInput(${i})"> ${subtaskAddTask[i]}</span>
           <div class="container_img_subtask">
             <img id="img_add_subtask_check${i}" src="./img/add_task/check.svg" onclick="saveEditing(${i})" class="m-right20 cursorPointer d-none">
