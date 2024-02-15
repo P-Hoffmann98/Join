@@ -123,11 +123,11 @@ function summaryCountTasksAwaitingFeedback() {
 function summaryChangeImage(param) {
   if (param == "check") {
     document.getElementById("summary_images_check").src =
-      "./img/summary_check_white.svg";
+      "./img/summary/check_white.svg";
   }
   if (param == "edit") {
     document.getElementById("summary_images_edit").src =
-      "./img/summary_edit_white.svg";
+      "./img/summary/edit_white.svg";
   }
 }
 
@@ -138,11 +138,11 @@ function summaryChangeImage(param) {
 function summaryChangeImageBack(param) {
   if (param == "check") {
     document.getElementById("summary_images_check").src =
-      "./img/summary_check.svg";
+      "./img/summary/check_blue.svg";
   }
   if (param == "edit") {
     document.getElementById("summary_images_edit").src =
-      "./img/summary_edit.svg";
+      "./img/summary/edit_blue.svg";
   }
 }
 
