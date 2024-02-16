@@ -12,7 +12,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-top: 80px; */
 }
 
 .add-task-container {
@@ -330,7 +329,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   z-index: 999;
   height: 200px;
   background-color: #ffffff;
-  /* padding: 0 10px; */
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
@@ -557,7 +555,6 @@ label input {
     width: 100%;
     margin-left: 348;
     display: flex;
-    /* align-items: baseline; */
     flex-direction: column;
     border: 0px solid black;
   }
@@ -566,8 +563,6 @@ label input {
   }
 
   .add-task-headline {
-    /* margin-left: 348px; */
-    /* width: 150px; */
     font-size: 44px;
   }
 
@@ -593,7 +588,6 @@ label input {
     width: 100%;
     margin-left: 0;
     display: flex;
-    /* align-items: baseline; */
     flex-direction: column;
     border: 0px solid black;
   }
