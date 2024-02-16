@@ -204,6 +204,7 @@ function readInputSearch() {
     fillSearchArray(boardTasksProgress, boardSearchString, boardTasksProgressSearch);
     fillSearchArray(boardTasksFeedback, boardSearchString, boardTasksFeedbackSearch);
     fillSearchArray(boardTasksDone, boardSearchString, boardTasksDoneSearch);
+    boardRenderSearch();
     /* console.table(boardTasksToDo);
     console.table(boardTasksToDoSearch); */  
 }

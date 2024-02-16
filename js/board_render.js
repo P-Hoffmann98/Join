@@ -9,6 +9,14 @@ function boardRenderInit() {
 }
 
 
+function boardRenderSearch() {
+    boardRenderStatusPreview(boardTasksToDoSearch, 'board_task_category_todo');
+    boardRenderStatusPreview(boardTasksProgressSearch, 'board_task_category_progress');
+    boardRenderStatusPreview(boardTasksFeedbackSearch, 'board_task_category_feedback');
+    boardRenderStatusPreview(boardTasksDoneSearch, 'board_task_category_done');   
+}
+
+
 /**
  * function checked if boardTasksArray is empty an call the right render function for placeholder or cards preview
  * @param {Array} boardTasksArray 
