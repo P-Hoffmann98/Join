@@ -183,3 +183,9 @@ async function boardDeleteTask(tasksIndex) {
     boardRenderInit();
     boardCloseDetailCard();
 }
+
+
+function readInputSearch() {
+    let boardSearchString = document.getElementById('board_input_search_field').value.toLowerCase();
+    console.log(boardSearchString);
+}
