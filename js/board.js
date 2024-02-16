@@ -2,6 +2,10 @@ let boardTasksToDo = [];
 let boardTasksProgress = [];
 let boardTasksFeedback = [];
 let boardTasksDone = [];
+let boardTasksToDoSearch = [];
+let boardTasksProgressSearch = [];
+let boardTasksFeedbackSearch = [];
+let boardTasksDoneSearch = [];
 let boardCurrentDraggedTask;
 
 
@@ -27,6 +31,13 @@ function boardCleanTaksArrays() {
     boardTasksProgress = [];
     boardTasksFeedback = [];
     boardTasksDone = [];
+}
+
+function boardCleanTaksArraysSearch() {
+    boardTasksToDoSearch = [];
+    boardTasksProgressSearch = [];
+    boardTasksFeedbackSearch = [];
+    boardTasksDoneSearch = [];
 }
 
 
@@ -187,5 +198,27 @@ async function boardDeleteTask(tasksIndex) {
 
 function readInputSearch() {
     let boardSearchString = document.getElementById('board_input_search_field').value.toLowerCase();
-    console.log(boardSearchString);
+    /* console.log(boardSearchString); */
+    boardCleanTaksArraysSearch();
+    fillSearchArray(boardTasksToDo, boardSearchString, boardTasksToDoSearch);
+    fillSearchArray(boardTasksProgress, boardSearchString, boardTasksProgressSearch);
+    fillSearchArray(boardTasksFeedback, boardSearchString, boardTasksFeedbackSearch);
+    fillSearchArray(boardTasksDone, boardSearchString, boardTasksDoneSearch);
+    /* console.table(boardTasksToDo);
+    console.table(boardTasksToDoSearch); */  
+}
+
+
+function fillSearchArray(arr, boardSearchString, arrSearch) {
+    for (let i = 0; i < arr.length; i++) {
+        const taskID = arr[i];
+        let taskIndex = boardIndexOfJSON(tasks, taskID);
+        let task = tasks[taskIndex];
+        let taskDescription = tasks[taskIndex]['description'].toLowerCase();
+        let taskTitle = tasks[taskIndex]['title'].toLowerCase();
+
+        if (taskDescription.indexOf(boardSearchString) != -1 || taskTitle.indexOf(boardSearchString) != -1) {
+            arrSearch.push(task['id']);
+        } 
+    }
 }
