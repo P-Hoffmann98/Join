@@ -472,6 +472,19 @@ function changeSubTaskImg() {
 }
 
 /**
+ * If you click on the body when changing a subtask, the new content is saved; if the new content has a length of 0, the subtask is deleted
+ * @param {number} index
+ */
+function checkIfEditingIsEmpty(index) {
+  let output = document.getElementById(`subtaskContent${index}`).innerHTML;
+  if (output.length == 0) {
+    deleteSubtask(index);
+  } else {
+    saveEditing(index);
+  }
+}
+
+/**
  * the subtask is deleted
  * @param {number of subtask} index
  */
@@ -482,7 +495,7 @@ function deleteSubtask(index) {
 }
 
 /**
- *
+ *assignedTAddTask and subtaskAddTask are deleted and then renderSubTasks and renderSelectedContactsFromTask are executed
  */
 function clearContactsAndSubtasks() {
   assignedToAddTask = [];
