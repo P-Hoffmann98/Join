@@ -104,12 +104,13 @@ input:focus {
     color: #000000;
 }
 
-.board-input-serch-icon:hover {
+.board-input-search-icon:hover {
     background: #EEEEEE;
     border-radius: 45px;
+    cursor: pointer;
 }
 
-.board-input-serch-icon:active path {
+.board-input-search-icon:active path {
     fill: #29ABE2;
 }
 
@@ -138,6 +139,7 @@ input:focus {
 .board-button-addTask:hover {
     background: #29ABE2;
     border-color: #29ABE2;
+    cursor: pointer;
 }
 
 .board-text-addTask {
