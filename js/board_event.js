@@ -1,0 +1,1 @@
+document.getElementById('board_input_search_field').addEventListener('search', boardRenderInit);
