@@ -198,7 +198,10 @@ async function boardDeleteTask(tasksIndex) {
 
 function readInputSearch() {
     let boardSearchString = document.getElementById('board_input_search_field').value.toLowerCase();
-    /* console.log(boardSearchString); */
+    if (boardSearchString === " ") {
+        console.log('Eingabe besteht aus Leerzeichen');
+    }
+    console.log(boardSearchString);
     boardCleanTaksArraysSearch();
     fillSearchArray(boardTasksToDo, boardSearchString, boardTasksToDoSearch);
     fillSearchArray(boardTasksProgress, boardSearchString, boardTasksProgressSearch);
