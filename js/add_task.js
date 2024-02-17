@@ -372,6 +372,15 @@ function addTaskCloseContextMenuCategory() {
 }
 
 /**
+ * the selected category will be reset to the default value
+ */
+function resetCategory() {
+  document.getElementById(
+    "add_task_category"
+  ).innerHTML = `Select Task category`;
+}
+
+/**
  * a subtask is added to the task and then the functions clearSubTaskInput and renderSubTasks are executed
  */
 function addSubtask() {
@@ -501,6 +510,7 @@ function clearContactsAndSubtasks() {
   assignedToAddTask = [];
   subtaskAddTask = [];
   addTaskSelectedPrioMedium();
+  resetCategory();
   renderSubTasks();
   renderSelectedContactsFromTask();
 }
