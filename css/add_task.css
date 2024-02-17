@@ -656,6 +656,10 @@ label input {
     width: 350px;
   }
 
+  .add-task-prio {
+    width: 340px;
+  }
+
   .add-task-prio-high {
     display: flex;
     align-items: center;
@@ -668,8 +672,9 @@ label input {
   .add-task-prio-low {
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 16px;
-    width: 80px;
+    width: 110px;
     height: 41px;
     margin-right: 0;
   }
@@ -691,5 +696,9 @@ label input {
 
   .add-task-container-right {
     height: calc(100vh - 10px);
+  }
+
+  .add-task-select-field-container {
+    width: 340px;
   }
 }
