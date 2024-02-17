@@ -67,7 +67,6 @@ function addTaskToVar() {
   titleAddTask = document.getElementById("add_task_title").value;
   descriptionAddTask = document.getElementById("add_task_description").value;
   dueDateAddTask = document.getElementById("add_task_due_date").value;
-  // subtaskAddTask = document.getElementById("add_task_subtask").value;
   addTaskSave();
 }
 
@@ -504,12 +503,25 @@ function deleteSubtask(index) {
 }
 
 /**
+ * The error message for title, category and dueDate is removed
+ */
+function removeMistakeMsg() {
+  document.getElementById("add_task_mistake_title").classList.add("d-none");
+  document.getElementById("add_task_mistake_dueDate").classList.add("d-none");
+  document.getElementById("add_task_mistake_category").classList.add("d-none");
+}
+
+/**
  *assignedTAddTask and subtaskAddTask are deleted and then renderSubTasks and renderSelectedContactsFromTask are executed
  */
 function clearContactsAndSubtasks() {
   assignedToAddTask = [];
   subtaskAddTask = [];
   addTaskSelectedPrioMedium();
+  removeRedBorder("title");
+  removeRedBorder("dueDate");
+  removeRedBorder("category");
+  addTaskCloseContextMenuCategory();
   resetCategory();
   renderSubTasks();
   renderSelectedContactsFromTask();
