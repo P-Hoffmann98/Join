@@ -177,9 +177,9 @@ function boardRemoveBackgroundMoveTask(id) {
  * Function set css classes to close detail card of selcted task
  */
 function boardCloseDetailCard() {
-    let tasksCategoryDiv = document.getElementById('board_task_detail_card');
-    tasksCategoryDiv.parentElement.classList.add('d-none');
-    tasksCategoryDiv.parentElement.classList.remove('d-flex');
+    let tasksDetailDiv = document.getElementById('board_task_detail_card');
+    tasksDetailDiv.parentElement.classList.add('d-none');
+    tasksDetailDiv.parentElement.classList.remove('d-flex');
 }
 
 
