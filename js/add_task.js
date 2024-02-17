@@ -500,6 +500,7 @@ function deleteSubtask(index) {
 function clearContactsAndSubtasks() {
   assignedToAddTask = [];
   subtaskAddTask = [];
+  addTaskSelectedPrioMedium();
   renderSubTasks();
   renderSelectedContactsFromTask();
 }
