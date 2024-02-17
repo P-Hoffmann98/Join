@@ -210,6 +210,7 @@ input:focus {
     border: 2px solid var(--Ligth-blue, #29ABE2);
     transition: ease-out;
     transition-duration: 0.3s;
+    cursor: pointer;
 }
 
 .board-no-task-feedback {

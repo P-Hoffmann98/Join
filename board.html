@@ -71,7 +71,7 @@
                     <div id="board_task_category_todo_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">To do</span>
-                            <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                            <svg onclick="boardShowAddTask()" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
                                 xmlns="./img/board/svg">
                                 <g id="Capa 1">
                                     <g id="Group 11">
@@ -93,7 +93,7 @@
                     <div id="board_task_category_progress_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">In progress</span>
-                            <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                            <svg onclick="boardShowAddTask()" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
                                 xmlns="./img/board/svg">
                                 <g id="Capa 1">
                                     <g id="Group 11">
@@ -115,7 +115,7 @@
                     <div id="board_task_category_feedback_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">Await feedback</span>
-                            <svg class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                            <svg onclick="boardShowAddTask()" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
                                 xmlns="./img/board/svg">
                                 <g id="Capa 1">
                                     <g id="Group 11">
@@ -159,7 +159,7 @@
                 <div class="add-task-container">
                     <div class="add-task-header-container">
                         <h1 class="add-task-headline">Add Task</h1>
-                        <div class="board-add-task-close" onclick="boardCloseAddTask()">
+                        <div class="board-add-task-close" onclick="boardCloseAddTask()  ">
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -168,7 +168,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="add-task-content d-flex-ai-center-jc-center">
+                    <div class="add-task-content d-flex jc-center">
                         <div class="add-task-container-left">
                             <form onsubmit="addTaskToVar(); return false;">
                                 <h3>Title <span class="required-star">*</span></h3>
@@ -256,7 +256,7 @@
 
                             <div class="add-task-bottom-container">
                                 <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center"
-                                    onclick="clearContactsAndSubtasks()">Clear X</button>
+                                    onclick="boardCloseAddTask()">Close X</button>
                                 <button class="d-none add-task-add-button d-flex-ai-center-jc-center"
                                     id="add_task_button">Add Task <img src="./img/add_task/check_white.svg"></button>
                                 </form>

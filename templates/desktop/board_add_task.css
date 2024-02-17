@@ -4,6 +4,14 @@
   justify-content: center;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
 .add-task-main-container {
   display: flex;
 }
