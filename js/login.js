@@ -3,10 +3,9 @@ async function loginInit() {
   await loadContacts();
 }
 
-
 function login() {
-  let email = document.getElementById("login-input-email").value;
-  let password = document.getElementById("login-input-password").value;
+  const email = document.getElementById("login-input-email").value;
+  const password = document.getElementById("login-input-password").value;
   let user = users.find((u) => u.email == email && u.password == password);
   console.log(user);
   if (user) {
@@ -30,4 +29,8 @@ function login() {
 function toggleRememberButton() {
   let button = document.getElementById("remember-button");
   button.classList.toggle("button-img");
+}
+
+function guestLogin() {
+  window.location.href = "summary.html";
 }
