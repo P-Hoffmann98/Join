@@ -32,5 +32,23 @@ function toggleRememberButton() {
 }
 
 function guestLogin() {
+  currentUser = {
+    email: "Guest",
+    userId: "Guest",
+    name: "Guest",
+    initials: "Guest",
+  };
   window.location.href = "summary.html";
+}
+
+function togglePasswordVisibility() {
+  const passwordInput = document.getElementById("login-input-password");
+  const visibilityToggle = document.getElementById(
+    "password-visibility-toggle"
+  );
+  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+  visibilityToggle.style.backgroundImage =
+    passwordInput.type === "password"
+      ? "url(/img/login/visibility_off.svg)"
+      : "url(/img/login/visibility.svg)";
 }

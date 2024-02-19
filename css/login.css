@@ -120,11 +120,19 @@ button {
   background-size: auto;
 }
 
-#login-input-password {
-  background: url(/img/login/login_input_password.svg) right center / contain
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  background: url(/img/login/visibility_off.svg) right center / contain
     no-repeat;
   background-origin: content-box;
   background-size: auto;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transform: translate(340px, -33px);
 }
 
 #user-login-button {
@@ -191,6 +199,10 @@ button {
   .login-buttons > * {
     width: 180px;
   }
+
+  .password-toggle {
+    transform: translate(310px, -33px);
+  }
 }
 
 @media (max-width: 400px) {
@@ -212,5 +224,9 @@ button {
     width: 150px;
     margin-left: 33px;
     align-items: baseline;
+  }
+
+  .password-toggle {
+    transform: translate(210px, -33px);
   }
 }

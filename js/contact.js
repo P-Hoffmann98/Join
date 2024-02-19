@@ -83,7 +83,7 @@ async function deleteContact(c) {
   contacts.splice(c, 1);
   const bigContactCard = document.getElementById("big-contact-card");
   bigContactCard.innerHTML = "";
-  renderContacts();
+  closeEditContact();
   await setItem("contacts", JSON.stringify(contacts));
 }
 
