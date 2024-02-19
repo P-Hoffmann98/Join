@@ -585,22 +585,22 @@ label input {
     overflow: auto;
   }
 
-.add-task-content:where(label, input),
-.add-task-label,
-.add-task-title,
-.add-task-description,
-.add-task-due-date,
-#add_task_select_category_box  {
-  width: 100%;
-}
+  .add-task-content:where(label, input),
+  .add-task-label,
+  .add-task-title,
+  .add-task-description,
+  .add-task-due-date,
+  #add_task_select_category_box {
+    width: 100%;
+  }
 
-#add_task_select_category_box {
-  position: unset;
-}
+  #add_task_select_category_box {
+    position: unset;
+  }
 
-#add_task_mistake_category {
-  padding-top: 8px;
-}
+  #add_task_mistake_category {
+    padding-top: 8px;
+  }
 
   .add-task-container-right {
     width: 100%;
@@ -608,7 +608,7 @@ label input {
     margin-left: 0;
   }
 
- 
+
 
   .add-task-container-left {
     width: 100%;
@@ -626,6 +626,10 @@ label input {
   .add-task-header-container {
     margin-bottom: 24px;
     width: 100%;
+  }
+
+  .add-task-bottom-container {
+    margin-bottom: 8px;
   }
 }
 
@@ -647,7 +651,7 @@ label input {
     align-items: center;
     justify-content: center;
   }
-    
+
   .add-task-prio-low {
     margin-right: 0;
   }

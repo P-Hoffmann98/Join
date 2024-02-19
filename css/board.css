@@ -423,6 +423,7 @@ line-height: 120%; */
 
 .board-task-detail-card {
     width: 525px;
+    max-height: 95vh;
     background: #FFFFFF;
     Padding: 48px 40px;
     border-radius: 30px;
@@ -608,6 +609,8 @@ line-height: 120%; */
 
 }
 
+/* ********************************************************** media query 1100px ********************************************************************* */
+
 @media (max-width: 1100px) {
 
     .board-headline {
@@ -651,6 +654,9 @@ line-height: 120%; */
     }
 }
 
+
+/* ********************************************************** media query 850px ********************************************************************* */
+
 @media (max-width: 850px) {
 
     .board-main-container {
@@ -660,7 +666,7 @@ line-height: 120%; */
         height: calc(100vh - 160px);
     }
 
-   .board-headline {
+    .board-headline {
         padding: 24px 8px 24px 8px;
     }
 
@@ -696,46 +702,32 @@ line-height: 120%; */
         border-radius: 10px;
         border: 1px solid #2A3647;
         background: #2A3647;
-    } */
-
-    /*     .board-task-main {
-       flex-wrap: nowrap;
-        flex-direction: column;
-        padding: 0 16px;
-        overflow: auto;
-    } */
-
-    /*  .board-task-category {
-        /* width: 100%;
-    } */
-
-    /* .board-task-headline {
-        width: 100%;
-    } */
-
-    /*   .board-task-container {
-        display: flex;
-        gap: 24px;
-        overflow-x: auto;
-    } */
+    }
 
     .board-add-task-headline {
         font-size: 27px;
     }
+}
 
-    /*  .board-add-task-category {
-        width: 30px;
-        height: 30px;
-        padding: 3px;
-    } */
 
-    /* .board-task-card-preview {
-        margin-bottom: 16px;
-    } */
+/* ********************************************************** media query 600px ********************************************************************* */
 
-    /* media mobile nav-leiste */
-    /*   header {
-        padding: 16px 20px;
-    } */
+@media (max-width: 525px) {
 
+    .board-task-detail-card {
+        width: 100%;
+    }
+
+    .board-task-detail-card h1 {
+        font-size: 44px;
+    }
+}
+
+/* ********************************************************** media query 600px ********************************************************************* */
+
+@media (max-width: 400px) {
+
+    .board-task-detail-card {
+        Padding: 24px 16px;
+    }
 }
