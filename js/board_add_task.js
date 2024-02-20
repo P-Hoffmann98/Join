@@ -1,7 +1,8 @@
-function boardShowAddTask() {
+function boardShowAddTask(taskStatus) {
     addTaskInit();
     document.getElementById('board_task_add_task_main').classList.remove('d-none');
     document.getElementById('board_task_add_task_main').classList.add('d-flex');
+    boardTaskStatus = taskStatus;
 }
 
 
