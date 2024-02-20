@@ -36,8 +36,10 @@ function guestLogin() {
     email: "Guest",
     userId: "Guest",
     name: "Guest",
-    initials: "Guest",
+    initials: "G",
   };
+  console.log(currentUser);
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
   window.location.href = "summary.html";
 }
 
