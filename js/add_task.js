@@ -27,6 +27,7 @@ let selectUserBox;
 let taskInput;
 let prioMedium;
 let prioMediumImg;
+let task_status;
 
 //Variablen für Suchergebisse
 let resultInitials;
@@ -63,7 +64,8 @@ function addTaskCheckForm() {
 /**
  * input value from formular put in variable
  */
-function addTaskToVar() {
+function addTaskToVar(param) {
+  task_status = param;
   titleAddTask = document.getElementById("add_task_title").value;
   descriptionAddTask = document.getElementById("add_task_description").value;
   dueDateAddTask = document.getElementById("add_task_due_date").value;
@@ -86,7 +88,7 @@ async function addTaskSave() {
     categoryTask: categoryAddTask,
     subtask: subtaskAddTask,
     status_subtask: statusSubtaskAddTask,
-    status: "todo",
+    status: task_status,
   });
 
   await setItem("tasks", JSON.stringify(tasks));
