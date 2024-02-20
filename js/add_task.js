@@ -329,7 +329,7 @@ function handleOpenContextMenu(event) {
 }
 
 /**
- * Function to close the select user box div when clicked outside of itFunction to close the select user box div when clicked outside of it
+ * Function to close the select user box div when clicked outside of it Function to close the select user box div when clicked outside of it
  */
 document.addEventListener("click", function (event) {
   if (!selectUserBox.contains(event.target) && event.target !== taskInput) {
