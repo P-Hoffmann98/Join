@@ -28,7 +28,7 @@
             </div>
             <div class="add-task-content d-flex-ai-center-jc-center">
               <div class="add-task-container-left">
-                <form onsubmit="addTaskToVar(); return false;">
+                <form onsubmit="addTaskToVar('todo'); return false;">
                   <h3>Title <span class="required-star">*</span></h3>
                     <label for="title" class="add-task-label" id="add_task_label_title"> 
                       <input type="text" name="title" class="add-task-title" id="add_task_title" minlength="3" maxlength="20" placeholder="Enter a Title" required onkeyup="addTaskCheckForm()" onfocus="addTaskShowMsg('title')" oninput="removeRedBorder('title')">
