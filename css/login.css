@@ -230,3 +230,9 @@ button {
     transform: translate(210px, -33px);
   }
 }
+
+@media (max-height: 870px) {
+  login-img {
+    display: none;
+  }
+}

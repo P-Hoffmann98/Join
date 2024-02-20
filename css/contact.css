@@ -31,6 +31,19 @@ body {
   overflow-y: auto;
 }
 
+.contact-list > h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 36px;
+}
+
+.contact-list-spacer {
+  height: 20px;
+  width: 90%;
+  background-color: #f6f7f8;
+  margin: 10px 0;
+}
+
 .contact-container-right {
   display: flex;
   margin-left: 50px;
@@ -66,16 +79,16 @@ body {
 }
 
 .contact-list > * {
-  margin: 15px 0px 15px 0px;
+  margin: 5px 0px 5px 0px;
   display: flex;
   align-items: center;
-  cursor: pointer;
   gap: 35px;
 }
 
 .contact-card {
   border-radius: 10px;
   padding: 15px 24px;
+  cursor: pointer;
 }
 
 .contact-card:hover {
@@ -156,6 +169,11 @@ body {
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  transition: all ease-in 0.2s;
+}
+
+.big-contact-edit:hover {
+  color: blue;
 }
 
 .big-contact-delete {
@@ -163,6 +181,10 @@ body {
   align-items: center;
   gap: 8px;
   cursor: pointer;
+}
+
+.big-contact-delete:hover {
+  color: blue;
 }
 
 .big-contact-infos {
