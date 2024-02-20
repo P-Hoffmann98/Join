@@ -181,10 +181,9 @@ function addTaskSelectedPrioHigh() {
  */
 function addTaskGetToday() {
   let today = new Date();
-  let day = today.getDate(); // Tag
-  // Monatsangabe startet bei 0!
-  let month = today.getMonth() + 1; // Monat
-  let year = today.getFullYear(); // Jahr
+  let day = today.getDate();
+  let month = today.getMonth() + 1;
+  let year = today.getFullYear();
   if (day < 10) {
     day = "0" + day;
   }
@@ -280,12 +279,12 @@ function addContactToTask(contactId) {
  * Contact is deselected from the list of assigned to and the function renderSelectedContactsFromTask is called
  * @param {number of contact} contactId
  */
-
 function deleteContactFromTask(contactId) {
   let resultIdToDelete = assignedToAddTask.indexOf(contactId);
   assignedToAddTask.splice(resultIdToDelete, 1);
   renderSelectedContactsFromTask();
 }
+
 /**
  * Category is selected If no entry is entered, an error message is displayed and the frame of the input field is marked red
  * @param {number of caegory} param
