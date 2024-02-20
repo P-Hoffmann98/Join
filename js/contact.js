@@ -13,8 +13,19 @@ function renderContacts() {
   let contactlist = document.getElementById("contact-list");
   contactlist.innerHTML = "";
 
+  contacts.sort((a, b) => a.name.localeCompare(b.name));
+
+  let currentLetter = null;
+
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
+    const firstLetter = contact.name.charAt(0).toUpperCase();
+
+    if (firstLetter !== currentLetter) {
+      contactlist.innerHTML += `<h2>${firstLetter}</h2>`;
+      contactlist.innerHTML += `<div class="contact-list-spacer"></div>`;
+      currentLetter = firstLetter;
+    }
 
     contactlist.innerHTML += `
       <div class="contact-card" id="contact-card-${i}" onclick="showContact(${i});">
