@@ -312,6 +312,9 @@ function selectCategory(param) {
  */
 function addTaskOpenContextMenuAssignedTo() {
   selectUserBox.classList.remove("d-none");
+  document
+    .getElementById("add_task_assigned_to")
+    .classList.add("add-task-assigned-to-up");
 }
 
 /**
@@ -319,6 +322,9 @@ function addTaskOpenContextMenuAssignedTo() {
  */
 function addTaskCloseContextMenuAssignedTo() {
   selectUserBox.classList.add("d-none");
+  document
+    .getElementById("add_task_assigned_to")
+    .classList.remove("add-task-assigned-to-up");
 }
 
 /**
@@ -344,9 +350,8 @@ document.addEventListener("DOMContentLoaded", function () {
   taskInput = document.getElementById("add_task_assigned_to");
   taskInput.addEventListener("click", handleOpenContextMenu);
 
-  // Event-Listener für das select user box div
   selectUserBox.addEventListener("click", function (event) {
-    event.stopPropagation(); // Verhindert, dass das Klick-Ereignis nach außen durchsickert
+    event.stopPropagation();
   });
 });
 
@@ -360,6 +365,9 @@ function addTaskOpenContextMenuCategory() {
   document.getElementById(
     "add_task_category"
   ).innerHTML = `Select Task category`;
+  document
+    .getElementById("add_task_category")
+    .classList.add("add-task-category-input-up");
 }
 
 /**
@@ -369,6 +377,9 @@ function addTaskCloseContextMenuCategory() {
   document
     .getElementById("add_task_select_category_box")
     .classList.add("d-none");
+  document
+    .getElementById("add_task_category")
+    .classList.remove("add-task-category-input-up");
 }
 
 /**
