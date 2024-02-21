@@ -36,7 +36,7 @@
                     <div class="board-headline-button">
                         <span class="board-headline-text">Board</span>
                         <button class="board-button-addTask-mobile"><img src="./img/board/add.svg" alt=""
-                                onclick="boardShowAddTask()"></button>
+                                onclick="boardShowAddTask('todo')"></button>
                     </div>
                     <div class="board-headline-container-search-add">
                         <div class="board-input-search-container">
@@ -62,7 +62,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <button class="board-button-addTask" onclick="boardShowAddTask()"><span
+                        <button class="board-button-addTask" onclick="boardShowAddTask('todo')"><span
                                 class="board-text-addTask">Add task</span><img src="./img/board/add.svg"
                                 alt=""></button>
                     </div>
@@ -71,7 +71,7 @@
                     <div id="board_task_category_todo_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">To do</span>
-                            <svg onclick="boardShowAddTask()" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                            <svg onclick="boardShowAddTask('todo')" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
                                 xmlns="./img/board/svg">
                                 <g id="Capa 1">
                                     <g id="Group 11">
@@ -93,7 +93,7 @@
                     <div id="board_task_category_progress_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">In progress</span>
-                            <svg onclick="boardShowAddTask()" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                            <svg onclick="boardShowAddTask('progress')" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
                                 xmlns="./img/board/svg">
                                 <g id="Capa 1">
                                     <g id="Group 11">
@@ -115,7 +115,7 @@
                     <div id="board_task_category_feedback_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">Await feedback</span>
-                            <svg onclick="boardShowAddTask()" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
+                            <svg onclick="boardShowAddTask('feedback')" class="board-add-task-category" width="10" height="11" viewBox="0 0 10 11" fill="color"
                                 xmlns="./img/board/svg">
                                 <g id="Capa 1">
                                     <g id="Group 11">
@@ -170,7 +170,7 @@
                     </div>
                     <div class="add-task-content d-flex jc-center">
                         <div class="add-task-container-left">
-                            <form onsubmit="addTaskToVar(); return false;">
+                            <form onsubmit="addTaskToVar(boardTaskStatus); return false;">
                                 <h3>Title <span class="required-star">*</span></h3>
                                 <label for="title" class="add-task-label" id="add_task_label_title">
                                     <input type="text" name="title" class="add-task-title" id="add_task_title"

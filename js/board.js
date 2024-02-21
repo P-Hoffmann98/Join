@@ -7,6 +7,7 @@ let boardTasksProgressSearch = [];
 let boardTasksFeedbackSearch = [];
 let boardTasksDoneSearch = [];
 let boardCurrentDraggedTask;
+let boardTaskStatus;
 
 
 /**
