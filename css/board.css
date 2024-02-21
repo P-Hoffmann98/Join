@@ -382,10 +382,35 @@ line-height: 120%; */
 .board-task-card-profile-container {
     display: flex;
     align-items: center;
+    max-width: 199px;
 }
 
-.board-task-card-profile:nth-child(n + 2) {
+/* .board-task-card-profile:nth-child(n + 2) {
     left: -8px;
+} */
+
+.board-task-card-profile:nth-child(2) {
+    left: -8px;
+}
+
+.board-task-card-profile:nth-child(3) {
+    left: -16px;
+}
+
+.board-task-card-profile:nth-child(4) {
+    left: -24px;
+}
+
+.board-task-card-profile:nth-child(5) {
+    left: -32px;
+}
+
+.board-task-card-profile:nth-child(6) {
+    left: -40px;
+}
+
+.board-task-card-profile:nth-child(7) {
+    left: -48px;
 }
 
 .board-task-card-profile {

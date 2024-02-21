@@ -165,13 +165,22 @@ function boardRenderAssignedTo(tasksIndex) {
 function boardRenderInitials(id, tasksIndex) {
     let initialsDiv = document.getElementById(id);
 
-    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length; i++) {
-        const id = tasks[tasksIndex]['assignedTo'][i];
-        let contactsIndex = boardIndexOfJSON(contacts, id);
-        let color = contacts[contactsIndex]['color'];
-        let initials = contacts[contactsIndex]['initials'];
+    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length && i < 7 ; i++) {
 
-        initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color);
+        if (i < 6) {
+            const id = tasks[tasksIndex]['assignedTo'][i];
+            let contactsIndex = boardIndexOfJSON(contacts, id);
+            let color = contacts[contactsIndex]['color'];
+            let initials = contacts[contactsIndex]['initials'];
+    
+            initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color); 
+        } else {
+            let color = '#2A3647';
+            let count =  tasks[tasksIndex]['assignedTo'].length - 6 ;
+            let initials =  '+' + count.toString();
+    
+            initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color); 
+        }
     }
 }
 
