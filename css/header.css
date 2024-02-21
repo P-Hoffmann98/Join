@@ -27,6 +27,10 @@ header {
   cursor: pointer;
 }
 
+.help-icon:hover {
+  transform: scale(1.2);
+}
+
 .header-initials {
   height: 56px;
   width: 56px;
@@ -42,6 +46,7 @@ header {
 
 .header-initials:hover {
   cursor: pointer;
+  background-color: lightgray;
 }
 
 .context-menu-header-container {
