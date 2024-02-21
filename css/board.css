@@ -461,6 +461,10 @@ line-height: 120%; */
     margin-bottom: 24px;
 }
 
+.board-task-detail-content {
+    overflow: auto;
+}
+
 .board-task-card-detail-taskcategory {
     width: fit-content;
     padding: 4px 24px;

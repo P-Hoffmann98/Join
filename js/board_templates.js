@@ -94,16 +94,18 @@ function boardRenderDetailCardHTML(tasksIndex) {
             </svg>
             </div>
         </div>
-        <h1 class="board-task-card-detail-headline">${tasks[tasksIndex]['title']}</h1>
-        <p class="board-task-card-detail-description">${tasks[tasksIndex]['description']}</p>
-        <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p id="board_task_detail_duedate"></p></div>
-        <div class="d-flex ai-center mb-24">
-            <p class="board-task-card-detail-priority">Priority:</p>
-            <p id="board-task-card-priority-text">Priority-Funktion schreiben</p>
-            <img id="board-task-card-priority-img" src="" alt="Prio Image">
-        </div>
-        <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24"></div>
-        <div id="board_task_detail_subtasks" class="d-flex flex-d-col mb-24"></div>
+        <div class="board-task-detail-content"><!--  -->
+            <h1 class="board-task-card-detail-headline">${tasks[tasksIndex]['title']}</h1>
+            <p class="board-task-card-detail-description">${tasks[tasksIndex]['description']}</p>
+            <div class="d-flex ai-center mb-24"><p class="board-task-card-detail-duedate">Due date:</p><p id="board_task_detail_duedate"></p></div>
+            <div class="d-flex ai-center mb-24">
+                <p class="board-task-card-detail-priority">Priority:</p>
+                <p id="board-task-card-priority-text">Priority-Funktion schreiben</p>
+                <img id="board-task-card-priority-img" src="" alt="Prio Image">
+            </div>
+            <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24"></div>
+            <div id="board_task_detail_subtasks" class="d-flex flex-d-col mb-24"></div>
+        </div><!--  -->
         <div class="d-flex jc-end">
             <div class="board-task-card-detail-delete d-flex ai-center" onclick="boardDeleteTask(${tasksIndex})">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/board_tasks_delete.svg">
