@@ -43,6 +43,9 @@ async function getItem(key) {
     });
 }
 
+/**
+ * loads the users from backend
+ */
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
@@ -51,6 +54,9 @@ async function loadUsers() {
   }
 }
 
+/**
+ * loads the tasks from backend
+ */
 async function loadTasks() {
   try {
     tasks = JSON.parse(await getItem("tasks"));
@@ -59,6 +65,9 @@ async function loadTasks() {
   }
 }
 
+/**
+ * loads the contacts from backend
+ */
 async function loadContacts() {
   try {
     contacts = JSON.parse(await getItem("contacts"));
@@ -67,6 +76,10 @@ async function loadContacts() {
   }
 }
 
+/**
+ * loads the current user from localStorage
+ * query built into loadCurrentUser so that users who are not logged in are automatically redirected back to the index.html page
+ */
 function loadCurrentUser() {
   let currentUserJSONTOText = localStorage.getItem("currentUser");
   currentUser = JSON.parse(currentUserJSONTOText);
