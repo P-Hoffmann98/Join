@@ -70,4 +70,7 @@ async function loadContacts() {
 function loadCurrentUser() {
   let currentUserJSONTOText = localStorage.getItem("currentUser");
   currentUser = JSON.parse(currentUserJSONTOText);
+  if (!currentUser) {
+    window.location.href = "index.html";
+  }
 }
