@@ -1,10 +1,8 @@
 async function summaryInit() {
-  await includeHTML();
   await loadTasks();
   await loadCurrentUser();
   showCurrentUserName();
   await loadCounts();
-  loadInitials();
 }
 
 async function loadCounts() {
