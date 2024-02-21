@@ -108,7 +108,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   outline: none;
   display: flex;
   justify-content: space-between;
-  background: url(/img/add-task-arrow-down.svg) right center / contain no-repeat;
+  background: url(/img/add_task/arrow_down.svg) right center / contain no-repeat;
+  background-origin: content-box;
+  background-size: auto;
+}
+
+.add-task-assigned-to-up {
+  background: url(/img/add_task/arrow_up.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
@@ -434,7 +440,13 @@ label input {
   width: 100%;
   font-size: 16px;
   cursor: pointer;
-  background: url(/img/add-task-arrow-down.svg) right center / contain no-repeat;
+  background: url(/img/add_task/arrow_down.svg) right center / contain no-repeat;
+  background-origin: content-box;
+  background-size: auto;
+}
+
+.add-task-category-input-up {
+  background: url(/img/add_task/arrow_up.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
