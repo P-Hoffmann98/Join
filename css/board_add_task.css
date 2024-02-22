@@ -278,8 +278,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   justify-content: right;
   margin-right: 20px;
   margin-top: 20px;
-
   border: 0px solid black;
+}
+
+.add-task-bottom-container-button {
+  height: 24px;
+  width: 24px;
 }
 
 .add-task-add-button {
@@ -332,9 +336,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 11px;
 }
 
-.add-task-clear-button:hover {
+.add-task-clear-button:hover,
+.add-task-clear-button:hover path {
   background-color: #ffffff;
   border: 1px solid #29abe2;
+  fill:  #29abe2;
   color: #29abe2;
   cursor: pointer;
 }
