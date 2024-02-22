@@ -13,6 +13,27 @@ button {
   cursor: pointer;
 }
 
+input:focus {
+  border: 1px solid #29abe2;
+  outline: none;
+}
+
+.background-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  transition: background-color 1s ease;
+  z-index: 998;
+  pointer-events: none;
+}
+
+.main-container {
+  flex-direction: column;
+}
+
 .signup-container {
   position: absolute;
   top: 67px;
@@ -28,6 +49,7 @@ button {
   left: 77px;
   width: 14vw;
   height: 8vh;
+  z-index: 999;
 }
 
 .login-spacer {
@@ -113,6 +135,11 @@ button {
   font-weight: bold;
 }
 
+#signup-button:hover {
+  border-color: #29abe2;
+  background-color: #29abe2;
+}
+
 #login-input-email {
   background: url(/img/login/login_input_email.svg) right center / contain
     no-repeat;
@@ -144,6 +171,11 @@ button {
   font-weight: bold;
 }
 
+#user-login-button:hover {
+  border-color: #29abe2;
+  background-color: #29abe2;
+}
+
 #guest-login-button {
   height: 48px;
   padding: 15px 24px;
@@ -154,6 +186,31 @@ button {
   font-weight: bold;
 }
 
+#guest-login-button:hover {
+  border-color: #29abe2;
+  color: #29abe2;
+}
+
+.login-legal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-legal-links {
+  color: #a8a8a8;
+  text-decoration: none;
+}
+
+.login-legal-links:hover {
+  color: #29abe2;
+}
+
 @media (max-width: 650px) {
   .login-container {
     width: 500px;
@@ -162,7 +219,7 @@ button {
 
 @media (max-width: 550px) {
   .login-centering {
-    align-items: flex-start;
+    flex-direction: column;
   }
 
   .login-img {
@@ -170,17 +227,8 @@ button {
     top: 37px;
     left: 38px;
   }
-
-  .signup-container {
-    position: relative;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    margin-top: 70px;
-  }
   .login-container {
-    margin-top: 205px;
+    margin-top: 140px;
     width: 396px;
     display: flex;
     flex-direction: column;
@@ -202,6 +250,13 @@ button {
 
   .password-toggle {
     transform: translate(310px, -33px);
+  }
+
+  .signup-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-top: 25px;
   }
 }
 
@@ -228,11 +283,5 @@ button {
 
   .password-toggle {
     transform: translate(210px, -33px);
-  }
-}
-
-@media (max-height: 870px) {
-  login-img {
-    display: none;
   }
 }

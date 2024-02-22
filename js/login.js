@@ -5,7 +5,7 @@ async function loginInit() {
 
 function login() {
   const email = document.getElementById("login-input-email").value;
-  const password = document.getElementById("login-input-password").value;
+  const password = document.getElementById("login-input-password1").value;
   let user = users.find((u) => u.email == email && u.password == password);
   console.log(user);
   if (user) {
@@ -21,8 +21,18 @@ function login() {
     window.location.href = "summary.html";
   } else {
     console.log("User nicht gefunden");
-    document.getElementById("errorbox").innerHTML =
-      "Wrong password Ups! Try again.";
+    let usernameExists = users.some((u) => u.email == email);
+    let passwordCorrect = users.some(
+      (u) => u.email == email && u.password == password
+    );
+
+    if (!usernameExists) {
+      document.getElementById("errorbox").innerHTML =
+        "Wrong username. Please try again.";
+    } else if (usernameExists && !passwordCorrect) {
+      document.getElementById("errorbox").innerHTML =
+        "Wrong password. Please try again.";
+    }
   }
 }
 
@@ -43,14 +53,80 @@ function guestLogin() {
   window.location.href = "summary.html";
 }
 
-function togglePasswordVisibility() {
-  const passwordInput = document.getElementById("login-input-password");
+function togglePasswordVisibility(i) {
+  const passwordInput = document.getElementById(`login-input-password${i}`);
   const visibilityToggle = document.getElementById(
-    "password-visibility-toggle"
+    `password-visibility-toggle${i}`
   );
   passwordInput.type = passwordInput.type === "password" ? "text" : "password";
   visibilityToggle.style.backgroundImage =
     passwordInput.type === "password"
       ? "url(/img/login/visibility_off.svg)"
       : "url(/img/login/visibility.svg)";
+}
+
+function startAnimation() {
+  // Check if the viewport width is under 550px
+  if (window.innerWidth <= 550) {
+    startAnimationMobile();
+    return;
+  }
+
+  console.log("Desktop animation triggered");
+  let logo = document.getElementById("logo");
+  let initialTop = window.innerHeight / 2 - logo.clientHeight / 2;
+  let initialLeft = window.innerWidth / 2 - logo.clientWidth / 2;
+
+  // Set initial position at the center of the screen
+  logo.style.top = initialTop + "px";
+  logo.style.left = initialLeft + "px";
+
+  // Get the background fade element
+  let backgroundFade = document.querySelector(".background-fade");
+
+  // Use requestAnimationFrame for smoother animations
+  function animateLogo(timestamp) {
+    // Calculate progress based on time (2 seconds duration)
+    let progress = (timestamp - startTime) / 2000;
+
+    // Ease-out animation formula for smoother motion
+    let easeOutProgress = 1 - Math.pow(1 - progress, 3);
+
+    // Calculate new position
+    let targetTop = 80;
+    let targetLeft = 77;
+
+    let newTop = initialTop + (targetTop - initialTop) * easeOutProgress;
+    let newLeft = initialLeft + (targetLeft - initialLeft) * easeOutProgress;
+
+    // Apply new position
+    logo.style.top = newTop + "px";
+    logo.style.left = newLeft + "px";
+
+    // Fade background during animation
+    let backgroundOpacity = 1 - easeOutProgress;
+    backgroundFade.style.backgroundColor = `rgba(255, 255, 255, ${backgroundOpacity})`;
+
+    // Continue animation until progress reaches 1
+    if (progress < 1) {
+      requestAnimationFrame(animateLogo);
+    }
+  }
+
+  // Record the start time of the animation
+  let startTime = null;
+
+  // Trigger the animation
+  function startAnimation() {
+    startTime = performance.now();
+    requestAnimationFrame(animateLogo);
+  }
+
+  // Start the animation after a short delay (adjust as needed)
+  setTimeout(startAnimation, 500);
+}
+
+function startAnimationMobile() {
+  // Your mobile animation logic goes here
+  console.log("Mobile animation triggered");
 }

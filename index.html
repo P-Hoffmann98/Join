@@ -13,11 +13,11 @@
     <script src="/js/login.js"></script>
   </head>
 
-  <body onload="loginInit()">
+  <body onload="loginInit(), startAnimation()">
+    <div class="background-fade"></div>
     <div class="main-container">
       <div class="main-container-body login-centering">
-        <img class="login-img" src="img/login/login_icon.svg" />
-
+        <img id="logo" class="login-img" src="img/login/login_icon.svg" />
         <div class="login-container">
           <h1>Log in</h1>
           <div class="login-spacer"></div>
@@ -33,14 +33,14 @@
             <input
               type="password"
               class="login-inputs"
-              id="login-input-password"
+              id="login-input-password1"
               placeholder="Password"
               required
               minlength="8"
               pattern="^(?=.*[A-Za-z])(?=.*\d).+$"
               title="Das Passwort muss mindestens 8 Zeichen lang sein und mindestens einen Buchstaben und eine Zahl enthalten."
               />
-              <div id="password-visibility-toggle" class="password-toggle" onclick="togglePasswordVisibility()"></div>
+              <div id="password-visibility-toggle1" class="password-toggle" onclick="togglePasswordVisibility(`1`)"></div>
             <div id="errorbox"></div>
             <div class="button-and-text">
               <button
@@ -64,14 +64,16 @@
             Guest Log in
           </button>
         </div>
-
-          <div class="signup-container">
-            <p>Not a Join user?</p>
-            <a href="signup.html"
-              ><button id="signup-button">Sign up</button></a
-            >
-          </div>
         </div>
+        <div class="signup-container">
+          <p>Not a Join user?</p>
+          <a href="signup.html"
+            ><button id="signup-button">Sign up</button></a>
+        </div>
+      </div>
+      <div class="login-legal">
+        <a target=”_blank” href="privacy_policy.html" class="login-legal-links">Privacy Policy</a>
+        <a target=”_blank” href="legal_notice.html" class="login-legal-links">Legal notice</a>
       </div>
     </div>
   </body>
