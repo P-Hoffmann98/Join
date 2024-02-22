@@ -68,6 +68,7 @@ function togglePasswordVisibility(i) {
 function startAnimation() {
   // Check if the viewport width is under 550px
   if (window.innerWidth <= 550) {
+    console.log("Mobile animation triggered");
     startAnimationMobile();
     return;
   }
