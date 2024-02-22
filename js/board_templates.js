@@ -121,7 +121,7 @@ function boardRenderDetailCardHTML(tasksIndex) {
             <svg width="2" height="24" viewBox="0 0 2 24" fill="none" xmlns="./img/board/board_tasks_vector.svg">
                 <path d="M1 0V24" stroke="#D1D1D1"/>
             </svg>
-            <div class="board-task-card-detail-edit d-flex ai-center">
+            <div class="board-task-card-detail-edit d-flex ai-center" onclick="boardShowEditTask(${tasksIndex})">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/board_tasks_edit.svg">
                     <mask id="mask0_133737_4276" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                     <rect width="24" height="24" fill="#D9D9D9"/>
