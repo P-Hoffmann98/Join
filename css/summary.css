@@ -325,3 +325,35 @@ h3 {
     height: 128px;
   }
 }
+
+@media (max-width: 374px) {
+  .summary-container-first-row a {
+    width: 100px; /*150*/
+    height: 128px; /*128*/
+    padding: 25px 20px; /*25 20*/
+  }
+
+  .summary-images {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  .summary-container-second-row a {
+    width: 220px; /*320*/
+    height: 128px; /*128*/
+  }
+
+  .summary-seperator-second-container {
+    margin: 0 10px;
+  }
+
+  .summary-container-third-row a {
+    width: 66px; /*104*/
+    height: 128px; /*128*/
+  }
+
+  .summary-small {
+    font-size: 14px;
+  }
+}
