@@ -36,6 +36,10 @@
     justify-content: center;
 }
 
+.jc-start {
+    justify-content: start;
+}
+
 .jc-end {
     justify-content: end;
 }
