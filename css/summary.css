@@ -293,6 +293,10 @@ h3 {
 }
 
 @media (max-width: 550px) {
+  .main-container {
+    margin-top: 15px;
+    flex-direction: column;
+  }
   .summary-headline {
     margin-top: 0px;
   }
