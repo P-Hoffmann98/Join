@@ -715,3 +715,85 @@ label input {
     width: 340px;
   }
 }
+
+@media (max-width: 374px) {
+  h3 {
+    font-size: 16px;
+  }
+
+  .li {
+    width: 260px;
+  }
+
+  #add_task_select_category_box {
+    width: 258px;
+  }
+
+  #add-task-select-field-container {
+    width: 258px;
+  }
+
+  .add-task-container-right {
+    margin: 0;
+    height: calc(100vh - 160px);
+    width: 300px;
+    margin-left: 1px;
+  }
+
+  .add-task-container-left {
+    margin-left: 1px;
+  }
+
+  .add-task-headline {
+    font-size: 32px;
+  }
+
+  .add-task-title {
+    width: 401px;
+  }
+
+  #add_task_subtask {
+    padding-left: 12px;
+    padding-right: 0px;
+    width: 250px;
+  }
+
+  .add-task-bottom-container {
+    right: 0px;
+    left: 0px;
+    padding-left: 20px;
+  }
+
+  .add-task-label {
+    width: 300px;
+  }
+
+  .add-task-prio {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-task-prio-high {
+    margin-right: 0px;
+  }
+
+  .add-task-prio-low {
+    margin-right: 0;
+  }
+
+  .add-task-prio-medium {
+    margin-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .add-task-container-right {
+    height: calc(100vh - 10px);
+  }
+
+  .add-task-select-field-container {
+    width: 340px;
+  }
+}
