@@ -201,6 +201,11 @@ h3 {
   flex-direction: column;
 }
 
+@media (max-width: 1500px) {
+  .summary-welcome {
+    display: none;
+  }
+}
 @media (max-width: 1200px) {
   .summary-welcome {
     display: none;
