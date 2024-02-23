@@ -327,6 +327,15 @@ h3 {
 }
 
 @media (max-width: 374px) {
+  .main-container {
+    margin-top: 15px;
+    flex-direction: column;
+  }
+
+  .summary-container-inside {
+    height: calc(100vh - 180px);
+  }
+
   .summary-container-first-row a {
     width: 100px; /*150*/
     height: 128px; /*128*/
