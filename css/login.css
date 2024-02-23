@@ -133,11 +133,13 @@ input:focus {
   background-color: #2a3647;
   color: white;
   font-weight: bold;
+  border: none;
 }
 
 #signup-button:hover {
   border-color: #29abe2;
   background-color: #29abe2;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 #login-input-email {
@@ -169,11 +171,13 @@ input:focus {
   background-color: #2a3647;
   color: white;
   font-weight: bold;
+  border: none;
 }
 
 #user-login-button:hover {
   border-color: #29abe2;
   background-color: #29abe2;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 #guest-login-button {
@@ -189,6 +193,7 @@ input:focus {
 #guest-login-button:hover {
   border-color: #29abe2;
   color: #29abe2;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .login-legal {

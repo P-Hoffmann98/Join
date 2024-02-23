@@ -15,6 +15,7 @@ a:hover {
 
 button {
   cursor: pointer;
+  border: unset;
 }
 
 input:focus {
@@ -131,11 +132,13 @@ input:focus {
   background-color: #2a3647;
   color: white;
   font-weight: bold;
+  border: none;
 }
 
 #signupbutton:hover {
   border-color: #29abe2;
   background-color: #29abe2;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .signup-legal-link {
