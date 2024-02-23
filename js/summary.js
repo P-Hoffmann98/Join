@@ -165,5 +165,5 @@ function summaryFindDueDate() {
  * shows curent username in id welcomeName
  */
 function showCurrentUserName() {
-  document.getElementById("welcomeName").innerHTML = `${currentUser["name"]}`;
+  document.getElementById("welcome_name").innerHTML = `${currentUser["name"]}`;
 }
