@@ -17,8 +17,11 @@
   font-size: 27px;
 }
 
+ul {
+  padding-left: 0px;
+}
+
 adress p {
   margin-top: 15px;
   margin-bottom: 35px;
-  margin-left: 25px;
 }

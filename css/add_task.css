@@ -324,10 +324,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #ffffff;
 }
 
-.m-right20 {
-  margin-right: 20px;
-}
-
 .add-task-select-field-container {
   margin-top: -5px;
   overflow-y: scroll;
@@ -394,8 +390,8 @@ label input {
 }
 
 #add_task_select_category_box {
-  position: absolute;
-  z-index: 8;
+  position: relative;
+  z-index: 999;
   background-color: #ffffff;
   overflow-y: scroll;
   height: 100px;
@@ -553,6 +549,10 @@ label input {
   display: none;
 }
 
+.m-top270 {
+  margin-top: 470px;
+}
+
 @media (max-width: 1300px) {
   .add-task-container {
     margin-left: 348px;
@@ -565,6 +565,10 @@ label input {
   .add-task-container-right {
     margin-top: 40px;
     margin-left: 0;
+  }
+
+  .m-right20 {
+    margin-right: 20px;
   }
 
   .add-task-content {
@@ -584,6 +588,10 @@ label input {
 
   .add-task-header-container {
     width: 200px;
+  }
+
+  .m-top270 {
+    margin-top: 470px;
   }
 }
 
@@ -652,6 +660,7 @@ label input {
     top: 88px;
     left: 0px;
     right: 0px;
+    z-index: 10;
     width: auto;
     padding-top: 30px;
     padding-left: 60px;
@@ -717,6 +726,10 @@ label input {
 
   .add-task-select-field-container {
     width: 340px;
+  }
+
+  .m-top270 {
+    margin-top: 270px;
   }
 }
 
