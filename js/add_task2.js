@@ -145,3 +145,26 @@ function clearContactsAndSubtasks() {
   renderSubTasks();
   renderSelectedContactsFromTask();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * This function is executed when the enter key is pressed while the focus is on the input field with the id add_task_subtask
+   * then the function add subtask is executed
+   * @param {keypress} event
+   */
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addSubtask();
+    }
+  }
+
+  let subtaskInput = document.getElementById("add_task_subtask");
+  if (subtaskInput) {
+    subtaskInput.addEventListener("keypress", handleKeyPress);
+  } else {
+    console.error(
+      "Element mit der ID 'add_task_subtask' wurde nicht gefunden."
+    );
+  }
+});
