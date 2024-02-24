@@ -325,6 +325,9 @@ function addTaskCloseContextMenuAssignedTo() {
   document
     .getElementById("add_task_assigned_to")
     .classList.remove("add-task-assigned-to-up");
+  if (document.documentElement.clientWidth < 1300) {
+    document.getElementById("rightContainer").classList.remove("m-top270");
+  }
 }
 
 /**
