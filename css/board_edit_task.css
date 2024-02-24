@@ -123,6 +123,21 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
+.edit-task-prio-low-pressed-button {
+    background-color: #a2e96d;
+    color: #ffffff;
+  }
+  
+  .edit-task-prio-medium-pressed-button {
+    background-color: #feb017;
+    color: #ffffff;
+  }
+  
+  .edit-task-prio-high-pressed-button {
+    background-color: #fe4f18;
+    color: #ffffff;
+  }
+
 .edit-task-assigned-to {
     height: 48px;
     width: 440px;
