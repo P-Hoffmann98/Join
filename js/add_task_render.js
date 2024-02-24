@@ -29,7 +29,7 @@ function renderSelectedContactsFromTask() {
         document.getElementById(
           "outputSelectedContacts"
         ).innerHTML += `<div class="container initialsOverview" style="background-color:${contacts[j]["color"]}">
-                            <span >${contacts[j]["initials"]}</span>
+                            <span onclick="deleteContactFromTask(${contacts[j]["id"]})">${contacts[j]["initials"]}</span>
                         </div>`;
       }
     }

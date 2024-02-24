@@ -269,7 +269,7 @@ function addStyleToSelectedContact(id) {
 }
 
 /**
- *
+ *the selected contact is pushed in the array assignedTAddTask and the function renderSelectedContactsFromTask is executed
  * @param {number of contact} contactId
  */
 function addContactToTask(contactId) {
