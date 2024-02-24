@@ -3,6 +3,8 @@ async function summaryInit() {
   await loadCurrentUser();
   showCurrentUserName();
   await loadCounts();
+  showCurrentUserNameMobile();
+  summaryGreetigAtDayTimeMobile();
 }
 
 async function loadCounts() {
@@ -166,4 +168,29 @@ function summaryFindDueDate() {
  */
 function showCurrentUserName() {
   document.getElementById("welcome_name").innerHTML = `${currentUser["name"]}`;
+}
+
+/**
+ * shows curent username in id welcomeName
+ */
+function showCurrentUserNameMobile() {
+  document.getElementById(
+    "welcome_name_mobile"
+  ).innerHTML = `${currentUser["name"]}`;
+}
+
+/**
+ * gives a notification according to the time of day
+ */
+function summaryGreetigAtDayTimeMobile() {
+  let today = new Date();
+  let hours = today.getHours();
+
+  if ((hours >= 17 && hours <= 23) || (hours >= 0 && hours <= 5)) {
+    document.getElementById("greeting_mobile").innerHTML = `Good evening,`;
+  } else if (hours >= 5 && hours <= 12) {
+    document.getElementById("greeting_mobile").innerHTML = `Good morning,`;
+  } else if (hours > 12 && hours <= 17) {
+    document.getElementById("greeting_mobile").innerHTML = `Good afternoon,`;
+  }
 }
