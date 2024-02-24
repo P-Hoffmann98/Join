@@ -63,6 +63,7 @@
     border: 0px solid rgba(209, 209, 209, 1);
     border-radius: 10px;
     padding: 12px 21px;
+    width: 100%;
 }
 
 .edit-task-description {
@@ -74,6 +75,7 @@
     font-size: 20px;
     resize: none;
     outline: none;
+    width: 100%;
 }
 
 .edit-task-due-date {
