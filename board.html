@@ -203,7 +203,7 @@
 
                         <div class="add-task-seperator"></div>
 
-                        <div class="add-task-container-right">
+                        <div id="rightContainer" class="add-task-container-right">
 
                             <h3>Due date <span class="required-star">*</span></h3>
                             <label for="dueDate" class="add-task-label" id="add_task_label_dueDate">
@@ -346,12 +346,12 @@
                         <!-- Assigned to -->
                         <h3>Assigned to:</h3>
                         <label for="assigned" class="board-edit-task-label bgC-white">
-                            <input type="text" name="assigned" id="add_task_assigned_to"
+                            <input type="text" name="assigned" id="edit_task_assigned_to"
                                 class="edit-task-title edit-task-assigned-to" placeholder="chose contacts"
-                                autocomplete="off" onkeyup="addTaskSearchName()" onclick="addTaskSearchName()">
+                                autocomplete="off" onkeyup="editTaskSearchName()" onclick="editTaskSearchName()">
                         </label>
 
-                        <div class="d-none add-task-select-field-container" id="add_task_select_user_box"></div>
+                        <div class="d-none edit-task-select-field-container" id="edit_task_select_user_box"></div>
                         <div class="m-top-20 assignedToOutput" id="outputSelectedContacts"></div>
                         <!-- Assigned to end -->
 

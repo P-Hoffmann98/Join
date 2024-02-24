@@ -34,6 +34,10 @@
   justify-content: center;
 }
 
+.m-top270 {
+  margin-top: 470px;
+}
+
 .add-task-main-container {
   display: flex;
 }
@@ -161,6 +165,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .add-task-assigned-to:hover {
   cursor: pointer;
+}
+
+.add-task-assigned-to-up {
+  background: url(/img/add_task/arrow_up.svg) right center / contain no-repeat;
+  background-origin: content-box;
+  background-size: auto;
 }
 
 ::placeholder {

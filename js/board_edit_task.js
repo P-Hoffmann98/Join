@@ -1,4 +1,6 @@
 let taskRecordSet;
+let editSelectUserBox;
+let editTaskInput;
 let changedPrio;
 
 function boardShowEditTask(tasksIndex) {
@@ -87,3 +89,99 @@ function editTaskRemoveSelectedPrio(prioSelected) {
     prioButtonImg.src = './img/board/board_task_' + prioRemove + '.svg';
   }
 }
+
+
+
+/**
+ * The search results are saved in variables after entering them into the search field and function addTaskRenderSeaarchName and markSelectedContacts  are called
+ */
+function editTaskSearchName() {
+  let searchInput = document.getElementById('edit_task_assigned_to').value;
+  searchInput = searchInput.toLowerCase();
+  document.getElementById('edit_task_select_user_box').innerHTML = ``;
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i]["name"].toLowerCase().includes(searchInput)) {
+      resultNames = contacts[i]["name"];
+      resultId = contacts[i]["id"];
+      resultInitials = contacts[i]["initials"];
+      resultColor = contacts[i]["color"];
+      let selectContact = markSelectedContacts(resultId);
+      editTaskRenderSearchName(selectContact);
+    }
+    /* document.getElementById('edit_task_select_user_box').classList.remove('d-none');
+    document.getElementById("edit_task_assigned_to").classList.add("edit-task-assigned-to-up"); */
+  }
+}
+
+/**
+ * The list of contacts is rendered and output in the div container add_task_select_user_box_
+ * @param {color in HEX of contact} color
+ */
+function editTaskRenderSearchName(color) {
+  if (document.documentElement.clientWidth < 1300) {
+    document.getElementById("rightContainer").classList.add("m-top270");
+  }
+  document.getElementById('edit_task_select_user_box').innerHTML += `                     
+            <div class="selectField" id="${resultId}" onclick="addStyleToSelectedContact(${resultId})">
+              <span class="selectInitial dFlexAiCenterJcCenter" style="background-color:${resultColor}">${resultInitials}</span>
+                <span class="selectName">${resultNames}</span>
+                  <img src="./img/add_task_rectangle.svg" id="selectContactBox${resultId}">
+            </div>`;
+  if (color) {
+    document.getElementById(resultId).classList.add("selectedContact");
+    document.getElementById("selectContactBox" + resultId).src =
+      "./img/add_task/rectangle_check_white.svg";
+  }
+}
+
+/**
+* Function to open the select user box div
+*/
+function editTaskOpenContextMenuAssignedTo() {
+  editSelectUserBox.classList.remove("d-none");
+  document
+    .getElementById("edit_task_assigned_to")
+    .classList.add("edit-task-assigned-to-up");
+}
+
+/**
+ * Function to close the select user box div
+ */
+function editTaskCloseContextMenuAssignedTo() {
+  editSelectUserBox.classList.add("d-none");
+  document
+    .getElementById("edit_task_assigned_to")
+    .classList.remove("edit-task-assigned-to-up");
+  /* if (document.documentElement.clientWidth < 1300) {
+    document.getElementById("rightContainer").classList.remove("m-top270"); 
+  }*/
+}
+
+/**
+ * Event listener for the input field and the image
+ * @param {click} event
+ */
+function editTaskhandleOpenContextMenu(event) {
+  event.stopPropagation();
+  editTaskOpenContextMenuAssignedTo();
+}
+
+/**
+ * Function to close the select user box div when clicked outside of itFunction to close the select user box div when clicked outside of it
+ */
+document.addEventListener("click", function (event) {
+  if (!editSelectUserBox.contains(event.target) && event.target !== editTaskInput) {
+    editTaskCloseContextMenuAssignedTo();
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  editSelectUserBox = document.getElementById("edit_task_select_user_box");
+  editTaskInput = document.getElementById("edit_task_assigned_to");
+  editTaskInput.addEventListener("click", editTaskhandleOpenContextMenu);
+
+  editSelectUserBox.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+});
