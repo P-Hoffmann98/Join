@@ -528,6 +528,10 @@ label input {
   position: relative;
 }
 
+.initialsOverview:hover {
+  cursor: pointer;
+}
+
 .initialsOverview span {
   position: absolute;
   top: 50%;
