@@ -2,6 +2,8 @@ let taskRecordSet;
 let editSelectUserBox;
 let editTaskInput;
 let editAssignedToAddTask = [];
+let editSubtaskAddTask = [];
+let editStatusSubtaskAddTask = [];
 let changedPrio;
 
 function boardShowEditTask(tasksIndex) {
@@ -27,9 +29,22 @@ function editTaskLoadValues(tasksIndex) {
 }
 
 
+/**
+ * load assignedTo values of current task into editAssignedToAddTask an call render function
+ */
 function editReadSelectedContacts() {
   editAssignedToAddTask = taskRecordSet['assignedTo'];
   editRenderSelectedContactsFromTask();
+}
+
+
+/**
+ * load subtasks from current task into editStatusSubtaskAddTask and editSubtaskAddTask and call render function
+ */
+function editReadCurrentSubtasks() {
+  editSubtaskAddTask = taskRecordSet['subtask'];
+  editStatusSubtaskAddTask = taskRecordSet['status_subtask'];
+  editTaskRenderSubTasks()
 }
 
 
@@ -42,6 +57,7 @@ function editTaskFillInput() {
   document.getElementById('edit_task_due_date').value = taskRecordSet['dueDate'];
   editTaskSelectedPrio(taskRecordSet['prio']);
   editReadSelectedContacts();
+  editReadCurrentSubtasks();
 }
 
 /* **************************************** Prio Button rendern *********************************************************************** */
@@ -272,3 +288,170 @@ function editDeleteContactFromTask(contactId) {
   editAssignedToAddTask.splice(resultIdToDelete, 1);
   editRenderSelectedContactsFromTask();
 }
+
+/* ********************************** Subtasks ******************************************************* */
+
+/**
+ * the created subtasks are output
+ */
+function editTaskRenderSubTasks() {
+  let output = document.getElementById("edit_task_outputSubtasks");
+  output.innerHTML = ``;
+  for (let i = 0; i < editSubtaskAddTask.length; i++) {
+    output.innerHTML += `                        
+      <div ondblclick="editTaskEditSubTask(${i})"  class="cursorPointer edit-task-li" contenteditable="false">
+        &#8226;<span id="edit_task_subtaskContent${i}" onkeyup="editCheckSubTaskEditInput(${i})" onblur="editCheckIfEditingIsEmpty(${i})"> ${editSubtaskAddTask[i]}</span>
+          <div class="d-flex">
+            <img id="edit_task_img_add_subtask_check${i}" src="./img/board/check.svg" onclick="editTaskSaveEditing(${i})" class="m-right20 cursorPointer d-none">
+            <img id="edit_task_img_add_subtask${i}" src="./img/board/edit.svg" onclick="editTaskEditSubTask(${i})" class="m-right20 cursorPointer">
+            <img src="./img/board/delete.svg" class="cursorPointer" onclick="editTaskDeleteSubtask(${i})">
+          </div>
+      </div>`;
+  }
+}
+
+/**
+ * a subtask is added to the task and then the functions clearSubTaskInput and renderSubTasks are executed
+ */
+function editTaskAddSubtask() {
+  let subtaskInput = document.getElementById("edit_task_subtask").value;
+  if (subtaskInput.length > 0) {
+    editSubtaskAddTask.push(subtaskInput);
+    editStatusSubtaskAddTask.push("do");
+    editTaskClearSubTaskInput();
+    editTaskRenderSubTasks();
+  }
+}
+
+/**
+ * subtask can be edited, subtask is set in focus and the div container is set editable
+ * @param {number f subtask} index
+ */
+function editTaskEditSubTask(index) {
+  let editContent = document.getElementById(`edit_task_subtaskContent${index}`);
+  editContent.contentEditable = true;
+  editContent.focus();
+  editTaskChangeImagesByEditingSubtask(index);
+}
+
+/**
+ *Images for editing and deleting the subtask are exchanged
+ * @param {number of subtask} index
+ */
+function editTaskChangeImagesByEditingSubtask(index) {
+  document
+    .getElementById(`edit_task_img_add_subtask_check${index}`)
+    .classList.remove("d-none");
+  document.getElementById(`edit_task_img_add_subtask${index}`).classList.add("d-none");
+}
+
+/**
+ * The edited subtask is saved and the images are reset again
+ * @param {number of subtasks} index
+ */
+function editTaskSaveEditing(index) {
+  let output = document.getElementById(`edit_task_subtaskContent${index}`).innerHTML;
+  if (output.length == 0) {
+    document
+      .getElementById(`edit_task_img_add_subtask_check${index}`)
+      .classList.add("d-none");
+  }
+  editSubtaskAddTask[index] = output;
+  document
+    .getElementById(`edit_task_img_add_subtask_check${index}`)
+    .classList.add("d-none");
+  document.getElementById(`edit_task_img_add_subtask${index}`).classList.remove("d-none");
+  editTaskRenderSubTasks();
+}
+
+/**
+ * check if editfield foor subtasks is empty or not
+ * id empty save button not visibil
+ * @param {number} index
+ */
+function editCheckSubTaskEditInput(index) {
+  let output = document.getElementById(`edit_task_subtaskContent${index}`).innerHTML;
+  if (output.length == 0) {
+    document
+      .getElementById(`edit_task_img_add_subtask_check${index}`)
+      .classList.add("d-none");
+  } else {
+    document
+      .getElementById(`edit_task_img_add_subtask_check${index}`)
+      .classList.remove("d-none");
+  }
+}
+
+/**
+ * the input field for the subtasks is cleared
+ */
+function editTaskClearSubTaskInput() {
+  document.getElementById("edit_task_subtask").value = ``;
+  editTaskChangeSubTaskImg();
+}
+/**
+ * The images in the subtask input fled are changed after a text is entered
+ */
+function editTaskChangeSubTaskImg() {
+  if (document.getElementById("edit_task_subtask").value.length > 0) {
+    document.getElementById("edit_task_subtask_img").src =
+      "./img/board/check.svg";
+    document
+      .getElementById("edit_task_subtask_img")
+      .classList.add("edit-subtask-img");
+    /* document.getElementById("edit_task_subtask_img").classList.remove("img1414"); */
+  } else {
+    document.getElementById("edit_task_subtask_img").src =
+      "./img/board/plus.svg";
+    document
+      .getElementById("edit_task_subtask_img")
+      .classList.add("edit-subtask-img");
+    /* document.getElementById("edit_task_subtask_img").classList.add("img1414"); */
+  }
+}
+
+/**
+ * If you click on the body when changing a subtask, the new content is saved; if the new content has a length of 0, the subtask is deleted
+ * @param {number} index
+ */
+function editCheckIfEditingIsEmpty(index) {
+  let output = document.getElementById(`edit_task_subtaskContent${index}`).innerHTML;
+  if (output.length == 0) {
+    editTaskDeleteSubtask(index);
+  } else {
+    editTaskSaveEditing(index);
+  }
+}
+
+/**
+ * the subtask is deleted
+ * @param {number of subtask} index
+ */
+function editTaskDeleteSubtask(index) {
+  editSubtaskAddTask.splice(index, 1);
+  editStatusSubtaskAddTask.splice(index, 1);
+  editTaskRenderSubTasks();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * This function is executed when the enter key is pressed while the focus is on the input field with the id edit_task_subtask
+   * then the function add subtask is executed
+   * @param {keypress} event
+   */
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      editTaskAddSubtask();
+    }
+  }
+
+  let subtaskInput = document.getElementById("edit_task_subtask");
+  if (subtaskInput) {
+    subtaskInput.addEventListener("keypress", handleKeyPress);
+  } else {
+    console.error(
+      "Element mit der ID 'edit_task_subtask' wurde nicht gefunden."
+    );
+  }
+});

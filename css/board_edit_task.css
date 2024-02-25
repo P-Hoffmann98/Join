@@ -304,6 +304,39 @@
     transform: translate(-50%, -50%);
   }
 
+  .edit-task-outputSubtaskClass {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .edit-task-li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .edit-task-li span {
+    flex: 1;
+  }
+  
+  .container_img_subtask {
+    display: flex;
+  }
+  
+  .cursorPointer {
+    cursor: pointer;
+  }
+
+  .edit-subtask-img:hover {
+    cursor: pointer;
+  }
+  
+  .edit-subtask-img {
+    margin-right: 5px;
+    height: 22px;
+    width: 22px;
+  }
 /* ********************************************************** media query 600px ********************************************************************* */
 
 @media (max-width: 525px) {
