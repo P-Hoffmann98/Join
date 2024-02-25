@@ -8,7 +8,7 @@ let acceptChecked = false;
 async function registerUser() {
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
-  let password = document.getElementById("signup-input-password").value;
+  let password = document.getElementById("signup-input-password2").value;
   let userId = generateUserId();
   let initials = generateUserInitials(name);
   let i = Math.floor(Math.random() * allColors.length);
@@ -56,18 +56,16 @@ function generateUserId() {
 }
 
 function checkPasswordMatch() {
-  let password = document.getElementById("signup-input-password").value;
+  let password = document.getElementById("signup-input-password2").value;
   let confirmPassword = document.getElementById(
-    "signup-input-confirm-password"
+    "signup-input-confirm-password3"
   ).value;
-  let confirmPwdInput = document.getElementById(
-    "signup-input-confirm-password"
-  );
+  let confirmPwdInput = document.getElementById("errorbox");
 
   if (password !== confirmPassword) {
-    confirmPwdInput.setCustomValidity("Die Passwörter stimmen nicht überein!");
+    confirmPwdInput.innerHTML = "Die Passwörter stimmen nicht überein!";
   } else {
-    confirmPwdInput.setCustomValidity("");
+    confirmPwdInput.innerHTML = "";
   }
 }
 
