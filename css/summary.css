@@ -346,6 +346,7 @@ h3 {
   .summary-container-third-row a {
     width: 104px;
     height: 128px;
+    font-size: 40px;
   }
 
   .summary-small {
@@ -364,11 +365,13 @@ h3 {
     width: 150px;
     height: 128px;
     padding: 25px 20px;
+    font-size: 40px;
   }
 
   .summary-container-second-row a {
     width: 320px;
     height: 128px;
+    font-size: 40px;
   }
 
   .summary-seperator-second-container {
