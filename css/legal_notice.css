@@ -26,7 +26,7 @@ adress p {
   margin-bottom: 35px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .legal-notice-content-container {
     margin-top: 80px;
     margin-bottom: 80px;
