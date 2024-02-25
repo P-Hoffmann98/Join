@@ -358,16 +358,16 @@
                         <!-- Subtasks -->
                         <h3 class="m-top-40">Subtasks</h3>
                         <label for="subtaskAddTask" class="board-edit-task-label bgC-white">
-                            <input type="text" name="subtaskAddTask" class="edit-task-title" id="add_task_subtask"
+                            <input type="text" name="subtaskAddTask" class="edit-task-title" id="edit_task_subtask"
                                 placeholder="Add new Subtask" autocomplete="off" maxlength="20"
-                                onkeyup="changeSubTaskImg()">
-                            <img src="./img/add_task/cross.svg" class="edit-subtask-img cursorPointer"
-                                onclick="clearSubTaskInput();">
-                            <img src="./img/add_task/plus.svg" class="edit-subtask-img cursorPointer"
-                                id="add_task_subtask_img" onclick="addSubtask()">
+                                onkeyup="editTaskChangeSubTaskImg()">
+                            <img src="./img/board/cross.svg" class="edit-subtask-img cursorPointer"
+                                onclick="editTaskClearSubTaskInput();">
+                            <img src="./img/board/plus.svg" class="edit-subtask-img cursorPointer"
+                                id="edit_task_subtask_img" onclick="editTaskAddSubtask()">
                         </label>
 
-                        <div id="outputSubtasks" class="outputSubtaskClass"></div>
+                        <div id="edit_task_outputSubtasks" class="edit-task-outputSubtaskClass"></div>
                         <!-- Subtasks end -->
 
                     </div>
