@@ -227,7 +227,11 @@ function addTaskSearchName() {
     }
   }
 }
-
+/**
+ *tests whether the logged in user and the user in the list are identical. If this is the case, "(You)" is returned
+ * @param {number} id
+ * @returns string (You)
+ */
 function itsMe(id) {
   if (id == currentUser["userId"]) {
     console.log("ist da");
