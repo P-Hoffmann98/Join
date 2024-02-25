@@ -237,6 +237,73 @@
     font-size: 20px;
 }
 
+.edit-task-selectField {
+    font-size: 20px;
+    height: 56px;
+    padding: 7px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .edit-task-selectField:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .edit-task-selectInitial {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 1);
+    color: #ffffff;
+  }
+  
+  .edit-task-selectName {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+.board-edit-borderColor-mistake {
+    border-color: red;
+  }
+
+.edit-selected-contact {
+    background-color: rgba(42, 54, 71, 1);
+    color: #ffffff;
+  }
+  
+  .edit-selected-contact:hover {
+    background-color: rgba(42, 54, 71, 0.9);
+    color: #ffffff;
+  }
+
+  .edit-task-initialsOverview {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 10px;
+    position: relative;
+  }
+
+  .edit-task-initialsOverview:hover {
+    cursor: pointer;
+  }
+  
+  .edit-task-initialsOverview span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 /* ********************************************************** media query 600px ********************************************************************* */
 
 @media (max-width: 525px) {

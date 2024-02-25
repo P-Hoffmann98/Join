@@ -1,6 +1,7 @@
 let taskRecordSet;
 let editSelectUserBox;
 let editTaskInput;
+let editAssignedToAddTask = [];
 let changedPrio;
 
 function boardShowEditTask(tasksIndex) {
@@ -23,7 +24,12 @@ function boardCloseEditTask() {
  */
 function editTaskLoadValues(tasksIndex) {
   taskRecordSet = tasks[tasksIndex];
-  console.log(taskRecordSet);
+}
+
+
+function editReadSelectedContacts() {
+  editAssignedToAddTask = taskRecordSet['assignedTo'];
+  editRenderSelectedContactsFromTask();
 }
 
 
@@ -35,9 +41,10 @@ function editTaskFillInput() {
   document.getElementById('edit_task_description').value = taskRecordSet['description'];
   document.getElementById('edit_task_due_date').value = taskRecordSet['dueDate'];
   editTaskSelectedPrio(taskRecordSet['prio']);
+  editReadSelectedContacts();
 }
 
-
+/* **************************************** Prio Button rendern *********************************************************************** */
 /**
  * function set slecetion of prio button from current task
  * @param {string} prioSelected prio value of current task
@@ -90,7 +97,7 @@ function editTaskRemoveSelectedPrio(prioSelected) {
   }
 }
 
-
+/* ************************************ Auswahlbox Contacts rendern und füllen ******************************************************* */
 
 /**
  * The search results are saved in variables after entering them into the search field and function addTaskRenderSeaarchName and markSelectedContacts  are called
@@ -105,11 +112,9 @@ function editTaskSearchName() {
       resultId = contacts[i]["id"];
       resultInitials = contacts[i]["initials"];
       resultColor = contacts[i]["color"];
-      let selectContact = markSelectedContacts(resultId);
+      let selectContact = editMarkSelectedContacts(resultId);
       editTaskRenderSearchName(selectContact);
     }
-    /* document.getElementById('edit_task_select_user_box').classList.remove('d-none');
-    document.getElementById("edit_task_assigned_to").classList.add("edit-task-assigned-to-up"); */
   }
 }
 
@@ -122,14 +127,14 @@ function editTaskRenderSearchName(color) {
     document.getElementById("rightContainer").classList.add("m-top270");
   }
   document.getElementById('edit_task_select_user_box').innerHTML += `                     
-            <div class="selectField" id="${resultId}" onclick="addStyleToSelectedContact(${resultId})">
-              <span class="selectInitial dFlexAiCenterJcCenter" style="background-color:${resultColor}">${resultInitials}</span>
-                <span class="selectName">${resultNames}</span>
-                  <img src="./img/add_task_rectangle.svg" id="selectContactBox${resultId}">
+            <div class="edit-task-selectField" id="id${resultId}" onclick="editStyleToSelectedContact(${resultId})">
+              <span class="edit-task-selectInitial dFlexAiCenterJcCenter" style="background-color:${resultColor}">${resultInitials}</span>
+                <span class="edit-task-selectName">${resultNames}</span>
+                  <img src="./img/add_task_rectangle.svg" id="editSelectContactBox${resultId}">
             </div>`;
   if (color) {
-    document.getElementById(resultId).classList.add("selectedContact");
-    document.getElementById("selectContactBox" + resultId).src =
+    document.getElementById(`id${resultId}`).classList.add("edit-selected-contact");
+    document.getElementById("editSelectContactBox" + resultId).src =
       "./img/add_task/rectangle_check_white.svg";
   }
 }
@@ -185,3 +190,85 @@ document.addEventListener("DOMContentLoaded", function () {
     event.stopPropagation();
   });
 });
+
+/* ************************************************ Ausgewählte Contacts lesen und rendern unter Contacts Menü ************************ */
+
+
+/**
+ * displays the selected contacts
+ */
+function editRenderSelectedContactsFromTask() {
+  document.getElementById("editOutputSelectedContacts").innerHTML = ``;
+  for (let i = 0; i < editAssignedToAddTask.length; i++) {
+    for (let j = 0; j < contacts.length; j++) {
+      if (editAssignedToAddTask[i] == contacts[j]["id"]) {
+        document.getElementById(
+          "editOutputSelectedContacts"
+        ).innerHTML += `<div class="container edit-task-initialsOverview" style="background-color:${contacts[j]["color"]}">
+                            <span onclick="editDeleteContactFromTask(${contacts[j]["id"]})">${contacts[j]["initials"]}</span>
+                        </div>`;
+      }
+    }
+  }
+}
+
+
+/**
+ *The contacts that are selected are shown in color
+ * @param {number} id
+ * @returns boolean true
+ */
+ function editMarkSelectedContacts(id) {
+  if (editAssignedToAddTask.includes(id)) {
+    return true;
+  }
+}
+
+/**
+ * If no entry is made, a red frame is placed around the text field and an error message is displayed
+ * @param {title, dueDate, category} param
+ */
+function addTaskShowMsg(param) {
+  let labelId = "add_task_label_" + param;
+  let mistakeId = "add_task_mistake_" + param;
+  document.getElementById(mistakeId).classList.remove("d-none");
+  document.getElementById(labelId).classList.add("board-edit-borderColor-mistake");
+}
+
+/**
+ * style class is added to the contact and the selection box is checked
+ * @param {number of contact} id
+ */
+function editStyleToSelectedContact(id) {
+  let resultIdIsInAssignedToAddTask = editAssignedToAddTask.includes(id);
+  if (!resultIdIsInAssignedToAddTask) {
+    document.getElementById(`id${id}`).classList.add("edit-selected-contact");
+    document.getElementById("editSelectContactBox" + id).src =
+      "./img/add_task/rectangle_check_white.svg";
+    editAddContactToTask(id);
+  } else {
+    document.getElementById(`id${id}`).classList.remove("edit-selected-contact");
+    document.getElementById("editSelectContactBox" + id).src =
+      "./img/add_task/rectangle.svg";
+    editDeleteContactFromTask(id);
+  }
+}
+
+/**
+ *the selected contact is pushed in the array assignedTAddTask and the function renderSelectedContactsFromTask is executed
+ * @param {number of contact} contactId
+ */
+function editAddContactToTask(contactId) {
+  editAssignedToAddTask.push(contactId);
+  editRenderSelectedContactsFromTask();
+}
+
+/**
+ * Contact is deselected from the list of assigned to and the function renderSelectedContactsFromTask is called
+ * @param {number of contact} contactId
+ */
+function editDeleteContactFromTask(contactId) {
+  let resultIdToDelete = editAssignedToAddTask.indexOf(contactId);
+  editAssignedToAddTask.splice(resultIdToDelete, 1);
+  editRenderSelectedContactsFromTask();
+}
