@@ -13,7 +13,7 @@ function addTaskRenderSearchName(color, itsMyAccount) {
             <div class="selectField" id="${resultId}" onclick="addStyleToSelectedContact(${resultId})">
               <span class="selectInitial dFlexAiCenterJcCenter" style="background-color:${resultColor}">${resultInitials}</span>
                 <span class="selectName">${resultNames} ${itsMyAccount}</span>
-                  <img src="./img/add_task_rectangle.svg" id="selectContactBox${resultId}">
+                  <img src="./img/add_task/rectangle.svg" id="selectContactBox${resultId}">
             </div>`;
   if (color) {
     document.getElementById(resultId).classList.add("selectedContact");
