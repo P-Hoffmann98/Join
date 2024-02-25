@@ -130,12 +130,12 @@ function editTaskRenderSearchName(color) {
             <div class="edit-task-selectField" id="id${resultId}" onclick="editStyleToSelectedContact(${resultId})">
               <span class="edit-task-selectInitial dFlexAiCenterJcCenter" style="background-color:${resultColor}">${resultInitials}</span>
                 <span class="edit-task-selectName">${resultNames}</span>
-                  <img src="./img/add_task_rectangle.svg" id="editSelectContactBox${resultId}">
+                  <img src="./img/board/rectangle.svg" id="editSelectContactBox${resultId}">
             </div>`;
   if (color) {
     document.getElementById(`id${resultId}`).classList.add("edit-selected-contact");
     document.getElementById("editSelectContactBox" + resultId).src =
-      "./img/add_task/rectangle_check_white.svg";
+      "./img/board/rectangle_check_white.svg";
   }
 }
 
@@ -244,12 +244,12 @@ function editStyleToSelectedContact(id) {
   if (!resultIdIsInAssignedToAddTask) {
     document.getElementById(`id${id}`).classList.add("edit-selected-contact");
     document.getElementById("editSelectContactBox" + id).src =
-      "./img/add_task/rectangle_check_white.svg";
+      "./img/board/rectangle_check_white.svg";
     editAddContactToTask(id);
   } else {
     document.getElementById(`id${id}`).classList.remove("edit-selected-contact");
     document.getElementById("editSelectContactBox" + id).src =
-      "./img/add_task/rectangle.svg";
+      "./img/board/rectangle.svg";
     editDeleteContactFromTask(id);
   }
 }
