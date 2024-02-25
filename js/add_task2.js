@@ -124,11 +124,11 @@ function deleteSubtask(index) {
 /**
  * The error message for title, category and dueDate is removed
  */
-function removeMistakeMsg() {
-  document.getElementById("add_task_mistake_title").classList.add("d-none");
-  document.getElementById("add_task_mistake_dueDate").classList.add("d-none");
-  document.getElementById("add_task_mistake_category").classList.add("d-none");
-}
+// function removeMistakeMsg() {
+//   document.getElementById("add_task_mistake_title").classList.add("d-none");
+//   document.getElementById("add_task_mistake_dueDate").classList.add("d-none");
+//   document.getElementById("add_task_mistake_category").classList.add("d-none");
+// }
 
 /**
  *assignedTAddTask and subtaskAddTask are deleted and then renderSubTasks and renderSelectedContactsFromTask are executed
