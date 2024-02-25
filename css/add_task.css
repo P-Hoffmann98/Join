@@ -522,6 +522,7 @@ label input {
   line-height: 50px;
   margin-right: 10px;
   position: relative;
+  color: #ffffff;
 }
 
 .initialsOverview:hover {
