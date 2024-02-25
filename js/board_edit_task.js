@@ -60,6 +60,59 @@ function editTaskFillInput() {
   editReadCurrentSubtasks();
 }
 
+/* ************************************** form validation *************************************************************************** */
+
+/**
+ * Check if all required input field are filled
+ * Requiered fields: title, due date, category
+ */
+function addTaskCheckForm() {
+  if (
+    document.getElementById("add_task_title").value.length > 0 &&
+    document.getElementById("add_task_due_date").value.length > 0 &&
+    document.getElementById("add_task_category").textContent !=
+      "Select task category"
+  ) {
+    document.getElementById("add_task_button").classList.remove("d-none");
+  } else {
+    document.getElementById("add_task_button").classList.add("d-none");
+  }
+}
+
+/* ************************************* error msg ************************************************************************************ */
+
+/**
+ * If no entry is made, a red frame is placed around the text field and an error message is displayed
+ * @param {title, dueDate, category} param
+ */
+function editTaskShowMsg(param) {
+  let labelId = "edit_task_label_" + param;
+  let mistakeId = "edit_task_mistake_" + param;
+  document.getElementById(mistakeId).classList.remove("d-none");
+  document.getElementById(labelId).classList.add("board-edit-borderColor-mistake");
+}
+
+
+/**
+ * not used?
+ */
+function removeMistakeMsg() {
+  document.getElementById("add_task_mistake_title").classList.add("d-none");
+  document.getElementById("add_task_mistake_dueDate").classList.add("d-none");
+  document.getElementById("add_task_mistake_category").classList.add("d-none");
+}
+
+/**
+ *The red frame around the input field if there is no input is hidden
+ */
+ function editTaskRemoveRedBorder(param) {
+  let labelId = "edit_task_label_" + param;
+  let mistakeId = "edit_task_mistake_" + param;
+
+  document.getElementById(labelId).classList.remove("board-edit-borderColor-mistake");
+  document.getElementById(mistakeId).classList.add("d-none");
+}
+
 /* **************************************** Prio Button rendern *********************************************************************** */
 /**
  * function set slecetion of prio button from current task
@@ -240,16 +293,6 @@ function editRenderSelectedContactsFromTask() {
   }
 }
 
-/**
- * If no entry is made, a red frame is placed around the text field and an error message is displayed
- * @param {title, dueDate, category} param
- */
-function addTaskShowMsg(param) {
-  let labelId = "add_task_label_" + param;
-  let mistakeId = "add_task_mistake_" + param;
-  document.getElementById(mistakeId).classList.remove("d-none");
-  document.getElementById(labelId).classList.add("board-edit-borderColor-mistake");
-}
 
 /**
  * style class is added to the contact and the selection box is checked
