@@ -39,4 +39,12 @@ adress p {
   .legal-notice-content-container h1 {
     font-size: 40px;
   }
+
+  ul {
+    padding-left: 10px;
+  }
+
+  adress p {
+    padding-left: 10px;
+  }
 }
