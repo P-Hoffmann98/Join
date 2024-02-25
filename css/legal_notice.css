@@ -25,3 +25,18 @@ adress p {
   margin-top: 15px;
   margin-bottom: 35px;
 }
+
+@media (max-width: 800px) {
+  .legal-notice-content-container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    overflow-y: auto;
+    height: calc(100vh - 160px);
+    margin-left: 0px;
+    padding-left: 10px;
+  }
+
+  .legal-notice-content-container h1 {
+    font-size: 40px;
+  }
+}
