@@ -2,7 +2,8 @@
  * The list of contacts is rendered and output in the div container add_task_select_user_box_
  * @param {color in HEX of contact} color
  */
-function addTaskRenderSearchName(color) {
+function addTaskRenderSearchName(color, itsMyAccount) {
+  console.log(itsMyAccount);
   if (document.documentElement.clientWidth < 1300) {
     document.getElementById("rightContainer").classList.add("m-top270");
   }
@@ -11,7 +12,7 @@ function addTaskRenderSearchName(color) {
   ).innerHTML += `                     
             <div class="selectField" id="${resultId}" onclick="addStyleToSelectedContact(${resultId})">
               <span class="selectInitial dFlexAiCenterJcCenter" style="background-color:${resultColor}">${resultInitials}</span>
-                <span class="selectName">${resultNames}</span>
+                <span class="selectName">${resultNames} ${itsMyAccount}</span>
                   <img src="./img/add_task_rectangle.svg" id="selectContactBox${resultId}">
             </div>`;
   if (color) {

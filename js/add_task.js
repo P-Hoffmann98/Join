@@ -221,9 +221,20 @@ function addTaskSearchName() {
       resultId = contacts[i]["id"];
       resultInitials = contacts[i]["initials"];
       resultColor = contacts[i]["color"];
+      let itsMyAccount = itsMe(resultId);
       let selectContact = markSelectedContacts(resultId);
-      addTaskRenderSearchName(selectContact);
+      addTaskRenderSearchName(selectContact, itsMyAccount);
     }
+  }
+}
+
+function itsMe(id) {
+  if (id == currentUser["userId"]) {
+    console.log("ist da");
+    return "(You)";
+  } else {
+    console.log("ist nicht da");
+    return "";
   }
 }
 
