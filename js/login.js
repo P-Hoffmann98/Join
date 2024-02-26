@@ -5,7 +5,7 @@ async function loginInit() {
 
 function login() {
   const email = document.getElementById("login-input-email").value;
-  const password = document.getElementById("login-input-password1").value;
+  const password = document.getElementById("input-password1").value;
   let user = users.find((u) => u.email == email && u.password == password);
   console.log(user);
   if (user) {
@@ -54,7 +54,7 @@ function guestLogin() {
 }
 
 function togglePasswordVisibility(i) {
-  const passwordInput = document.getElementById(`login-input-password${i}`);
+  const passwordInput = document.getElementById(`input-password${i}`);
   const visibilityToggle = document.getElementById(
     `password-visibility-toggle${i}`
   );

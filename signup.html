@@ -48,7 +48,7 @@
             <input
               type="password"
               class="signup-inputs"
-              id="signup-input-password2"
+              id="input-password2"
               placeholder="Password"
               required
               minlength="8"
@@ -59,7 +59,7 @@
             <input
               type="password"
               class="signup-inputs"
-              id="signup-input-confirm-password3"
+              id="input-password3"
               placeholder="Confirm Password"
               required
               pattern="^(?=.*[A-Za-z])(?=.*\d).+$"
@@ -69,17 +69,13 @@
             <div id="password-visibility-toggle3" class="password-toggle" onclick="togglePasswordVisibility(`3`)"></div>
         <div id="errorbox"></div>
             <div class="button-and-text">
-              <button
-                type="button"
-                class="accept-button"
-                onclick="togglePrivacyButton()"
-              >
-                <img
-                  id="privacy-button"
-                  src="img/login/rememberme_button.svg"
-                />
-              </button>
-              <p>I accept the <a target=”_blank” class="signup-legal-link" href="legal_notice_out.html">Privacy Policy</a></p>
+              <label class="checkbox-container">
+                <p>I accept the <a target=”_blank” class="signup-legal-link" 
+                  href="legal_notice_out.html">Privacy Policy</a></p>
+                <input type="checkbox" class="remember-checkbox" onclick="togglePrivacyButton()">
+                <span class="checkmark"></span>
+              </label>
+              
             </div>
             <button type="submit" id="signupbutton">Sign up</button>
           </form>

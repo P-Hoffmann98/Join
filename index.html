@@ -33,7 +33,7 @@
             <input
               type="password"
               class="login-inputs"
-              id="login-input-password1"
+              id="input-password1"
               placeholder="Password"
               required
               minlength="8"
@@ -43,18 +43,10 @@
               <div id="password-visibility-toggle1" class="password-toggle" onclick="togglePasswordVisibility(`1`)"></div>
             <div id="errorbox"></div>
             <div class="button-and-text">
-              <button
-                type="button"
-                class="remember-button"
-                required
-                onclick="toggleRememberButton()"
-              >
-                <img
-                  id="remember-button"
-                  src="img/login/rememberme_button.svg"
-                />
-              </button>
-              <p>Remember me</p>
+              <label class="checkbox-container"><p>Remember me</p>
+                <input type="checkbox" class="remember-checkbox">
+                <span class="checkmark"></span>
+              </label>
             </div>
             <div class="login-buttons">
               <button id="user-login-button">Log in</button>
