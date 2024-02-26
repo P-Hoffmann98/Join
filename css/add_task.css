@@ -723,7 +723,7 @@ label input {
   }
 
   .add-task-container-right {
-    height: calc(100vh - 10px);
+    height: calc(100vh - 140px);
   }
 
   .add-task-select-field-container {
