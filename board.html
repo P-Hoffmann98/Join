@@ -296,16 +296,16 @@
                             </svg>
                         </div>
                     </div>
-                    <form onsubmit="addTaskToVar(boardTaskStatus); return false;"></form>
-                    <div class="edit-task-content"><!-- d-flex flex-d-col -->
 
+                    <div class="edit-task-content"><!-- d-flex flex-d-col -->
+                        <form onsubmit="editTaskUpdate(); return false;"><!-- addTaskToVar(boardTaskStatus) -->
                         <!-- Titel -->
                         <h3>Title <span class="required-star">*</span></h3>
                         <label for="title" class="board-edit-task-label" id="edit_task_label_title">
                             <input type="text" name="title" class="edit-task-title" id="edit_task_title" minlength="3"
-                                maxlength="20" placeholder="Enter a Title" required onkeyup="addTaskCheckForm()"
-                                onfocus="editTaskShowMsg('title')" oninput="editTaskRemoveRedBorder('title')">
-                        </label>
+                                maxlength="20" placeholder="Enter a Title" required 
+                                oninput="editTaskRemoveRedBorder('title')">
+                        </label><!--onfocus="editTaskShowMsg('title')" onkeyup="addTaskCheckForm()"  -->
                         <!-- Titel end -->
 
                         <div class="d-none extra-small" id="edit_task_mistake_title">This field is required</div>
@@ -321,10 +321,9 @@
                         <!-- Due date -->
                         <h3>Due date <span class="required-star">*</span></h3>
                         <label for="dueDate" class="board-edit-task-label" id="edit_task_label_dueDate">
-                            <input type="date" name="dueDate" class="edit-task-due-date" id="edit_task_due_date" required
-                                onchange="addTaskCheckForm(); editTaskRemoveRedBorder('dueDate')"
-                                onfocus="editTaskShowMsg('dueDate')">
-                        </label>
+                            <input type="date" name="dueDate" class="edit-task-due-date" id="edit_task_due_date"
+                                required onchange="editTaskRemoveRedBorder('dueDate')">
+                        </label><!--onchange="addTaskCheckForm();... onfocus="editTaskShowMsg('dueDate')"  -->
 
                         <div class="d-none extra-small" id="edit_task_mistake_dueDate">This field is required</div>
                         <!-- Due date end -->
@@ -338,7 +337,8 @@
                             <div id="edit_task_prio_medium" class="edit-task-prio-medium"
                                 onclick="editTaskSelectedPrio('medium')">Medium<img id="edit_task_img_prio_medium"
                                     src="./img/board/board_task_medium.svg"></div>
-                            <div id="edit_task_prio_low" class="edit-task-prio-low" onclick="editTaskSelectedPrio('low')">
+                            <div id="edit_task_prio_low" class="edit-task-prio-low"
+                                onclick="editTaskSelectedPrio('low')">
                                 Low<img id="edit_task_img_prio_low" src="./img/board/board_task_low.svg"></div>
                         </div>
                         <!-- Priority end -->
@@ -369,29 +369,19 @@
 
                         <div id="edit_task_outputSubtasks" class="edit-task-outputSubtaskClass"></div>
                         <!-- Subtasks end -->
-
                     </div>
                     <div class="board-edit-task-bottom-container">
-                        <!-- <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center"
-                            onclick="boardCloseAddTask()">Cancel
-                            <div class="add-task-bottom-container-button">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="./img/board/svg">
-                                    <path
-                                        d="M6.99999 8.40005L2.09999 13.3C1.91665 13.4834 1.68332 13.575 1.39999 13.575C1.11665 13.575 0.883321 13.4834 0.699988 13.3C0.516654 13.1167 0.424988 12.8834 0.424988 12.6C0.424988 12.3167 0.516654 12.0834 0.699988 11.9L5.59999 7.00005L0.699988 2.10005C0.516654 1.91672 0.424988 1.68338 0.424988 1.40005C0.424988 1.11672 0.516654 0.883382 0.699988 0.700049C0.883321 0.516715 1.11665 0.425049 1.39999 0.425049C1.68332 0.425049 1.91665 0.516715 2.09999 0.700049L6.99999 5.60005L11.9 0.700049C12.0833 0.516715 12.3167 0.425049 12.6 0.425049C12.8833 0.425049 13.1167 0.516715 13.3 0.700049C13.4833 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4833 1.91672 13.3 2.10005L8.39999 7.00005L13.3 11.9C13.4833 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4833 13.1167 13.3 13.3C13.1167 13.4834 12.8833 13.575 12.6 13.575C12.3167 13.575 12.0833 13.4834 11.9 13.3L6.99999 8.40005Z"
-                                        fill="#2A3647" />
-                                </svg>
-                            </div>
-                        </button> -->
-                        <button class="d-flex edit-task-add-button d-flex-ai-center-jc-center" id="add_task_button">Ok
-                            <img src="./img/add_task/check_white.svg">
+                        <button class="d-flex edit-task-add-button d-flex-ai-center-jc-center" id="edit_task_button"
+                            onclick="editTaskCheckForm()">Ok
+                            <img src=" ./img/add_task/check_white.svg">
                         </button>
+                        </form>
                     </div>
 
                     <div class="edit-task-popup-container d-none" id="add_task_popup_container">
                         <div class="edit-task-popup-reg" id="add_task_popup_reg">Task add</div>
                     </div>
 
-                    </form>
 
                 </div>
             </div>

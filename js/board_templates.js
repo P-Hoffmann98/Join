@@ -21,7 +21,7 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
  */
 function boardRenderTasksPreviewHTML(tasksIndex) {
     return /* html */`
-    <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview">
+    <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview" id="board_card_${tasksIndex}">
         <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
@@ -35,6 +35,29 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
             <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
         </div>
     </div>
+    `;
+}
+
+
+/**
+ * function return html code to update preview card of tasks
+ * @param {number} tasksIndex index of dataset into tasks array
+ * @returns html code to render preview card
+ */
+function boardUpdateTasksPreviewHTML(tasksIndex) {
+    return /* html */`
+        <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
+        <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
+        <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
+
+        <div id="board_task_preview_subtasks_${tasksIndex}" class="board-task-card-progress-container">
+        </div>
+
+        <div class="board-task-card-profile-priority">
+            <div id="board_task_preview_initials_${tasksIndex}" class="board-task-card-profile-container">
+            </div>
+            <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
+        </div>
     `;
 }
 

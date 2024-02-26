@@ -1,4 +1,5 @@
 let taskRecordSet;
+let taskIndex;
 let editSelectUserBox;
 let editTaskInput;
 let editAssignedToAddTask = [];
@@ -26,6 +27,7 @@ function boardCloseEditTask() {
  */
 function editTaskLoadValues(tasksIndex) {
   taskRecordSet = tasks[tasksIndex];
+  taskIndex = tasksIndex;
 }
 
 
@@ -62,20 +64,37 @@ function editTaskFillInput() {
 
 /* ************************************** form validation *************************************************************************** */
 
+
+function editTaskUpdate() {
+  tasks[taskIndex]['title'] = document.getElementById('edit_task_title').value;
+  tasks[taskIndex]['description'] = document.getElementById('edit_task_description').value;
+  tasks[taskIndex]['dueDate'] = document.getElementById('edit_task_due_date').value;
+  tasks[taskIndex]['prio'] = changedPrio;
+  tasks[taskIndex]['assignedTo'] = editAssignedToAddTask;
+  tasks[taskIndex]['subtask'] = editSubtaskAddTask;
+  tasks[taskIndex]['status_subtask'] = editStatusSubtaskAddTask;
+  boardCloseEditTask();
+  boardRenderDetailCard(taskIndex);
+  boardUpdateTasksPreview(taskIndex);
+  /* console.log('Task updated'); */
+}
+
 /**
  * Check if all required input field are filled
  * Requiered fields: title, due date, category
  */
-function addTaskCheckForm() {
+function editTaskCheckForm() {
   if (
-    document.getElementById("add_task_title").value.length > 0 &&
-    document.getElementById("add_task_due_date").value.length > 0 &&
-    document.getElementById("add_task_category").textContent !=
-      "Select task category"
+    document.getElementById("edit_task_title").value.length > 0 &&
+    document.getElementById("edit_task_due_date").value.length > 0
   ) {
-    document.getElementById("add_task_button").classList.remove("d-none");
+    /* document.getElementById("edit_task_button").classList.remove("d-none"); */
+    console.log('Pflichtfelder gefüllt');
   } else {
-    document.getElementById("add_task_button").classList.add("d-none");
+    /* document.getElementById("edit_task_button").classList.add("d-none"); */
+    console.log('Pflichtfelder nicht gefüllt');
+    editTaskShowMsg('title', document.getElementById("edit_task_title").value.length > 0);
+    editTaskShowMsg('dueDate', document.getElementById("edit_task_due_date").value.length > 0);
   }
 }
 
@@ -85,27 +104,20 @@ function addTaskCheckForm() {
  * If no entry is made, a red frame is placed around the text field and an error message is displayed
  * @param {title, dueDate, category} param
  */
-function editTaskShowMsg(param) {
-  let labelId = "edit_task_label_" + param;
-  let mistakeId = "edit_task_mistake_" + param;
-  document.getElementById(mistakeId).classList.remove("d-none");
-  document.getElementById(labelId).classList.add("board-edit-borderColor-mistake");
+function editTaskShowMsg(param, boolean) {
+  if (!boolean) {
+    let labelId = "edit_task_label_" + param;
+    let mistakeId = "edit_task_mistake_" + param;
+    document.getElementById(mistakeId).classList.remove("d-none");
+    document.getElementById(labelId).classList.add("board-edit-borderColor-mistake");
+  }
 }
 
-
-/**
- * not used?
- */
-function removeMistakeMsg() {
-  document.getElementById("add_task_mistake_title").classList.add("d-none");
-  document.getElementById("add_task_mistake_dueDate").classList.add("d-none");
-  document.getElementById("add_task_mistake_category").classList.add("d-none");
-}
 
 /**
  *The red frame around the input field if there is no input is hidden
  */
- function editTaskRemoveRedBorder(param) {
+function editTaskRemoveRedBorder(param) {
   let labelId = "edit_task_label_" + param;
   let mistakeId = "edit_task_mistake_" + param;
 
@@ -287,7 +299,7 @@ function editRenderSelectedContactsFromTask() {
  * @param {number} id
  * @returns boolean true
  */
- function editMarkSelectedContacts(id) {
+function editMarkSelectedContacts(id) {
   if (editAssignedToAddTask.includes(id)) {
     return true;
   }

@@ -13,7 +13,7 @@ function boardRenderSearch() {
     boardRenderStatusPreview(boardTasksToDoSearch, 'board_task_category_todo');
     boardRenderStatusPreview(boardTasksProgressSearch, 'board_task_category_progress');
     boardRenderStatusPreview(boardTasksFeedbackSearch, 'board_task_category_feedback');
-    boardRenderStatusPreview(boardTasksDoneSearch, 'board_task_category_done');   
+    boardRenderStatusPreview(boardTasksDoneSearch, 'board_task_category_done');
 }
 
 
@@ -52,6 +52,20 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
 }
 
 
+
+function boardUpdateTasksPreview(tasksIndex) {
+    let tasksCardDiv = document.getElementById('board_card_' + tasksIndex);
+    tasksCardDiv.innerHTML = '';
+
+
+    tasksCardDiv.innerHTML += boardUpdateTasksPreviewHTML(tasksIndex);
+    boardRenderStoryline(`board_task_storyline_${tasksIndex}`, tasksIndex);
+    boardSubtasksAvailablePreview(tasksIndex);
+    boardRenderInitials(`board_task_preview_initials_${tasksIndex}`, tasksIndex);
+    boardRenderImgPrio(`board-task-card-priority_${tasksIndex}`, tasksIndex);
+}
+
+
 /**
  * Render categoryTask from tasks-json
  * @param {number} tasksIndex 
@@ -80,7 +94,7 @@ function boardRenderStoryline(id, tasksIndex) {
  * @param {number} subtasksProgress progress as number between 0 - 100
  * @param {number} tasksIndex of current task
  */
-function  boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex) {
+function boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksProgress, tasksIndex) {
     let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`);
     subtasksDiv.classList.add('board-task-card-progress-container');
     subtasksDiv.classList.remove('d-none');
@@ -165,21 +179,21 @@ function boardRenderAssignedTo(tasksIndex) {
 function boardRenderInitials(id, tasksIndex) {
     let initialsDiv = document.getElementById(id);
 
-    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length && i < 7 ; i++) {
+    for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length && i < 7; i++) {
 
         if (i < 6) {
             const id = tasks[tasksIndex]['assignedTo'][i];
             let contactsIndex = boardIndexOfJSON(contacts, id);
             let color = contacts[contactsIndex]['color'];
             let initials = contacts[contactsIndex]['initials'];
-    
-            initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color); 
+
+            initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color);
         } else {
             let color = '#2A3647';
-            let count =  tasks[tasksIndex]['assignedTo'].length - 6 ;
-            let initials =  '+' + count.toString();
-    
-            initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color); 
+            let count = tasks[tasksIndex]['assignedTo'].length - 6;
+            let initials = '+' + count.toString();
+
+            initialsDiv.innerHTML += boardRenderInitialsHTML(initials, color);
         }
     }
 }
@@ -195,7 +209,7 @@ function boardSubtasksAvailable(tasksIndex) {
         return true;
     } else {
         return false;
-    }    
+    }
 }
 
 /**
@@ -223,7 +237,7 @@ function boardSubtasksAvailablePreview(tasksIndex) {
     } else {
         let subtasksDiv = document.getElementById(`board_task_preview_subtasks_${tasksIndex}`)
         subtasksDiv.classList.remove('board-task-card-progress-container');
-        subtasksDiv.classList.add('d-none'); 
+        subtasksDiv.classList.add('d-none');
     }
 }
 
@@ -263,7 +277,7 @@ function boardNoSubtasksRemoveMargin(id) {
 async function boardSubtaskChangeStatus(id, tasksIndex, subtasksIndex) {
     let subtaskStatus = tasks[tasksIndex]['status_subtask'];
     if (subtaskStatus[subtasksIndex] == 'do') {
-        subtaskStatus[subtasksIndex] = 'done'; 
+        subtaskStatus[subtasksIndex] = 'done';
     } else {
         subtaskStatus[subtasksIndex] = 'do';
     }
@@ -285,13 +299,13 @@ function boardRenderSubtaskChangeStatus(id, status) {
     if (status == 'do') {
         svgDiv.innerHTML = /* html */`
         <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
-        `;    
+        `;
     } else {
         svgDiv.innerHTML = /* html */`
         <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
         <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        `;      
-    }   
+        `;
+    }
 }
 
 
@@ -343,7 +357,7 @@ function boardRenderDetailCard(tasksIndex) {
     tasksCategoryDiv.parentElement.classList.add('d-flex');
     tasksCategoryDiv.innerHTML = '';
     tasksCategoryDiv.innerHTML = boardRenderDetailCardHTML(tasksIndex);
-     
+
     boardRenderStoryline(`board_task_storyline_detail`, tasksIndex);
     boardRenderDueDate(tasksIndex);
     boardRenderImgPrio('board-task-card-priority-img', tasksIndex);
