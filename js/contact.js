@@ -4,6 +4,7 @@ async function contactInit() {
   await includeHTML();
   await loadUsers();
   await loadContacts();
+  await loadTasks();
   loadCurrentUser();
   loadInitials();
   renderContacts();
@@ -18,8 +19,13 @@ function renderContacts() {
   let currentLetter = null;
 
   for (let i = 0; i < contacts.length; i++) {
+    let you = "";
     const contact = contacts[i];
     const firstLetter = contact.name.charAt(0).toUpperCase();
+
+    if (currentUser.userId === contact.id) {
+      you = "(You)";
+    }
 
     if (firstLetter !== currentLetter) {
       contactlist.innerHTML += `<h2>${firstLetter}</h2>`;
@@ -31,7 +37,7 @@ function renderContacts() {
       <div class="contact-card" id="contact-card-${i}" onclick="showContact(${i});">
         <div class="circle" style="background-color: ${contact.color};">${contact.initials}</div>
         <div class="contact">
-          <h1>${contact.name}</h1>
+          <h1>${contact.name} ${you}</h1>
           <p class="contact-email">${contact.email}</p>
         </div>
       </div>
@@ -90,8 +96,19 @@ function showContact(i) {
   }
 }
 
-async function deleteContact(c) {
-  contacts.splice(c, 1);
+async function deleteContact(contactIndex) {
+  const contactToDelete = contacts[contactIndex];
+
+  const isContactAssignedToTask = tasks.some((task) => {
+    return task.assignedTo.includes(contactToDelete.id);
+  });
+
+  if (isContactAssignedToTask) {
+    console.log("Cannot delete contact as it is assigned to a task.");
+    return;
+  }
+
+  contacts.splice(contactIndex, 1);
   const bigContactCard = document.getElementById("big-contact-card");
   bigContactCard.innerHTML = "";
   closeEditContact();

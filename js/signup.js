@@ -69,5 +69,4 @@ function checkPasswordMatch() {
 
 function togglePrivacyButton() {
   acceptChecked = !acceptChecked;
-  console.log("aaa");
 }
