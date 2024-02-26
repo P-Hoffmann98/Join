@@ -8,6 +8,11 @@
     z-index: 999;
 }
 
+.board-task-edit-task {
+    background: #FFFFFF;
+    border-radius: 30px;
+}
+
 .board-edit-task {
     width: 525px;
     height: 95vh;

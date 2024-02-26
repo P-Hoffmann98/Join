@@ -1,41 +1,30 @@
-/* /* ===== Scrollbar CSS ===== 
-/* Firefox 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #878B8F #ffffff;
-}
-
-/* Chrome, Edge, and Safari 
-*::-webkit-scrollbar {
-  width: 8px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #878B8F;
-  border-radius: 8px;
-  border: 1px solid #ffffff;
-} */
-
 .d-flex-ai-center-jc-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* .d-flex {
-  display: flex;
-} */
-
 .jc-center {
   justify-content: center;
 }
 
 .m-top270 {
-  margin-top: 470px;
+  margin-top: 0;
+}
+
+.board-task-add-task-main {
+  background-color: rgba(0, 0, 0, 0.16);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.board-task-add-task {
+  background: #FFFFFF;
+  border-radius: 30px;
 }
 
 .add-task-main-container {
@@ -350,7 +339,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .add-task-clear-button:hover path {
   background-color: #ffffff;
   border: 1px solid #29abe2;
-  fill:  #29abe2;
+  fill: #29abe2;
   color: #29abe2;
   cursor: pointer;
 }
@@ -386,15 +375,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .add-task-select-field-container {
   margin-top: -5px;
+  margin-bottom: 10px;
+  margin-right: 22px;
   overflow-y: scroll;
   position: relative;
   z-index: 999;
   height: 200px;
   background-color: #ffffff;
-  margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
-  /* width: 440px; */
 }
 
 .add-task-popup-container {
@@ -632,6 +621,10 @@ label input {
     width: 100%;
   }
 
+  .add-task-select-field-container {
+    margin-right: 0;
+  }
+
   #add_task_select_category_box {
     position: unset;
   }
@@ -672,13 +665,47 @@ label input {
 }
 
 /* *********************************************************** media query 1100px ende ********************************************************* */
+/* *********************************************************** media query 850px *************************************************************** */
 
+@media (max-width: 850px) {
 
-@media (max-width: 600px) {
+  .board-task-add-task-main {
+    height: calc(100vh - 4px - 96px - 80px);
+    top: 100px;
+    /* bottom: 80px; */
+  }
 
   .board-task-add-task {
     width: 100%;
+    background: #F6F7F8;
+    border-radius: 0;
   }
+
+  .add-task-container {
+    height: calc(100vh - 4px - 96px - 80px);
+    margin: 0 16px;
+  }
+
+  .add-task-header-container {
+    margin-top: 16px;
+  }
+
+  .add-task-container-left {
+    margin-top: 0;
+  }
+
+  .add-task-content {
+    justify-content: start!important;
+}
+
+  .add-task-prio-low {
+    margin-right: 0;
+  }
+}
+
+/* *********************************************************** media query 850px ende *************************************************************** */
+/* *********************************************************** media query 550px ******************************************************************** */
+@media (max-width: 550px) {
 
   .add-task-prio-high,
   .add-task-prio-medium,
@@ -688,9 +715,5 @@ label input {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .add-task-prio-low {
-    margin-right: 0;
   }
 }

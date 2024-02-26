@@ -606,22 +606,6 @@ line-height: 120%; */
 
 /* ************************************************ add and edit tasks******************************************************************************************** */
 
-.board-task-add-task-main,
-.board-task-edit-task-main {
-    background-color: rgba(0, 0, 0, 0.16);
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-}
-
-.board-task-add-task,
-.board-task-edit-task {
-    background: #FFFFFF;
-    border-radius: 30px;
-}
 
 /* ************************************************ add and edit tasks ende ************************************************************************************** */
 
