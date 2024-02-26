@@ -599,15 +599,15 @@ body {
     gap: 40px;
   }
 
-    .contact-list {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
-  
-    .contact-list::-webkit-scrollbar {
-      display: none; /* WebKit (Chrome, Safari) */
-    }
+  .contact-list {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 
+  .contact-list::-webkit-scrollbar {
+    display: none; /* WebKit (Chrome, Safari) */
+  }
+}
 @media (max-width: 650px) {
   .big-contact-name-edits {
     font-size: 20px;

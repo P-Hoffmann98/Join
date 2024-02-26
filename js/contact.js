@@ -59,6 +59,7 @@ function showContact(i) {
             <img src="img/contact/edit.svg">
             <p>Edit</p>
           </div>
+          
           <div class="big-contact-delete" onclick="deleteContact(${i})">
             <img src="img/contact/delete.svg">
             <p>Delete</p>
