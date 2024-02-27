@@ -151,69 +151,6 @@ function addTaskSelectedPriority(priority) {
     priority === "low" ? "low" : priority === "medium" ? "medium" : "urgent";
 }
 
-// function addTaskSelectedPrioLow(prio) {
-//   document
-//     .getElementById("add_task_prio_low")
-//     .classList.add("add-task-prio-low-pressed-button");
-//   document.getElementById("add_task_img_prio_low").src =
-//     "./img/add_task/prio_low_white.svg";
-//   document
-//     .getElementById("add_task_prio_medium")
-//     .classList.remove("add-task-prio-medium-pressed-button");
-//   document.getElementById("add_task_img_prio_medium").src =
-//     "./img/add_task/prio_medium.svg";
-//   document
-//     .getElementById("add_task_prio_high")
-//     .classList.remove("add-task-prio-high-pressed-button");
-//   document.getElementById("add_task_img-prio-high").src =
-//     "./img/add_task/prio_high.svg";
-//   addTaskPrio = "low";
-// }
-
-/**
- * The class add-task-prio-medium-pressed-button is added to the prio button medium and the colored image is exchanged for a white one
- */
-// function addTaskSelectedPrioMedium() {
-//   document
-//     .getElementById("add_task_prio_medium")
-//     .classList.add("add-task-prio-medium-pressed-button");
-//   document.getElementById("add_task_img_prio_medium").src =
-//     "./img/add_task/prio_medium_white.svg";
-//   document
-//     .getElementById("add_task_prio_low")
-//     .classList.remove("add-task-prio-low-pressed-button");
-//   document.getElementById("add_task_img_prio_low").src =
-//     "./img/add_task/prio_low.svg";
-//   document
-//     .getElementById("add_task_prio_high")
-//     .classList.remove("add-task-prio-high-pressed-button");
-//   document.getElementById("add_task_img-prio-high").src =
-//     "./img/add_task/prio_high.svg";
-//   addTaskPrio = "medium";
-// }
-
-/**
- * The class add-task-prio-high-pressed-button is added to the prio button high and the colored image is exchanged for a white one
- */
-// function addTaskSelectedPrioHigh() {
-//   document
-//     .getElementById("add_task_prio_high")
-//     .classList.add("add-task-prio-high-pressed-button");
-//   document.getElementById("add_task_img-prio-high").src =
-//     "./img/add_task/prio_high_white.svg";
-//   document
-//     .getElementById("add_task_prio_medium")
-//     .classList.remove("add-task-prio-medium-pressed-button");
-//   document.getElementById("add_task_img_prio_medium").src =
-//     "./img/add_task/prio_medium.svg";
-//   document
-//     .getElementById("add_task_prio_low")
-//     .classList.remove("add-task-prio-low-pressed-button");
-//   document.getElementById("add_task_img_prio_low").src =
-//     "./img/add_task/prio_low.svg";
-//   addTaskPrio = "urgent";
-// }
-
 /**
  * set min attribut to input type date fr due date form field
  */
