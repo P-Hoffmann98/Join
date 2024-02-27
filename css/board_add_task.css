@@ -578,7 +578,7 @@ label input {
   outline: 1px solid transparent;
   border-radius: 3px;
   padding: 2px;
-}
+} 
 
 [contenteditable]:focus {
   outline: 1px solid #29abe2;
@@ -587,6 +587,14 @@ label input {
 .add-task-container-responsive {
   display: none;
 }
+
+/* .add-task-blue-border:focus,
+.add-task-label:focus,
+.add-task-description:focus,
+.add-task-due-date:focus,
+.add-task-category-input:focus {
+border: 1px solid #29ABE2;
+} */
 
 /* *********************************************************** media query 1100px ************************************************************** */
 
@@ -661,6 +669,7 @@ label input {
 
   .add-task-bottom-container {
     margin-bottom: 8px;
+    width: 100%;
   }
 }
 
