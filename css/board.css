@@ -521,11 +521,15 @@ line-height: 120%; */
 }
 
 .board-task-card-detail-duedate,
-.board-task-card-detail-priority,
 .board-task-card-detail-assignedto,
 .board-task-card-detail-subtasks {
     color: #2A3647;
     padding-right: 25px;
+}
+
+.board-task-card-detail-priority{
+    color: #2A3647;
+    padding-right: 43.28px;
 }
 
 .board-task-card-detail-profile,
@@ -604,14 +608,9 @@ line-height: 120%; */
 
 /* ************************************************ tasks detail ende *********************************************************************************** */
 
-/* ************************************************ add and edit tasks******************************************************************************************** */
-
-
-/* ************************************************ add and edit tasks ende ************************************************************************************** */
 
 @media (max-width: 1439px) {
     .board-task-main {
-        /* flex-wrap: nowrap; */
         padding: 0 8px;
         overflow: auto;
         flex-direction: column;
@@ -758,22 +757,21 @@ line-height: 120%; */
 }
 
 
-/* ********************************************************** media query 600px ********************************************************************* */
+/* ********************************************************** media query 550px ********************************************************************* */
 
-@media (max-width: 525px) {
+@media (max-width: 550px) {
+
+    p {
+        font-size: 16px;
+    }
 
     .board-task-detail-card {
-        width: 100%;
+        width: 95%;
     }
 
     .board-task-detail-card h1 {
-        font-size: 44px;
+        font-size: 36px;
     }
-}
-
-/* ********************************************************** media query 600px ********************************************************************* */
-
-@media (max-width: 400px) {
 
     .board-task-detail-card {
         Padding: 24px 16px;
