@@ -104,7 +104,7 @@ h3 {
 
 .add-task-due-date {
   margin-top: 0;
-  padding: 5px;
+  padding: 12px 16px;
   border-radius: 10px;
   width: 440px;
   height: 48px;
@@ -651,7 +651,7 @@ label input {
   }
 
   .add-task-headline {
-    font-size: 44px;
+    font-size: 47px;
   }
 
   .add-task-header-container {
@@ -672,7 +672,6 @@ label input {
   .board-task-add-task-main {
     height: calc(100vh - 4px - 96px - 80px);
     top: 100px;
-    /* bottom: 80px; */
   }
 
   .board-task-add-task {
@@ -695,11 +694,16 @@ label input {
   }
 
   .add-task-content {
-    justify-content: start!important;
-}
+    justify-content: start !important;
+  }
 
   .add-task-prio-low {
     margin-right: 0;
+  }
+
+  .li {
+    width: 100%;
+    padding: 0 8px;
   }
 }
 
@@ -707,11 +711,22 @@ label input {
 /* *********************************************************** media query 550px ******************************************************************** */
 @media (max-width: 550px) {
 
+  h3,
+  input {
+    font-size: 16px !important;
+  }
+
+  .add-task-due-date {
+    padding: 8px 21px;
+  }
+
   .add-task-prio-high,
   .add-task-prio-medium,
   .add-task-prio-low {
     width: 110px;
-    font-size: 14px;
+    height: 41px;
+    font-size: 16px;
+    padding: 18px, 10px;
     display: flex;
     align-items: center;
     justify-content: center;
