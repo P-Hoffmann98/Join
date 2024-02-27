@@ -629,6 +629,7 @@ label input {
 
   .add-task-select-category,
   #add-task-select-category {
+    z-index: 0;
     width: 100%;
   }
 
@@ -640,13 +641,22 @@ label input {
 
 @media (max-width: 850px) {
   .add-task-content {
-    height: 50%;
+    height: calc(100vh - 90px - 130px - 4px - 6 - 80px);
+    padding-bottom: 120px;
+    position: relative;
+    z-index: 2;
   }
 
   .add-task-container {
     margin-left: 0;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
   }
+
+  #add_task_select_categry_box {
+    position: relative;
+    z-index: 0;
+  }
+
   .add-task-container-left,
   .add-task-container-right {
     margin-left: 0;
