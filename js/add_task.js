@@ -115,9 +115,6 @@ function addTaskGoToBoard() {
 /**
  * The class add-task-prio-low-pressed-button is added to the prio button low and the colored image is exchanged for a white one
  */
-
-//###########ALLES MAL ZUSAMMEN IN EINE FUNCTION SHCREIBEN###################################################################
-
 function addTaskSelectedPriority(priority) {
   const elements = {
     low: {
@@ -152,7 +149,7 @@ function addTaskSelectedPriority(priority) {
 }
 
 /**
- * set min attribut to input type date fr due date form field
+ * set min attribut to input type date for due date form field
  */
 function addTaskGetToday() {
   let today = new Date();
@@ -336,6 +333,9 @@ document.addEventListener("click", function (event) {
   }
 });
 
+/**
+ * The function runs when the DOM is fully loaded and adds event listeners to handle clicks on specific elements, stopping the event from propagating for one of them.
+ */
 document.addEventListener("DOMContentLoaded", function () {
   selectUserBox = document.getElementById("add_task_select_user_box");
   taskInput = document.getElementById("add_task_assigned_to");

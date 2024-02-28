@@ -30,6 +30,7 @@ h3 {
   font-size: 27px;
   font-weight: 400;
 }
+
 .summary-wrapper {
   display: flex;
   align-items: center;
@@ -109,16 +110,8 @@ h3 {
   font-size: 20px;
 }
 
-.summary-container-first-row a:hover {
-  color: white;
-  background-color: #2a3647;
-}
-
-.summary-container-second-row a:hover {
-  color: white;
-  background-color: #2a3647;
-}
-
+.summary-container-first-row a:hover,
+.summary-container-second-row a:hover,
 .summary-container-third-row a:hover {
   color: white;
   background-color: #2a3647;
@@ -266,14 +259,14 @@ h3 {
     text-align: center;
     margin-left: 0;
     font-size: 25px;
-    animation: hauAb 3s forwards;
+    animation: welcomeMobileHide 3s forwards;
   }
 
   .summary-welcome-name-mobile {
     font-size: 25px;
   }
 
-  @keyframes hauAb {
+  @keyframes welcomeMobileHide {
     from {
       opacity: 1;
     }
@@ -285,11 +278,11 @@ h3 {
 
   .summary-container {
     opacity: 0;
-    animation: zeigDich 3s forwards;
+    animation: welcomeMobileShow 3s forwards;
     animation-delay: 2s;
   }
 
-  @keyframes zeigDich {
+  @keyframes welcomeMobileShow {
     from {
       opacity: 0;
     }
@@ -306,32 +299,6 @@ h3 {
   .summary-wrapper {
     margin-left: 20px;
   }
-
-  /* .summary-sum {
-    font-size: 26px;
-  } */
-
-  .summary-images {
-    height: 40px;
-    width: 40px;
-    margin-right: 20px;
-  }
-
-  /* .summary-urgent-counter {
-    font-size: 26px;
-  } */
-
-  /* .summary-urgent-date {
-    font-size: 16px;
-  } */
-
-  /* .summary-small {
-    font-size: 16px;
-  } */
-
-  /* .summary-container-third-row a {
-    font-size: 26px;
-  } */
 }
 
 @media (max-width: 610px) {
@@ -390,9 +357,9 @@ h3 {
   }
 
   .summary-container-first-row a {
-    width: 100px; /*150*/
-    height: 128px; /*128*/
-    padding: 25px 20px; /*25 20*/
+    width: 100px;
+    height: 128px;
+    padding: 25px 20px;
   }
 
   .summary-images {
@@ -406,8 +373,8 @@ h3 {
   }
 
   .summary-container-second-row a {
-    width: 220px; /*320*/
-    height: 128px; /*128*/
+    width: 220px;
+    height: 128px;
     font-size: 40px;
   }
 
@@ -416,8 +383,8 @@ h3 {
   }
 
   .summary-container-third-row a {
-    width: 70px; /*104*/
-    height: 128px; /*128*/
+    width: 70px;
+    height: 128px;
     font-size: 40px;
   }
 

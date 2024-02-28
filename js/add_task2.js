@@ -122,15 +122,6 @@ function deleteSubtask(index) {
 }
 
 /**
- * The error message for title, category and dueDate is removed
- */
-// function removeMistakeMsg() {
-//   document.getElementById("add_task_mistake_title").classList.add("d-none");
-//   document.getElementById("add_task_mistake_dueDate").classList.add("d-none");
-//   document.getElementById("add_task_mistake_category").classList.add("d-none");
-// }
-
-/**
  *assignedTAddTask and subtaskAddTask are deleted and then renderSubTasks and renderSelectedContactsFromTask are executed
  */
 function clearContactsAndSubtasks() {
@@ -147,12 +138,12 @@ function clearContactsAndSubtasks() {
   renderSelectedContactsFromTask();
 }
 
+/**
+ * This function is executed when the enter key is pressed while the focus is on the input field with the id add_task_subtask
+ * then the function add subtask is executed
+ * @param {keypress} event
+ */
 document.addEventListener("DOMContentLoaded", function () {
-  /**
-   * This function is executed when the enter key is pressed while the focus is on the input field with the id add_task_subtask
-   * then the function add subtask is executed
-   * @param {keypress} event
-   */
   function handleKeyPress(event) {
     if (event.key === "Enter") {
       event.preventDefault();
