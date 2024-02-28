@@ -161,10 +161,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+/**
+ * shows tools for subtask by mouseover
+ * @param {number} id number of subtask
+ */
 function showToolsForSubtasks(id) {
   document.getElementById(`subtask_tools${id}`).classList.remove("d-none");
 }
 
+/**
+ * hide tools for subtask by mouseout
+ * @param {number} id number of subtask
+ */
 function hideToolsForSubtasks(id) {
   document.getElementById(`subtask_tools${id}`).classList.add("d-none");
 }
