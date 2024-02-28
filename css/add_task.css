@@ -457,20 +457,21 @@ label input {
   width: 440px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 5px;
   padding-right: 30px;
 }
 
 .li span {
-  width: 80%;
+  width: 100%;
+  margin-left: 5px;
 }
 
 .container_img_subtask {
   display: flex;
 }
 
-.cursorPointer {
+.cursor-pointer {
   cursor: pointer;
 }
 
