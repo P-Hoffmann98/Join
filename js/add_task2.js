@@ -160,3 +160,11 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 });
+
+function showToolsForSubtasks(id) {
+  document.getElementById(`subtask_tools${id}`).classList.remove("d-none");
+}
+
+function hideToolsForSubtasks(id) {
+  document.getElementById(`subtask_tools${id}`).classList.add("d-none");
+}
