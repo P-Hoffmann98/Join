@@ -22,7 +22,12 @@ let allColors = [
   "#FF4646",
   "#FFBB2B",
 ];
-
+/**
+ * saves the key with the value to backend
+ * @param {string} key name of key in backend
+ * @param {string} value of key
+ * @returns value of key as json
+ */
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, {
@@ -30,7 +35,11 @@ async function setItem(key, value) {
     body: JSON.stringify(payload),
   }).then((res) => res.json());
 }
-
+/**
+ * loads the key with the value from backend
+ * @param {string} key name of key in backend
+ * @returns value odf key
+ */
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url)
