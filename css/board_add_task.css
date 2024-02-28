@@ -542,6 +542,7 @@ label input {
 
 .li span {
   width: 80%;
+  padding-left: 8px;
 }
 
 .container_img_subtask {
@@ -554,6 +555,8 @@ label input {
 
 .assignedToOutput {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .initialsOverview {
@@ -561,9 +564,9 @@ label input {
   height: 50px;
   border-radius: 50%;
   border: 3px solid #ffffff;
+  color: #ffffff;
   text-align: center;
   line-height: 50px;
-  margin-right: 10px;
   position: relative;
 }
 
