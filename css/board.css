@@ -181,12 +181,11 @@ input:focus {
 /* sytle task area */
 .board-task-main {
     display: flex;
-    /* flex-wrap: wrap; */
-    max-width: 1208px;
-    height: 100%;
+    flex: 1;
+    overflow: auto;
+    /* max-width: 1208px; */
     padding: 0px 64px;
     justify-content: space-between;
-    gap: 24px;
 }
 
 .board-task-category {
@@ -194,16 +193,15 @@ input:focus {
     padding-top: 16px;
     /*  */
     display: flex;
-    width: 248px;
+    width: 280px;
     flex-direction: column;
     align-items: center;
-    justify-content: stretch;
     margin-bottom: 10px;
 }
 
 .board-task-headline {
-    position: sticky;
-    top: 100px;
+    /* position: sticky;
+    top: 0; */
     background-color: #F6F7F8;
     display: flex;
     justify-content: space-between;
@@ -215,8 +213,13 @@ input:focus {
 }
 
 .board-task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
     width: 100%;
     flex: 1;
+    padding-bottom: 24px;
 }
 
 .board-add-task-headline {
@@ -248,6 +251,7 @@ input:focus {
 .board-no-task-feedback {
     display: flex;
     height: 48px;
+    width: 248px;
     margin-top: 16px;
     /* flex-direction: column; */
     justify-content: center;
@@ -282,7 +286,7 @@ p.board-task-card-preview {
     flex-direction: column;
     /* align-items: center; */
     margin-top: 16px;
-    max-width: 252px;
+    width: 248px;
     padding: 16px;
     border-radius: 24px;
     background: var(--white, #FFF);
@@ -527,7 +531,7 @@ line-height: 120%; */
     padding-right: 25px;
 }
 
-.board-task-card-detail-priority{
+.board-task-card-detail-priority {
     color: #2A3647;
     padding-right: 43.28px;
 }
@@ -609,7 +613,7 @@ line-height: 120%; */
 /* ************************************************ tasks detail ende *********************************************************************************** */
 
 
-@media (max-width: 1439px) {
+@media (max-width: 1474px) {
     .board-task-main {
         padding: 0 8px;
         overflow: auto;
@@ -636,8 +640,9 @@ line-height: 120%; */
     }
 
     .board-task-container {
-        display: flex;
-        min-height: 150px;
+        flex-direction: row;
+        align-items: unset;
+        min-height: 280px;
         gap: 24px;
         overflow-x: auto;
         padding: 0 8px;
