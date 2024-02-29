@@ -7,6 +7,11 @@ let editSubtaskAddTask = [];
 let editStatusSubtaskAddTask = [];
 let changedPrio;
 
+
+/**
+ * function display edit task contex in board and call functions to editTaskLoadValues(tasksIndex) and editTaskFillInput()
+ * @param {*} tasksIndex index of selcted task into tasks json
+ */
 function boardShowEditTask(tasksIndex) {
   editTaskLoadValues(tasksIndex);
   editTaskFillInput();
@@ -15,6 +20,9 @@ function boardShowEditTask(tasksIndex) {
 }
 
 
+/**
+ * function hide edit task contex in board
+ */
 function boardCloseEditTask() {
   document.getElementById('board_task_edit_task_main').classList.add('d-none');
   document.getElementById('board_task_edit_task_main').classList.remove('d-flex');
@@ -65,6 +73,9 @@ function editTaskFillInput() {
 /* ************************************** form validation *************************************************************************** */
 
 
+/**
+ * function read all editable values and overwrite old values
+ */
 function editTaskUpdate() {
   tasks[taskIndex]['title'] = document.getElementById('edit_task_title').value;
   tasks[taskIndex]['description'] = document.getElementById('edit_task_description').value;
@@ -76,7 +87,6 @@ function editTaskUpdate() {
   boardCloseEditTask();
   boardRenderDetailCard(taskIndex);
   boardUpdateTasksPreview(taskIndex);
-  /* console.log('Task updated'); */
 }
 
 /**
@@ -89,10 +99,8 @@ function editTaskCheckForm() {
     document.getElementById("edit_task_due_date").value.length > 0
   ) {
     /* document.getElementById("edit_task_button").classList.remove("d-none"); */
-    console.log('Pflichtfelder gefüllt');
   } else {
     /* document.getElementById("edit_task_button").classList.add("d-none"); */
-    console.log('Pflichtfelder nicht gefüllt');
     editTaskShowMsg('title', document.getElementById("edit_task_title").value.length > 0);
     editTaskShowMsg('dueDate', document.getElementById("edit_task_due_date").value.length > 0);
   }
@@ -261,16 +269,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  editSelectUserBox = document.getElementById("edit_task_select_user_box");
-  editTaskInput = document.getElementById("edit_task_assigned_to");
-  editTaskInput.addEventListener("click", editTaskhandleOpenContextMenu);
-
-  editSelectUserBox.addEventListener("click", function (event) {
-    event.stopPropagation();
-  });
-});
 
 /* ************************************************ Ausgewählte Contacts lesen und rendern unter Contacts Menü ************************ */
 
@@ -454,14 +452,12 @@ function editTaskChangeSubTaskImg() {
     document
       .getElementById("edit_task_subtask_img")
       .classList.add("edit-subtask-img");
-    /* document.getElementById("edit_task_subtask_img").classList.remove("img1414"); */
   } else {
     document.getElementById("edit_task_subtask_img").src =
       "./img/board/plus.svg";
     document
       .getElementById("edit_task_subtask_img")
       .classList.add("edit-subtask-img");
-    /* document.getElementById("edit_task_subtask_img").classList.add("img1414"); */
   }
 }
 
@@ -487,26 +483,3 @@ function editTaskDeleteSubtask(index) {
   editStatusSubtaskAddTask.splice(index, 1);
   editTaskRenderSubTasks();
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  /**
-   * This function is executed when the enter key is pressed while the focus is on the input field with the id edit_task_subtask
-   * then the function add subtask is executed
-   * @param {keypress} event
-   */
-  function handleKeyPress(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      editTaskAddSubtask();
-    }
-  }
-
-  let subtaskInput = document.getElementById("edit_task_subtask");
-  if (subtaskInput) {
-    subtaskInput.addEventListener("keypress", handleKeyPress);
-  } else {
-    console.error(
-      "Element mit der ID 'edit_task_subtask' wurde nicht gefunden."
-    );
-  }
-});
