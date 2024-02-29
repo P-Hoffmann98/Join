@@ -49,6 +49,7 @@ function renderSubTasks() {
           <div class="d-none container_img_subtask" id="subtask_tools${i}">
             <img id="img_add_subtask_check${i}" src="./img/add_task/check.svg" onclick="saveEditing(${i})" class="m-right20 cursor-pointer d-none">
             <img id="img_add_subtask${i}" src="./img/add_task/edit.svg" onclick="editSubTask(${i})" class="m-right20 cursor-pointer">
+            <img src="./img/add_task/seperator_subtasks.svg" class="seperator_subtasks">
             <img src="./img/add_task/delete.svg" class="cursorPointer" onclick="deleteSubtask(${i})">
           </div>
       </div>`;
