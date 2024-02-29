@@ -132,8 +132,6 @@ function boardRenderDueDate(tasksIndex) {
     if (month < 10) {
         month = "0" + month;
     }
-    /* dueDate = d.toLocaleDateString('en-US'); */
-    /* dueDate = d.toLocaleDateString('de-DE'); */
     dueDate = day + "." + month + "." + year;
     dueDateDiv.innerHTML = `${dueDate}`;
 }

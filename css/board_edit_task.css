@@ -164,7 +164,7 @@
 }
 
 .edit-task-assigned-to-up {
-  background: url(/img/add_task/arrow_up.svg) right center / contain no-repeat;
+  background: url(/img/board/arrow_up.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
