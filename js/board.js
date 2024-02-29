@@ -34,6 +34,10 @@ function boardCleanTaksArrays() {
     boardTasksDone = [];
 }
 
+
+/**
+ * function clear the search arrays
+ */
 function boardCleanTaksArraysSearch() {
     boardTasksToDoSearch = [];
     boardTasksProgressSearch = [];
@@ -197,23 +201,29 @@ async function boardDeleteTask(tasksIndex) {
 }
 
 
+/**
+ * function read value from search input field
+ */
 function readInputSearch() {
     let boardSearchString = document.getElementById('board_input_search_field').value.toLowerCase();
     if (boardSearchString === " ") {
         console.log('Eingabe besteht aus Leerzeichen');
     }
-    console.log(boardSearchString);
     boardCleanTaksArraysSearch();
     fillSearchArray(boardTasksToDo, boardSearchString, boardTasksToDoSearch);
     fillSearchArray(boardTasksProgress, boardSearchString, boardTasksProgressSearch);
     fillSearchArray(boardTasksFeedback, boardSearchString, boardTasksFeedbackSearch);
     fillSearchArray(boardTasksDone, boardSearchString, boardTasksDoneSearch);
-    boardRenderSearch();
-    /* console.table(boardTasksToDo);
-    console.table(boardTasksToDoSearch); */  
+    boardRenderSearch(); 
 }
 
 
+/**
+ * array fill the search arrays after reading input of search field
+ * @param {*} arr array of status category
+ * @param {*} boardSearchString value from search inputfield
+ * @param {*} arrSearch array of result from search of status category
+ */
 function fillSearchArray(arr, boardSearchString, arrSearch) {
     for (let i = 0; i < arr.length; i++) {
         const taskID = arr[i];
