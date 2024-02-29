@@ -477,12 +477,23 @@ line-height: 120%; */
     line-height: 120%;
 }
 
+
+@keyframes taskView {
+    from {
+      transform: translateX(800px);
+    }
+    to {
+      transform: translateX(0px);
+    }
+  }
+
 .board-task-detail-card {
     width: 525px;
     max-height: 95vh;
     background: #FFFFFF;
     Padding: 48px 40px;
     border-radius: 30px;
+    animation: taskView 1s forwards;
 }
 
 .board-task-card-detail-storyline {

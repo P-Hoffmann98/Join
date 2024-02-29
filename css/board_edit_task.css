@@ -23,7 +23,7 @@
 
 .edit-task-content {
   overflow: auto;
-  height: calc(95vh - 48px - 48px - 76px - 48px);
+  /* height: calc(95vh - 48px - 48px - 76px - 48px); */
 }
 
 .board-edit-task-header-container {
@@ -154,7 +154,7 @@
   outline: none;
   display: flex;
   justify-content: space-between;
-  background: url(/img/add-task-arrow-down.svg) right center / contain no-repeat;
+  background: url(/img/board/arrow_down.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
 }
@@ -348,6 +348,15 @@
   margin-right: 5px;
   height: 22px;
   width: 22px;
+}
+
+/* ********************************************************** media query 1100px ********************************************************************* */
+
+@media (max-height: 1100px) {
+  .edit-task-content {
+    height: calc(95vh - 48px - 48px - 76px - 48px);
+  }
+  
 }
 
 /* ********************************************************** media query 600px ********************************************************************* */
