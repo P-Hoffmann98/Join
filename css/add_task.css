@@ -193,6 +193,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 400;
 }
 
+.add-task-required-info {
+  color: red;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 80px;
+  width: 100%;
+}
+
+.add-task-required-info-bottom {
+  display: none;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 80px;
+  width: 100%;
+  border: 0px solid black;
+}
+
 .add-task-required-container {
   margin-top: 100px;
   border: 0px solid black;
@@ -200,11 +217,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .add-task-bottom-container {
   display: flex;
+  align-items: center;
   justify-content: right;
   margin-right: 20px;
   margin-top: 20px;
   position: relative;
-  border: 0px solid black;
+  border: 0px solid rgb(226, 14, 14);
 }
 
 .add-task-add-button {
@@ -533,6 +551,19 @@ label input {
     align-items: center;
   }
 
+  .add-task-required-info {
+    display: none;
+  }
+
+  .add-task-required-info-bottom {
+    display: flex;
+    color: red;
+    width: 70%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+  }
+
   .add-task-prio-high,
   .add-task-prio-medium,
   .add-task-prio-low {
@@ -645,7 +676,9 @@ label input {
 
   .add-task-bottom-container {
     margin-top: 20px;
-    border: 0px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -655,6 +688,10 @@ label input {
     padding-bottom: 120px;
     position: relative;
     z-index: 2;
+  }
+
+  .add-task-required-info-bottom {
+    font-size: 12px;
   }
 
   .add-task-container {
