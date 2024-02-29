@@ -204,10 +204,8 @@ function addTaskSearchName() {
  */
 function itsMe(id) {
   if (id == currentUser["userId"]) {
-    console.log("ist da");
     return "(You)";
   } else {
-    console.log("ist nicht da");
     return "";
   }
 }
