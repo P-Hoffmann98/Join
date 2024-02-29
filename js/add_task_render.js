@@ -44,11 +44,11 @@ function renderSubTasks() {
   output.innerHTML = ``;
   for (let i = 0; i < subtaskAddTask.length; i++) {
     output.innerHTML += `                        
-      <div ondblclick="editSubTask(${i})" onmouseout="hideToolsForSubtasks(${i})" onmouseover="showToolsForSubtasks(${i})"  class="cursorPointer li" contenteditable="false">
+      <div ondblclick="editSubTask(${i})" onmouseout="hideToolsForSubtasks(${i})" onmouseover="showToolsForSubtasks(${i})"  class="cursor-pointer li" contenteditable="false">
         &#8226;<span id="subtaskContent${i}" onkeyup="checkSubTaskEditInput(${i})" onblur="checkIfEditingIsEmpty(${i})"> ${subtaskAddTask[i]}</span>
           <div class="d-none container_img_subtask" id="subtask_tools${i}">
-            <img id="img_add_subtask_check${i}" src="./img/add_task/check.svg" onclick="saveEditing(${i})" class="m-right20 cursorPointer d-none">
-            <img id="img_add_subtask${i}" src="./img/add_task/edit.svg" onclick="editSubTask(${i})" class="m-right20 cursorPointer">
+            <img id="img_add_subtask_check${i}" src="./img/add_task/check.svg" onclick="saveEditing(${i})" class="m-right20 cursor-pointer d-none">
+            <img id="img_add_subtask${i}" src="./img/add_task/edit.svg" onclick="editSubTask(${i})" class="m-right20 cursor-pointer">
             <img src="./img/add_task/delete.svg" class="cursorPointer" onclick="deleteSubtask(${i})">
           </div>
       </div>`;
