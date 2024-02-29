@@ -23,6 +23,13 @@
     <div id="add-contact-filter" class="d-none bg-filter"></div>
     <div id="add-contact-card" class="d-none add-contact-card">
       <div class="add-contact-card-left">
+        <div class="add-contact-mobile-closer" onclick="closeAddContact()">
+          <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="iconoir:cancel">
+            <path id="Vector" d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            </svg>          
+          </div>
         <div class="add-contact-card-imgtext">
 
       <img class="add-contact-logo" src="img/logo_nav_desktop.svg">
@@ -33,7 +40,7 @@
     </div>
   </div>
       <div class="add-contact-card-right">
-      <div><img src="/img/contact/person.svg" class="add-contact-person"></div>
+      <div class="add-contact-card-right-img"><img src="/img/contact/person.svg" class="add-contact-person"></div>
       <form class="signup-inputs-container" onsubmit="handleFormSubmission(); return false">
         <input
         type="text"
@@ -58,7 +65,11 @@
       required
     />
     <div class="add-contact-button">
-      <button id="contact-cancel-button" type="button" onclick="closeAddContact()">Cancel <img src="/img/contact/cancel.svg"></button>
+      <button id="contact-cancel-button" type="button" onclick="closeAddContact()">Cancel <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="iconoir:cancel">
+        <path id="Vector" d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        </svg></button>
       <button id="contact-create-button" type="submit">Create contact <img src="/img/contact/check.svg"></button>
     </div>
   </form>
@@ -69,7 +80,6 @@
     <div id="edit-contact-card" class="d-none add-contact-card">
       <div class="add-contact-card-left">
         <div class="add-contact-card-imgtext">
-
       <img class="add-contact-logo" src="img/logo_nav_desktop.svg">
       <br>
       <h1>Edit Contact</h1>
