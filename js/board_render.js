@@ -9,6 +9,9 @@ function boardRenderInit() {
 }
 
 
+/**
+ * function call boardRenderStatusPreview for all categorys of tasks with search arrays
+ */
 function boardRenderSearch() {
     boardRenderStatusPreview(boardTasksToDoSearch, 'board_task_category_todo');
     boardRenderStatusPreview(boardTasksProgressSearch, 'board_task_category_progress');
@@ -52,7 +55,10 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
 }
 
 
-
+/**
+ * function update preview of card after updating values in task (subtask or edit)
+ * @param {*} tasksIndex index of task into tasks json
+ */
 function boardUpdateTasksPreview(tasksIndex) {
     let tasksCardDiv = document.getElementById('board_card_' + tasksIndex);
     tasksCardDiv.innerHTML = '';
