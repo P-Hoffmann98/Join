@@ -7,6 +7,22 @@
   text-decoration: none;
 }
 
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #a8a8a8;
+  border-radius: 16px;
+}
+
 body {
   background-color: #f6f7f8;
 }
