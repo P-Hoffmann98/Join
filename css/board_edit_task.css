@@ -169,6 +169,12 @@
   background-size: auto;
 }
 
+.edit-task-assignedToOutput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .edit-task-select-field-container {
   margin-top: -5px;
   overflow-y: scroll;
@@ -292,9 +298,9 @@
   height: 50px;
   border-radius: 50%;
   border: 3px solid #ffffff;
+  color: #ffffff;
   text-align: center;
   line-height: 50px;
-  margin-right: 10px;
   position: relative;
 }
 
@@ -323,6 +329,7 @@
 
 .edit-task-li span {
   flex: 1;
+  padding-left: 8px;
 }
 
 .container_img_subtask {
@@ -357,6 +364,18 @@
 
   .edit-task-content {
     height: calc(95vh - 32px - 48px - 76px - 32px);
+  }
+
+  .edit-task-prio-high,
+  .edit-task-prio-medium,
+  .edit-task-prio-low {
+    width: 110px;
+    height: 41px;
+    font-size: 16px;
+    padding: 18px, 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 }
