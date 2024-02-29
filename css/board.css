@@ -617,7 +617,7 @@ line-height: 120%; */
     }
 
     .board-task-category {
-        padding-top: 8px;
+        /* padding-top: 16px; */
         width: 100%;
     }
 
