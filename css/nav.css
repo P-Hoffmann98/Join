@@ -71,6 +71,10 @@
     align-items: stretch;
   }
 
+  .p-r-8 {
+    padding-right: 0;
+  }
+
   .nav-logo {
     display: none;
   }
