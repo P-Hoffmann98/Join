@@ -463,6 +463,15 @@ label input {
   padding-right: 30px;
 }
 
+.li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.seperator_subtasks {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .li span {
   width: 100%;
   margin-left: 5px;
