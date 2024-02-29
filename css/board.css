@@ -47,7 +47,8 @@
 }
 
 .main-container-body {
-    width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
 }
 
 .board-main-container {
@@ -608,6 +609,11 @@ line-height: 120%; */
 
 
 @media (max-width: 1474px) {
+
+    .main-container-body {
+        width: 100%;
+    }
+
     .board-task-main {
         padding: 0 8px;
         overflow: auto;
