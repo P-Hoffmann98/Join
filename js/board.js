@@ -237,3 +237,13 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
         } 
     }
 }
+
+
+function openBoardMenuNav() {
+    var menuNav = document.getElementById('board_menu_nav');
+    if (menuNav.style.display === "block") {
+        menuNav.style.display = "none";
+    } else {
+        menuNav.style.display = "block";
+    }
+  }

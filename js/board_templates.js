@@ -22,7 +22,43 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
 function boardRenderTasksPreviewHTML(tasksIndex) {
     return /* html */`
     <div draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview" id="board_card_${tasksIndex}">
-        <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
+        <div class="d-flex jc-between">
+            <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory"></span>
+            <a href="javascript:void(0);" onclick="openBoardMenuNav()">
+                <svg class="board-menu" xmlns="./img/board/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/></svg>
+            </a>
+        </div>
+        <!-- Top Navigation Menu -->
+        <div class="board-menu-nav">
+        <!-- Navigation links (hidden by default) -->
+        <div  id="board_menu_nav">
+            <span>CHANGE STATUS:</span>
+            <div class="d-flex jc-between">
+                <span>todo</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="d-flex jc-between">
+                <span>in progress</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="d-flex jc-between">
+                <span>await feedback</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="d-flex jc-between">
+                <span>done</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+        </div>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
 
