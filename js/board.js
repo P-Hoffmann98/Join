@@ -8,6 +8,7 @@ let boardTasksFeedbackSearch = [];
 let boardTasksDoneSearch = [];
 let boardCurrentDraggedTask;
 let boardTaskStatus;
+let boardRenderDetail = true;
 
 
 /**
@@ -239,11 +240,15 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
 }
 
 
-function openBoardMenuNav() {
-    var menuNav = document.getElementById('board_menu_nav');
+function openBoardMenuNav(tasksIndex) {
+    boardRenderDetail = false;
+    let previewCard = document.getElementById(`board_task_${tasksIndex}`);
+    let menuButton = document.getElementById(`board_task_nav_${tasksIndex}`);
+    let menuNav = document.getElementById('board_menu_nav');
     if (menuNav.style.display === "block") {
         menuNav.style.display = "none";
     } else {
         menuNav.style.display = "block";
     }
   }
+

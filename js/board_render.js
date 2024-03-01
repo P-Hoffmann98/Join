@@ -368,16 +368,20 @@ function boardRenderTasksPlaceholder(tasksCategory) {
  * @param {number} tasksIndex 
  */
 function boardRenderDetailCard(tasksIndex) {
-    let tasksCategoryDiv = document.getElementById('board_task_detail_card');
-    tasksCategoryDiv.parentElement.classList.remove('d-none');
-    tasksCategoryDiv.parentElement.classList.add('d-flex');
-    tasksCategoryDiv.innerHTML = '';
-    tasksCategoryDiv.innerHTML = boardRenderDetailCardHTML(tasksIndex);
-
-    boardRenderStoryline(`board_task_storyline_detail`, tasksIndex);
-    boardRenderDueDate(tasksIndex);
-    boardRenderImgPrio('board-task-card-priority-img', tasksIndex);
-    boardRenderAssignedTo(tasksIndex);
-    boardSubtasksAvailableDetail(tasksIndex);
-    boardRenderPrioText('board-task-card-priority-text', tasksIndex);
+    if (boardRenderDetail) {
+        let tasksCategoryDiv = document.getElementById('board_task_detail_card');
+        tasksCategoryDiv.parentElement.classList.remove('d-none');
+        tasksCategoryDiv.parentElement.classList.add('d-flex');
+        tasksCategoryDiv.innerHTML = '';
+        tasksCategoryDiv.innerHTML = boardRenderDetailCardHTML(tasksIndex);
+    
+        boardRenderStoryline(`board_task_storyline_detail`, tasksIndex);
+        boardRenderDueDate(tasksIndex);
+        boardRenderImgPrio('board-task-card-priority-img', tasksIndex);
+        boardRenderAssignedTo(tasksIndex);
+        boardSubtasksAvailableDetail(tasksIndex);
+        boardRenderPrioText('board-task-card-priority-text', tasksIndex);   
+    } else {
+        return;
+    }
 }

@@ -30,6 +30,14 @@
     align-items: center;
 }
 
+.pointer-event-none {
+    pointer-events: none;
+}
+
+.pointer-event-auto {
+    pointer-events: auto;
+}
+
 .main-container-body {
     max-width: 1700px;
     margin: 0 auto;
