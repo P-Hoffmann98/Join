@@ -22,7 +22,6 @@
 
 .edit-task-content {
   overflow: auto;
-  /* height: calc(95vh - 48px - 48px - 76px - 48px); */
 }
 
 .board-edit-task-header-container {
@@ -184,7 +183,6 @@
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
-  /* width: 440px; */
 }
 
 .edit-subtask-img:hover {
