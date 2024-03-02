@@ -202,7 +202,6 @@ async function openEditContact(i) {
 function closeEditContact() {
   document.getElementById("edit-contact-filter").classList.add("d-none");
   document.getElementById("edit-contact-card").classList.add("d-none");
-  renderContacts();
 }
 
 async function editContact() {
@@ -305,8 +304,6 @@ function handleMobileOptions(event) {
 
     if (optionsOpened && !isMobileOptionsButton) {
       closeMobileOptions();
-    } else if (isMobileOptionsButton) {
-      openMobileOptions();
     }
   }
 }
