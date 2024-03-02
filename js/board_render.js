@@ -370,6 +370,8 @@ function boardRenderTasksPlaceholder(tasksCategory) {
 function boardRenderDetailCard(tasksIndex) {
     if (boardRenderDetail) {
         let tasksCategoryDiv = document.getElementById('board_task_detail_card');
+        tasksCategoryDiv.classList.remove('board-task-detail-card-out');
+        tasksCategoryDiv.classList.add('board-task-detail-card-in');
         tasksCategoryDiv.parentElement.classList.remove('d-none');
         tasksCategoryDiv.parentElement.classList.add('d-flex');
         tasksCategoryDiv.innerHTML = '';
@@ -387,10 +389,17 @@ function boardRenderDetailCard(tasksIndex) {
 }
 
 
-function boardStatusCheckedSvgHTML(status, taskIndex) {
+/**
+ * render checked svg on selected status
+ * @param {string} status value of selected status
+ * @param {number} taskIndex index into tasks json
+ */
+function boardStatusCheckedSvg(status, taskIndex) {
+    boardTaskStatusValue = status;
     document.getElementById(`board_status_todo_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
     document.getElementById(`board_status_progress_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
     document.getElementById(`board_status_feedback_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
     document.getElementById(`board_status_done_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
     document.getElementById(`board_status_${status}_${taskIndex}`).innerHTML = boardRenderStatusCheckedSvgHTML();
+    changeButtonPreviewCard(status, taskIndex);
 }

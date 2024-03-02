@@ -8,6 +8,7 @@ let boardTasksFeedbackSearch = [];
 let boardTasksDoneSearch = [];
 let boardCurrentDraggedTask;
 let boardTaskStatus;
+let boardTaskStatusValue;
 let boardRenderDetail = true;
 
 
@@ -184,6 +185,13 @@ function boardRemoveBackgroundMoveTask(id) {
  */
 function boardCloseDetailCard() {
     let tasksDetailDiv = document.getElementById('board_task_detail_card');
+    tasksDetailDiv.classList.remove('board-task-detail-card-in');
+    tasksDetailDiv.classList.add('board-task-detail-card-out');
+    setTimeout(boardCloseDetailCardHide, 1000, tasksDetailDiv);
+}
+
+
+function boardCloseDetailCardHide(tasksDetailDiv) {
     tasksDetailDiv.parentElement.classList.add('d-none');
     tasksDetailDiv.parentElement.classList.remove('d-flex');
 }
@@ -240,9 +248,13 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
 }
 
 
+/**
+ * function open and close edit view of status change by clicked menu on preview card and call function to store changes
+ * @param {number} tasksIndex index into tasks json
+ */
 function openCloseBoardMenuNav(tasksIndex) {
     boardHideElementsPrevieCard(tasksIndex);
-    boardStatusCheckedSvgHTML(tasks[tasksIndex]['status'], tasksIndex);
+    
     boardRenderDetail = false;
     let previewCard = document.getElementById(`board_task_${tasksIndex}`);
     let menuButton = document.getElementById(`board_task_nav_${tasksIndex}`);
@@ -250,8 +262,9 @@ function openCloseBoardMenuNav(tasksIndex) {
     if (menuNav.style.display === "block") {
         menuNav.style.display = "none";
         boardShowElementsPrevieCard(tasksIndex)
-        boardSetStatusPrevieCard(tasks[tasksIndex]['status'], tasksIndex)
+        boardSetStatusPrevieCard(boardTaskStatusValue, tasksIndex);
     } else {
+        boardStatusCheckedSvg(tasks[tasksIndex]['status'], tasksIndex);
         menuNav.style.display = "block";
         previewCard.style.pointerEvents = "none";
         menuButton.style.pointerEvents = "auto";
@@ -260,6 +273,10 @@ function openCloseBoardMenuNav(tasksIndex) {
 }
 
 
+/**
+ * function hide elements on preview card
+ * @param {number} tasksIndex index into tasks json
+ */
 function boardHideElementsPrevieCard(tasksIndex) {
     document.getElementById(`board_task_preview_title_${tasksIndex}`).style.display = "none";
     document.getElementById(`board_task_preview_description_${tasksIndex}`).style.display = "none";
@@ -268,6 +285,10 @@ function boardHideElementsPrevieCard(tasksIndex) {
 }
 
 
+/**
+ * function show elements on preview card
+ * @param {number} tasksIndex index into tasks json
+ */
 function boardShowElementsPrevieCard(tasksIndex) {
     document.getElementById(`board_menu_nav_${tasksIndex}`).style.display = "none";
     document.getElementById(`board_task_preview_title_${tasksIndex}`).style.display = "block";
@@ -277,6 +298,23 @@ function boardShowElementsPrevieCard(tasksIndex) {
     let previewCard = document.getElementById(`board_task_${tasksIndex}`);
     previewCard.style.pointerEvents = "auto";
 }
+
+
+/**
+ * function render button cancel or ok if status is changed or not
+ * @param {string} status status of selected status into menu to select status in mobile nav
+ * @param {number} taskIndex index into tasks json
+ */
+function changeButtonPreviewCard(status, taskIndex) {
+     if (tasks[taskIndex]['status'] == status) {
+        document.getElementById(`board_button_cancel_${taskIndex}`).style.display = "block";
+        document.getElementById(`board_button_ok_${taskIndex}`).style.display = "none";
+     } else {
+        document.getElementById(`board_button_cancel_${taskIndex}`).style.display = "none";
+        document.getElementById(`board_button_ok_${taskIndex}`).style.display = "block";
+     }
+}
+
 
 /**
 * function change the status of the task to the droped category status (todo, progress, feedback or done) and call the render functions

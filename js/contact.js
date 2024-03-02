@@ -3,19 +3,18 @@ let c;
 async function contactInit() {
   await includeHTML();
   await loadUsers();
-  await loadContacts();
   await loadTasks();
   loadCurrentUser();
   loadInitials();
   renderContacts();
 }
 
-function renderContacts() {
+async function renderContacts() {
   let contactlist = document.getElementById("contact-list");
   contactlist.innerHTML = "";
-
+  await loadContacts();
   contacts.sort((a, b) => a.name.localeCompare(b.name));
-
+  await setItem("contacts", JSON.stringify(contacts));
   let currentLetter = null;
 
   for (let i = 0; i < contacts.length; i++) {
@@ -95,11 +94,11 @@ function showContact(i) {
       <h3>Phone</h3>
       <p>${contact.phone}</p>
     </div>
-    <button onclick="openMobileOptions()" class="mobile-add-contact">
-      <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Add-Contact">
+    <button id="mobile-options-button" onclick="openMobileOptions()" class="mobile-add-contact">
+      <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Edit or Delete">
     </button>
     <div id="mobile-contact-bubble" class="mobile-contact-bubble">
-      <div class="mobile-contact-edit" onclick="openEditContact(${i})">
+      <div id="mobile-contact-edit" onclick="openEditContact(${i})">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="edit">
         <mask id="mask0_133089_3876" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -113,7 +112,7 @@ function showContact(i) {
         </svg>
         <p>Edit</p>
       </div>
-      <div class="mobile-contact-delete" onclick="deleteContact(${i})">
+      <div id="mobile-contact-delete" onclick="deleteContact(${i})">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="delete">
         <mask id="mask0_133089_4140" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -177,6 +176,7 @@ async function deleteContact(contactIndex) {
   }
 
   contacts.splice(contactIndex, 1);
+  await setItem("contacts", JSON.stringify(contacts));
   const bigContactCard = document.getElementById("big-contact-card");
   bigContactCard.innerHTML = "";
   closeEditContact();
@@ -186,7 +186,8 @@ async function deleteContact(contactIndex) {
   }
 }
 
-function openEditContact(i) {
+async function openEditContact(i) {
+  await loadContacts();
   const contact = contacts[i];
   document.getElementById("contact-edit-name").value = contact.name;
   document.getElementById("contact-edit-email").value = contact.email;
@@ -194,8 +195,6 @@ function openEditContact(i) {
   document.getElementById("edit-contact-filter").classList.remove("d-none");
   document.getElementById("edit-contact-card").classList.remove("d-none");
   c = i;
-  loadUsers();
-  loadContacts();
   closeMobileOptions();
 }
 
@@ -206,9 +205,11 @@ function closeEditContact() {
 }
 
 async function editContact() {
+  await loadContacts();
   let name = document.getElementById("contact-edit-name").value;
   let email = document.getElementById("contact-edit-email").value;
   let phone = document.getElementById("contact-edit-phone").value;
+  let initials = generateUserInitials(name);
 
   if (name) {
     contacts[c].name = name;
@@ -219,21 +220,21 @@ async function editContact() {
   if (phone) {
     contacts[c].phone = phone;
   }
+  if (initials) {
+    contacts[c].initials = initials;
+  }
 
   await setItem("contacts", JSON.stringify(contacts));
-  document.getElementById("contact-edit-name").value = "";
-  document.getElementById("contact-edit-email").value = "";
-  document.getElementById("contact-edit-phone").value = "";
   closeEditContact();
   renderContacts();
   showContact(c);
 }
 
-function openAddContact() {
+async function openAddContact() {
   document.getElementById("add-contact-filter").classList.remove("d-none");
   document.getElementById("add-contact-card").classList.remove("d-none");
-  loadUsers();
-  loadContacts();
+  await loadUsers();
+  await loadContacts();
 }
 
 function closeAddContact() {
@@ -250,6 +251,7 @@ async function addContact() {
   let userId = generateUserId();
   let initials = generateUserInitials(name);
 
+  await loadContacts();
   contacts.push({
     id: userId,
     name: name,
@@ -277,11 +279,35 @@ function closeMobileBigContact() {
   renderContacts();
 }
 
-function openMobileOptions() {
-  mobileOptions = true;
-  document.getElementById("mobile-contact-bubble").style.right = "15px";
-}
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.documentElement.clientWidth < 850) {
+    let optionsOpened = false;
 
-function closeMobileOptions() {
-  document.getElementById("mobile-contact-bubble").style.right = "-200px";
-}
+    function openMobileOptions() {
+      optionsOpened = true;
+      document.getElementById("mobile-contact-bubble").style.right = "15px";
+    }
+
+    function closeMobileOptions() {
+      optionsOpened = false;
+      document.getElementById("mobile-contact-bubble").style.right = "-200px";
+    }
+
+    function handleMobileOptions(event) {
+      const mobileOptionsButton = document.getElementById(
+        "mobile-options-button"
+      );
+      const isMobileOptionsButton =
+        event.target === mobileOptionsButton ||
+        (mobileOptionsButton && mobileOptionsButton.contains(event.target));
+
+      if (optionsOpened && !isMobileOptionsButton) {
+        closeMobileOptions();
+      } else if (isMobileOptionsButton) {
+        openMobileOptions();
+      }
+    }
+
+    document.addEventListener("click", handleMobileOptions);
+  }
+});

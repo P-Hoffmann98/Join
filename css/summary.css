@@ -197,7 +197,8 @@ h3 {
 }
 
 @media (max-width: 1500px) {
-  .summary-welcome {
+  .summary-welcome,
+  .summary-welcome-mobile {
     display: none;
   }
 }
@@ -251,6 +252,7 @@ h3 {
 
 @media (max-width: 850px) {
   .summary-welcome-mobile {
+    display: block;
     position: absolute;
     top: 50%;
     left: 0;

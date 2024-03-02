@@ -15,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 40%;
+  width: 30%;
   min-height: 100vh;
   height: 100%;
   background-color: white;
@@ -35,7 +35,7 @@ body {
   margin: 10px 0px 10px 0px;
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 25px;
 }
 
 .contact-list > h2 {
@@ -54,7 +54,7 @@ body {
 .contact-container-right {
   display: flex;
   margin-left: 50px;
-  width: 60%;
+  width: 70%;
 }
 
 .contact-container-right-header {
@@ -250,12 +250,12 @@ body {
   z-index: 1000;
 }
 
-.mobile-contact-edit {
+#mobile-contact-edit {
   display: flex;
   cursor: pointer;
 }
 
-.mobile-contact-delete {
+#mobile-contact-delete {
   display: flex;
   cursor: pointer;
 }
@@ -366,7 +366,7 @@ body {
   gap: 10%;
 }
 
-.add-contact-person {
+.add-contact-person-img {
   padding: 50px;
   box-sizing: content-box;
   background-color: #d1d1d1;
@@ -564,9 +564,18 @@ body {
     height: 150px;
     font-size: 44px;
   }
+
   .big-contact-name-edits {
     gap: 16px;
     margin-bottom: 25px;
+  }
+
+  .contact-container-right {
+    width: 60%;
+  }
+
+  .contact-container-left {
+    width: 40%;
   }
 }
 @media (max-width: 850px) {
@@ -682,6 +691,7 @@ body {
   }
 
   .contact-list {
+    height: calc(100vh - 180px);
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
@@ -694,11 +704,19 @@ body {
     position: absolute;
     top: calc(50% - 88px);
   }
+
   #contact-create-button {
     width: 75vw;
   }
+
   .contact-inputs {
     width: 75vw;
+  }
+
+  .add-contact-person {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 @media (max-width: 650px) {
@@ -802,7 +820,7 @@ body {
 }
 
 @media screen and (max-height: 900px) {
-  .add-contact-person {
+  .add-contact-person-img {
     height: 40px;
   }
 
@@ -830,7 +848,7 @@ body {
 }
 
 @media screen and (max-height: 700px) {
-  .add-contact-person {
+  .add-contact-person-img {
     height: 20px;
   }
 
