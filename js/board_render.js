@@ -387,6 +387,11 @@ function boardRenderDetailCard(tasksIndex) {
 }
 
 
+/**
+ * render checked svg on selected status
+ * @param {string} status value of selected status
+ * @param {number} taskIndex index into tasks json
+ */
 function boardStatusCheckedSvg(status, taskIndex) {
     boardTaskStatusValue = status;
     document.getElementById(`board_status_todo_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
