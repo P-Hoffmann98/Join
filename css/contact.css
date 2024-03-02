@@ -15,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 40%;
+  width: 30%;
   min-height: 100vh;
   height: 100%;
   background-color: white;
@@ -54,7 +54,7 @@ body {
 .contact-container-right {
   display: flex;
   margin-left: 50px;
-  width: 60%;
+  width: 70%;
 }
 
 .contact-container-right-header {
@@ -250,12 +250,12 @@ body {
   z-index: 1000;
 }
 
-.mobile-contact-edit {
+#mobile-contact-edit {
   display: flex;
   cursor: pointer;
 }
 
-.mobile-contact-delete {
+#mobile-contact-delete {
   display: flex;
   cursor: pointer;
 }
@@ -564,9 +564,18 @@ body {
     height: 150px;
     font-size: 44px;
   }
+
   .big-contact-name-edits {
     gap: 16px;
     margin-bottom: 25px;
+  }
+
+  .contact-container-right {
+    width: 60%;
+  }
+
+  .contact-container-left {
+    width: 40%;
   }
 }
 @media (max-width: 850px) {

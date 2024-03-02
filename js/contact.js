@@ -95,11 +95,11 @@ function showContact(i) {
       <h3>Phone</h3>
       <p>${contact.phone}</p>
     </div>
-    <button onclick="openMobileOptions()" class="mobile-add-contact">
+    <button id="mobile-options-button" onclick="openMobileOptions()" class="mobile-add-contact">
       <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Add-Contact">
     </button>
     <div id="mobile-contact-bubble" class="mobile-contact-bubble">
-      <div class="mobile-contact-edit" onclick="openEditContact(${i})">
+      <div id="mobile-contact-edit" onclick="openEditContact(${i})">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="edit">
         <mask id="mask0_133089_3876" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -113,7 +113,7 @@ function showContact(i) {
         </svg>
         <p>Edit</p>
       </div>
-      <div class="mobile-contact-delete" onclick="deleteContact(${i})">
+      <div id="mobile-contact-delete" onclick="deleteContact(${i})">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="delete">
         <mask id="mask0_133089_4140" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -278,10 +278,21 @@ function closeMobileBigContact() {
 }
 
 function openMobileOptions() {
-  mobileOptions = true;
   document.getElementById("mobile-contact-bubble").style.right = "15px";
 }
 
 function closeMobileOptions() {
   document.getElementById("mobile-contact-bubble").style.right = "-200px";
 }
+
+function handleDocumentClick(event) {
+  if (
+    event.target.id !== "mobile-contact-edit" &&
+    event.target.id !== "mobile-contact-delete" &&
+    event.target.id !== "mobile-options-button"
+  ) {
+    //closeMobileOptions();
+  }
+}
+
+document.addEventListener("click", handleDocumentClick);
