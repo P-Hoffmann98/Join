@@ -35,31 +35,31 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
             </div>
             <div class="d-flex jc-between">
                 <span>todo</span>
-                <svg class="board-menu-nav-status" id="board_status_todo_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('todo', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_todo_${tasksIndex}" onclick="boardStatusCheckedSvg('todo', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div>
             <div class="d-flex jc-between">
                 <span>in progress</span>
-                <svg class="board-menu-nav-status" id="board_status_progress_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('progress', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_progress_${tasksIndex}" onclick="boardStatusCheckedSvg('progress', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div>
             <div class="d-flex jc-between">
                 <span>await feedback</span>
-                <svg class="board-menu-nav-status" id="board_status_feedback_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('feedback', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_feedback_${tasksIndex}" onclick="boardStatusCheckedSvg('feedback', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div>
             <div class="d-flex jc-between">
                 <span>done</span>
-                <svg class="board-menu-nav-status" id="board_status_done_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('done', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_done_${tasksIndex}" onclick="boardStatusCheckedSvg('done', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div> 
             <div class="d-flex jc-end board-menu-nav-button">
-                <button onclick="openCloseBoardMenuNav(${tasksIndex})">Close</button>
-                <button>OK</button>
+                <button id="board_button_cancel_${tasksIndex}" onclick="openCloseBoardMenuNav(${tasksIndex})">Close</button>
+                <button id="board_button_ok_${tasksIndex}" onclick="openCloseBoardMenuNav(${tasksIndex})">OK</button>
             </div>
         </div>
         <span id="board_task_preview_title_${tasksIndex}" class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>

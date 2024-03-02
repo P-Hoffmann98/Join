@@ -8,6 +8,7 @@ let boardTasksFeedbackSearch = [];
 let boardTasksDoneSearch = [];
 let boardCurrentDraggedTask;
 let boardTaskStatus;
+let boardTaskStatusValue;
 let boardRenderDetail = true;
 
 
@@ -243,7 +244,7 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
 
 function openCloseBoardMenuNav(tasksIndex) {
     boardHideElementsPrevieCard(tasksIndex);
-    boardStatusCheckedSvgHTML(tasks[tasksIndex]['status'], tasksIndex);
+    
     boardRenderDetail = false;
     let previewCard = document.getElementById(`board_task_${tasksIndex}`);
     let menuButton = document.getElementById(`board_task_nav_${tasksIndex}`);
@@ -251,8 +252,9 @@ function openCloseBoardMenuNav(tasksIndex) {
     if (menuNav.style.display === "block") {
         menuNav.style.display = "none";
         boardShowElementsPrevieCard(tasksIndex)
-        boardSetStatusPrevieCard(tasks[tasksIndex]['status'], tasksIndex)
+        boardSetStatusPrevieCard(boardTaskStatusValue, tasksIndex);
     } else {
+        boardStatusCheckedSvg(tasks[tasksIndex]['status'], tasksIndex);
         menuNav.style.display = "block";
         previewCard.style.pointerEvents = "none";
         menuButton.style.pointerEvents = "auto";
@@ -278,6 +280,17 @@ function boardShowElementsPrevieCard(tasksIndex) {
     let previewCard = document.getElementById(`board_task_${tasksIndex}`);
     previewCard.style.pointerEvents = "auto";
 }
+
+function changeButtonPreviewCard(status, taskIndex) {
+     if (tasks[taskIndex]['status'] == status) {
+        document.getElementById(`board_button_cancel_${taskIndex}`).style.display = "block";
+        document.getElementById(`board_button_ok_${taskIndex}`).style.display = "none";
+     } else {
+        document.getElementById(`board_button_cancel_${taskIndex}`).style.display = "none";
+        document.getElementById(`board_button_ok_${taskIndex}`).style.display = "block";
+     }
+}
+
 
 /**
 * function change the status of the task to the droped category status (todo, progress, feedback or done) and call the render functions
