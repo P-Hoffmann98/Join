@@ -250,6 +250,7 @@ async function addContact() {
   let userId = generateUserId();
   let initials = generateUserInitials(name);
 
+  await loadContacts();
   contacts.push({
     id: userId,
     name: name,
