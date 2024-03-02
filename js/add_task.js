@@ -92,6 +92,7 @@ async function addTaskSave() {
   });
 
   await setItem("tasks", JSON.stringify(tasks));
+  loadTasks();
   addTaskSaveCompleted();
 }
 
@@ -99,7 +100,6 @@ async function addTaskSave() {
  * show message added done if save at backendstorage is complete
  */
 function addTaskSaveCompleted() {
-  loadTasks();
   document
     .getElementById("add_task_popup_container")
     .classList.remove("d-none");
