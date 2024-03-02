@@ -241,14 +241,20 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
 
 
 function openBoardMenuNav(tasksIndex) {
+    boardStatusCheckedSvgHTML(tasks[tasksIndex]['status'], tasksIndex);
     boardRenderDetail = false;
     let previewCard = document.getElementById(`board_task_${tasksIndex}`);
     let menuButton = document.getElementById(`board_task_nav_${tasksIndex}`);
-    let menuNav = document.getElementById('board_menu_nav');
+    let menuNav = document.getElementById(`board_menu_nav_${tasksIndex}`);
     if (menuNav.style.display === "block") {
         menuNav.style.display = "none";
+        previewCard.style.pointerEvents = "auto";
+        boardRenderDetail = true;
     } else {
         menuNav.style.display = "block";
+        previewCard.style.pointerEvents = "none";
+        menuButton.style.pointerEvents = "auto";
+        menuNav.style.pointerEvents = "auto";
     }
   }
 

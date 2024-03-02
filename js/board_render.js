@@ -385,3 +385,12 @@ function boardRenderDetailCard(tasksIndex) {
         return;
     }
 }
+
+
+function boardStatusCheckedSvgHTML(status, taskIndex) {
+    document.getElementById(`board_status_todo_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
+    document.getElementById(`board_status_progress_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
+    document.getElementById(`board_status_feedback_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
+    document.getElementById(`board_status_done_${taskIndex}`).innerHTML = boardRenderStatusUncheckedSvgHTML();
+    document.getElementById(`board_status_${status}_${taskIndex}`).innerHTML = boardRenderStatusCheckedSvgHTML();
+}

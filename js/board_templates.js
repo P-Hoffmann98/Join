@@ -29,35 +29,34 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
             </a>
         </div>
         <!-- Top Navigation Menu -->
-        <div class="board-menu-nav">
-        <!-- Navigation links (hidden by default) -->
-        <div  id="board_menu_nav">
-            <span>CHANGE STATUS:</span>
+        <div class="board-menu-nav"  id="board_menu_nav_${tasksIndex}">
+            <div class="board-menu-nav-title">
+                <span>CHANGE STATUS:</span>
+            </div>
             <div class="d-flex jc-between">
                 <span>todo</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_todo_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('todo', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div>
             <div class="d-flex jc-between">
                 <span>in progress</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_progress_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('progress', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div>
             <div class="d-flex jc-between">
                 <span>await feedback</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_feedback_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('feedback', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div>
             <div class="d-flex jc-between">
                 <span>done</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <svg class="board-menu-nav-status" id="board_status_done_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('done', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
             </div>
-        </div>
         </div>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
@@ -235,11 +234,34 @@ function boardRenderSubtasksDetailCheckedSvgHTML(subtask, tasksIndex, i) {
 }
 
 
-function  boardRenderSubtasksPreviewHTML(subtasksCount, doneSubtasksCount, tasksIndex) {
+function boardRenderSubtasksPreviewHTML(subtasksCount, doneSubtasksCount, tasksIndex) {
     return /* html */`
         <div class="board-task-card-progressbar">
             <div id="board_task_preview_subtasks_progress_${tasksIndex}" class="board-task-card-progress"></div>
         </div>
         <span class="board-task-card-progress-text">${doneSubtasksCount}/${subtasksCount} Subtasks</span>
+    `;
+}
+
+
+/**
+ * function return html code to render checked svg tag for status
+ * @returns 
+ */
+function boardRenderStatusCheckedSvgHTML() {
+    return /* html */`
+        <path d="M20 11V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H15" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    `;
+}
+
+
+/**
+ * function return html code to render unchecked svg tag for status
+ * @returns 
+ */
+function boardRenderStatusUncheckedSvgHTML() {
+    return /* html */`
+        <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
     `;
 }
