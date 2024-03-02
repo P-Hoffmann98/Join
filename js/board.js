@@ -241,6 +241,7 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
 
 
 function openBoardMenuNav(tasksIndex) {
+    boardHideElementsPrevieCard(tasksIndex);
     boardStatusCheckedSvgHTML(tasks[tasksIndex]['status'], tasksIndex);
     boardRenderDetail = false;
     let previewCard = document.getElementById(`board_task_${tasksIndex}`);
@@ -248,13 +249,20 @@ function openBoardMenuNav(tasksIndex) {
     let menuNav = document.getElementById(`board_menu_nav_${tasksIndex}`);
     if (menuNav.style.display === "block") {
         menuNav.style.display = "none";
-        previewCard.style.pointerEvents = "auto";
         boardRenderDetail = true;
+        previewCard.style.pointerEvents = "auto";
     } else {
         menuNav.style.display = "block";
         previewCard.style.pointerEvents = "none";
         menuButton.style.pointerEvents = "auto";
         menuNav.style.pointerEvents = "auto";
     }
+  }
+
+
+  function boardHideElementsPrevieCard(tasksIndex) {
+    document.getElementById(`board_task_preview_title_${tasksIndex}`).style.display = "none";
+    document.getElementById(`board_task_preview_description_${tasksIndex}`).style.display = "none";
+    document.getElementById(`board_task_preview_subtasks_${tasksIndex}`).style.display = "none";
   }
 

@@ -31,7 +31,7 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
         <!-- Top Navigation Menu -->
         <div class="board-menu-nav"  id="board_menu_nav_${tasksIndex}">
             <div class="board-menu-nav-title">
-                <span>CHANGE STATUS:</span>
+                <span class="board-task-card-headline">Change Status:</span>
             </div>
             <div class="d-flex jc-between">
                 <span>todo</span>
@@ -58,8 +58,8 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
                 </svg>
             </div>
         </div>
-        <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
-        <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
+        <span id="board_task_preview_title_${tasksIndex}" class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
+        <span id="board_task_preview_description_${tasksIndex}" class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
 
         <div id="board_task_preview_subtasks_${tasksIndex}" class="board-task-card-progress-container">
         </div>
