@@ -45,6 +45,7 @@ async function renderContacts() {
 }
 
 async function showContact(i) {
+  await loadContacts();
   let bigContactCard = document.getElementById("big-contact-card");
   const contact = contacts[i];
   bigContactCard.innerHTML = "";
@@ -130,7 +131,6 @@ async function showContact(i) {
   </div>`;
 
   // Reset background color and text color for all contact cards
-  await loadContacts();
   for (let j = 0; j < contacts.length; j++) {
     document
       .getElementById(`contact-card-${j}`)
@@ -227,7 +227,7 @@ async function editContact() {
 
   await setItem("contacts", JSON.stringify(contacts));
   closeEditContact();
-  renderContacts();
+  await renderContacts();
   showContact(c);
 }
 
