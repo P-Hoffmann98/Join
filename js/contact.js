@@ -96,7 +96,7 @@ function showContact(i) {
       <p>${contact.phone}</p>
     </div>
     <button id="mobile-options-button" onclick="openMobileOptions()" class="mobile-add-contact">
-      <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Add-Contact">
+      <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Edit or Delete">
     </button>
     <div id="mobile-contact-bubble" class="mobile-contact-bubble">
       <div id="mobile-contact-edit" onclick="openEditContact(${i})">
@@ -277,22 +277,21 @@ function closeMobileBigContact() {
   renderContacts();
 }
 
+let optionsOpened = false;
+
 function openMobileOptions() {
+  optionsOpened = true;
   document.getElementById("mobile-contact-bubble").style.right = "15px";
 }
 
-function closeMobileOptions() {
-  document.getElementById("mobile-contact-bubble").style.right = "-200px";
-}
-
-function handleDocumentClick(event) {
+function closeMobileOptions(event) {
   if (
-    event.target.id !== "mobile-contact-edit" &&
-    event.target.id !== "mobile-contact-delete" &&
-    event.target.id !== "mobile-options-button"
+    optionsOpened &&
+    (!event || event.target.id !== "mobile-options-button")
   ) {
-    //closeMobileOptions();
+    optionsOpened = false;
+    document.getElementById("mobile-contact-bubble").style.right = "-200px";
   }
 }
 
-document.addEventListener("click", handleDocumentClick);
+document.addEventListener("click", closeMobileOptions);
