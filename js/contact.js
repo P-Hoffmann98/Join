@@ -17,10 +17,9 @@ async function renderContacts() {
   await loadContacts();
   sortedContacts = contacts;
   sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
-  await setItem("contacts", JSON.stringify(contacts));
   let currentLetter = null;
 
-  for (let i = 0; i < contacts.length; i++) {
+  for (let i = 0; i < sortedContacts.length; i++) {
     let you = "";
     const contact = sortedContacts[i];
     const firstLetter = contact.name.charAt(0).toUpperCase();
@@ -50,7 +49,8 @@ async function renderContacts() {
 async function showContact(i) {
   await loadContacts();
   let bigContactCard = document.getElementById("big-contact-card");
-  const contact = contacts[i];
+  sortedContacts = contacts;
+  const contact = sortedContacts[i];
   bigContactCard.innerHTML = "";
 
   bigContactCard.innerHTML = `
@@ -134,7 +134,7 @@ async function showContact(i) {
   </div>`;
 
   // Reset background color and text color for all contact cards
-  for (let j = 0; j < contacts.length; j++) {
+  for (let j = 0; j < sortedContacts.length; j++) {
     document
       .getElementById(`contact-card-${j}`)
       .classList.remove("selected-contact");
@@ -188,6 +188,7 @@ async function deleteContact(contactIndex) {
   if (document.documentElement.clientWidth < 850) {
     window.location.href = "contact.html";
   }
+  renderContacts();
 }
 
 async function openEditContact(i) {
@@ -209,22 +210,23 @@ function closeEditContact() {
 
 async function editContact() {
   await loadContacts();
+  sortedContacts = contacts;
   let name = document.getElementById("contact-edit-name").value;
   let email = document.getElementById("contact-edit-email").value;
   let phone = document.getElementById("contact-edit-phone").value;
   let initials = generateUserInitials(name);
 
   if (name) {
-    contacts[c].name = name;
+    sortedContacts[c].name = name;
   }
   if (email) {
-    contacts[c].email = email;
+    sortedContacts[c].email = email;
   }
   if (phone) {
-    contacts[c].phone = phone;
+    sortedContacts[c].phone = phone;
   }
   if (initials) {
-    contacts[c].initials = initials;
+    sortedContacts[c].initials = initials;
   }
 
   await setItem("contacts", JSON.stringify(contacts));
