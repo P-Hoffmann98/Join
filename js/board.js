@@ -158,7 +158,6 @@ async function boardDrop(category) {
     await setItem('tasks', tasks);
     await boardReadTasks();
     boardRenderInit();
-    boardRenderDetail = true;
 }
 
 
