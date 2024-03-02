@@ -209,6 +209,7 @@ async function editContact() {
   let name = document.getElementById("contact-edit-name").value;
   let email = document.getElementById("contact-edit-email").value;
   let phone = document.getElementById("contact-edit-phone").value;
+  let initials = generateUserInitials(name);
 
   if (name) {
     contacts[c].name = name;
@@ -219,11 +220,11 @@ async function editContact() {
   if (phone) {
     contacts[c].phone = phone;
   }
+  if (initials) {
+    contacts[c].initials = initials;
+  }
 
   await setItem("contacts", JSON.stringify(contacts));
-  document.getElementById("contact-edit-name").value = "";
-  document.getElementById("contact-edit-email").value = "";
-  document.getElementById("contact-edit-phone").value = "";
   closeEditContact();
   renderContacts();
   showContact(c);
