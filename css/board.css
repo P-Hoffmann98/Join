@@ -470,6 +470,23 @@ line-height: 120%; */
   .board-menu-nav-status:hover {
     background: #c3c3c5;
   }
+
+  .board-menu-nav-button {
+    margin-top: 8px;
+  }
+
+  .board-menu-nav-button button {
+    background: white;
+    border: thin solid black;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .board-menu-nav-button button:hover {
+    color: white;
+    background: #42526E;
+    border-color: white;
+  }
   
 
   /***************************************************************** hamburger Menü ****************************************************************/

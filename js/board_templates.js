@@ -24,7 +24,7 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
     <div id="board_task_${tasksIndex}" draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview" id="board_card_${tasksIndex}">
         <div class="d-flex jc-between">
             <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory"></span>
-            <a id="board_task_nav_${tasksIndex}" href="javascript:void(0);" onclick="openBoardMenuNav(${tasksIndex})">
+            <a id="board_task_nav_${tasksIndex}" href="javascript:void(0);" onclick="openCloseBoardMenuNav(${tasksIndex})">
                 <svg class="board-menu" xmlns="./img/board/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/></svg>
             </a>
         </div>
@@ -56,6 +56,10 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
                 <svg class="board-menu-nav-status" id="board_status_done_${tasksIndex}" onclick="boardStatusCheckedSvgHTML('done', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
                 <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
                 </svg>
+            </div> 
+            <div class="d-flex jc-end board-menu-nav-button">
+                <button onclick="openCloseBoardMenuNav(${tasksIndex})">Close</button>
+                <button>OK</button>
             </div>
         </div>
         <span id="board_task_preview_title_${tasksIndex}" class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
@@ -64,7 +68,7 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
         <div id="board_task_preview_subtasks_${tasksIndex}" class="board-task-card-progress-container">
         </div>
 
-        <div class="board-task-card-profile-priority">
+        <div id="board_task_preview_priority_${tasksIndex}" class="board-task-card-profile-priority">
             <div id="board_task_preview_initials_${tasksIndex}" class="board-task-card-profile-container">
             </div>
             <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">

@@ -91,7 +91,7 @@ function boardSortTasks(id, status) {
  * @returns index of tasks array
  */
 function boardIndexOfJSON(json, id) {
-    
+
     for (let j = 0; j < json.length; j++) {
         const jsonRecord = json[j];
 
@@ -158,6 +158,7 @@ async function boardDrop(category) {
     await setItem('tasks', tasks);
     await boardReadTasks();
     boardRenderInit();
+    boardRenderDetail = true;
 }
 
 
@@ -215,7 +216,7 @@ function readInputSearch() {
     fillSearchArray(boardTasksProgress, boardSearchString, boardTasksProgressSearch);
     fillSearchArray(boardTasksFeedback, boardSearchString, boardTasksFeedbackSearch);
     fillSearchArray(boardTasksDone, boardSearchString, boardTasksDoneSearch);
-    boardRenderSearch(); 
+    boardRenderSearch();
 }
 
 
@@ -235,12 +236,12 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
 
         if (taskDescription.indexOf(boardSearchString) != -1 || taskTitle.indexOf(boardSearchString) != -1) {
             arrSearch.push(task['id']);
-        } 
+        }
     }
 }
 
 
-function openBoardMenuNav(tasksIndex) {
+function openCloseBoardMenuNav(tasksIndex) {
     boardHideElementsPrevieCard(tasksIndex);
     boardStatusCheckedSvgHTML(tasks[tasksIndex]['status'], tasksIndex);
     boardRenderDetail = false;
@@ -249,20 +250,43 @@ function openBoardMenuNav(tasksIndex) {
     let menuNav = document.getElementById(`board_menu_nav_${tasksIndex}`);
     if (menuNav.style.display === "block") {
         menuNav.style.display = "none";
-        boardRenderDetail = true;
-        previewCard.style.pointerEvents = "auto";
+        boardShowElementsPrevieCard(tasksIndex)
+        boardSetStatusPrevieCard(tasks[tasksIndex]['status'], tasksIndex)
     } else {
         menuNav.style.display = "block";
         previewCard.style.pointerEvents = "none";
         menuButton.style.pointerEvents = "auto";
         menuNav.style.pointerEvents = "auto";
     }
-  }
+}
 
 
-  function boardHideElementsPrevieCard(tasksIndex) {
+function boardHideElementsPrevieCard(tasksIndex) {
     document.getElementById(`board_task_preview_title_${tasksIndex}`).style.display = "none";
     document.getElementById(`board_task_preview_description_${tasksIndex}`).style.display = "none";
     document.getElementById(`board_task_preview_subtasks_${tasksIndex}`).style.display = "none";
-  }
+    document.getElementById(`board_task_preview_priority_${tasksIndex}`).style.display = "none";
+}
 
+
+function boardShowElementsPrevieCard(tasksIndex) {
+    document.getElementById(`board_menu_nav_${tasksIndex}`).style.display = "none";
+    document.getElementById(`board_task_preview_title_${tasksIndex}`).style.display = "block";
+    document.getElementById(`board_task_preview_description_${tasksIndex}`).style.display = "block";
+    document.getElementById(`board_task_preview_subtasks_${tasksIndex}`).style.display = "flex";
+    document.getElementById(`board_task_preview_priority_${tasksIndex}`).style.display = "flex";
+    let previewCard = document.getElementById(`board_task_${tasksIndex}`);
+    previewCard.style.pointerEvents = "auto";
+}
+
+/**
+* function change the status of the task to the droped category status (todo, progress, feedback or done) and call the render functions
+* @param {string} category 
+*/
+async function boardSetStatusPrevieCard(status, tasksIndex) {
+    tasks[tasksIndex]['status'] = status;
+    await setItem('tasks', tasks);
+    await boardReadTasks();
+    boardRenderInit();
+    boardRenderDetail = true;
+}
