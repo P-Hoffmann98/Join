@@ -238,6 +238,13 @@ function boardRenderSubtasksDetailCheckedSvgHTML(subtask, tasksIndex, i) {
 }
 
 
+/**
+ * function return html to render subtasks view into preview card
+ * @param {number} subtasksCount count of subtasks
+ * @param {number} doneSubtasksCount count of done subtasks
+ * @param {number} tasksIndex index into tasks json
+ * @returns 
+ */
 function boardRenderSubtasksPreviewHTML(subtasksCount, doneSubtasksCount, tasksIndex) {
     return /* html */`
         <div class="board-task-card-progressbar">
