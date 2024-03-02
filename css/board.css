@@ -87,12 +87,10 @@
 
 .board-headline-text {
     color: #000;
-    /* Version 2/t1 */
     font-size: 61px;
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
-    /* 73.2px */
 }
 
 .board-headline-container-search-add {
@@ -182,23 +180,18 @@ input:focus {
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
-    /* 25.2px */
 }
 
-/* sytle task area */
 .board-task-main {
     display: flex;
     flex: 1;
     overflow: auto;
-    /* max-width: 1208px; */
     padding: 0px 64px;
     justify-content: space-between;
 }
 
 .board-task-category {
-    /* Padding for hover effekt drag and drop */
     padding-top: 16px;
-    /*  */
     display: flex;
     width: 280px;
     flex-direction: column;
@@ -207,8 +200,6 @@ input:focus {
 }
 
 .board-task-headline {
-    /* position: sticky;
-    top: 0; */
     background-color: #F6F7F8;
     display: flex;
     justify-content: space-between;
@@ -260,13 +251,11 @@ input:focus {
     height: 48px;
     width: 248px;
     margin-top: 16px;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     border: 1px dashed var(--icon, #A8A8A8);
     background: #E7E7E7;
-    /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
 }
 
@@ -277,7 +266,6 @@ input:focus {
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    /* 19.2px */
 }
 
 span.board-task-card-preview,
@@ -300,7 +288,6 @@ p.board-task-card-preview {
     cursor: pointer;
 }
 
-/* hover */
 .board-task-card-preview:active {
     cursor: pointer;
     transform: rotate(5deg);
@@ -314,12 +301,7 @@ p.board-task-card-preview {
     padding: 4px 16px;
     margin-bottom: 24px;
     border-radius: 8px;
-    /* background: #0038FF; */
     color: #FFF;
-    /* font-size: 16px; */
-    /* font-style: normal;
-    font-weight: 400;
-    line-height: 120%; */
 }
 
 .board-userstory-color {
@@ -333,24 +315,13 @@ p.board-task-card-preview {
 .board-task-card-headline {
     margin-bottom: 8px;
     color: var(--Version-2-main-color, #2A3647);
-    /* font-size: 16px; */
-    /* font-style: normal; */
     font-weight: 700;
-    /*line-height: 120%; */
-    /* 19.2px */
 }
 
 .board-task-card-description {
 
     color: var(--icon, #A8A8A8);
     margin-bottom: 24px;
-    /* Version 2/body */
-    /* font-family: Inter;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 120%; */
-    /* 19.2px */
 }
 
 .board-line-clamp {
@@ -400,10 +371,6 @@ line-height: 120%; */
     align-items: center;
     max-width: 199px;
 }
-
-/* .board-task-card-profile:nth-child(n + 2) {
-    left: -8px;
-} */
 
 .board-task-card-profile:nth-child(2) {
     left: -8px;
@@ -545,7 +512,6 @@ line-height: 120%; */
     background: #FFFFFF;
     Padding: 48px 40px;
     border-radius: 30px;
-    /* animation: taskView 1s forwards; */
 }
 
 .board-task-detail-card-in {
@@ -554,8 +520,6 @@ line-height: 120%; */
 }.board-task-detail-card-out {
     animation: taskClose 1s ease-in-out;
 }
-
-
 
 .board-task-card-detail-storyline {
     margin-bottom: 24px;
@@ -667,18 +631,11 @@ line-height: 120%; */
     color: #2A3647;
 }
 
-/* .board-task-card-detail-edit-text:hover {
-    color: #29ABE2;
-    font-weight: bold;
-} */
-
 #board-task-card-priority-img {
     padding-left: 8px;
 }
 
-
 /* ************************************************ tasks detail ende *********************************************************************************** */
-
 
 @media (max-width: 1474px) {
 
@@ -694,7 +651,6 @@ line-height: 120%; */
     }
 
     .board-task-category {
-        /* padding-top: 16px; */
         width: 100%;
     }
 
@@ -730,7 +686,6 @@ line-height: 120%; */
         min-width: 256px;
         margin-bottom: 16px;
     }
-
 }
 
 /* ********************************************************** media query 1100px ********************************************************************* */
