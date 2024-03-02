@@ -44,7 +44,7 @@ async function renderContacts() {
   }
 }
 
-function showContact(i) {
+async function showContact(i) {
   let bigContactCard = document.getElementById("big-contact-card");
   const contact = contacts[i];
   bigContactCard.innerHTML = "";
@@ -130,6 +130,7 @@ function showContact(i) {
   </div>`;
 
   // Reset background color and text color for all contact cards
+  await loadContacts();
   for (let j = 0; j < contacts.length; j++) {
     document
       .getElementById(`contact-card-${j}`)
@@ -279,35 +280,37 @@ function closeMobileBigContact() {
   renderContacts();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  if (document.documentElement.clientWidth < 850) {
-    let optionsOpened = false;
+let optionsOpened = false;
 
-    function openMobileOptions() {
-      optionsOpened = true;
-      document.getElementById("mobile-contact-bubble").style.right = "15px";
+function openMobileOptions() {
+  optionsOpened = true;
+  document.getElementById("mobile-contact-bubble").style.right = "15px";
+}
+
+function closeMobileOptions() {
+  optionsOpened = false;
+  document.getElementById("mobile-contact-bubble").style.right = "-200px";
+}
+
+function handleMobileOptions(event) {
+  const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+
+  if (screenWidth <= 850) {
+    const mobileOptionsButton = document.getElementById(
+      "mobile-options-button"
+    );
+    const isMobileOptionsButton =
+      event.target === mobileOptionsButton ||
+      (mobileOptionsButton && mobileOptionsButton.contains(event.target));
+
+    if (optionsOpened && !isMobileOptionsButton) {
+      closeMobileOptions();
+    } else if (isMobileOptionsButton) {
+      openMobileOptions();
     }
-
-    function closeMobileOptions() {
-      optionsOpened = false;
-      document.getElementById("mobile-contact-bubble").style.right = "-200px";
-    }
-
-    function handleMobileOptions(event) {
-      const mobileOptionsButton = document.getElementById(
-        "mobile-options-button"
-      );
-      const isMobileOptionsButton =
-        event.target === mobileOptionsButton ||
-        (mobileOptionsButton && mobileOptionsButton.contains(event.target));
-
-      if (optionsOpened && !isMobileOptionsButton) {
-        closeMobileOptions();
-      } else if (isMobileOptionsButton) {
-        openMobileOptions();
-      }
-    }
-
-    document.addEventListener("click", handleMobileOptions);
   }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", handleMobileOptions);
 });
