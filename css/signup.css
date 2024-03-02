@@ -51,6 +51,18 @@ input:focus {
   border-radius: 30px;
 }
 
+.signup-h1-back {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.signup-h1-back a {
+  position: absolute;
+  transform: translateX(-100px);
+}
+
 .signup-centering {
   display: flex;
   justify-content: center;
@@ -198,9 +210,6 @@ input:focus {
 
 .signup-backbutton {
   cursor: pointer;
-  position: absolute;
-  left: calc(50vw - 250px);
-  top: 27vh;
   width: 32px;
   height: 32px;
 }
@@ -255,8 +264,8 @@ input:focus {
     width: 500px;
   }
 
-  .signup-backbutton {
-    left: calc(50vw - 225px);
+  .signup-h1-back {
+    gap: 30px;
   }
 }
 
@@ -291,13 +300,13 @@ input:focus {
   .signup-buttons > * {
     width: 180px;
   }
-
-  .signup-backbutton {
-    top: 265px;
-    left: calc(50vw - 185px);
-  }
   .password-toggle {
     transform: translate(310px, -33px);
+  }
+
+  .signup-h1-back a {
+    position: absolute;
+    transform: translateX(-75px);
   }
 }
 
@@ -321,12 +330,16 @@ input:focus {
     width: 150px;
   }
 
-  .signup-backbutton {
-    top: 205px;
-    left: calc(50vw - 140px);
-  }
-
   .password-toggle {
     transform: translate(210px, -33px);
+  }
+
+  .signup-h1-back {
+    gap: 5px;
+  }
+
+  .signup-h1-back a {
+    position: absolute;
+    transform: translateX(-50px);
   }
 }
