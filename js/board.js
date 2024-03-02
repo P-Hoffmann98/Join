@@ -242,6 +242,10 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
 }
 
 
+/**
+ * function open and close edit view of status change by clicked menu on preview card and call function to store changes
+ * @param {number} tasksIndex index into tasks json
+ */
 function openCloseBoardMenuNav(tasksIndex) {
     boardHideElementsPrevieCard(tasksIndex);
     
@@ -263,6 +267,10 @@ function openCloseBoardMenuNav(tasksIndex) {
 }
 
 
+/**
+ * function hide elements on preview card
+ * @param {number} tasksIndex index into tasks json
+ */
 function boardHideElementsPrevieCard(tasksIndex) {
     document.getElementById(`board_task_preview_title_${tasksIndex}`).style.display = "none";
     document.getElementById(`board_task_preview_description_${tasksIndex}`).style.display = "none";
@@ -271,6 +279,10 @@ function boardHideElementsPrevieCard(tasksIndex) {
 }
 
 
+/**
+ * function show elements on preview card
+ * @param {number} tasksIndex index into tasks json
+ */
 function boardShowElementsPrevieCard(tasksIndex) {
     document.getElementById(`board_menu_nav_${tasksIndex}`).style.display = "none";
     document.getElementById(`board_task_preview_title_${tasksIndex}`).style.display = "block";
@@ -281,6 +293,12 @@ function boardShowElementsPrevieCard(tasksIndex) {
     previewCard.style.pointerEvents = "auto";
 }
 
+
+/**
+ * function render button cancel or ok if status is changed or not
+ * @param {string} status status of selected status into menu to select status in mobile nav
+ * @param {number} taskIndex index into tasks json
+ */
 function changeButtonPreviewCard(status, taskIndex) {
      if (tasks[taskIndex]['status'] == status) {
         document.getElementById(`board_button_cancel_${taskIndex}`).style.display = "block";
