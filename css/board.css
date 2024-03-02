@@ -1,3 +1,23 @@
+@keyframes taskView {
+    from {
+        transform: translateX(3500px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes taskClose {
+    from {
+        transform: translateX(0px);
+    }
+
+    to {
+        transform: translateX(3500px);
+    }
+}
+
 .d-none {
     display: none;
 }
@@ -451,40 +471,40 @@ line-height: 120%; */
     width: 100%;
     margin-bottom: 8px;
     display: none;
-  }
+}
 
-  .board-menu-nav-title {
+.board-menu-nav-title {
     margin-bottom: 8px;
-  }
+}
 
-  .board-menu-nav-status {
+.board-menu-nav-status {
     border-radius: 49px;
     cursor: pointer;
-  }
+}
 
-  .board-menu-nav-status:hover {
+.board-menu-nav-status:hover {
     background: #c3c3c5;
-  }
+}
 
-  .board-menu-nav-button {
+.board-menu-nav-button {
     margin-top: 8px;
-  }
+}
 
-  .board-menu-nav-button button {
+.board-menu-nav-button button {
     background: white;
     border: thin solid black;
     border-radius: 8px;
     padding: 8px;
-  }
+}
 
-  .board-menu-nav-button button:hover {
+.board-menu-nav-button button:hover {
     color: white;
     background: #42526E;
     border-color: white;
-  }
-  
+}
 
-  /***************************************************************** hamburger Menü ****************************************************************/
+
+/***************************************************************** hamburger Menü ****************************************************************/
 
 /* ************************************************ tasks detail *********************************************************************************** */
 .mb-24 {
@@ -519,24 +539,23 @@ line-height: 120%; */
     line-height: 120%;
 }
 
-
-@keyframes taskView {
-    from {
-      transform: translateX(800px);
-    }
-    to {
-      transform: translateX(0px);
-    }
-  }
-
 .board-task-detail-card {
     width: 525px;
     max-height: 95vh;
     background: #FFFFFF;
     Padding: 48px 40px;
     border-radius: 30px;
-    animation: taskView 1s forwards;
+    /* animation: taskView 1s forwards; */
 }
+
+.board-task-detail-card-in {
+    animation: taskView 1s ease-in-out;
+
+}.board-task-detail-card-out {
+    animation: taskClose 1s ease-in-out;
+}
+
+
 
 .board-task-card-detail-storyline {
     margin-bottom: 24px;

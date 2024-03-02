@@ -370,6 +370,8 @@ function boardRenderTasksPlaceholder(tasksCategory) {
 function boardRenderDetailCard(tasksIndex) {
     if (boardRenderDetail) {
         let tasksCategoryDiv = document.getElementById('board_task_detail_card');
+        tasksCategoryDiv.classList.remove('board-task-detail-card-out');
+        tasksCategoryDiv.classList.add('board-task-detail-card-in');
         tasksCategoryDiv.parentElement.classList.remove('d-none');
         tasksCategoryDiv.parentElement.classList.add('d-flex');
         tasksCategoryDiv.innerHTML = '';
