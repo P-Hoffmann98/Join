@@ -3,19 +3,18 @@ let c;
 async function contactInit() {
   await includeHTML();
   await loadUsers();
-  await loadContacts();
   await loadTasks();
   loadCurrentUser();
   loadInitials();
   renderContacts();
 }
 
-function renderContacts() {
+async function renderContacts() {
   let contactlist = document.getElementById("contact-list");
   contactlist.innerHTML = "";
-
+  await loadContacts();
   contacts.sort((a, b) => a.name.localeCompare(b.name));
-
+  await setItem("contacts", JSON.stringify(contacts));
   let currentLetter = null;
 
   for (let i = 0; i < contacts.length; i++) {
@@ -177,6 +176,7 @@ async function deleteContact(contactIndex) {
   }
 
   contacts.splice(contactIndex, 1);
+  await setItem("contacts", JSON.stringify(contacts));
   const bigContactCard = document.getElementById("big-contact-card");
   bigContactCard.innerHTML = "";
   closeEditContact();
@@ -229,11 +229,11 @@ async function editContact() {
   showContact(c);
 }
 
-function openAddContact() {
+async function openAddContact() {
   document.getElementById("add-contact-filter").classList.remove("d-none");
   document.getElementById("add-contact-card").classList.remove("d-none");
-  loadUsers();
-  loadContacts();
+  await loadUsers();
+  await loadContacts();
 }
 
 function closeAddContact() {
@@ -278,29 +278,35 @@ function closeMobileBigContact() {
   renderContacts();
 }
 
-let optionsOpened = false;
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.documentElement.clientWidth < 850) {
+    let optionsOpened = false;
 
-function openMobileOptions() {
-  optionsOpened = true;
-  document.getElementById("mobile-contact-bubble").style.right = "15px";
-}
+    function openMobileOptions() {
+      optionsOpened = true;
+      document.getElementById("mobile-contact-bubble").style.right = "15px";
+    }
 
-function closeMobileOptions() {
-  optionsOpened = false;
-  document.getElementById("mobile-contact-bubble").style.right = "-200px";
-}
+    function closeMobileOptions() {
+      optionsOpened = false;
+      document.getElementById("mobile-contact-bubble").style.right = "-200px";
+    }
 
-function handleMobileOptions(event) {
-  const mobileOptionsButton = document.getElementById("mobile-options-button");
-  const isMobileOptionsButton =
-    event.target === mobileOptionsButton ||
-    mobileOptionsButton.contains(event.target);
+    function handleMobileOptions(event) {
+      const mobileOptionsButton = document.getElementById(
+        "mobile-options-button"
+      );
+      const isMobileOptionsButton =
+        event.target === mobileOptionsButton ||
+        (mobileOptionsButton && mobileOptionsButton.contains(event.target));
 
-  if (optionsOpened && !isMobileOptionsButton) {
-    closeMobileOptions();
-  } else if (isMobileOptionsButton) {
-    openMobileOptions();
+      if (optionsOpened && !isMobileOptionsButton) {
+        closeMobileOptions();
+      } else if (isMobileOptionsButton) {
+        openMobileOptions();
+      }
+    }
+
+    document.addEventListener("click", handleMobileOptions);
   }
-}
-
-document.addEventListener("click", handleMobileOptions);
+});
