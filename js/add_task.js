@@ -77,7 +77,8 @@ function addTaskToVar(param) {
  * and put it to backendstorage
  */
 async function addTaskSave() {
-  loadTasks();
+  await loadTasks();
+  console.log(tasks);
   tasks.push({
     id: Date.now(),
     autor: currentUser["userId"],
