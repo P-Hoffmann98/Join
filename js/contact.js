@@ -1,5 +1,7 @@
 let c;
 
+let sortedContacts = [];
+
 async function contactInit() {
   await includeHTML();
   await loadUsers();
@@ -13,13 +15,14 @@ async function renderContacts() {
   let contactlist = document.getElementById("contact-list");
   contactlist.innerHTML = "";
   await loadContacts();
-  contacts.sort((a, b) => a.name.localeCompare(b.name));
+  sortedContacts = contacts;
+  sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
   await setItem("contacts", JSON.stringify(contacts));
   let currentLetter = null;
 
   for (let i = 0; i < contacts.length; i++) {
     let you = "";
-    const contact = contacts[i];
+    const contact = sortedContacts[i];
     const firstLetter = contact.name.charAt(0).toUpperCase();
 
     if (currentUser.userId === contact.id) {
