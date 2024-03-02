@@ -439,11 +439,6 @@ line-height: 120%; */
 
 /***************************************************************** hamburger Menü ****************************************************************/
 
-/* Style the navigation menu */
-/* .board-menu {
-    z-index: 2000;
-} */
-
 .board-menu:hover {
     background: #EEEEEE;
     border-radius: 15px;
