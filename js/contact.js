@@ -186,7 +186,9 @@ async function deleteContact(contactIndex) {
   }
 }
 
-function openEditContact(i) {
+async function openEditContact(i) {
+  await loadUsers();
+  await loadContacts();
   const contact = contacts[i];
   document.getElementById("contact-edit-name").value = contact.name;
   document.getElementById("contact-edit-email").value = contact.email;
@@ -194,8 +196,6 @@ function openEditContact(i) {
   document.getElementById("edit-contact-filter").classList.remove("d-none");
   document.getElementById("edit-contact-card").classList.remove("d-none");
   c = i;
-  loadUsers();
-  loadContacts();
   closeMobileOptions();
 }
 
@@ -206,6 +206,7 @@ function closeEditContact() {
 }
 
 async function editContact() {
+  await loadContacts();
   let name = document.getElementById("contact-edit-name").value;
   let email = document.getElementById("contact-edit-email").value;
   let phone = document.getElementById("contact-edit-phone").value;
@@ -285,14 +286,22 @@ function openMobileOptions() {
   document.getElementById("mobile-contact-bubble").style.right = "15px";
 }
 
-function closeMobileOptions(event) {
-  if (
-    optionsOpened &&
-    (!event || event.target.id !== "mobile-options-button")
-  ) {
-    optionsOpened = false;
-    document.getElementById("mobile-contact-bubble").style.right = "-200px";
+function closeMobileOptions() {
+  optionsOpened = false;
+  document.getElementById("mobile-contact-bubble").style.right = "-200px";
+}
+
+function handleMobileOptions(event) {
+  const mobileOptionsButton = document.getElementById("mobile-options-button");
+  const isMobileOptionsButton =
+    event.target === mobileOptionsButton ||
+    mobileOptionsButton.contains(event.target);
+
+  if (optionsOpened && !isMobileOptionsButton) {
+    closeMobileOptions();
+  } else if (isMobileOptionsButton) {
+    openMobileOptions();
   }
 }
 
-document.addEventListener("click", closeMobileOptions);
+document.addEventListener("click", handleMobileOptions);
