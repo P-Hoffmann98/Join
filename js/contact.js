@@ -187,7 +187,6 @@ async function deleteContact(contactIndex) {
 }
 
 async function openEditContact(i) {
-  await loadUsers();
   await loadContacts();
   const contact = contacts[i];
   document.getElementById("contact-edit-name").value = contact.name;

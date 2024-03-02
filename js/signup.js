@@ -14,6 +14,7 @@ async function registerUser() {
   let i = Math.floor(Math.random() * allColors.length);
   let color = allColors[i];
 
+  await loadUsers();
   if (!acceptChecked) {
     document.getElementById("errorbox").innerHTML =
       "Please accept our Privacy Policy to sign up!";
