@@ -78,7 +78,6 @@ function addTaskToVar(param) {
  */
 async function addTaskSave() {
   await loadTasks();
-  console.log(tasks);
   tasks.push({
     id: Date.now(),
     autor: currentUser["userId"],
