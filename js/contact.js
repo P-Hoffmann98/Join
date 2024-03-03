@@ -1,5 +1,7 @@
 let c;
 
+let xy = 0;
+
 let sortedContacts = [];
 
 async function contactInit() {
@@ -15,7 +17,9 @@ async function renderContacts() {
   let contactlist = document.getElementById("contact-list");
   contactlist.innerHTML = "";
   await loadContacts();
-  sortedContacts = contacts;
+
+  sortedContacts = contacts.slice();
+
   sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
   let currentLetter = null;
 
@@ -35,7 +39,7 @@ async function renderContacts() {
     }
 
     contactlist.innerHTML += `
-      <div class="contact-card" id="contact-card-${i}" onclick="showContact(${i});">
+      <div class="contact-card" id="contact-card-${contact.id}" onclick="showContact(${contact.id});">
         <div class="circle" style="background-color: ${contact.color};">${contact.initials}</div>
         <div class="contact">
           <h1>${contact.name} ${you}</h1>
@@ -46,11 +50,11 @@ async function renderContacts() {
   }
 }
 
-async function showContact(i) {
+async function showContact(contactId) {
   await loadContacts();
   let bigContactCard = document.getElementById("big-contact-card");
   sortedContacts = contacts;
-  const contact = sortedContacts[i];
+  const contact = sortedContacts.find((c) => c.id === contactId);
   bigContactCard.innerHTML = "";
 
   bigContactCard.innerHTML = `
@@ -59,7 +63,7 @@ async function showContact(i) {
       <div class="big-contact-name-edits">
         <h1>${contact.name}</h1>
         <div class="big-contact-edit-delete">
-          <div class="big-contact-edit" onclick="openEditContact(${i})">
+          <div class="big-contact-edit" onclick="openEditContact(${contact.id})">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
             <g id="edit">
             <mask id="mask0_133089_3876" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -73,7 +77,7 @@ async function showContact(i) {
             </svg>
             <p>Edit</p>
           </div>
-          <div class="big-contact-delete" onclick="deleteContact(${i})">
+          <div class="big-contact-delete" onclick="deleteContact(${contact.id})">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
             <g id="delete">
             <mask id="mask0_133089_4140" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -102,7 +106,7 @@ async function showContact(i) {
       <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Edit or Delete">
     </button>
     <div id="mobile-contact-bubble" class="mobile-contact-bubble">
-      <div id="mobile-contact-edit" onclick="openEditContact(${i})">
+      <div id="mobile-contact-edit" onclick="openEditContact(${contact.id})">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="edit">
         <mask id="mask0_133089_3876" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -116,7 +120,7 @@ async function showContact(i) {
         </svg>
         <p>Edit</p>
       </div>
-      <div id="mobile-contact-delete" onclick="deleteContact(${i})">
+      <div id="mobile-contact-delete" onclick="deleteContact(${contact.id})">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="delete">
         <mask id="mask0_133089_4140" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -134,18 +138,23 @@ async function showContact(i) {
   </div>`;
 
   // Reset background color and text color for all contact cards
-  for (let j = 0; j < sortedContacts.length; j++) {
-    document
-      .getElementById(`contact-card-${j}`)
-      .classList.remove("selected-contact");
-    document.getElementById(`contact-card-${j}`).style.color = "#000000";
+  if (xy > 0) {
+    for (let j = 0; j < sortedContacts.length; j++) {
+      const contactCard = document.getElementById(
+        `contact-card-${sortedContacts[j].id}`
+      );
+      if (contactCard) {
+        contactCard.classList.remove("selected-contact");
+        contactCard.style.color = "#000000";
+      }
+    }
   }
-
+  xy++;
   // Change background color and text color for the selected contact card
   document
-    .getElementById(`contact-card-${i}`)
+    .getElementById(`contact-card-${contact.id}`)
     .classList.add("selected-contact");
-  document.getElementById(`contact-card-${i}`).style.color = "#FFFFFF";
+  document.getElementById(`contact-card-${contact.id}`).style.color = "#FFFFFF";
 
   // Adjusting styles for mobile view
   if (document.documentElement.clientWidth < 850) {
@@ -159,8 +168,8 @@ async function showContact(i) {
   }
 }
 
-async function deleteContact(contactIndex) {
-  const contactToDelete = contacts[contactIndex];
+async function deleteContact(contactId) {
+  const contactToDelete = sortedContacts.find((c) => c.id === contactId);
 
   // Check if the contact is a user
   const isUser = users.some((user) => user.id === contactToDelete.id);
@@ -169,6 +178,7 @@ async function deleteContact(contactIndex) {
     console.log("Cannot delete contact as it is a user.");
     return;
   }
+
   // Check if the contact is assigned to a Task
   const isContactAssignedToTask = tasks.some((task) => {
     return task.assignedTo.includes(contactToDelete.id);
@@ -179,38 +189,28 @@ async function deleteContact(contactIndex) {
     return;
   }
 
-  contacts.splice(contactIndex, 1);
-  await setItem("contacts", JSON.stringify(contacts));
+  // Remove the contact from sortedContacts
+  const indexToDelete = sortedContacts.findIndex((c) => c.id === contactId);
+  sortedContacts.splice(indexToDelete, 1);
+
+  // Update the contacts in storage
+  await setItem("contacts", JSON.stringify(sortedContacts));
+
+  // Clear and close the bigContactCard
   const bigContactCard = document.getElementById("big-contact-card");
   bigContactCard.innerHTML = "";
-  closeEditContact();
-  await setItem("contacts", JSON.stringify(contacts));
+
+  // If on mobile, redirect to contact.html
   if (document.documentElement.clientWidth < 850) {
     window.location.href = "contact.html";
   }
+
+  // Re-render the contact list
   renderContacts();
-}
-
-async function openEditContact(i) {
-  await loadContacts();
-  const contact = contacts[i];
-  document.getElementById("contact-edit-name").value = contact.name;
-  document.getElementById("contact-edit-email").value = contact.email;
-  document.getElementById("contact-edit-phone").value = contact.phone;
-  document.getElementById("edit-contact-filter").classList.remove("d-none");
-  document.getElementById("edit-contact-card").classList.remove("d-none");
-  c = i;
-  closeMobileOptions();
-}
-
-function closeEditContact() {
-  document.getElementById("edit-contact-filter").classList.add("d-none");
-  document.getElementById("edit-contact-card").classList.add("d-none");
 }
 
 async function editContact() {
   await loadContacts();
-  sortedContacts = contacts;
   let name = document.getElementById("contact-edit-name").value;
   let email = document.getElementById("contact-edit-email").value;
   let phone = document.getElementById("contact-edit-phone").value;
@@ -229,22 +229,10 @@ async function editContact() {
     sortedContacts[c].initials = initials;
   }
 
-  await setItem("contacts", JSON.stringify(contacts));
+  await setItem("contacts", JSON.stringify(sortedContacts));
   closeEditContact();
   await renderContacts();
   showContact(c);
-}
-
-async function openAddContact() {
-  document.getElementById("add-contact-filter").classList.remove("d-none");
-  document.getElementById("add-contact-card").classList.remove("d-none");
-  await loadUsers();
-  await loadContacts();
-}
-
-function closeAddContact() {
-  document.getElementById("add-contact-filter").classList.add("d-none");
-  document.getElementById("add-contact-card").classList.add("d-none");
 }
 
 async function addContact() {
@@ -257,7 +245,7 @@ async function addContact() {
   let initials = generateUserInitials(name);
 
   await loadContacts();
-  contacts.push({
+  sortedContacts.push({
     id: userId,
     name: name,
     email: email,
@@ -265,7 +253,7 @@ async function addContact() {
     phone: phone,
     color: color,
   });
-  await setItem("contacts", JSON.stringify(contacts));
+  await setItem("contacts", JSON.stringify(sortedContacts));
   document.getElementById("contact-input-name").value = "";
   document.getElementById("contact-input-email").value = "";
   document.getElementById("contact-input-phone").value = "";
