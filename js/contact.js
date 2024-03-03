@@ -102,7 +102,7 @@ async function showContact(contactId) {
       <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Edit or Delete">
     </button>
     <div id="mobile-contact-bubble" class="mobile-contact-bubble">
-      <div id="mobile-contact-edit" onclick="openEditContact("${contact.id}")">
+      <div id="mobile-contact-edit" onclick="openEditContact(${contact.id})">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="edit">
         <mask id="mask0_133089_3876" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -242,7 +242,6 @@ function closeEditContact() {
 async function editContact(contactId) {
   debugger;
   // Load contacts and get input values
-  await loadContacts();
   const contact = contacts.find((c) => c.id === contactId);
 
   const nameInput = document.getElementById("contact-edit-name");
