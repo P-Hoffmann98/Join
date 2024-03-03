@@ -2,8 +2,6 @@ let c;
 
 let xy = 0;
 
-let sortedContacts = [];
-
 async function contactInit() {
   await includeHTML();
   await loadUsers();
@@ -15,6 +13,7 @@ async function contactInit() {
 
 async function renderContacts() {
   let contactlist = document.getElementById("contact-list");
+  let sortedContacts = [];
   contactlist.innerHTML = "";
   await loadContacts();
   sortedContacts = contacts.slice();
@@ -51,7 +50,7 @@ async function renderContacts() {
 async function showContact(contactId) {
   await loadContacts();
   let bigContactCard = document.getElementById("big-contact-card");
-  const contact = sortedContacts.find((c) => c.id === contactId);
+  const contact = contacts.find((c) => c.id === contactId);
   bigContactCard.innerHTML = "";
 
   bigContactCard.innerHTML = `
@@ -136,9 +135,9 @@ async function showContact(contactId) {
 
   // Reset background color and text color for all contact cards
   if (xy > 0) {
-    for (let j = 0; j < sortedContacts.length; j++) {
+    for (let j = 0; j < contacts.length; j++) {
       const contactCard = document.getElementById(
-        `contact-card-${sortedContacts[j].id}`
+        `contact-card-${contacts[j].id}`
       );
       if (contactCard) {
         contactCard.classList.remove("selected-contact");
@@ -166,7 +165,7 @@ async function showContact(contactId) {
 }
 
 async function deleteContact(contactId) {
-  const contactToDelete = sortedContacts.find((c) => c.id === contactId);
+  const contactToDelete = contacts.find((c) => c.id === contactId);
 
   // Check if the contact is a user
   const isUser = users.some((user) => user.id === contactToDelete.id);
@@ -187,11 +186,11 @@ async function deleteContact(contactId) {
   }
 
   // Remove the contact from sortedContacts
-  const indexToDelete = sortedContacts.findIndex((c) => c.id === contactId);
-  sortedContacts.splice(indexToDelete, 1);
+  const indexToDelete = contacts.findIndex((c) => c.id === contactId);
+  contacts.splice(indexToDelete, 1);
 
   // Update the contacts in storage
-  await setItem("contacts", JSON.stringify(sortedContacts));
+  await setItem("contacts", JSON.stringify(contacts));
 
   // Clear and close the bigContactCard
   const bigContactCard = document.getElementById("big-contact-card");
@@ -211,7 +210,7 @@ async function openEditContact(contactId) {
   await loadContacts();
 
   // Find the contact to edit
-  const contact = sortedContacts.find((c) => c.id === contactId);
+  const contact = contacts.find((c) => c.id === contactId);
 
   // Populate the edit form with contact information
   document.getElementById("contact-edit-name").value = contact.name;
@@ -244,7 +243,7 @@ async function editContact(contactId) {
   debugger;
   // Load contacts and get input values
   await loadContacts();
-  const contact = sortedContacts.find((c) => c.id === contactId);
+  const contact = contacts.find((c) => c.id === contactId);
 
   const nameInput = document.getElementById("contact-edit-name");
   const emailInput = document.getElementById("contact-edit-email");
@@ -265,16 +264,7 @@ async function editContact(contactId) {
   if (newInitials) contact.initials = newInitials;
 
   // Save the updated contacts to storage
-  await setItem("contacts", JSON.stringify(sortedContacts));
-
-  // Close the edit contact form
-  closeEditContact();
-
-  // Render the updated contacts
-  await renderContacts();
-
-  // Show the details of the edited contact
-  showContact(c);
+  await setItem("contacts", JSON.stringify(contacts));
 }
 
 async function openAddContact() {
