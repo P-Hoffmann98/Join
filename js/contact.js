@@ -17,9 +17,7 @@ async function renderContacts() {
   let contactlist = document.getElementById("contact-list");
   contactlist.innerHTML = "";
   await loadContacts();
-
   sortedContacts = contacts.slice();
-
   sortedContacts.sort((a, b) => a.name.localeCompare(b.name));
   let currentLetter = null;
 
@@ -53,7 +51,6 @@ async function renderContacts() {
 async function showContact(contactId) {
   await loadContacts();
   let bigContactCard = document.getElementById("big-contact-card");
-  sortedContacts = contacts;
   const contact = sortedContacts.find((c) => c.id === contactId);
   bigContactCard.innerHTML = "";
 
@@ -106,7 +103,7 @@ async function showContact(contactId) {
       <img class="mobile-add-contact-img" src="img/contact/mobile_edit.svg" alt="Edit or Delete">
     </button>
     <div id="mobile-contact-bubble" class="mobile-contact-bubble">
-      <div id="mobile-contact-edit" onclick="openEditContact(${contact.id})">
+      <div id="mobile-contact-edit" onclick="openEditContact("${contact.id}")">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="edit">
         <mask id="mask0_133089_3876" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -175,7 +172,7 @@ async function deleteContact(contactId) {
   const isUser = users.some((user) => user.id === contactToDelete.id);
 
   if (isUser) {
-    console.log("Cannot delete contact as it is a user.");
+    alert("Cannot delete contact as it is a user.");
     return;
   }
 
@@ -185,7 +182,7 @@ async function deleteContact(contactId) {
   });
 
   if (isContactAssignedToTask) {
-    console.log("Cannot delete contact as it is assigned to a task.");
+    alert("Cannot delete contact as it is assigned to a task.");
     return;
   }
 
@@ -210,46 +207,73 @@ async function deleteContact(contactId) {
   renderContacts();
 }
 
-async function openEditContact(i) {
+async function openEditContact(contactId) {
   await loadContacts();
-  const contact = contacts[i];
+
+  // Find the contact to edit
+  const contact = sortedContacts.find((c) => c.id === contactId);
+
+  // Populate the edit form with contact information
   document.getElementById("contact-edit-name").value = contact.name;
   document.getElementById("contact-edit-email").value = contact.email;
   document.getElementById("contact-edit-phone").value = contact.phone;
+
+  // Show the edit contact form
   document.getElementById("edit-contact-filter").classList.remove("d-none");
   document.getElementById("edit-contact-card").classList.remove("d-none");
-  c = i;
+
+  // Capture contactId before resolving the promise
+  const dynamicContactId = contactId;
+
+  let editContactForm = document.getElementById("edit-contact-form");
+  editContactForm.onsubmit = function () {
+    return editContact(dynamicContactId);
+  };
+
   closeMobileOptions();
 }
 
 function closeEditContact() {
   document.getElementById("edit-contact-filter").classList.add("d-none");
   document.getElementById("edit-contact-card").classList.add("d-none");
+  // Re-render the contact list
+  renderContacts();
 }
 
-async function editContact() {
+async function editContact(contactId) {
+  debugger;
+  // Load contacts and get input values
   await loadContacts();
-  let name = document.getElementById("contact-edit-name").value;
-  let email = document.getElementById("contact-edit-email").value;
-  let phone = document.getElementById("contact-edit-phone").value;
-  let initials = generateUserInitials(name);
+  const contact = sortedContacts.find((c) => c.id === contactId);
 
-  if (name) {
-    sortedContacts[c].name = name;
-  }
-  if (email) {
-    sortedContacts[c].email = email;
-  }
-  if (phone) {
-    sortedContacts[c].phone = phone;
-  }
-  if (initials) {
-    sortedContacts[c].initials = initials;
-  }
+  const nameInput = document.getElementById("contact-edit-name");
+  const emailInput = document.getElementById("contact-edit-email");
+  const phoneInput = document.getElementById("contact-edit-phone");
 
+  // Get the updated values from the inputs
+  const newName = nameInput.value;
+  const newEmail = emailInput.value;
+  const newPhone = phoneInput.value;
+
+  // Generate initials for the user
+  const newInitials = generateUserInitials(newName);
+
+  // Update the contact details if new values are provided
+  if (newName) contact.name = newName;
+  if (newEmail) contact.email = newEmail;
+  if (newPhone) contact.phone = newPhone;
+  if (newInitials) contact.initials = newInitials;
+
+  // Save the updated contacts to storage
   await setItem("contacts", JSON.stringify(sortedContacts));
+
+  // Close the edit contact form
   closeEditContact();
+
+  // Render the updated contacts
   await renderContacts();
+
+  // Show the details of the edited contact
   showContact(c);
 }
 
@@ -275,7 +299,9 @@ async function addContact() {
   let initials = generateUserInitials(name);
 
   await loadContacts();
-  sortedContacts.push({
+
+  // Push the new contact to the contacts array
+  contacts.push({
     id: userId,
     name: name,
     email: email,
@@ -283,7 +309,10 @@ async function addContact() {
     phone: phone,
     color: color,
   });
-  await setItem("contacts", JSON.stringify(sortedContacts));
+
+  // Save the updated contacts to storage
+  await setItem("contacts", JSON.stringify(contacts));
+
   document.getElementById("contact-input-name").value = "";
   document.getElementById("contact-input-email").value = "";
   document.getElementById("contact-input-phone").value = "";
