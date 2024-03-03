@@ -199,6 +199,7 @@ async function deleteContact(contactId) {
   // Clear and close the bigContactCard
   const bigContactCard = document.getElementById("big-contact-card");
   bigContactCard.innerHTML = "";
+  closeEditContact();
 
   // If on mobile, redirect to contact.html
   if (document.documentElement.clientWidth < 850) {
@@ -207,6 +208,23 @@ async function deleteContact(contactId) {
 
   // Re-render the contact list
   renderContacts();
+}
+
+async function openEditContact(i) {
+  await loadContacts();
+  const contact = contacts[i];
+  document.getElementById("contact-edit-name").value = contact.name;
+  document.getElementById("contact-edit-email").value = contact.email;
+  document.getElementById("contact-edit-phone").value = contact.phone;
+  document.getElementById("edit-contact-filter").classList.remove("d-none");
+  document.getElementById("edit-contact-card").classList.remove("d-none");
+  c = i;
+  closeMobileOptions();
+}
+
+function closeEditContact() {
+  document.getElementById("edit-contact-filter").classList.add("d-none");
+  document.getElementById("edit-contact-card").classList.add("d-none");
 }
 
 async function editContact() {
@@ -233,6 +251,18 @@ async function editContact() {
   closeEditContact();
   await renderContacts();
   showContact(c);
+}
+
+async function openAddContact() {
+  document.getElementById("add-contact-filter").classList.remove("d-none");
+  document.getElementById("add-contact-card").classList.remove("d-none");
+  await loadUsers();
+  await loadContacts();
+}
+
+function closeAddContact() {
+  document.getElementById("add-contact-filter").classList.add("d-none");
+  document.getElementById("add-contact-card").classList.add("d-none");
 }
 
 async function addContact() {
