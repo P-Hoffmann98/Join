@@ -342,8 +342,7 @@ function handleMobileOptions(event) {
       "mobile-options-button"
     );
     const isMobileOptionsButton =
-      event.target === mobileOptionsButton ||
-      (mobileOptionsButton && mobileOptionsButton.contains(event.target));
+      mobileOptionsButton && mobileOptionsButton.contains(event.target);
 
     if (optionsOpened && !isMobileOptionsButton) {
       closeMobileOptions();

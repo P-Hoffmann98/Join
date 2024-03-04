@@ -525,9 +525,17 @@ body {
     width: 35px;
     font-size: 14px;
   }
+
+  .edit-circle {
+    width: 150px;
+    height: 150px;
+    font-size: 48px;
+  }
+
   .contact > h1 {
     font-size: 16px;
   }
+
   .contact > p {
     font-size: 12px;
   }
@@ -543,6 +551,13 @@ body {
     width: 30px;
     font-size: 12px;
   }
+
+  .edit-circle {
+    width: 125px;
+    height: 125px;
+    font-size: 40px;
+  }
+
   .contact > h1 {
     font-size: 14px;
   }
