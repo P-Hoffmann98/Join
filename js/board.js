@@ -187,13 +187,14 @@ function boardCloseDetailCard() {
     let tasksDetailDiv = document.getElementById('board_task_detail_card');
     tasksDetailDiv.classList.remove('board-task-detail-card-in');
     tasksDetailDiv.classList.add('board-task-detail-card-out');
-    setTimeout(boardCloseDetailCardHide, 1000, tasksDetailDiv);
+    setTimeout(boardCloseDetailCardHide, 900, tasksDetailDiv);
 }
 
 
 function boardCloseDetailCardHide(tasksDetailDiv) {
-    tasksDetailDiv.parentElement.classList.add('d-none');
     tasksDetailDiv.parentElement.classList.remove('d-flex');
+    tasksDetailDiv.parentElement.classList.add('d-none');
+    /* tasksDetailDiv.parentElement.classList.remove('d-flex'); */
 }
 
 
