@@ -49,6 +49,7 @@ async function renderContacts() {
 
 async function showContact(contactId) {
   await loadContacts();
+  c = contactId;
   let bigContactCard = document.getElementById("big-contact-card");
   const contact = contacts.find((c) => c.id === contactId);
   bigContactCard.innerHTML = "";
@@ -211,6 +212,8 @@ async function openEditContact(contactId) {
 
   // Find the contact to edit
   const contact = contacts.find((c) => c.id === contactId);
+  document.getElementById("edit-contact-circle").innerHTML = `
+  <div class="edit-circle" style="background-color: ${contact.color};">${contact.initials}</div>`;
 
   // Populate the edit form with contact information
   document.getElementById("contact-edit-name").value = contact.name;

@@ -117,6 +117,17 @@ body {
   font-size: 16px;
 }
 
+.edit-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  color: white;
+  font-size: 64px;
+}
+
 .contact > h1 {
   font-size: 20px;
 }
@@ -298,6 +309,7 @@ body {
   left: 10vw;
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .add-contact-card-left {
@@ -387,7 +399,7 @@ body {
 }
 
 .d-none {
-  display: none;
+  transform: translateX(200%);
 }
 
 .contact-inputs {
