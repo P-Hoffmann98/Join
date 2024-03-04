@@ -60,12 +60,8 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
  * @param {*} tasksIndex index of task into tasks json
  */
 function boardUpdateTasksPreview(tasksIndex) {
-    debugger;
     let tasksCardDiv = document.getElementById('board_task_' + tasksIndex);/* card */
-    document.getElementById(`board_task_preview_title_${tasksIndex}`).innerHTML = ``;
-    document.getElementById(`board_task_preview_description_${tasksIndex}`).innerHTML = ``;
-    /* tasksCardDiv.innerHTML = ''; */
-
+    tasksCardDiv.innerHTML = '';
 
     tasksCardDiv.innerHTML += boardUpdateTasksPreviewHTML(tasksIndex);
     boardRenderStoryline(`board_task_storyline_${tasksIndex}`, tasksIndex);

@@ -85,6 +85,66 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
  */
 function boardUpdateTasksPreviewHTML(tasksIndex) {
     return /* html */`
+        <div class="d-flex jc-between">
+            <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory"></span>
+            <a id="board_task_nav_${tasksIndex}" href="javascript:void(0);" onclick="openCloseBoardMenuNav(${tasksIndex})">
+                <svg class="board-menu" xmlns="./img/board/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/></svg>
+            </a>
+        </div>
+        <!-- Top Navigation Menu -->
+        <div class="board-menu-nav"  id="board_menu_nav_${tasksIndex}">
+            <div class="board-menu-nav-title">
+                <span class="board-task-card-headline">Change Status:</span>
+            </div>
+            <div class="d-flex jc-between">
+                <span>todo</span>
+                <svg class="board-menu-nav-status" id="board_status_todo_${tasksIndex}" onclick="boardStatusCheckedSvg('todo', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="d-flex jc-between">
+                <span>in progress</span>
+                <svg class="board-menu-nav-status" id="board_status_progress_${tasksIndex}" onclick="boardStatusCheckedSvg('progress', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="d-flex jc-between">
+                <span>await feedback</span>
+                <svg class="board-menu-nav-status" id="board_status_feedback_${tasksIndex}" onclick="boardStatusCheckedSvg('feedback', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="d-flex jc-between">
+                <span>done</span>
+                <svg class="board-menu-nav-status" id="board_status_done_${tasksIndex}" onclick="boardStatusCheckedSvg('done', ${tasksIndex})" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="./img/board/svg">
+                <rect x="4" y="4" width="16" height="16" rx="3" stroke="#2A3647" stroke-width="2"/>
+                </svg>
+            </div> 
+            <div class="d-flex jc-end board-menu-nav-button">
+                <button id="board_button_cancel_${tasksIndex}" onclick="openCloseBoardMenuNav(${tasksIndex})">Close</button>
+                <button id="board_button_ok_${tasksIndex}" onclick="openCloseBoardMenuNav(${tasksIndex})">OK</button>
+            </div>
+        </div>
+        <span id="board_task_preview_title_${tasksIndex}" class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
+        <span id="board_task_preview_description_${tasksIndex}" class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span> 
+        <div id="board_task_preview_subtasks_${tasksIndex}" class="board-task-card-progress-container">
+        </div>  
+        <div id="board_task_preview_priority_${tasksIndex}" class="board-task-card-profile-priority">
+            <div id="board_task_preview_initials_${tasksIndex}" class="board-task-card-profile-container">
+            </div>
+            <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
+        </div>
+    `;
+}
+
+
+/**
+ * function return html code to update preview card of tasks
+ * @param {number} tasksIndex index of dataset into tasks array
+ * @returns html code to render preview card
+ */
+/* function boardUpdateTasksPreviewHTML(tasksIndex) {
+    return /* html `
         <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory">User Story</span>
         <span class="board-task-card-headline">${tasks[tasksIndex]['title']}</span>
         <span class="board-task-card-description board-line-clamp">${tasks[tasksIndex]['description']}</span>
@@ -98,7 +158,7 @@ function boardUpdateTasksPreviewHTML(tasksIndex) {
             <img id="board-task-card-priority_${tasksIndex}" class="board-task-card-priority" src="" alt="">
         </div>
     `;
-}
+} */
 
 
 /**

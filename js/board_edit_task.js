@@ -76,7 +76,7 @@ function editTaskFillInput() {
 /**
  * function read all editable values and overwrite old values
  */
-function editTaskUpdate() {
+async function editTaskUpdate() {
   tasks[taskIndex]['title'] = document.getElementById('edit_task_title').value;
   tasks[taskIndex]['description'] = document.getElementById('edit_task_description').value;
   tasks[taskIndex]['dueDate'] = document.getElementById('edit_task_due_date').value;
@@ -87,6 +87,7 @@ function editTaskUpdate() {
   boardCloseEditTask();
   boardRenderDetailCard(taskIndex);
   boardUpdateTasksPreview(taskIndex);
+  await setItem('tasks', tasks);
 }
 
 /**
