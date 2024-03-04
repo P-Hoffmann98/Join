@@ -97,9 +97,6 @@ function boardIndexOfJSON(json, id) {
         const jsonRecord = json[j];
 
         if (jsonRecord['id'] == id) {
-            /* console.log(task['id']);
-            console.log(id);
-            console.log(j); */
             return j;
         }
     }
