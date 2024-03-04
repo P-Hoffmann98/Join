@@ -7,20 +7,19 @@ function login() {
   const email = document.getElementById("login-input-email").value;
   const password = document.getElementById("input-password1").value;
   let user = users.find((u) => u.email == email && u.password == password);
-  console.log(user);
   if (user) {
-    console.log("User gefunden");
+    //console.log("User gefunden");
     currentUser = {
       email: user.email,
       userId: user.id,
       name: user.name,
       initials: user.initials,
     };
-    console.log(currentUser);
+    //console.log(currentUser);
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
     window.location.href = "summary.html";
   } else {
-    console.log("User nicht gefunden");
+    //console.log("User nicht gefunden");
     let usernameExists = users.some((u) => u.email == email);
     let passwordCorrect = users.some(
       (u) => u.email == email && u.password == password
@@ -48,7 +47,7 @@ function guestLogin() {
     name: "Guest",
     initials: "G",
   };
-  console.log(currentUser);
+  //console.log(currentUser);
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
   window.location.href = "summary.html";
 }
@@ -68,12 +67,12 @@ function togglePasswordVisibility(i) {
 function startAnimation() {
   // Check if the viewport width is under 550px
   if (window.innerWidth <= 550) {
-    console.log("Mobile animation triggered");
+    //console.log("Mobile animation triggered");
     startAnimationMobile();
     return;
   }
 
-  console.log("Desktop animation triggered");
+  //console.log("Desktop animation triggered");
   let logo = document.getElementById("logo");
   let initialTop = window.innerHeight / 2 - logo.clientHeight / 2;
   let initialLeft = window.innerWidth / 2 - logo.clientWidth / 2;
