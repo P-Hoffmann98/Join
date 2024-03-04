@@ -240,7 +240,6 @@ function closeEditContact() {
 }
 
 async function editContact(contactId) {
-  debugger;
   // Load contacts and get input values
   const contact = contacts.find((c) => c.id === contactId);
 
