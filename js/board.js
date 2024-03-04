@@ -194,7 +194,6 @@ function boardCloseDetailCard() {
 function boardCloseDetailCardHide(tasksDetailDiv) {
     tasksDetailDiv.parentElement.classList.remove('d-flex');
     tasksDetailDiv.parentElement.classList.add('d-none');
-    /* tasksDetailDiv.parentElement.classList.remove('d-flex'); */
 }
 
 

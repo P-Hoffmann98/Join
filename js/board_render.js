@@ -60,8 +60,11 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
  * @param {*} tasksIndex index of task into tasks json
  */
 function boardUpdateTasksPreview(tasksIndex) {
-    let tasksCardDiv = document.getElementById('board_card_' + tasksIndex);
-    tasksCardDiv.innerHTML = '';
+    debugger;
+    let tasksCardDiv = document.getElementById('board_task_' + tasksIndex);/* card */
+    document.getElementById(`board_task_preview_title_${tasksIndex}`).innerHTML = ``;
+    document.getElementById(`board_task_preview_description_${tasksIndex}`).innerHTML = ``;
+    /* tasksCardDiv.innerHTML = ''; */
 
 
     tasksCardDiv.innerHTML += boardUpdateTasksPreviewHTML(tasksIndex);
@@ -88,6 +91,7 @@ function boardRenderStoryline(id, tasksIndex) {
         cssClass = 'board-userstory-color'
     }
 
+    document.getElementById(id).innerHTML = '';
     document.getElementById(id).innerHTML = storyline;
     document.getElementById(id).classList.add(cssClass);
 }
@@ -194,6 +198,7 @@ function boardRenderAssignedTo(tasksIndex) {
  */
 function boardRenderInitials(id, tasksIndex) {
     let initialsDiv = document.getElementById(id);
+    initialsDiv.innerHTML = '';
 
     for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length && i < 7; i++) {
 

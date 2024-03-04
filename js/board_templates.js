@@ -21,7 +21,7 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
  */
 function boardRenderTasksPreviewHTML(tasksIndex) {
     return /* html */`
-    <div id="board_task_${tasksIndex}" draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview" id="board_card_${tasksIndex}">
+    <div id="board_task_${tasksIndex}" id="board_card_${tasksIndex}" draggable="true" ondragstart="boardStartDragging(${tasksIndex})" onclick="boardRenderDetailCard(${tasksIndex})" class="board-task-card-preview"><!-- id="board_card_$" -->
         <div class="d-flex jc-between">
             <span id="board_task_storyline_${tasksIndex}" class="board-task-card-taskcategory"></span>
             <a id="board_task_nav_${tasksIndex}" href="javascript:void(0);" onclick="openCloseBoardMenuNav(${tasksIndex})">
