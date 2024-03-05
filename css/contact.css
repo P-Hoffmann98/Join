@@ -1,5 +1,6 @@
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .main-container-body {
@@ -448,6 +449,7 @@ body {
 
 #contact-create-button {
   background-color: #2a3647;
+  border: 1px solid #2a3647;
   color: white;
   font-weight: bold;
   padding: 15px 24px;
