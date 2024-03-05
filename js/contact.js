@@ -279,7 +279,10 @@ async function editContact(contactId) {
 async function openAddContact() {
   document
     .getElementById("add-contact-filter")
-    .classList.remove("transform-contact");
+    .classList.remove("contact-d-none");
+  document
+    .getElementById("add-contact-card")
+    .classList.remove("contact-d-none");
   document
     .getElementById("add-contact-card")
     .classList.remove("transform-contact");
@@ -288,9 +291,8 @@ async function openAddContact() {
 }
 
 function closeAddContact() {
-  document
-    .getElementById("add-contact-filter")
-    .classList.add("transform-contact");
+  document.getElementById("add-contact-filter").classList.add("contact-d-none");
+  document.getElementById("add-contact-card").classList.add("contact-d-none");
   document
     .getElementById("add-contact-card")
     .classList.add("transform-contact");

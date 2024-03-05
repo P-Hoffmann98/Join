@@ -1,6 +1,5 @@
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .main-container-body {
@@ -397,6 +396,10 @@ body {
   width: 99vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.contact-d-none {
+  display: none;
 }
 
 .transform-contact {
