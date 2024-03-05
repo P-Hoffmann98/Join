@@ -222,11 +222,18 @@ async function openEditContact(contactId) {
 
   // Show the edit contact form
   document
-    .getElementById("edit-contact-filter")
-    .classList.remove("transform-contact");
+    .getElementById("edit-contact-card")
+    .classList.add("contact-transform-in");
   document
     .getElementById("edit-contact-card")
-    .classList.remove("transform-contact");
+    .classList.remove("contact-transform-out");
+
+  document
+    .getElementById("edit-contact-filter")
+    .classList.remove("contact-d-none");
+  document
+    .getElementById("edit-contact-card")
+    .classList.remove("contact-d-none");
 
   // Capture contactId before resolving the promise
   const dynamicContactId = contactId;
@@ -241,11 +248,18 @@ async function openEditContact(contactId) {
 
 function closeEditContact() {
   document
-    .getElementById("edit-contact-filter")
-    .classList.add("transform-contact");
-  document
     .getElementById("edit-contact-card")
-    .classList.add("transform-contact");
+    .classList.add("contact-transform");
+
+  setTimeout(function () {
+    document
+      .getElementById("edit-contact-filter")
+      .classList.add("contact-d-none");
+    document
+      .getElementById("edit-contact-card")
+      .classList.add("contact-d-none");
+  }, 500);
+
   // Re-render the contact list
   renderContacts();
 }
@@ -278,24 +292,34 @@ async function editContact(contactId) {
 
 async function openAddContact() {
   document
+    .getElementById("add-contact-card")
+    .classList.add("contact-transform-in");
+  document
+    .getElementById("add-contact-card")
+    .classList.remove("contact-transform-out");
+  document
     .getElementById("add-contact-filter")
     .classList.remove("contact-d-none");
   document
     .getElementById("add-contact-card")
     .classList.remove("contact-d-none");
-  document
-    .getElementById("add-contact-card")
-    .classList.remove("transform-contact");
   await loadUsers();
   await loadContacts();
 }
 
 function closeAddContact() {
-  document.getElementById("add-contact-filter").classList.add("contact-d-none");
-  document.getElementById("add-contact-card").classList.add("contact-d-none");
   document
     .getElementById("add-contact-card")
-    .classList.add("transform-contact");
+    .classList.remove("contact-transform-in");
+  document
+    .getElementById("add-contact-card")
+    .classList.add("contact-transform-out");
+  setTimeout(function () {
+    document
+      .getElementById("add-contact-filter")
+      .classList.add("contact-d-none");
+    document.getElementById("add-contact-card").classList.add("contact-d-none");
+  }, 500);
 }
 
 async function addContact() {

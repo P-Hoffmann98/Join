@@ -1,3 +1,23 @@
+@keyframes contact-transform-in {
+  from {
+    transform: translateX(3500px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes contact-transform-out {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(3500px);
+  }
+}
+
 body {
   overflow: hidden;
 }
@@ -402,8 +422,12 @@ body {
   display: none;
 }
 
-.transform-contact {
-  transform: translateX(200%);
+.contact-transform-in {
+  animation: contact-transform-in 0.5s ease-in-out;
+}
+
+.contact-transform-out {
+  animation: contact-transform-out 0.5s ease-in-out;
 }
 
 .contact-inputs {
