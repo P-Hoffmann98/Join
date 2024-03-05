@@ -20,8 +20,8 @@
   </head>
 
   <body onload="contactInit()">
-    <div id="add-contact-filter" class="d-none bg-filter"></div>
-    <div id="add-contact-card" class="d-none add-contact-card">
+    <div id="add-contact-filter" class="transform-contact bg-filter"></div>
+    <div id="add-contact-card" class="transform-contact add-contact-card">
       <div class="add-contact-card-left">
         <div class="add-contact-mobile-closer" onclick="closeAddContact()">
           <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
       <div class="add-contact-person">
         <img class="add-contact-person-img" src="/img/contact/person.svg">
       </div>
-      <form class="signup-inputs-container" onsubmit="handleFormSubmission(); return false">
+      <form class="signup-inputs-container" onsubmit="addContact(); return false">
         <input
         type="text"
         class="contact-inputs"
@@ -78,8 +78,8 @@
       </div>
     </div>
 
-    <div id="edit-contact-filter" class="d-none bg-filter"></div>
-    <div id="edit-contact-card" class="d-none add-contact-card">
+    <div id="edit-contact-filter" class="transform-contact bg-filter"></div>
+    <div id="edit-contact-card" class="transform-contact add-contact-card">
       <div class="add-contact-card-left">
         <div class="add-contact-card-imgtext">
       <img class="add-contact-logo" src="img/logo_nav_desktop.svg">

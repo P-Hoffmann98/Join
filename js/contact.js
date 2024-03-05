@@ -221,8 +221,12 @@ async function openEditContact(contactId) {
   document.getElementById("contact-edit-phone").value = contact.phone;
 
   // Show the edit contact form
-  document.getElementById("edit-contact-filter").classList.remove("d-none");
-  document.getElementById("edit-contact-card").classList.remove("d-none");
+  document
+    .getElementById("edit-contact-filter")
+    .classList.remove("transform-contact");
+  document
+    .getElementById("edit-contact-card")
+    .classList.remove("transform-contact");
 
   // Capture contactId before resolving the promise
   const dynamicContactId = contactId;
@@ -236,8 +240,12 @@ async function openEditContact(contactId) {
 }
 
 function closeEditContact() {
-  document.getElementById("edit-contact-filter").classList.add("d-none");
-  document.getElementById("edit-contact-card").classList.add("d-none");
+  document
+    .getElementById("edit-contact-filter")
+    .classList.add("transform-contact");
+  document
+    .getElementById("edit-contact-card")
+    .classList.add("transform-contact");
   // Re-render the contact list
   renderContacts();
 }
@@ -269,15 +277,23 @@ async function editContact(contactId) {
 }
 
 async function openAddContact() {
-  document.getElementById("add-contact-filter").classList.remove("d-none");
-  document.getElementById("add-contact-card").classList.remove("d-none");
+  document
+    .getElementById("add-contact-filter")
+    .classList.remove("transform-contact");
+  document
+    .getElementById("add-contact-card")
+    .classList.remove("transform-contact");
   await loadUsers();
   await loadContacts();
 }
 
 function closeAddContact() {
-  document.getElementById("add-contact-filter").classList.add("d-none");
-  document.getElementById("add-contact-card").classList.add("d-none");
+  document
+    .getElementById("add-contact-filter")
+    .classList.add("transform-contact");
+  document
+    .getElementById("add-contact-card")
+    .classList.add("transform-contact");
 }
 
 async function addContact() {
@@ -309,11 +325,6 @@ async function addContact() {
   document.getElementById("contact-input-phone").value = "";
   closeAddContact();
   renderContacts();
-  closeMobileOptions();
-}
-
-function handleFormSubmission() {
-  addContact();
 }
 
 function closeMobileBigContact() {
@@ -335,9 +346,9 @@ function closeMobileOptions() {
 }
 
 function handleMobileOptions(event) {
-  const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+  const screenWidth = document.documentElement.clientWidth;
 
-  if (screenWidth <= 850) {
+  if (screenWidth < 850) {
     const mobileOptionsButton = document.getElementById(
       "mobile-options-button"
     );
