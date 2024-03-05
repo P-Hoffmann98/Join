@@ -586,7 +586,8 @@ label input {
 
   .add-task-content {
     width: 100%;
-    margin-left: 0;
+    padding-left: 0;
+    padding-right: 50px;
     display: flex;
     flex-direction: column;
   }
@@ -693,6 +694,8 @@ label input {
     padding-bottom: 120px;
     position: relative;
     z-index: 2;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .add-task-required-info-bottom {
