@@ -9,12 +9,12 @@ async function summaryInit() {
 
 async function loadCounts() {
   summaryGreetigAtDayTime();
-  summaryCountTasksAwaitingFeedback();
-  summaryCountTasksInProgress();
   summaryCountTasksAll();
-  summaryCountTasksUrgent();
-  summaryCountTasksDone();
-  summaryCountTasksToDo();
+  summaryCountTasks("status", "todo");
+  summaryCountTasks("status", "done");
+  summaryCountTasks("prio", "urgent");
+  summaryCountTasks("status", "progress");
+  summaryCountTasks("status", "feedback");
   summaryFindDueDate();
 }
 
@@ -34,45 +34,16 @@ function summaryGreetigAtDayTime() {
   }
 }
 
-/**
- * counts how many entries with the status todo are present in the array tasks and outputs them
- */
-function summaryCountTasksToDo() {
-  let countToDoTasks = 0;
+function summaryCountTasks(status, category) {
+  let count = 0;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["status"] == "todo") {
-      countToDoTasks++;
-    }
-  }
-  document.getElementById("summary_to_do_sum").innerHTML = `${countToDoTasks}`;
-}
-
-/**
- * counts how many entries with the status done are present in the array tasks and outputs them
- */
-function summaryCountTasksDone() {
-  let countDoneTasks = 0;
-  for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["status"] == "done") {
-      countDoneTasks++;
-    }
-  }
-  document.getElementById("summary_done_sum").innerHTML = `${countDoneTasks}`;
-}
-
-/**
- * counts how many entries with the prio urgent are present in the array tasks and outputs them
- */
-function summaryCountTasksUrgent() {
-  let countTasksUrgent = 0;
-  for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["prio"] == "urgent" && tasks[i]["status"] != "done") {
-      countTasksUrgent++;
+    if (tasks[i][status] == category) {
+      count++;
     }
   }
   document.getElementById(
-    "summary_urgent_sum"
-  ).innerHTML = `${countTasksUrgent}`;
+    "summary_" + category + "_sum"
+  ).innerHTML = `${count}`;
 }
 
 /**
@@ -84,36 +55,6 @@ function summaryCountTasksAll() {
   document.getElementById(
     "summary_number_of_tasks"
   ).innerHTML = `${countTasks}`;
-}
-
-/**
- * counts how many entries with the status inProgress are present in the array tasks and outputs them
- */
-function summaryCountTasksInProgress() {
-  let countTasksInProgresss = 0;
-  for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["status"] == "progress") {
-      countTasksInProgresss++;
-    }
-  }
-  document.getElementById(
-    "summary_in_progress_sum"
-  ).innerHTML = `${countTasksInProgresss}`;
-}
-
-/**
- * counts how many entries with the status feedback are present in the array tasks and outputs them
- */
-function summaryCountTasksAwaitingFeedback() {
-  let countTasksFeedback = 0;
-  for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i]["status"] == "feedback") {
-      countTasksFeedback++;
-    }
-  }
-  document.getElementById(
-    "summary_feedback_sum"
-  ).innerHTML = `${countTasksFeedback}`;
 }
 
 /**
