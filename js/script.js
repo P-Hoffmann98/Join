@@ -1,3 +1,6 @@
+/**
+ * this function is loading onload and start the included functions
+ */
 async function init() {
   await includeHTML();
   await loadUsers();
@@ -5,6 +8,9 @@ async function init() {
   loadInitials();
 }
 
+/**
+ * html code is being included
+ */
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {

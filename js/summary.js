@@ -1,3 +1,6 @@
+/**
+ * init function to load the inserted functions by onload
+ */
 async function summaryInit() {
   await loadTasks();
   await loadCurrentUser();
@@ -7,6 +10,9 @@ async function summaryInit() {
   summaryGreetigAtDayTimeMobile();
 }
 
+/**
+ * function to load inserted functions
+ */
 async function loadCounts() {
   summaryGreetigAtDayTime();
   summaryCountTasksAll();
