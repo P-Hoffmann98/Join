@@ -1,6 +1,6 @@
 .legal-notice-content-container {
   margin-left: 230px;
-  margin-right: 40px;
+  padding-right: 40px;
   margin-top: 150px;
   padding-left: 50px;
   flex-wrap: wrap;
@@ -35,6 +35,7 @@ adress p {
     height: calc(100vh - 160px);
     margin-left: 0px;
     padding-left: 10px;
+    padding-right: 20px;
   }
 
   .legal-notice-content-container h1 {

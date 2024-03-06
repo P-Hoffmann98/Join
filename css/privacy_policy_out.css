@@ -1,6 +1,6 @@
 .privacy-policy-content-container {
   margin-left: 230px;
-  margin-right: 40px;
+  padding-right: 40px;
   margin-top: 150px;
   padding-left: 50px;
   flex-wrap: wrap;
@@ -23,6 +23,7 @@
     margin-left: 10px;
     padding-left: 0;
     height: calc(100vh - 90px);
+    padding-right: 20px;
   }
 
   .privacy-policy-content-container h1 {
