@@ -46,8 +46,7 @@ function addTaskCheckForm() {
   if (
     document.getElementById("add_task_title").value.length > 0 &&
     document.getElementById("add_task_due_date").value.length > 0 &&
-    document.getElementById("add_task_category").textContent !=
-      "Select task category"
+    document.getElementById("add_task_label_category").value.length > 0
   ) {
     document.getElementById("add_task_button").classList.remove("d-none");
   } else {
@@ -169,7 +168,6 @@ function addTaskGetToday() {
 function removeRedBorder(param) {
   let labelId = "add_task_label_" + param;
   let mistakeId = "add_task_mistake_" + param;
-
   document.getElementById(labelId).classList.remove("borderColorMistake");
   document.getElementById(mistakeId).classList.add("d-none");
 }
@@ -267,26 +265,6 @@ function deleteContactFromTask(contactId) {
 }
 
 /**
- * Category is selected If no entry is entered, an error message is displayed and the frame of the input field is marked red
- * @param {number of caegory} param
- */
-function selectCategory(param) {
-  categoryAddTask = param;
-  if (param == 1) {
-    document.getElementById("add_task_category").innerHTML = "Technical Task";
-  } else if (param == 2) {
-    document.getElementById("add_task_category").innerHTML = "User Story";
-  }
-  document
-    .getElementById("add_task_select_category_box")
-    .classList.add("d-none");
-  document
-    .getElementById("add_task_label_category")
-    .classList.remove("borderColorMistake");
-  document.getElementById("add_task_mistake_category").classList.add("d-none");
-}
-
-/**
  * Function to open the select user box div
  */
 function addTaskOpenContextMenuAssignedTo() {
@@ -340,38 +318,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/**
- * Function to open the select category box div
- */
-function addTaskOpenContextMenuCategory() {
-  document
-    .getElementById("add_task_select_category_box")
-    .classList.remove("d-none");
-  document.getElementById(
-    "add_task_category"
-  ).innerHTML = `Select Task category`;
-  document
-    .getElementById("add_task_category")
-    .classList.add("add-task-category-input-up");
-}
-
-/**
- * Function to close the select category box div
- */
-function addTaskCloseContextMenuCategory() {
-  document
-    .getElementById("add_task_select_category_box")
-    .classList.add("d-none");
-  document
-    .getElementById("add_task_category")
-    .classList.remove("add-task-category-input-up");
-}
-
-/**
- * the selected category will be reset to the default value
- */
 function resetCategory() {
   document.getElementById(
-    "add_task_category"
+    "add_task_label_category"
   ).innerHTML = `Select Task category`;
 }
