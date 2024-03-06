@@ -368,10 +368,6 @@ label input {
   font-size: 16px;
 }
 
-.borderColorMistake {
-  border-color: red;
-}
-
 #add_task_select_category_box {
   position: relative;
   z-index: 999;
@@ -409,26 +405,26 @@ label input {
 .add-task-category-input {
   display: flex;
   align-items: center;
-  width: 422px;
+  width: 440px;
   outline: none;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 12px 21px;
+  padding: 12px 5px;
   outline: none;
-  border: none;
-  width: 100%;
+  border: 0px solid black;
+  /* width: 100%; */
   font-size: 16px;
   cursor: pointer;
-  background: url(/img/add_task/arrow_down.svg) right center / contain no-repeat;
+  /* background: url(/img/add_task/arrow_down.svg) right center / contain no-repeat;
   background-origin: content-box;
-  background-size: auto;
+  background-size: auto; */
 }
 
-.add-task-category-input-up {
+/* .add-task-category-input-up {
   background: url(/img/add_task/arrow_up.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
-}
+} */
 
 .selectField {
   font-size: 20px;
@@ -495,6 +491,12 @@ label input {
   margin-left: 5px;
 }
 
+.outputSubtaskClass {
+  width: 100%;
+  max-height: 120px;
+  overflow: auto;
+}
+
 .container_img_subtask {
   display: flex;
 }
@@ -505,7 +507,7 @@ label input {
 
 .assignedToOutput {
   display: flex;
-  flex-wrap: wrap;
+  overflow: auto;
 }
 
 .add-task-buttons-container {
@@ -522,6 +524,8 @@ label input {
   margin-right: 10px;
   position: relative;
   color: #ffffff;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .initialsOverview:hover {
@@ -543,6 +547,10 @@ label input {
 
 [contenteditable]:focus {
   outline: 1px solid #29abe2;
+}
+
+.borderColorMistake {
+  border: 1px solid red;
 }
 
 @media (max-width: 1300px) {
