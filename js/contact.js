@@ -11,6 +11,9 @@ async function contactInit() {
   renderContacts();
 }
 
+/**
+ *
+ */
 async function renderContacts() {
   let contactlist = document.getElementById("contact-list");
   let sortedContacts = [];
@@ -35,25 +38,21 @@ async function renderContacts() {
       contactlist.innerHTML += `<div class="contact-list-spacer">&nbsp;</div>`;
     }
 
-    contactlist.innerHTML += `
-      <div class="contact-card" id="contact-card-${contact.id}" onclick="showContact(${contact.id});">
-        <div class="circle" style="background-color: ${contact.color};">${contact.initials}</div>
-        <div class="contact">
-          <h1>${contact.name} ${you}</h1>
-          <p class="contact-email">${contact.email}</p>
-        </div>
-      </div>
-    `;
+    contactlist.innerHTML += renderContactsHTML(contact);
   }
 }
 
+/**
+ * this function shows the clicked contact of the contact list
+ * @param {number} contactId
+ */
 async function showContact(contactId) {
   await loadContacts();
   c = contactId;
   let bigContactCard = document.getElementById("big-contact-card");
   const contact = contacts.find((c) => c.id === contactId);
   bigContactCard.innerHTML = "";
-
+  // bigContactCard.innerHTML = showContactHTML(); Zum Beispiel
   bigContactCard.innerHTML = `
     <div class="big-contact-header">
       <div class="big-circle" style="background-color: ${contact.color};">${contact.initials}</div>
