@@ -51,7 +51,7 @@
 }
 
 .add-task-container {
-  margin: 64px 40px 64px 74px;
+  margin: 40px;
 }
 
 .add-task-container-left {
@@ -307,9 +307,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .add-subtask-img {
-  margin-right: 15px;
   height: 22px;
   width: 22px;
+}
+
+.add-subtask-img:last-child {
+  margin-right: 15px;
 }
 
 .add-task-clear-button {
@@ -373,7 +376,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   overflow-y: scroll;
   position: relative;
   z-index: 999;
-  height: 200px;
+  height: 160px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
@@ -468,6 +471,18 @@ label input {
 .add-task-category-input {
   display: flex;
   align-items: center;
+  width: 440px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* .add-task-category-input {
+  display: flex;
+  align-items: center;
   width: 422px;
   outline: none;
   border-radius: 10px;
@@ -481,7 +496,7 @@ label input {
   background: url(/img/board/arrow_down.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
-}
+} */
 
 .selectField {
   font-size: 20px;
@@ -524,7 +539,7 @@ label input {
   color: #ffffff;
 }
 
-.li {
+/* .li {
   width: 440px;
   display: flex;
   align-items: center;
@@ -536,6 +551,36 @@ label input {
 .li span {
   width: 80%;
   padding-left: 8px;
+} */
+
+.li {
+  width: 440px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+  padding-right: 30px;
+}
+
+.li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.seperator_subtasks {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.li span {
+  width: 100%;
+  margin-left: 5px;
+}
+
+.outputSubtaskClass {
+  width: 100%;
+  max-height: 120px;
+  overflow: auto;
 }
 
 .container_img_subtask {
@@ -548,8 +593,7 @@ label input {
 
 .assignedToOutput {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  overflow: auto;
 }
 
 .initialsOverview {
@@ -557,10 +601,17 @@ label input {
   height: 50px;
   border-radius: 50%;
   border: 3px solid #ffffff;
-  color: #ffffff;
   text-align: center;
   line-height: 50px;
+  margin-right: 10px;
   position: relative;
+  color: #ffffff;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.initialsOverview:hover {
+  cursor: pointer;
 }
 
 .initialsOverview span {
@@ -612,6 +663,7 @@ label input {
   .add-task-title,
   .add-task-description,
   .add-task-due-date,
+  .add-task-category-input,
   #add_task_select_category_box {
     width: 100%;
   }

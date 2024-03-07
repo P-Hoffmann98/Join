@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="board-task-main">
-                
+
                     <div id="board_task_category_todo_move" class="board-task-category">
                         <div class="board-task-headline">
                             <span class="board-add-task-headline">To do</span>
@@ -149,7 +149,7 @@
                             class="board-task-container">
                         </div>
                     </div>
-                
+
                 </div>
             </div>
         </div>
@@ -232,19 +232,13 @@
                             </div>
 
                             <h3>Category<span class="required-star">*</span></h3>
-                            <label for="category" class="add-task-label bgC-white" id="add_task_label_category">
-                                <div class="add-task-category-input" id="add_task_category"
-                                    onclick="addTaskShowMsg('category'); addTaskOpenContextMenuCategory()"
-                                    onchange="addTaskCheckForm()">Select task category</div>
-                            </label>
-
-                            <div class="d-none" id="add_task_select_category_box"
-                                onclick="addTaskCloseContextMenuCategory()">
-                                <div class="addTaskCategorySelect" onclick="selectCategory(1); addTaskCheckForm()">
-                                    Technical Task</div>
-                                <div class="addTaskCategorySelect" onclick="selectCategory(2); addTaskCheckForm()">User
-                                    Story</div>
-                            </div>
+                            <select class="add-task-category-input" id="add_task_label_category"
+                                onchange="addTaskCheckForm();">Select task
+                                category
+                                <option value selected>Select task category</option>
+                                <option value="1">Technical Task</option>
+                                <option value="2">User Story</option>
+                            </select>
 
                             <div class="d-none extra-small" id="add_task_mistake_category">This field is required</div>
 
@@ -253,9 +247,10 @@
                                 <input type="text" name="subtaskAddTask" class="add-task-title" id="add_task_subtask"
                                     placeholder="Add new Subtask" autocomplete="off" maxlength="20"
                                     onkeyup="changeSubTaskImg()">
-                                <img src="./img/add_task/cross.svg" class="add-subtask-img cursorPointer"
+                                <img src="./img/add_task/cross.svg" class="add-subtask-img cursor-pointer"
                                     onclick="clearSubTaskInput();">
-                                <img src="./img/add_task/plus.svg" class="add-subtask-img cursorPointer"
+                                <img src="./img/add_task/seperator_subtasks.svg" class="seperator_subtasks">
+                                <img src="./img/add_task/plus.svg" class="add-subtask-img cursor-pointer"
                                     id="add_task_subtask_img" onclick="addSubtask()">
                             </label>
 
