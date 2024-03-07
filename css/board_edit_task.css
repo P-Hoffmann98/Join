@@ -169,8 +169,7 @@
 
 .edit-task-assignedToOutput {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  overflow: auto;
 }
 
 .edit-task-select-field-container {
@@ -299,6 +298,8 @@
   text-align: center;
   line-height: 50px;
   position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .edit-task-initialsOverview:hover {
