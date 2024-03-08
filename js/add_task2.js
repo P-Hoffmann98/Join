@@ -127,7 +127,6 @@ function deleteSubtask(index) {
 function clearContactsAndSubtasks() {
   assignedToAddTask = [];
   subtaskAddTask = [];
-  // addTaskSelectedPrioMedium();
   addTaskSelectedPriority("medium");
   removeRedBorder("title");
   removeRedBorder("dueDate");
@@ -175,4 +174,56 @@ function showToolsForSubtasks(id) {
  */
 function hideToolsForSubtasks(id) {
   document.getElementById(`subtask_tools${id}`).classList.add("d-none");
+}
+
+/**
+ * Function to open the select category box div
+ */
+function addTaskOpenContextMenuCategory() {
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.remove("d-none");
+  document.getElementById(
+    "add_task_category"
+  ).innerHTML = `Select Task category`;
+  document
+    .getElementById("add_task_category")
+    .classList.add("add-task-category-input-up");
+  document.getElementById("overlay").classList.remove("d-none");
+}
+
+/**
+ * Category is selected If no entry is entered, an error message is displayed and the frame of the input field is marked red
+ * @param {number of caegory} param
+ */
+function selectCategory(param) {
+  categoryAddTask = param;
+  if (param == 1) {
+    document.getElementById("add_task_category").innerHTML = "Technical Task";
+  } else if (param == 2) {
+    document.getElementById("add_task_category").innerHTML = "User Story";
+  }
+  document
+    .getElementById("add_task_category")
+    .classList.remove("add-task-category-input-up");
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.add("d-none");
+  removeRedBorder("category");
+  document
+    .getElementById("add_task_label_category")
+    .classList.remove("borderColorMistake");
+  document.getElementById("add_task_mistake_category").classList.add("d-none");
+  document.getElementById("overlay").classList.add("d-none");
+}
+
+function addTaskCloseContextMenuCategory() {
+  document
+    .getElementById("add_task_select_category_box")
+    .classList.add("d-none");
+  document
+    .getElementById("add_task_category")
+    .classList.remove("add-task-category-input-up");
+  document.getElementById("add_task_mistake_category").classList.add("d-none");
+  document.getElementById("overlay").classList.add("d-none");
 }

@@ -107,22 +107,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 48px;
   width: 440px;
   border-radius: 10px;
-  padding: 12px 16px;
+  padding: 12px 0px 12px 16px;
   border: 0px solid rgba(209, 209, 209, 1);
   font-weight: 400;
   font-size: 20px;
   outline: none;
   display: flex;
   justify-content: space-between;
-  background: url(/img/add_task/arrow_down.svg) right center / contain no-repeat;
-  background-origin: content-box;
-  background-size: auto;
-}
-
-.add-task-assigned-to-up {
-  background: url(/img/add_task/arrow_up.svg) right center / contain no-repeat;
-  background-origin: content-box;
-  background-size: auto;
 }
 
 .add-task-assigned-to:hover {
@@ -372,12 +363,10 @@ label input {
   position: relative;
   z-index: 999;
   background-color: #ffffff;
-  overflow-y: scroll;
-  height: 100px;
   width: 440px;
   margin-top: -5px;
-  padding: 0 10px;
   border-radius: 10px;
+  border: 1px solid rgba(209, 209, 209, 1);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   font-size: 20px;
   line-height: 24px;
@@ -408,23 +397,29 @@ label input {
   width: 440px;
   outline: none;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 12px 5px;
-  outline: none;
-  border: 0px solid black;
-  /* width: 100%; */
   font-size: 16px;
   cursor: pointer;
-  /* background: url(/img/add_task/arrow_down.svg) right center / contain no-repeat;
+  background-color: #ffffff;
+  background: url(/img/add_task/arrow_down.svg) right center / contain no-repeat;
   background-origin: content-box;
-  background-size: auto; */
+  background-size: auto;
 }
 
-/* .add-task-category-input-up {
+.add-task-category-input-up {
   background: url(/img/add_task/arrow_up.svg) right center / contain no-repeat;
   background-origin: content-box;
   background-size: auto;
-} */
+}
+
+#overlay {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 .selectField {
   font-size: 20px;
@@ -601,7 +596,13 @@ label input {
   }
 
   #add_task_select_category_box {
+    position: relative;
+    z-index: 999;
     width: 100%;
+  }
+
+  #overlay {
+    z-index: 998;
   }
 
   #add-task-select-field-container {
@@ -682,12 +683,6 @@ label input {
     z-index: 0;
   }
 
-  .add-task-select-category,
-  #add-task-select-category {
-    z-index: 0;
-    width: 100%;
-  }
-
   .add-task-bottom-container {
     margin-top: 20px;
     display: flex;
@@ -715,9 +710,14 @@ label input {
     margin-bottom: 0px;
   }
 
-  #add_task_select_categry_box {
+  #add_task_select_category_box {
     position: relative;
-    z-index: 0;
+    z-index: 1600;
+    width: 100%;
+  }
+
+  #overlay {
+    z-index: 1500;
   }
 
   .add-task-container-left,
@@ -731,6 +731,7 @@ label input {
 
   .add-task-bottom-container {
     position: fixed;
+    z-index: 999;
     height: 60px;
     bottom: 80px;
     left: 0;

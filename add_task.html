@@ -47,9 +47,11 @@
                     </label>
                       
                   <h3>Assigned to:</h3>
-                    <label for="assigned" class="add-task-label bgC-white"> 
+                    <label for="assigned" class="add-task-label bgC-white" onclick="addTaskSearchName()"> 
                       <input type="text" name="assigned" id="add_task_assigned_to" class="add-task-title add-task-assigned-to" 
-                          placeholder="Choose contacts" autocomplete="off" onkeyup="addTaskSearchName()" onclick="addTaskSearchName()">
+                          placeholder="Choose contacts" autocomplete="off" onkeyup="addTaskSearchName()"  onclick="addTaskSearchName()">
+                          <img src="img/add_task/arrow_down.svg" onclick="addTaskSearchName()" class="cursor-pointer" id="assigned_to_arrow_down">
+                          <img src="img/add_task/arrow_up.svg" onclick="addTaskCloseContextMenuAssignedTo()" class="d-none cursor-pointer" id="assigned_to_arrow_up"> 
                     </label>
                 
                       <div class="d-none add-task-select-field-container" id="add_task_select_user_box"></div>
@@ -88,15 +90,20 @@
                     </div>
                              
                   <h3>Category<span class="required-star">*</span></h3>
-                         <select class="add-task-category-input" id="add_task_label_category"
-                            onchange="addTaskCheckForm();">Select task category
-                            <option value selected>Select task category</option>
-                            <option value="1">Technical Task</option>
-                            <option value="2">User Story</option>
-                        </select>
-                                                    
-                      <div class="d-none extra-small" id="add_task_mistake_category">This field is required</div>
-                                           
+
+                  <label for="category" class="add-task-label bgC-white" id="add_task_label_category"> 
+                    <div class="add-task-category-input" id="add_task_category" onclick="addTaskOpenContextMenuCategory(); addTaskShowMsg('category')" onchange="addTaskCheckForm()">Select task category</div>
+                  </label>
+              
+                    <div class="d-none" id="add_task_select_category_box">
+                        <div class="addTaskCategorySelect" onclick="selectCategory(1); addTaskCheckForm()">Technical Task</div>
+                        <div class="addTaskCategorySelect" onclick="selectCategory(2); addTaskCheckForm()">User Story</div>
+                    </div>
+                                                
+                  <div class="d-none extra-small" id="add_task_mistake_category">This field is required</div>
+  
+                  <div class="d-none" id="overlay" onclick="addTaskCloseContextMenuCategory(); addTaskShowMsg('category')"></div>  
+
                   <h3 class="m-top-40">Subtasks</h3>
                     <label for="subtaskAddTask" class="add-task-label bgC-white"> 
                       <input type="text" name="subtaskAddTask"  class="add-task-title" id="add_task_subtask" placeholder="Add new Subtask" 
@@ -125,5 +132,5 @@
         </div>  
     </div>         
   </div>
-  </body>
+ </body>
 </html>
