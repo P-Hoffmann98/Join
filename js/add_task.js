@@ -46,9 +46,8 @@ function addTaskCheckForm(param) {
   if (
     document.getElementById("add_task_title").value.length > 0 &&
     document.getElementById("add_task_due_date").value.length > 0 &&
-    // document.getElementById("add_task_category").textContent !=
-    //   "Select Task category"
-    param > "0"
+    document.getElementById("add_task_category").textContent !=
+      "Select Task category"
   ) {
     document.getElementById("add_task_button").classList.remove("d-none");
   } else {
