@@ -276,7 +276,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .add-task-required-info span {
   color: red;
-  box-sizing: border-box;
 }
 
 .add-task-bottom-container-button {

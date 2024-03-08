@@ -54,10 +54,15 @@
 
 .board-edit-task-bottom-container {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  align-items: end;
   margin-right: 8px;
   margin-top: 20px;
   border: 0px solid black;
+}
+
+.edit-task-required-info span {
+  color: red;
 }
 
 .edit-task-title {
