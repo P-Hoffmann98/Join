@@ -503,6 +503,7 @@ label input {
 .assignedToOutput {
   display: flex;
   overflow: auto;
+  width: 440px;
 }
 
 .add-task-buttons-container {
@@ -601,7 +602,13 @@ label input {
     width: 100%;
   }
 
+  #add_task_label_category {
+    position: relative;
+    z-index: 999;
+  }
+
   #overlay {
+    /* background-color: rgba(0, 0, 0, 0.5); */
     z-index: 998;
   }
 
@@ -688,6 +695,12 @@ label input {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .assignedToOutput {
+    display: flex;
+    overflow: auto;
+    width: 100%;
   }
 }
 

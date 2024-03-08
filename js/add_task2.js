@@ -127,6 +127,7 @@ function deleteSubtask(index) {
 function clearContactsAndSubtasks() {
   assignedToAddTask = [];
   subtaskAddTask = [];
+  categoryAddTask;
   addTaskSelectedPriority("medium");
   removeRedBorder("title");
   removeRedBorder("dueDate");
@@ -135,6 +136,7 @@ function clearContactsAndSubtasks() {
   resetCategory();
   renderSubTasks();
   renderSelectedContactsFromTask();
+  addTaskCheckForm();
 }
 
 /**

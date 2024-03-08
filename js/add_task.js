@@ -42,12 +42,13 @@ function addTaskSetPrioMedium() {
  * Check if all required input field are filled
  * Requiered fields: title, due date, category
  */
-function addTaskCheckForm() {
+function addTaskCheckForm(param) {
   if (
     document.getElementById("add_task_title").value.length > 0 &&
     document.getElementById("add_task_due_date").value.length > 0 &&
-    document.getElementById("add_task_category").textContent !=
-      "Select task category"
+    // document.getElementById("add_task_category").textContent !=
+    //   "Select Task category"
+    param > "0"
   ) {
     document.getElementById("add_task_button").classList.remove("d-none");
   } else {
@@ -63,6 +64,7 @@ function addTaskToVar(param) {
   titleAddTask = document.getElementById("add_task_title").value;
   descriptionAddTask = document.getElementById("add_task_description").value;
   dueDateAddTask = document.getElementById("add_task_due_date").value;
+  console.log(categoryAddTask);
   addTaskSave();
 }
 
