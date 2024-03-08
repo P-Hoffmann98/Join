@@ -466,16 +466,18 @@ p.board-task-card-preview {
 }
 
 .board-menu-nav-button button {
-    background: white;
-    border: thin solid black;
+    background: #42526E;
+    color: white;
+    border: thin solid white;
     border-radius: 8px;
     padding: 8px;
 }
 
 .board-menu-nav-button button:hover {
     color: white;
-    background: #42526E;
+    background: #29ABE2;
     border-color: white;
+    cursor: pointer;
 }
 
 
