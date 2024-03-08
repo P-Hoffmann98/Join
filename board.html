@@ -88,9 +88,9 @@
                             </svg>
                         </div>
                         <div id="board_task_category_todo"
-                            ondrop="boardDrop('todo'); boardRemoveBackgroundMoveTask('board_task_category_todo_move')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_todo_move')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_todo_move')"
+                            ondrop="boardDrop('todo'); boardRemoveBackgroundMoveTask('board_task_category_todo')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_todo')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_todo')"
                             class="board-task-container">
                         </div>
                     </div>
@@ -110,9 +110,9 @@
                             </svg>
                         </div>
                         <div id="board_task_category_progress"
-                            ondrop="boardDrop('progress'); boardRemoveBackgroundMoveTask('board_task_category_progress_move')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_progress_move')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_progress_move')"
+                            ondrop="boardDrop('progress'); boardRemoveBackgroundMoveTask('board_task_category_progress')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_progress')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_progress')"
                             class="board-task-container">
                         </div>
                     </div>
@@ -132,9 +132,9 @@
                             </svg>
                         </div>
                         <div id="board_task_category_feedback"
-                            ondrop="boardDrop('feedback'); boardRemoveBackgroundMoveTask('board_task_category_feedback_move')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_feedback_move')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_feedback_move')"
+                            ondrop="boardDrop('feedback'); boardRemoveBackgroundMoveTask('board_task_category_feedback')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_feedback')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_feedback')"
                             class="board-task-container">
                         </div>
                     </div>
@@ -143,9 +143,9 @@
                             <span class="board-add-task-headline">Done</span>
                         </div>
                         <div id="board_task_category_done"
-                            ondrop="boardDrop('done'); boardRemoveBackgroundMoveTask('board_task_category_done_move')"
-                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_done_move')"
-                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_done_move')"
+                            ondrop="boardDrop('done'); boardRemoveBackgroundMoveTask('board_task_category_done')"
+                            ondragleave="boardRemoveBackgroundMoveTask('board_task_category_done')"
+                            ondragover="allowDrop(event); boardAddBackgroundMoveTask('board_task_category_done')"
                             class="board-task-container">
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                     <div class="add-task-content d-flex jc-center">
                         <div class="add-task-container-left">
                             <form onsubmit="addTaskToVar(boardTaskStatus); return false;">
-                                <h3>Title <span class="required-star">*</span></h3>
+                                <h3>Title<span class="required-star">*</span></h3>
                                 <label for="title" class="add-task-label" id="add_task_label_title">
                                     <input type="text" name="title" class="add-task-title add-task-blue-border"
                                         id="add_task_title" minlength="3" maxlength="20" placeholder="Enter a Title"
@@ -208,7 +208,7 @@
 
                         <div id="rightContainer" class="add-task-container-right">
 
-                            <h3>Due date <span class="required-star">*</span></h3>
+                            <h3>Due date<span class="required-star">*</span></h3>
                             <label for="dueDate" class="add-task-label" id="add_task_label_dueDate">
                                 <input type="date" name="dueDate" class="add-task-due-date add-task-blue-border"
                                     id="add_task_due_date" required
@@ -262,6 +262,7 @@
                         </div>
                     </div>
                     <div class="add-task-bottom-container">
+                        <div class="add-task-required-info"><span>*</span>This field is required</div>
                         <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center"
                             onclick="boardCloseAddTask()">Cancel
                             <div class="add-task-bottom-container-button">
@@ -296,7 +297,7 @@
                     <div class="edit-task-content"><!-- d-flex flex-d-col -->
                         <form onsubmit="editTaskUpdate(); return false;"><!-- addTaskToVar(boardTaskStatus) -->
                             <!-- Titel -->
-                            <h3>Title <span class="required-star">*</span></h3>
+                            <h3>Title<span class="required-star">*</span></h3>
                             <label for="title" class="board-edit-task-label" id="edit_task_label_title">
                                 <input type="text" name="title" class="edit-task-title" id="edit_task_title"
                                     minlength="3" maxlength="20" placeholder="Enter a Title" required
@@ -315,7 +316,7 @@
                             <!-- Description end -->
 
                             <!-- Due date -->
-                            <h3>Due date <span class="required-star">*</span></h3>
+                            <h3>Due date<span class="required-star">*</span></h3>
                             <label for="dueDate" class="board-edit-task-label" id="edit_task_label_dueDate">
                                 <input type="date" name="dueDate" class="edit-task-due-date" id="edit_task_due_date"
                                     required onchange="editTaskRemoveRedBorder('dueDate')">
@@ -368,6 +369,7 @@
                             <!-- Subtasks end -->
                     </div>
                     <div class="board-edit-task-bottom-container">
+                        <div class="edit-task-required-info"><span>*</span>This field is required</div>
                         <button class="d-flex edit-task-add-button d-flex-ai-center-jc-center" id="edit_task_button"
                             onclick="editTaskCheckForm()">Ok
                             <img src=" ./img/add_task/check_white.svg">
