@@ -267,10 +267,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .add-task-bottom-container {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  align-items: end;
   margin-right: 20px;
   margin-top: 20px;
   border: 0px solid black;
+}
+
+.add-task-required-info span {
+  color: red;
+  box-sizing: border-box;
 }
 
 .add-task-bottom-container-button {
@@ -706,6 +712,7 @@ label input {
 
   .add-task-bottom-container {
     margin-bottom: 8px;
+    margin-left: 16px;
     width: 100%;
   }
 }

@@ -175,7 +175,7 @@
                     <div class="add-task-content d-flex jc-center">
                         <div class="add-task-container-left">
                             <form onsubmit="addTaskToVar(boardTaskStatus); return false;">
-                                <h3>Title <span class="required-star">*</span></h3>
+                                <h3>Title<span class="required-star">*</span></h3>
                                 <label for="title" class="add-task-label" id="add_task_label_title">
                                     <input type="text" name="title" class="add-task-title add-task-blue-border"
                                         id="add_task_title" minlength="3" maxlength="20" placeholder="Enter a Title"
@@ -208,7 +208,7 @@
 
                         <div id="rightContainer" class="add-task-container-right">
 
-                            <h3>Due date <span class="required-star">*</span></h3>
+                            <h3>Due date<span class="required-star">*</span></h3>
                             <label for="dueDate" class="add-task-label" id="add_task_label_dueDate">
                                 <input type="date" name="dueDate" class="add-task-due-date add-task-blue-border"
                                     id="add_task_due_date" required
@@ -262,6 +262,7 @@
                         </div>
                     </div>
                     <div class="add-task-bottom-container">
+                        <div class="add-task-required-info"><span>*</span>This field is required</div>
                         <button type="reset" class="add-task-clear-button d-flex-ai-center-jc-center"
                             onclick="boardCloseAddTask()">Cancel
                             <div class="add-task-bottom-container-button">
@@ -296,7 +297,7 @@
                     <div class="edit-task-content"><!-- d-flex flex-d-col -->
                         <form onsubmit="editTaskUpdate(); return false;"><!-- addTaskToVar(boardTaskStatus) -->
                             <!-- Titel -->
-                            <h3>Title <span class="required-star">*</span></h3>
+                            <h3>Title<span class="required-star">*</span></h3>
                             <label for="title" class="board-edit-task-label" id="edit_task_label_title">
                                 <input type="text" name="title" class="edit-task-title" id="edit_task_title"
                                     minlength="3" maxlength="20" placeholder="Enter a Title" required
@@ -315,7 +316,7 @@
                             <!-- Description end -->
 
                             <!-- Due date -->
-                            <h3>Due date <span class="required-star">*</span></h3>
+                            <h3>Due date<span class="required-star">*</span></h3>
                             <label for="dueDate" class="board-edit-task-label" id="edit_task_label_dueDate">
                                 <input type="date" name="dueDate" class="edit-task-due-date" id="edit_task_due_date"
                                     required onchange="editTaskRemoveRedBorder('dueDate')">
