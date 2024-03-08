@@ -42,7 +42,7 @@ function addTaskSetPrioMedium() {
  * Check if all required input field are filled
  * Requiered fields: title, due date, category
  */
-function addTaskCheckForm(param) {
+function addTaskCheckForm() {
   if (
     document.getElementById("add_task_title").value.length > 0 &&
     document.getElementById("add_task_due_date").value.length > 0 &&
