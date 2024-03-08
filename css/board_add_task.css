@@ -44,6 +44,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .board-add-task-close:hover {
