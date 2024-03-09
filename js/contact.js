@@ -1,6 +1,6 @@
 let clickedContact;
 
-let xy = 0;
+let contactListClicked = 0;
 
 /**
  * Initializes the contact-related functionalities.
@@ -64,7 +64,7 @@ async function showContact(contactId) {
   bigContactCard.innerHTML = await showContactHTML(contact);
 
   // Reset background color and text color for all contact cards
-  if (xy > 0) {
+  if (contactListClicked > 0) {
     for (let j = 0; j < contacts.length; j++) {
       const contactCard = document.getElementById(
         `contact-card-${contacts[j].id}`
@@ -75,7 +75,7 @@ async function showContact(contactId) {
       }
     }
   }
-  xy++;
+  contactListClicked++;
   // Change background color and text color for the selected contact card
   document
     .getElementById(`contact-card-${contact.id}`)
