@@ -1,25 +1,32 @@
+/**
+ * Initializes the login-related functionalities by loading users and contacts.
+ * @returns {Promise<void>} A promise that resolves when the initialization is complete.
+ */
 async function loginInit() {
   await loadUsers();
   await loadContacts();
 }
 
+/**
+ * Attempts to log in the user using the provided email and password.
+ * Displays error messages for incorrect credentials.
+ * Redirects to "summary.html" upon successful login.
+ * @returns {void}
+ */
 function login() {
   const email = document.getElementById("login-input-email").value;
   const password = document.getElementById("input-password1").value;
   let user = users.find((u) => u.email == email && u.password == password);
   if (user) {
-    //console.log("User gefunden");
     currentUser = {
       email: user.email,
       userId: user.id,
       name: user.name,
       initials: user.initials,
     };
-    //console.log(currentUser);
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
     window.location.href = "summary.html";
   } else {
-    //console.log("User nicht gefunden");
     let usernameExists = users.some((u) => u.email == email);
     let passwordCorrect = users.some(
       (u) => u.email == email && u.password == password
@@ -35,11 +42,11 @@ function login() {
   }
 }
 
-function toggleRememberButton() {
-  let button = document.getElementById("remember-button");
-  button.classList.toggle("button-img");
-}
-
+/**
+ * Initiates a guest login, setting the current user to a guest user.
+ * Redirects to "summary.html" after the guest login.
+ * @returns {void}
+ */
 function guestLogin() {
   currentUser = {
     email: "Guest",
@@ -52,6 +59,11 @@ function guestLogin() {
   window.location.href = "summary.html";
 }
 
+/**
+ * Toggles the visibility of the password input in the login form.
+ * @param {number} i - The index of the password input (used for multiple password inputs).
+ * @returns {void}
+ */
 function togglePasswordVisibility(i) {
   const passwordInput = document.getElementById(`input-password${i}`);
   const visibilityToggle = document.getElementById(
@@ -64,6 +76,11 @@ function togglePasswordVisibility(i) {
       : "url(/img/login/visibility.svg)";
 }
 
+/**
+ * Initiates the animation sequence on page load.
+ * Determines whether to start the desktop or mobile animation based on viewport width.
+ * @returns {void}
+ */
 function startAnimation() {
   // Check if the viewport width is under 550px
   if (window.innerWidth <= 550) {
@@ -126,6 +143,10 @@ function startAnimation() {
   setTimeout(startAnimation, 500);
 }
 
+/**
+ * Initiates the mobile-specific animation sequence on page load.
+ * @returns {void}
+ */
 function startAnimationMobile() {
   let logo = document.getElementById("logo");
   let initialTop = window.innerHeight / 2 - logo.clientHeight / 2;

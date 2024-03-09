@@ -1,3 +1,7 @@
+/**
+ * Initializes the sign-up related functionalities by loading users and contacts.
+ * @returns {Promise<void>} A promise that resolves when the initialization is complete.
+ */
 async function signupInit() {
   await loadUsers();
   await loadContacts();
@@ -5,6 +9,13 @@ async function signupInit() {
 
 let acceptChecked = false;
 
+/**
+ * Registers a new user with the provided name, email, and password.
+ * Generates a unique user ID, initials, and a random color for the user.
+ * Checks if the privacy policy is accepted before allowing registration.
+ * Saves the new user to the users and contacts arrays and redirects to "index.html".
+ * @returns {void}
+ */
 async function registerUser() {
   let name = document.getElementById("signup-input-name").value;
   let email = document.getElementById("signup-input-email").value;
@@ -46,6 +57,12 @@ async function registerUser() {
   }
 }
 
+/**
+ * Generates initials for a user based on their name.
+ * Takes the first character of each word in the name and capitalizes it.
+ * @param {string} name - The name of the user.
+ * @returns {string} The generated initials.
+ */
 function generateUserInitials(name) {
   return name
     .split(" ")
@@ -53,10 +70,19 @@ function generateUserInitials(name) {
     .join("");
 }
 
+/**
+ * Generates a unique user ID based on the current timestamp.
+ * @returns {number} The generated user ID.
+ */
 function generateUserId() {
   return Date.now();
 }
 
+/**
+ * Checks if the entered password matches the confirmed password.
+ * Displays an error message if the passwords do not match.
+ * @returns {void}
+ */
 function checkPasswordMatch() {
   let password = document.getElementById("input-password2").value;
   let confirmPassword = document.getElementById("input-password3").value;
@@ -69,6 +95,10 @@ function checkPasswordMatch() {
   }
 }
 
+/**
+ * Toggles the state of the privacy policy acceptance button.
+ * @returns {void}
+ */
 function togglePrivacyButton() {
   acceptChecked = !acceptChecked;
 }
