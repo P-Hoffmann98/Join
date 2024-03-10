@@ -147,19 +147,6 @@
 }
 
 .edit-task-assigned-to {
- /*  height: 48px;
-  width: 440px;
-  border-radius: 10px;
-  padding: 12px 16px;
-  border: 0px solid rgba(209, 209, 209, 1);
-  font-weight: 400;
-  font-size: 20px;
-  outline: none;
-  display: flex;
-  justify-content: space-between;
-  background: url(/img/board/arrow_down.svg) right center / contain no-repeat;
-  background-origin: content-box;
-  background-size: auto; */
   height: 48px;
   width: 440px;
   border-radius: 10px;
@@ -175,12 +162,6 @@
 .edit-task-assigned-to:hover {
   cursor: pointer;
 }
-
-/* .edit-task-assigned-to-up {
-  background: url(/img/board/arrow_up.svg) right center / contain no-repeat;
-  background-origin: content-box;
-  background-size: auto;
-} */
 
 .edit-task-assignedToOutput {
   display: flex;
