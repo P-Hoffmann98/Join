@@ -549,6 +549,11 @@ label input {
   border: 1px solid red;
 }
 
+#add_task_label_category {
+  position: relative;
+  z-index: 999;
+}
+
 @media (max-width: 1300px) {
   .add-task-container {
     height: 90%;
@@ -608,7 +613,6 @@ label input {
   }
 
   #overlay {
-    /* background-color: rgba(0, 0, 0, 0.5); */
     z-index: 998;
   }
 
@@ -718,6 +722,11 @@ label input {
     font-size: 12px;
   }
 
+  #add_task_label_category {
+    position: relative;
+    z-index: 1001; /*999*/
+  }
+
   .add-task-container {
     margin-left: 0;
     margin-bottom: 0px;
@@ -730,7 +739,7 @@ label input {
   }
 
   #overlay {
-    z-index: 1500;
+    z-index: 1000;
   }
 
   .add-task-container-left,

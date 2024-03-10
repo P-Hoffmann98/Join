@@ -184,15 +184,18 @@ function hideToolsForSubtasks(id) {
 function addTaskOpenContextMenuCategory() {
   document
     .getElementById("add_task_select_category_box")
-    .classList.remove("d-none");
+    .classList.toggle("d-none");
   document.getElementById(
     "add_task_category"
   ).innerHTML = `Select Task category`;
   document
     .getElementById("add_task_category")
-    .classList.add("add-task-category-input-up");
-  document.getElementById("overlay").classList.remove("d-none");
+    .classList.toggle("add-task-category-input-up");
+  document.getElementById("overlay").classList.toggle("d-none");
 }
+
+// ABFRAGEN OB CATEGORY BOX GEÖFFNET IST WENN JA DANN BEI KLICK IN
+// #ADD-task-label-categry function close contetmenu category
 
 /**
  * Category is selected If no entry is entered, an error message is displayed and the frame of the input field is marked red
