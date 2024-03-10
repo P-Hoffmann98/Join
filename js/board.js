@@ -11,7 +11,6 @@ let boardTaskStatus;
 let boardTaskStatusValue;
 let boardRenderDetail = true;
 
-
 /**
  * function to initialize the board.html if it will load
  */
@@ -25,7 +24,6 @@ async function boardInit() {
     boardRenderInit();
 }
 
-
 /**
  * clean all data in the sort arrays
  */
@@ -36,7 +34,6 @@ function boardCleanTaksArrays() {
     boardTasksDone = [];
 }
 
-
 /**
  * function clear the search arrays
  */
@@ -46,7 +43,6 @@ function boardCleanTaksArraysSearch() {
     boardTasksFeedbackSearch = [];
     boardTasksDoneSearch = [];
 }
-
 
 /**
  * function read tasks from tasks-json and start function boardSortTasks()
@@ -59,7 +55,6 @@ async function boardReadTasks() {
         boardSortTasks(task['id'], task['status'])
     }
 }
-
 
 /**
  * function to sort the tasks into arrays sortet by status. 
@@ -85,7 +80,6 @@ function boardSortTasks(id, status) {
     }
 }
 
-
 /**
  * Function read index of the id into tasks json
  * @param {number} id 
@@ -101,7 +95,6 @@ function boardIndexOfJSON(json, id) {
         }
     }
 }
-
 
 /**
  * function return a stirng to render right name into placeholder if no task exist into any task category
@@ -128,7 +121,6 @@ function boardGetNameStatusCategory(tasksCategory) {
     }
 }
 
-
 /**
  * store the index in variable boardCurrentDraggedTask if card will clicked an hold
  * @param {number} tasksIndex is a number of Index into the tasks array
@@ -137,7 +129,6 @@ function boardStartDragging(tasksIndex) {
     boardCurrentDraggedTask = tasksIndex;
 }
 
-
 /**
  * 
  * @param {Event} ev 
@@ -145,7 +136,6 @@ function boardStartDragging(tasksIndex) {
 function allowDrop(ev) {
     ev.preventDefault();
 }
-
 
 /**
  * function change the status of the task to the droped category status (todo, progress, feedback or done) and call the render functions
@@ -158,7 +148,6 @@ async function boardDrop(category) {
     boardRenderInit();
 }
 
-
 /**
  * set background-color to a div with called id
  * @param {string} id is a container id
@@ -167,7 +156,6 @@ function boardAddBackgroundMoveTask(id) {
     document.getElementById(id).classList.add('board-drop-category-background');
 }
 
-
 /**
  * remove background-color to a div with called id
  * @param {string} id is a container id
@@ -175,7 +163,6 @@ function boardAddBackgroundMoveTask(id) {
 function boardRemoveBackgroundMoveTask(id) {
     document.getElementById(id).classList.remove('board-drop-category-background');
 }
-
 
 /**
  * Function set css classes to slide detail card out
@@ -187,7 +174,6 @@ function boardCloseDetailCard() {
     setTimeout(boardCloseDetailCardHide, 900, tasksDetailDiv);
 }
 
-
 /**
  * Function set css classes to close detail card of selcted task
  */
@@ -195,7 +181,6 @@ function boardCloseDetailCardHide(tasksDetailDiv) {
     tasksDetailDiv.parentElement.classList.remove('d-flex');
     tasksDetailDiv.parentElement.classList.add('d-none');
 }
-
 
 /**
  * function remoce a tasks from tasks json and call functions to save changes in the backend and render new
@@ -208,7 +193,6 @@ async function boardDeleteTask(tasksIndex) {
     boardRenderInit();
     boardCloseDetailCard();
 }
-
 
 /**
  * function read value from search input field
@@ -225,7 +209,6 @@ function readInputSearch() {
     fillSearchArray(boardTasksDone, boardSearchString, boardTasksDoneSearch);
     boardRenderSearch();
 }
-
 
 /**
  * array fill the search arrays after reading input of search field
@@ -246,7 +229,6 @@ function fillSearchArray(arr, boardSearchString, arrSearch) {
         }
     }
 }
-
 
 /**
  * function open and close edit view of status change by clicked menu on preview card and call function to store changes
@@ -272,7 +254,6 @@ function openCloseBoardMenuNav(tasksIndex) {
     }
 }
 
-
 /**
  * function hide elements on preview card
  * @param {number} tasksIndex index into tasks json
@@ -283,7 +264,6 @@ function boardHideElementsPrevieCard(tasksIndex) {
     document.getElementById(`board_task_preview_subtasks_${tasksIndex}`).style.display = "none";
     document.getElementById(`board_task_preview_priority_${tasksIndex}`).style.display = "none";
 }
-
 
 /**
  * function show elements on preview card
@@ -299,7 +279,6 @@ function boardShowElementsPrevieCard(tasksIndex) {
     previewCard.style.pointerEvents = "auto";
 }
 
-
 /**
  * function render button cancel or ok if status is changed or not
  * @param {string} status status of selected status into menu to select status in mobile nav
@@ -314,7 +293,6 @@ function changeButtonPreviewCard(status, taskIndex) {
         document.getElementById(`board_button_ok_${taskIndex}`).style.display = "block";
      }
 }
-
 
 /**
 * function change the status of the task to the droped category status (todo, progress, feedback or done) and call the render functions
