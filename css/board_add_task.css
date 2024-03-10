@@ -814,7 +814,8 @@ label input {
 @media (max-width: 550px) {
 
   h3,
-  input {
+  input,
+  button {
     font-size: 16px !important;
   }
 
@@ -833,4 +834,30 @@ label input {
     align-items: center;
     justify-content: center;
   }
+
+  .add-task-clear-button {
+    padding: 8px;
+    width: auto;
+    height: auto;
+  }
+
+  .add-task-add-button {
+    padding: 8px;
+    width: 115px;
+    height: auto;
+  }
+
+  .add-task-bottom-container-button {
+    height: 14px;
+    width: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-task-bottom-container-button svg {
+    height: 11px;
+    width: 11px;
+  }
+
 }
