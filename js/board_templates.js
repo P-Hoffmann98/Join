@@ -1,5 +1,3 @@
-/* ************************************************* return HTML code ********************************************************************************************* */
-
 /**
  * function return html code to render placeholder
  * @param {string} tasksCategoryStatus name of category
@@ -12,7 +10,6 @@ function boardRenderTasksPlaceholderHTML(tasksCategoryStatus) {
     </div>
     `;
 }
-
 
 /**
  * function return html code to render preview card of tasks
@@ -77,7 +74,6 @@ function boardRenderTasksPreviewHTML(tasksIndex) {
     `;
 }
 
-
 /**
  * function return html code to update preview card of tasks
  * @param {number} tasksIndex index of dataset into tasks array
@@ -137,7 +133,6 @@ function boardUpdateTasksPreviewHTML(tasksIndex) {
     `;
 }
 
-
 /**
  * function return html code to render initials into detail card
  * @param {string} name 
@@ -159,7 +154,6 @@ function boardRenderAssignedToHTML(name, initials, color) {
     `;
 }
 
-
 /**
  * function return html code to render initials into preview card
  * @param {string} initials 
@@ -176,7 +170,6 @@ function boardRenderInitialsHTML(initials, color) {
     </div>
     `;
 }
-
 
 /**
  * function return html code to render task detail card
@@ -238,7 +231,6 @@ function boardRenderDetailCardHTML(tasksIndex) {
     `;
 }
 
-
 /**
  * function return html code to render unchecked svg tag for subtasks
  * @param {string} subtask tesxt description of current subtask
@@ -256,7 +248,6 @@ function boardRenderSubtasksDetailUncheckedSvgHTML(subtask, tasksIndex, i) {
         </div>
     `;
 }
-
 
 /**
  * function return html code to render checked svg tag for subtasks
@@ -277,7 +268,6 @@ function boardRenderSubtasksDetailCheckedSvgHTML(subtask, tasksIndex, i) {
     `;
 }
 
-
 /**
  * function return html to render subtasks view into preview card
  * @param {number} subtasksCount count of subtasks
@@ -294,7 +284,6 @@ function boardRenderSubtasksPreviewHTML(subtasksCount, doneSubtasksCount, tasksI
     `;
 }
 
-
 /**
  * function return html code to render checked svg tag for status
  * @returns 
@@ -305,7 +294,6 @@ function boardRenderStatusCheckedSvgHTML() {
         <path d="M8 12L12 16L20 4.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     `;
 }
-
 
 /**
  * function return html code to render unchecked svg tag for status
