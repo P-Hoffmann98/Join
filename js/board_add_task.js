@@ -10,7 +10,6 @@ function boardShowAddTask(taskStatus) {
     boardTaskStatus = taskStatus;
 }
 
-
 /**
  * function hide add task content by closing task or save task
  */
