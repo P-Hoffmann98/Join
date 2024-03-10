@@ -17,5 +17,6 @@ function boardCloseAddTask() {
     let tasksCategoryDiv = document.getElementById('board_add_task_div');
     tasksCategoryDiv.parentElement.classList.add('d-none');
     tasksCategoryDiv.parentElement.classList.remove('d-flex');
+    document.getElementById('board_form_add_task').reset();
     clearContactsAndSubtasks();
 }
