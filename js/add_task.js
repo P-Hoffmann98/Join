@@ -22,6 +22,7 @@ let taskInput;
 let prioMedium;
 let prioMediumImg;
 let task_status;
+let arrowDownImage = document.getElementById("assigned_to_arrow_down");
 
 //Variablen für Suchergebisse
 let resultInitials;
@@ -267,55 +268,6 @@ function deleteContactFromTask(contactId) {
   renderSelectedContactsFromTask();
 }
 
-// /**
-//  * Function to open the select user box div
-//  */
-// function addTaskOpenContextMenuAssignedTo() {
-//   selectUserBox.classList.remove("d-none");
-//   document.getElementById("assigned_to_arrow_down").classList.add("d-none");
-//   document.getElementById("assigned_to_arrow_up").classList.remove("d-none");
-// }
-
-// /**
-//  * Function to close the select user box div
-//  */
-// function addTaskCloseContextMenuAssignedTo() {
-//   selectUserBox.classList.add("d-none");
-//   document.getElementById("assigned_to_arrow_up").classList.add("d-none");
-//   document.getElementById("assigned_to_arrow_down").classList.remove("d-none");
-// }
-
-// /**
-//  * Event listener for the input field and the image
-//  * @param {click} event
-//  */
-// function handleOpenContextMenu(event) {
-//   event.stopPropagation();
-//   addTaskOpenContextMenuAssignedTo();
-// }
-
-// /**
-//  * Function to close the select user box div when clicked outside of it Function to close the select user box div when clicked outside of it
-//  */
-// document.addEventListener("click", function (event) {
-//   if (!selectUserBox.contains(event.target) && event.target !== taskInput) {
-//     addTaskCloseContextMenuAssignedTo();
-//   }
-// });
-
-// /**
-//  * The function runs when the DOM is fully loaded and adds event listeners to handle clicks on specific elements, stopping the event from propagating for one of them.
-//  */
-// document.addEventListener("DOMContentLoaded", function () {
-//   selectUserBox = document.getElementById("add_task_select_user_box");
-//   taskInput = document.getElementById("add_task_assigned_to");
-//   taskInput.addEventListener("click", handleOpenContextMenu);
-
-//   selectUserBox.addEventListener("click", function (event) {
-//     event.stopPropagation();
-//   });
-// });
-
 /**
  * Function to open the select user box div
  */
@@ -363,11 +315,11 @@ document.addEventListener("DOMContentLoaded", function () {
     event.stopPropagation();
   });
 
-  // Event listener for clicking on the arrow_down image
-  var arrowDownImage = document.getElementById("assigned_to_arrow_down");
   arrowDownImage.addEventListener("click", handleArrowDownClick);
 
-  // Event listener to close the select user box when clicked outside of it
+  /**
+   * Event listener to close the select user box when clicked outside of it
+   */
   document.addEventListener("click", function (event) {
     if (
       !selectUserBox.contains(event.target) &&
@@ -379,6 +331,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/**
+ * resets the category to the default value
+ */
 function resetCategory() {
   document.getElementById(
     "add_task_category"
