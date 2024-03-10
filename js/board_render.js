@@ -8,7 +8,6 @@ function boardRenderInit() {
     boardRenderStatusPreview(boardTasksDone, 'board_task_category_done');
 }
 
-
 /**
  * function call boardRenderStatusPreview for all categorys of tasks with search arrays
  */
@@ -18,7 +17,6 @@ function boardRenderSearch() {
     boardRenderStatusPreview(boardTasksFeedbackSearch, 'board_task_category_feedback');
     boardRenderStatusPreview(boardTasksDoneSearch, 'board_task_category_done');
 }
-
 
 /**
  * function checked if boardTasksArray is empty an call the right render function for placeholder or cards preview
@@ -32,7 +30,6 @@ function boardRenderStatusPreview(boardTasksArray, tasksCategory) {
         boardRenderTasksPreview(boardTasksArray, tasksCategory);
     }
 }
-
 
 /**
  * function render all preview cards of tasks
@@ -54,7 +51,6 @@ function boardRenderTasksPreview(boardTasksArray, tasksCategory) {
     }
 }
 
-
 /**
  * function update preview of card after updating values in task (subtask or edit)
  * @param {*} tasksIndex index of task into tasks json
@@ -69,7 +65,6 @@ function boardUpdateTasksPreview(tasksIndex) {
     boardRenderInitials(`board_task_preview_initials_${tasksIndex}`, tasksIndex);
     boardRenderImgPrio(`board-task-card-priority_${tasksIndex}`, tasksIndex);
 }
-
 
 /**
  * Render categoryTask from tasks-json
@@ -92,7 +87,6 @@ function boardRenderStoryline(id, tasksIndex) {
     document.getElementById(id).classList.add(cssClass);
 }
 
-
 /**
  * function render progressbar and text into preview card
  * @param {string} subtasksCount count of all subtasks
@@ -108,7 +102,6 @@ function boardRenderSubtasksPreview(subtasksCount, doneSubtasksCount, subtasksPr
     boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex);
 }
 
-
 /**
  * function change style propertys of progressbar
  * @param {string} subtasksProgress number of progress as string
@@ -118,7 +111,6 @@ function boardRenderSubtasksProgressbarPreview(subtasksProgress, tasksIndex) {
     let progressDiv = document.getElementById(`board_task_preview_subtasks_progress_${tasksIndex}`)
     progressDiv.style.width = subtasksProgress + "%";
 }
-
 
 /**
  * Render dueDate in short date format
@@ -142,7 +134,6 @@ function boardRenderDueDate(tasksIndex) {
     dueDateDiv.innerHTML = `${dueDate}`;
 }
 
-
 /**
  * function render prio image
  * @param {string} id 
@@ -152,7 +143,6 @@ function boardRenderImgPrio(id, tasksIndex) {
     let imgName = tasks[tasksIndex]['prio'];
     document.getElementById(id).src = `./img/board/board_task_${imgName}.svg`;
 }
-
 
 /**
  * function render prio text
@@ -164,7 +154,6 @@ function boardRenderPrioText(id, tasksIndex) {
     prioText = prioText[0].toUpperCase() + prioText.slice(1);
     document.getElementById(id).innerHTML = `${prioText}`;
 }
-
 
 /**
  * Render assignedTo from tasks-json
@@ -186,7 +175,6 @@ function boardRenderAssignedTo(tasksIndex) {
         assignedToDiv.innerHTML += boardRenderAssignedToHTML(name, initials, color);
     }
 }
-
 
 /**
  * Render initials from tasks-json
@@ -215,7 +203,6 @@ function boardRenderInitials(id, tasksIndex) {
     }
 }
 
-
 /**
  * function check if subtasks ar created
  * @param {number} tasksIndex of current task
@@ -239,7 +226,6 @@ function countOccurrences(arr, value) {
     return arr.filter(item => item === value).length;
 }
 
-
 /**
  * function call render function for subtasks in preview card
  * @param {number} tasksIndex of current task
@@ -258,7 +244,6 @@ function boardSubtasksAvailablePreview(tasksIndex) {
     }
 }
 
-
 /**
  * function call render function for subtasks in detail card
  * @param {number} tasksIndex of current task
@@ -274,7 +259,6 @@ function boardSubtasksAvailableDetail(tasksIndex) {
     }
 }
 
-
 /**
  * function remove class mb-24 if no subtask is created
  * @param {string} id 
@@ -283,7 +267,6 @@ function boardNoSubtasksRemoveMargin(id) {
     let subtasksDiv = document.getElementById(id);
     subtasksDiv.classList.remove('mb-24');
 }
-
 
 /**
  * function change status of clicked subtask
@@ -304,7 +287,6 @@ async function boardSubtaskChangeStatus(id, tasksIndex, subtasksIndex) {
     boardSubtasksAvailablePreview(tasksIndex);
 }
 
-
 /**
  * function render right svg tag after changed status of subtask
  * @param {string} id 
@@ -324,7 +306,6 @@ function boardRenderSubtaskChangeStatus(id, status) {
         `;
     }
 }
-
 
 /**
  * function read status of subtasks and call the right render function for status 'done' or 'do'
@@ -351,7 +332,6 @@ function boardRenderSubtasksDetail(subtasks, subtasksStatus, tasksIndex) {
     }
 }
 
-
 /**
  * function render placeholder if no tasks exist into category
  * @param {string} tasksCategory 
@@ -362,7 +342,6 @@ function boardRenderTasksPlaceholder(tasksCategory) {
     let tasksCategoryStatus = boardGetNameStatusCategory(tasksCategory);
     tasksCategoryDiv.innerHTML = boardRenderTasksPlaceholderHTML(tasksCategoryStatus);
 }
-
 
 /**
  * function render detail card of clicked task and call subfunctions for render details into card (Storyline, DueDate, ImgPrio, AssignedTo, AvailableDetail and PrioText)
@@ -388,7 +367,6 @@ function boardRenderDetailCard(tasksIndex) {
         return;
     }
 }
-
 
 /**
  * render checked svg on selected status
