@@ -7,7 +7,6 @@ let editSubtaskAddTask = [];
 let editStatusSubtaskAddTask = [];
 let changedPrio;
 
-
 /**
  * function display edit task contex in board and call functions to editTaskLoadValues(tasksIndex) and editTaskFillInput()
  * @param {*} tasksIndex index of selcted task into tasks json
@@ -19,7 +18,6 @@ function boardShowEditTask(tasksIndex) {
   document.getElementById('board_task_edit_task_main').classList.add('d-flex');
 }
 
-
 /**
  * function hide edit task contex in board
  */
@@ -27,7 +25,6 @@ function boardCloseEditTask() {
   document.getElementById('board_task_edit_task_main').classList.add('d-none');
   document.getElementById('board_task_edit_task_main').classList.remove('d-flex');
 }
-
 
 /**
  * Function load current values form current task
@@ -38,7 +35,6 @@ function editTaskLoadValues(tasksIndex) {
   taskIndex = tasksIndex;
 }
 
-
 /**
  * load assignedTo values of current task into editAssignedToAddTask an call render function
  */
@@ -46,7 +42,6 @@ function editReadSelectedContacts() {
   editAssignedToAddTask = taskRecordSet['assignedTo'];
   editRenderSelectedContactsFromTask();
 }
-
 
 /**
  * load subtasks from current task into editStatusSubtaskAddTask and editSubtaskAddTask and call render function
@@ -56,7 +51,6 @@ function editReadCurrentSubtasks() {
   editStatusSubtaskAddTask = taskRecordSet['status_subtask'];
   editTaskRenderSubTasks()
 }
-
 
 /**
  * Function fill the input fields ans selections of edt window, with current values of current task
@@ -69,9 +63,6 @@ function editTaskFillInput() {
   editReadSelectedContacts();
   editReadCurrentSubtasks();
 }
-
-/* ************************************** form validation *************************************************************************** */
-
 
 /**
  * function read all editable values and overwrite old values
@@ -107,8 +98,6 @@ function editTaskCheckForm() {
   }
 }
 
-/* ************************************* error msg ************************************************************************************ */
-
 /**
  * If no entry is made, a red frame is placed around the text field and an error message is displayed
  * @param {title, dueDate, category} param
@@ -122,7 +111,6 @@ function editTaskShowMsg(param, boolean) {
   }
 }
 
-
 /**
  *The red frame around the input field if there is no input is hidden
  */
@@ -134,7 +122,6 @@ function editTaskRemoveRedBorder(param) {
   document.getElementById(mistakeId).classList.add("d-none");
 }
 
-/* **************************************** Prio Button rendern *********************************************************************** */
 /**
  * function set slecetion of prio button from current task
  * @param {string} prioSelected prio value of current task
@@ -147,7 +134,6 @@ function editTaskSelectedPrio(prioSelected) {
   editTaskRemoveSelectedPrio(prioSelected)
   changedPrio = prioSelected;
 }
-
 
 /**
  * function return a Array from non selected prio
@@ -171,7 +157,6 @@ function editTasksfindUnselectedPrio(prioSelected) {
   }
 }
 
-
 /**
  * function remove prio highlight from non selcted prio button
  * @param {string} prioSelected current prio form current task
@@ -186,8 +171,6 @@ function editTaskRemoveSelectedPrio(prioSelected) {
     prioButtonImg.src = './img/board/board_task_' + prioRemove + '.svg';
   }
 }
-
-/* ************************************ Auswahlbox Contacts rendern und füllen ******************************************************* */
 
 /**
  * The search results are saved in variables after entering them into the search field and function addTaskRenderSeaarchName and markSelectedContacts  are called
@@ -237,12 +220,6 @@ function editTaskOpenContextMenuAssignedTo() {
   document.getElementById("editAssigned_to_arrow_down").classList.add("d-none");
   document.getElementById("editAssigned_to_arrow_up").classList.remove("d-none");
 }
-/* function editTaskOpenContextMenuAssignedTo() {
-  editSelectUserBox.classList.remove("d-none");
-  document
-    .getElementById("edit_task_assigned_to")
-    .classList.add("edit-task-assigned-to-up");
-} */
 
 /**
  * Function to close the select user box div
@@ -252,14 +229,6 @@ function editTaskCloseContextMenuAssignedTo() {
   document.getElementById("editAssigned_to_arrow_up").classList.add("d-none");
   document.getElementById("editAssigned_to_arrow_down").classList.remove("d-none");
 }
-
-
-/* function editTaskCloseContextMenuAssignedTo() {
-  editSelectUserBox.classList.add("d-none");
-  document
-    .getElementById("edit_task_assigned_to")
-    .classList.remove("edit-task-assigned-to-up");
-} */
 
 /**
  * Event listener for the input field and the image
@@ -279,10 +248,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-
-/* ************************************************ Ausgewählte Contacts lesen und rendern unter Contacts Menü ************************ */
-
-
 /**
  * displays the selected contacts
  */
@@ -301,7 +266,6 @@ function editRenderSelectedContactsFromTask() {
   }
 }
 
-
 /**
  *The contacts that are selected are shown in color
  * @param {number} id
@@ -312,7 +276,6 @@ function editMarkSelectedContacts(id) {
     return true;
   }
 }
-
 
 /**
  * style class is added to the contact and the selection box is checked
@@ -351,8 +314,6 @@ function editDeleteContactFromTask(contactId) {
   editAssignedToAddTask.splice(resultIdToDelete, 1);
   editRenderSelectedContactsFromTask();
 }
-
-/* ********************************** Subtasks ******************************************************* */
 
 /**
  * the created subtasks are output
