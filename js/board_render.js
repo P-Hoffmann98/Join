@@ -172,9 +172,9 @@ function boardRenderPrioText(id, tasksIndex) {
  */
 function boardRenderAssignedTo(tasksIndex) {
     let assignedToDiv = document.getElementById('board_task_detail_assignedto');
-    assignedToDiv.innerHTML = /*html*/`
+    /* assignedToDiv.innerHTML = /*html`
         <p class="board-task-card-detail-assignedto mb-8">Assigned To:</p>
-    `;
+    `; */
 
     for (let i = 0; i < tasks[tasksIndex]['assignedTo'].length; i++) {
         const id = tasks[tasksIndex]['assignedTo'][i];

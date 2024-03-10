@@ -202,7 +202,10 @@ function boardRenderDetailCardHTML(tasksIndex) {
                 <p id="board-task-card-priority-text">Priority-Funktion schreiben</p>
                 <img id="board-task-card-priority-img" src="" alt="Prio Image">
             </div>
-            <div id="board_task_detail_assignedto" class="d-flex flex-d-col mb-24"></div>
+            <div>
+                <p class="board-task-card-detail-assignedto mb-8">Assigned To:</p>
+                <div id="board_task_detail_assignedto" class="board-task-card-detail-assignedto-container d-flex flex-d-col mb-24"></div>
+            </div>
             <div id="board_task_detail_subtasks" class="d-flex flex-d-col mb-24"></div>
         </div><!--  -->
         <div class="d-flex jc-end">

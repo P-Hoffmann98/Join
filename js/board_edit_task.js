@@ -234,23 +234,32 @@ function editTaskRenderSearchName(color) {
 */
 function editTaskOpenContextMenuAssignedTo() {
   editSelectUserBox.classList.remove("d-none");
+  document.getElementById("editAssigned_to_arrow_down").classList.add("d-none");
+  document.getElementById("editAssigned_to_arrow_up").classList.remove("d-none");
+}
+/* function editTaskOpenContextMenuAssignedTo() {
+  editSelectUserBox.classList.remove("d-none");
   document
     .getElementById("edit_task_assigned_to")
     .classList.add("edit-task-assigned-to-up");
-}
+} */
 
 /**
  * Function to close the select user box div
  */
 function editTaskCloseContextMenuAssignedTo() {
   editSelectUserBox.classList.add("d-none");
+  document.getElementById("editAssigned_to_arrow_up").classList.add("d-none");
+  document.getElementById("editAssigned_to_arrow_down").classList.remove("d-none");
+}
+
+
+/* function editTaskCloseContextMenuAssignedTo() {
+  editSelectUserBox.classList.add("d-none");
   document
     .getElementById("edit_task_assigned_to")
     .classList.remove("edit-task-assigned-to-up");
-  /* if (document.documentElement.clientWidth < 1300) {
-    document.getElementById("rightContainer").classList.remove("m-top270"); 
-  }*/
-}
+} */
 
 /**
  * Event listener for the input field and the image

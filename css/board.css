@@ -50,6 +50,10 @@
     align-items: center;
 }
 
+.pr-8{
+    padding-right: 8px;
+}
+
 .pointer-event-none {
     pointer-events: none;
 }
@@ -563,6 +567,11 @@ p.board-task-card-preview {
 
 .board-task-card-detail-description {
     margin-bottom: 24px;
+}
+
+.board-task-card-detail-assignedto-container{
+   max-height: 160px;
+   overflow: auto; 
 }
 
 .board-task-card-detail-duedate,
