@@ -48,6 +48,7 @@ body {
   width: 100%;
   height: calc(100vh - 207px);
   overflow-y: auto;
+  overflow-x: hidden;
   padding-left: 5%;
 }
 
@@ -432,6 +433,12 @@ body {
   animation: contact-transform-out 0.5s ease-in-out;
 }
 
+.contact-inputs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .contact-inputs {
   padding: 20px;
   height: 36px;
@@ -570,6 +577,34 @@ body {
   .contact > p {
     font-size: 12px;
   }
+
+  #contact-create-button {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  #contact-cancel-button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1250px) {
+  #contact-create-button {
+    font-size: 14px;
+  }
+
+  #contact-cancel-button {
+    font-size: 14px;
+  }
+
+  .add-contact-card-right {
+    margin-right: 36px;
+    gap: 5%;
+  }
+
+  .add-contact-person-img {
+    padding: 40px;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -627,7 +662,32 @@ body {
     gap: 16px;
     margin-bottom: 25px;
   }
+
+  .add-contact-person-img {
+    padding: 35px;
+  }
 }
+
+@media (max-width: 1050px) {
+  .add-contact-card-right {
+    margin-right: 20px;
+  }
+
+  .add-contact-person-img {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .add-contact-card-right {
+    margin-right: 16px;
+  }
+
+  .add-contact-person-img {
+    display: none;
+  }
+}
+
 @media (max-width: 850px) {
   .main-container-body {
     padding-left: 0px;
