@@ -454,3 +454,11 @@ function editTaskDeleteSubtask(index) {
   editStatusSubtaskAddTask.splice(index, 1);
   editTaskRenderSubTasks();
 }
+
+/**
+ * Event listener for clicking on the arrow_down image
+ */
+function editHandleArrowDownClick(event) {
+  event.stopPropagation();
+  editTaskOpenContextMenuAssignedTo();
+}

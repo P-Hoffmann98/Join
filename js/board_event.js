@@ -1,4 +1,6 @@
 let boardInput = document.getElementById('board_input_search_field');
+let editArrowDownImage = document.getElementById("editAssigned_to_arrow_down");
+editArrowDownImage.addEventListener("click", editHandleArrowDownClick);
 
 /**
  * Eventlistener start boardRenderInit when search event is detected on boardInput
