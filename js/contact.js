@@ -218,9 +218,9 @@ async function editContact() {
 
   // Save the updated contacts to storage
   await setItem("contacts", JSON.stringify(contacts));
+  closeEditContact();
   await renderContacts();
   showContact(clickedContact);
-  closeEditContact();
 }
 
 /**
