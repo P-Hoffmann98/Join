@@ -194,9 +194,6 @@ function addTaskOpenContextMenuCategory() {
   document.getElementById("overlay").classList.toggle("d-none");
 }
 
-// ABFRAGEN OB CATEGORY BOX GEÖFFNET IST WENN JA DANN BEI KLICK IN
-// #ADD-task-label-categry function close contetmenu category
-
 /**
  * Category is selected If no entry is entered, an error message is displayed and the frame of the input field is marked red
  * @param {number of caegory} param
@@ -222,6 +219,9 @@ function selectCategory(param) {
   document.getElementById("overlay").classList.add("d-none");
 }
 
+/**
+ * function to close category context menu
+ */
 function addTaskCloseContextMenuCategory() {
   document
     .getElementById("add_task_select_category_box")
