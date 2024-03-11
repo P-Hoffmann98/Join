@@ -22,7 +22,7 @@ let taskInput;
 let prioMedium;
 let prioMediumImg;
 let task_status;
-let arrowDownImage = document.getElementById("assigned_to_arrow_down");
+let arrowDownImage;
 
 //Variablen für Suchergebisse
 let resultInitials;
@@ -315,6 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.stopPropagation();
   });
 
+  arrowDownImage = document.getElementById("assigned_to_arrow_down");
   arrowDownImage.addEventListener("click", handleArrowDownClick);
 
   /**
