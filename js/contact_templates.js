@@ -30,7 +30,6 @@ async function showContactHTML(contact) {
           </g>
           </g>
           </svg>
-          </svg>
           <p>Edit</p>
         </div>
         <div class="big-contact-delete" onclick="deleteContact(${contact.id})">
@@ -45,7 +44,6 @@ async function showContactHTML(contact) {
           </g>
           </svg>
           
-          </svg>
           <p>Delete</p>
         </div>
       </div>
