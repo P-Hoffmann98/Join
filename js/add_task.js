@@ -64,7 +64,6 @@ function addTaskToVar(param) {
   titleAddTask = document.getElementById("add_task_title").value;
   descriptionAddTask = document.getElementById("add_task_description").value;
   dueDateAddTask = document.getElementById("add_task_due_date").value;
-  console.log(categoryAddTask);
   addTaskSave();
 }
 
